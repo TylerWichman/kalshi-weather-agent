@@ -4,9 +4,9 @@
 
 **This supersedes v1 and v2.** It keeps everything v2 added — the mandatory mock-money simulation
 week and the live intraday dashboard — and corrects four things that Phase 0 discovery proved wrong
-or incomplete in both prior versions. Phase 0 is **complete**; its findings are in
-`docs/phase0-discovery.md`, the confirmed contract universe is in `config/watchlist.json`, and the
-probe is reproducible via `scripts/discover_kalshi_weather.py`.
+or incomplete in both prior versions. **Phases 0, 0.5 and 1 are complete and running**; findings are
+in `docs/phase0-discovery.md` and `docs/phase1-findings.md`, the confirmed contract universe is in
+`config/watchlist.json`, and the pipeline lives in `src/`. Fees are confirmed as of 2026-09-22 (§3).
 
 ### What changed from v2, and why
 
@@ -15,7 +15,8 @@ probe is reproducible via `scripts/discover_kalshi_weather.py`.
 | 1 | NWS is "typically Kalshi's settlement source" | **The Weather Company (TWC)** settles every one of the 48 daily temp series. NWS-settled temp series exist but are **delisted with zero open markets**. Measured basis: **0 bucket flips in 334 observations** (§2.7) — favorable, but only 7 days deep. | §2.1, §4, §5, §9 |
 | 2 | Contracts are independent binaries with a threshold | Each event is a **mutually exclusive, exhaustive 6-bucket ladder**. | §2.2, §2.6 |
 | 3 | Watchlist is "high/low contracts" undifferentiated | **Highs are ~18× the volume of lows**; lows quote 7–11¢ spreads that exceed any plausible edge. | §2.1, §8 |
-| 4 | Fee = `0.07 × …`, maker ≈ 25% of taker | The API exposes `fee_type` and `fee_multiplier` **per series**. The 0.07 coefficient and the 25% maker figure are **general Kalshi figures, unverified for weather**. | §3, §2.3 |
+| 4 | Fee = `0.07 × …`, maker ≈ 25% of taker | **CONFIRMED 2026-09-22.** Taker 0.07 formula is correct. **Maker is $0 for weather**, not 25% — the API's `fee_type` enum puts weather 409/409 on taker-only `quadratic`, with `quadratic_with_maker_fees` used only by 44 Financials/Economics series. Resting orders are free, so maker-only becomes the default. | §3, §2.3 |
+| 5 | *(not in v2)* | At 0–12h lead the market picks the correct bucket 12/12 vs. our best forecast input's 4/12 — the high has already happened. **The 0–12h window is hard-blocked for live trading** until the 24–48h edge is proven separately. | §2.1, §2.3, §9.5 |
 
 Core direction is unchanged: **Kalshi's daily temperature high/low contracts**, traded actively
 throughout the day — not buy-and-hold-to-resolution, but a system that enters and exits positions
@@ -178,8 +179,22 @@ threshold.** See §3 for the fee formula and what is and isn't confirmed about i
 - **Spread-aware gate (new):** reject any candidate where the quoted spread alone exceeds the modeled
   edge. This is what disqualifies the low-temperature series wholesale (§8) and it must be enforced
   per-contract at runtime too, since liquidity varies through the day.
-- **Prefer maker orders where edge and market pace allow** — configurable tradeoff, not a hard rule,
-  and the maker discount must be read from the confirmed fee schedule (§3), not assumed.
+- **Rest orders by default — maker execution is free (§3).** Now that maker fees are confirmed $0
+  for weather, this is no longer a "prefer when convenient" tradeoff. **The default is always to rest
+  a limit order**, and crossing the spread as a taker is the exception that must justify itself:
+  taking requires the edge to exceed the taker fee bar (1.75 points at 50¢, 0.63 at the extremes)
+  *plus* the margin, whereas resting requires no fee edge at all. A maker/maker round trip costs
+  **zero**, which means a trade needs only to overcome spread and adverse selection, not fees.
+- **But free is not costless — model the two implicit costs.** A zero fee does not make resting
+  risk-free, and the sizing logic must not treat it as though it does:
+  - **Adverse selection.** A resting order fills preferentially when the market moves against it —
+    you get hit exactly when you were wrong. This cost is real, appears in no fee schedule, and can
+    exceed what a taker fee would have been. **Measure it in Phase 5.5** by comparing realized fill
+    outcomes against the mid at fill time, and feed the estimate back into the sizing bar.
+  - **Non-fill risk.** The edge can evaporate before the order fills, and on a ladder this can leave
+    one leg filled and the rest not — a partial position that was never the intended bet.
+  - The taker escape hatch therefore stays, for genuinely large and fast-moving edges (§2.3, v2's
+    original intent), but it is now an explicit exception rather than a coin-flip tradeoff.
 - **Position sizing:** fractional-Kelly (e.g. 25% of full Kelly) on the **net-of-fees** edge.
 - **Correlation handling:** bucket exposure by **ladder** first (six markets on one event are one
   bet, not six), then by city, then by region. A position in `-B67.5` and a position in `-B69.5` on
@@ -192,10 +207,14 @@ threshold.** See §3 for the fee formula and what is and isn't confirmed about i
   - Max round trips per contract per day (prevents fee bleed from over-trading).
   - Daily loss limit — halts new trading for the day, requires manual review to resume.
   - Max slippage tolerance per order — limit orders only, reject if the book is too thin.
-  - **Short-lead guard (new, Phase 1).** No position on a same-day contract past the point the
-    daily high is plausibly set, unless `p_model` is observation-conditioned. At short lead the
-    market reads observations and is right essentially always; a forecast-only model trading into
-    it is taking the wrong side of a settled question.
+  - **Short-lead guard — HARD BLOCK ON LIVE TRADING (new, Phase 1).** **No live position may be
+    opened in the 0–12h lead window, at all, until the 24–48h edge has been separately proven in
+    Phase 2.** This is not a tunable threshold; it is a gate. At short lead the market reads
+    observations and picks the correct bucket essentially always (measured 12/12 vs. our best
+    forecast input's 4/12), so a forecast-driven model trading into that window is taking the wrong
+    side of a settled question. The window may be reopened only by evidence, and only after the
+    long-lead edge stands on its own — see §9.5 and Phase 2. Simulation and paper modes may
+    continue to *score* the window as a control (§9.5), but must not size positions in it.
   - **Implausible-edge circuit breaker (new, Phase 1).** An edge above a configured threshold
     against a confidently-priced market (say >40 points against a market at ≥95¢) indicates model
     failure, not opportunity. Block, log a risk event, and require review. Worked example: Atlanta
@@ -327,53 +346,72 @@ at Phase 2 time**, not assumed to still be zero.
 
 ---
 
-## 3. Fees — Design This In From the Start
+## 3. Fees — CONFIRMED 2026-09-22
 
 Restating because it is the difference between a working strategy and a fee-bleeding one.
+**Both open questions from the v3 draft are now closed.** Implemented in `src/fees.py`.
 
-### What Phase 0 confirmed
+### Taker fee — confirmed, matches the original spec
 
-Kalshi exposes fee parameters as **structured, per-series fields** on the `/series` endpoint. For
-`KXHIGHNY`: `fee_type: "quadratic"`, `fee_multiplier: 1`.
+```
+fee = ceil_to_cent(0.07 × fee_multiplier × contracts × price × (1 − price))
+```
 
-So the quadratic `price × (1 − price)` **shape is confirmed**, and the multiplier is a per-series
-value. **Read both from the API at runtime and cache them per series. Do not hardcode.** A series
-whose `fee_multiplier` differs from 1 changes the profitability bar for that city.
+The `0.07` coefficient is confirmed against Kalshi's published fee schedule. Quadratic in price, so
+it peaks at 50¢ — **1.75¢/contract**, which is the parabola's natural maximum, not a separate cap.
 
-### What is NOT confirmed — verify before Phase 2
+### Maker fee — **$0 for weather.** Confirmed two independent ways
 
-The figures carried over from v1/v2 are **general Kalshi numbers, not weather-specific confirmed
-ones**. The fee schedule PDF returned 429/404 on both URLs tried during Phase 0.
+1. **Kalshi's fee schedule** lists no maker fee for "Most markets", which weather falls under. The
+   50%-of-taker maker rate applies only to **Combos**.
+2. **The API encodes the distinction directly.** `fee_type` is a two-value enum:
 
-| Parameter | v2 assumed | Status |
+   | `fee_type` | weather | Financials | Economics |
+   |---|---|---|---|
+   | `quadratic` (taker only) | **409 / 409** | 1,038 | 856 |
+   | `quadratic_with_maker_fees` | **0** | 34 | 10 |
+
+   The maker-fee variant exists and is in active use (CPI, Fed, GDP, GPU pricing), and **weather is
+   0 of 409** on it. This is positive confirmation, not an absent field.
+
+`fee_type` and `fee_multiplier` are still read from `/series` per series and stored per contract.
+`fees.assert_no_maker_fee()` runs on every contract-discovery pass and raises if a watchlist series
+moves onto the maker-fee schedule, because the execution strategy's core economics depend on it.
+
+### Express the fee bar in probability points, not % of position value
+
+The v1/v2 framing — "~3.5% of cost at 50¢, ~0.7% near 10¢/90¢" — is **misleading and should not be
+used for trade decisions.** Percent-of-cost is not symmetric, because the cost basis changes while
+the $1 payoff does not:
+
+| price | taker fee / contract | % of cost | **edge needed (points)** |
+|---|---|---|---|
+| 10¢ | 0.63¢ | 6.30% | **0.63** |
+| 50¢ | 1.75¢ | 3.50% | **1.75** |
+| 90¢ | 0.63¢ | 0.70% | **0.63** |
+
+In percent-of-cost terms 10¢ looks nine times worse than 90¢. In the unit that actually decides a
+trade — **probability points of edge required** — they are identical. Always size the bar in points.
+The genuine, symmetric conclusion stands: taker trades near 50¢ carry roughly 2.8× the edge
+requirement of trades near the extremes.
+
+### Round-trip cost, the number that gates a trade
+
+100 contracts, entering and exiting at 50¢ (the worst case):
+
+| execution | round-trip fee | min edge to break even |
 |---|---|---|
-| Base coefficient | `0.07` | **Unverified** |
-| Maker discount | ~25% of taker | **Unverified — highest priority** |
+| taker / taker | 350¢ | **3.50 points** |
+| maker / taker | 175¢ | **1.75 points** |
+| **maker / maker** | **0¢** | **0.00 points** |
 
-The maker figure matters most: §2.3 leans on cheap maker fills as the main way this strategy survives
-its own cost structure, and Kalshi has revised maker fees before. **If maker fees are higher than
-assumed, the Phase 2 go/no-go moves against the strategy.** Confirm both against the account's own
-fee schedule before building the Phase 2 backtest on them.
+Holding to resolution instead of exiting incurs no exit fee — settlement is not a trade.
 
 ### Implementation requirement
 
-```
-fee_per_order = ceil_to_cent(
-    base_coefficient          # from confirmed fee schedule — config, not a literal
-  × fee_multiplier            # from /series, per series, read at runtime
-  × maker_discount_if_maker   # from confirmed fee schedule
-  × contracts × price × (1 − price)
-)
-```
-
-Build this as a first-class function called before **every** trade decision, real or simulated. Every
-fee calculation is logged alongside the decision it gated (§2.4), because the fee-efficiency metric in
+`fees.trade_fee_cents()` is called before **every** trade decision, real or simulated, and every
+calculation is logged alongside the decision it gated (§2.4), because the fee-efficiency metric in
 §2.5 is reconstructed from those logs.
-
-**Shape of the cost, assuming the unverified 0.07 holds:** peaks at 50¢ (~1.75¢/contract, ~3.5% of
-cost); falls toward the extremes (~0.63¢/contract, ~0.7% near 10¢/90¢). Worst case is repeatedly
-taking near 50¢ — a single round trip there costs ~3.5% of position value before any profit. Treat
-these as illustrative until the coefficient is confirmed.
 
 ---
 
@@ -532,7 +570,9 @@ looks good gross and bad net of fees is not a strategy; one calibrated against t
 source is not even a measurement. Also backtest the §2.6 coherence check independently — it has a
 different risk profile and may survive fees where the forecast edge does not, or vice versa.
 **Validation methodology is specified in §9.5 and is not optional** — it is the difference between a
-go/no-go and a curve fit.
+go/no-go and a curve fit. **Score by lead-time bucket, with 0–12h as an explicit control** (§9.5):
+the short-lead window is known-unwinnable, so performance there measures leakage and model error,
+not edge. The go/no-go rests on the **24–48h** bucket alone.
 
 **Phase 3 — Forecasting Agent, paper-trading mode.**
 Run live against open contracts, log `p_model` vs. `p_market` and simulated fee-inclusive P&L, no
@@ -556,7 +596,11 @@ signal to revisit the model, not a formality to clear.
 
 **Phase 6 — Small live capital.**
 Production with an explicitly capped bankroll. Keep simulation running in parallel to catch
-real-world slippage against model assumptions.
+real-world slippage against model assumptions. **The 0–12h lead window stays closed to live trading**
+(§2.3) until the 24–48h edge has been proven separately in Phase 2 and held up through Phase 5.5.
+**Maker-only by default** (§3): resting orders are free, so Phase 6 should observe a fee-efficiency
+figure near zero. A materially non-zero one means the system is crossing the spread more than
+intended, and is the first thing to investigate.
 
 **Phase 7 — Iterate.**
 Expand city coverage, reconsider lows if their spreads have compressed, move to Tier 2, tune
@@ -612,6 +656,12 @@ the time but whose stated probabilities are meaningless is not.
 - **Score the ladder jointly** — evaluate whether the predicted distribution assigned good probability
   to the realized bucket (ranked probability score is the right fit for ordered buckets), not six
   independent binary scores.
+- **Bucket every score by lead time, and treat 0–12h as a control, not evidence.** Phase 1 measured
+  the market at 12/12 correct buckets at 5–8h lead against our best input's 4/12, because the daily
+  high has already occurred by then. Strong model performance in that window means the model is
+  reading observations (fine, but not edge); strong *apparent edge* there means leakage or a broken
+  estimate. **The go/no-go is decided on the 24–48h bucket.** Report 0–12h and 12–24h alongside it
+  for diagnosis only.
 - **Baseline against climatology and against the market.** Beating climatology proves the model works;
   beating `p_market` is the only thing that proves there is an edge. A model can be well-calibrated and
   have no edge because the market is equally well-calibrated.

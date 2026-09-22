@@ -28,7 +28,7 @@ import sys
 import time
 from datetime import date, datetime, timezone
 
-from . import db, kalshi, weather
+from . import db, fees, kalshi, weather
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WATCHLIST = os.path.join(ROOT, "config", "watchlist.json")
@@ -69,6 +69,10 @@ def collect_contracts(conn, watchlist, verbose=True):
             meta = kalshi.series(st) or {}
             fee_type = meta.get("fee_type")
             fee_mult = meta.get("fee_multiplier")
+            # Maker orders are free for weather only while fee_type stays
+            # 'quadratic'. If Kalshi moves a series onto the maker-fee schedule
+            # the whole maker-only execution premise changes, so fail loudly.
+            fees.assert_no_maker_fee(fee_type, st)
             markets = kalshi.open_markets(st)
             if not markets:
                 if verbose:
@@ -121,6 +125,13 @@ def collect_contracts(conn, watchlist, verbose=True):
             if verbose:
                 print(f"  {st:<13} {len(events)} events, {len(markets)} markets"
                       f"  fee={fee_type}/{fee_mult}")
+        except fees.FeeScheduleChanged as e:
+            n_failed += 1
+            conn.execute(
+                "INSERT INTO risk_events (occurred_at, kind, ticker, reason) VALUES (?,?,?,?)",
+                (now, "limit_hit", st, f"FEE SCHEDULE CHANGED: {e}"),
+            )
+            print(f"  {st:<13} FEE SCHEDULE CHANGED: {e}", file=sys.stderr)
         except kalshi.StationMismatch as e:
             n_failed += 1
             conn.execute(
