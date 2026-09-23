@@ -2,6 +2,12 @@
 
 ## 0. Read this first
 
+> **STATUS 2026-09-23 — PROJECT CLOSED. See `docs/CLOSEOUT.md`.**
+> Five mechanisms tested against real prices, none tradeable. No other Kalshi weather
+> market has comparable liquidity (best alternative is 0.5% of the daily-high ladders'
+> volume; `CITYTEMP` does not exist). No capital was deployed. Everything below is
+> retained as the design record.
+>
 > **STATUS 2026-09-23 — PHASE 2 NO-GO.** Both edge mechanisms in this spec have been
 > tested against real prices and neither survives. Forecast edge at 24–48h: −0.67% on
 > 395 trades, t = +0.64, CI spanning zero (`docs/phase2-economic.md`). Ladder coherence
