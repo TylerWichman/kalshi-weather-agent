@@ -223,3 +223,22 @@ kills the whole premise" — having done exactly that, before any capital was ri
 The infrastructure is sound, the negative results are well-measured, and the reasoning
 is documented well enough that someone revisiting this can start from what was learned
 rather than repeating it.
+
+---
+
+## Addendum (2026-09-23): site-wide liquidity survey
+
+`scripts/site_liquidity.py`: every open non-combo market on Kalshi (121,182), taken
+from Kalshi's own API as a single 24h snapshot. Sports is left out of the ranking.
+
+**Correction to §1.** The claim that the daily-high ladders *are* the weather market
+was wrong. **`KXRAIN` (daily "where will it rain") traded 197,456 contracts in 24h**,
+which is more than any daily-high series in this snapshot. It was never tested: the
+earlier inventory only covered *monthly* rain. If weather is revisited, test this first.
+It reuses the stations, observations and ensemble pipeline already built.
+
+- **Health: 96 series, zero open markets.** FDA markets sit under Science and
+  Technology, and all of them combined trade about 4,900 contracts/24h. The largest,
+  Compass Pathways, trades 1,897.
+- **Weather ranks #6 of 16 categories**, at 3.8% of non-sports volume.
+- A one-day snapshot is noisy. KXHIGHLAX traded 508k the day before and 136k on this day.
