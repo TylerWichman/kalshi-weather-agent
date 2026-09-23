@@ -215,6 +215,19 @@ threshold.** See §3 for the fee formula and what is and isn't confirmed about i
     side of a settled question. The window may be reopened only by evidence, and only after the
     long-lead edge stands on its own — see §9.5 and Phase 2. Simulation and paper modes may
     continue to *score* the window as a control (§9.5), but must not size positions in it.
+  - **Station exclusion — HARD GATE on LAX and NYC (new, Phase 2).** **No live
+    position may be sized in KLAX or KNYC** until a coastal correction exists. Phase 2
+    calibration found the PIT failure concentrated in coastal stations: KLAX KS 0.2910
+    (mean PIT 0.305) and KNYC 0.2000 against a 0.05 target, with pooled KS improving
+    from 0.0893 to 0.0717 once both are removed. Per-station bias correction is already
+    applied, so what remains is **non-stationary** marine bias a rolling residual window
+    does not track. This is a gate, not a confidence weight: a soft down-weighting would
+    still trade on probabilities known to be systematically wrong, and systematic errors
+    do not average out across repeated smaller bets. **Cost: LAX is ~32% of watchlist
+    volume**, so this removes the deepest market — revisit as a **Tier 2** item (marine-
+    layer feature, or a much shorter residual window for coastal sites) once the economic
+    backtest shows the core edge is real on the other cities. Both stations continue to be
+    **loaded and scored**; only sizing is blocked.
   - **Implausible-edge circuit breaker (new, Phase 1).** An edge above a configured threshold
     against a confidently-priced market (say >40 points against a market at ≥95¢) indicates model
     failure, not opportunity. Block, log a risk event, and require review. Worked example: Atlanta
@@ -231,6 +244,18 @@ threshold.** See §3 for the fee formula and what is and isn't confirmed about i
 
 - Runs continuously during active hours: checks for new signals, places/cancels/replaces limit
   orders, manages open positions.
+- **Queue position is unobservable in historical data — the backtest's load-bearing
+  assumption (new, Phase 2).** Maker fees are $0, so **fill probability, not fee, is the
+  binding constraint**, which makes this the most assumption-laden part of the economic
+  backtest. Candles give bid/ask and traded OHLC plus volume; trade prints exist only
+  post-cutoff; **neither reveals how many contracts rest ahead of ours.** `src/fillsim.py`
+  therefore assumes: (a) **trade-through required, not trade-at** — a resting bid at P fills
+  only if the market traded strictly below P, since trading *at* P may only have consumed
+  the queue ahead; (b) a **10% participation cap** on the period's printed volume; (c) **no
+  queue credit** carried across periods. All three bias against the strategy on fill rate —
+  but none captures **adverse selection**, which biases *for* it. **Phase 5.5 must validate
+  this** against live full-depth captures, reporting realized fill rate and
+  fill-price-versus-mid-at-fill. Until then every backtest P&L figure carries this caveat.
 - **Simulated mode (Phase 5.5):** instead of sending orders, records what *would* have been
   submitted, using the **real live order book** to determine a realistic fill price and whether the
   order would have filled at all. Simulate against actual depth — never assume a mid-price fill —
@@ -520,6 +545,10 @@ contracts total):
 8¢ spread exceeds any plausible modeled edge once fees are added, so trading them would dilute focus
 and capital across a structurally worse segment before modeling even begins. Revisit only if
 intraday logging shows their spreads compress materially during active hours.
+
+**Phase 1–5 watchlist — 12 high-temperature series.** All 12 are collected and scored,
+but **LAX and NYC are hard-gated out of sizing** (§2.3) pending a coastal correction, so
+10 are tradeable. That removes ~43% of watchlist volume, LAX alone being ~32%.
 
 **Phase 1–5 watchlist — 12 high-temperature series:**
 
