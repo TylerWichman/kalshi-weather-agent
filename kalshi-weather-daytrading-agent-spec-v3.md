@@ -2,6 +2,15 @@
 
 ## 0. Read this first
 
+> **STATUS 2026-09-23 — PHASE 2 NO-GO.** Both edge mechanisms in this spec have been
+> tested against real prices and neither survives. Forecast edge at 24–48h: −0.67% on
+> 395 trades, t = +0.64, CI spanning zero (`docs/phase2-economic.md`). Ladder coherence
+> (§2.6): ~$110 of realistic opportunity over nine months across twelve cities, and the
+> headline total is dominated by stale quotes (`docs/phase2-coherence.md`). Fees were
+> **$0** in both — this is an edge failure, not a cost failure. **Phases 3–6 are not
+> recommended on this premise.** The data collectors and basis logger continue to run;
+> everything below is retained as the design record.
+
 **This supersedes v1 and v2.** It keeps everything v2 added — the mandatory mock-money simulation
 week and the live intraday dashboard — and corrects four things that Phase 0 discovery proved wrong
 or incomplete in both prior versions. **Phases 0, 0.5 and 1 are complete and running**; findings are
