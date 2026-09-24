@@ -1,5 +1,8 @@
 # Running the KXRAIN collectors on a Windows cloud server
 
+> **Superseded (2026-09-24):** AWS requires a card even on the Free plan, so collection
+> runs on GitHub Actions instead. See `docs/github-actions.md`. Kept for reference.
+
 **Why:** Gate 2 needs a KXRAIN order-book snapshot in the 10 minutes before 00:00 UTC
 on each of 45 days (through 2026-11-10). A cloud server is always on, never sleeps, and
 restarts itself after Windows updates. The laptop can then be used or switched off
