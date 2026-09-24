@@ -167,6 +167,8 @@ footer p { margin: 4px 0; }
     order book, pays the real taker fee, and holds to settlement. The account started
     at $100, and each trade spends at most $5, limited to the contracts shown at the
     best price. Open positions are valued at what they could be sold for now.</p>
+    <p>Sep 25 and 26 are warm-up nights before the 28-day test. They count toward the
+    account, and test-day results are shown separately.</p>
     <p>This page is for watching. The test's verdict comes from the pre-registered
     Gate 2 scoring after the last test event settles, and nothing seen here changes the
     rule or the end date.</p>
@@ -241,8 +243,11 @@ function render() {
                       - t.price) * t.contracts - t.fee;
   const realized = settled.reduce((s, t) => s + pnl(t), 0);
   $("settled").textContent = `${won} won · ${settled.length - won} lost`;
+  const testSettled = settled.filter((t) => t.day >= d.test.first);
+  const testPnl = testSettled.reduce((s, t) => s + pnl(t), 0);
   $("settled-sub").textContent = settled.length
-    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized`
+    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized` +
+      (testSettled.length ? ` · test days ${usd(testPnl, true)}` : "")
     : "None settled yet";
 
   const open = d.trades.filter((t) => t.status === "open");
@@ -276,9 +281,10 @@ function render() {
   const label = { traded: "Traded", "no-signal": "No signal", missed: "! Missed (machine was off)" };
   table($("days-table"), ["Day", "Status", "Markets", "Trades"],
     d.days.slice().reverse().map((x) => (tr) => {
-      cell(tr, fmtDay(x.day)); cell(tr, label[x.status] || x.status);
+      cell(tr, fmtDay(x.day));
+      cell(tr, (label[x.status] || x.status) + (x.day < d.test.first ? " (warm-up)" : ""));
       cell(tr, x.markets); cell(tr, x.trades);
-    }), "The first decision is at 00:00 UTC on Sep 27 (8 PM Eastern, Sep 26).");
+    }), "The first paper trades run at 00:00 UTC (8 PM Eastern).");
 
   $("refresh").textContent = "This page reloads itself every minute.";
 }
@@ -296,7 +302,7 @@ function drawChart(d) {
   if (pts.length < 2) {
     const e = document.createElement("div"); e.className = "empty";
     e.textContent = "The line starts once the first paper trades are placed " +
-      "(00:00 UTC on Sep 27, 8 PM Eastern on Sep 26).";
+      "(00:00 UTC, 8 PM Eastern).";
     host.appendChild(e); return;
   }
   const W = host.clientWidth, H = host.clientHeight;

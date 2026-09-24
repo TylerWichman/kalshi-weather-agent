@@ -20,6 +20,14 @@ Rules of the simulation, fixed here:
   per-contract results are the same rule.
 - Held to settlement. Open positions are marked at what they could be SOLD for now
   (the best bid on the side held), which is the conservative value.
+- Warm-up: it also trades 09-25 and 09-26, the pre-registration's embargo days, so
+  the pipeline runs before the test starts. Gate 2 never reads paper trades, so this
+  cannot touch the verdict; the dashboard labels those days and reports test-day P&L
+  separately.
+
+Phone alerts (deploy/alert_topic.txt, ntfy.sh): each night's trades, each settlement,
+and an account summary every morning at 13:00 UTC (9 AM Eastern). Only outbound
+messages; nothing is exposed.
 """
 
 import argparse
@@ -27,6 +35,7 @@ import importlib.util
 import json
 import os
 import time
+import urllib.request
 from datetime import datetime, timezone
 
 from . import candidates as cand
@@ -36,6 +45,7 @@ from .history import get, _num, _cents
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "data", "dashboard")
 TOKEN_FILE = os.path.join(ROOT, "deploy", "dashboard_token.txt")
+TOPIC_FILE = os.path.join(ROOT, "deploy", "alert_topic.txt")
 TEMPLATE = os.path.join(ROOT, "src", "dashboard_template.html")
 
 SERIES = "KXRAIN"
@@ -43,9 +53,22 @@ START_BANKROLL_C = 10_000      # $100
 MAX_TRADE_C = 500              # $5 per trade, fee included
 DEPTH_CAP = 100
 LATE_LIMIT_S = 30 * 60
+PAPER_FIRST = "2026-09-25"     # warm-up nights 09-25, 09-26 (embargo; see docstring)
 TEST_FIRST = "2026-09-27"
 TEST_LAST = "2026-10-24"
 TEST_DAYS = 28
+SUMMARY_HOUR_UTC = 13
+
+CITY = {
+    "ATL": "Atlanta", "AUS": "Austin", "BOS": "Boston", "CHI": "Chicago",
+    "CLL": "College Station", "CMH": "Columbus", "DAL": "Dallas", "DC": "Washington DC",
+    "DEN": "Denver", "EWR": "Newark", "HOU": "Houston", "LAX": "Los Angeles",
+    "LEX": "Lexington", "LV": "Las Vegas", "MIA": "Miami", "MIN": "Minneapolis",
+    "MKE": "Milwaukee", "NOLA": "New Orleans", "NYC": "New York City",
+    "OKC": "Oklahoma City", "PHIL": "Philadelphia", "PHX": "Phoenix", "PIT": "Pittsburgh",
+    "PVD": "Providence", "SATX": "San Antonio", "SEA": "Seattle", "SFO": "San Francisco",
+    "TTN": "Trenton",
+}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS paper_trades (
@@ -71,6 +94,10 @@ CREATE TABLE IF NOT EXISTS paper_days (
     status        TEXT NOT NULL,        -- traded | no-signal | missed
     n_markets     INTEGER,
     n_trades      INTEGER
+);
+CREATE TABLE IF NOT EXISTS paper_meta (
+    key           TEXT PRIMARY KEY,
+    value         TEXT
 );
 CREATE TABLE IF NOT EXISTS paper_equity (
     ts            INTEGER PRIMARY KEY,
@@ -114,8 +141,8 @@ def cmd_trade(conn):
     day = datetime.fromtimestamp(now, timezone.utc).date()
     decision = int(datetime(day.year, day.month, day.day, tzinfo=timezone.utc).timestamp())
     event = event_for(day)
-    if not (TEST_FIRST <= day.isoformat() <= TEST_LAST):
-        print(f"{event}: outside the test period ({TEST_FIRST} to {TEST_LAST}), not traded")
+    if not (PAPER_FIRST <= day.isoformat() <= TEST_LAST):
+        print(f"{event}: outside the paper-trading window ({PAPER_FIRST} to {TEST_LAST})")
         return
     if conn.execute("SELECT 1 FROM paper_days WHERE day=?", (day.isoformat(),)).fetchone():
         print(f"{event}: already handled today")
@@ -125,6 +152,11 @@ def cmd_trade(conn):
                      (day.isoformat(), now, "missed", 0, 0))
         conn.commit()
         print(f"{event}: MISSED -- run {(now - decision) // 60} min after the decision time")
+        notify(f"Paper trading MISSED {fmt_day(day.isoformat())}",
+               f"The trade run started {(now - decision) // 60} min after 00:00 UTC, so "
+               "no trades were placed (the rule only trades at the decision time). "
+               "The machine was probably asleep or off.\n" + account_line(conn),
+               priority="high", tags="warning")
         return
 
     markets = (get(f"/markets?event_ticker={event}") or {}).get("markets", [])
@@ -176,18 +208,35 @@ def cmd_trade(conn):
     for t in trades:
         print(f"  BUY {t[6]:>3} {t[4].upper():<3} {t[3]:<5} @ {t[5]}c  (fee {t[7]}c)")
 
+    label = fmt_day(day.isoformat()) + (" (warm-up)" if day.isoformat() < TEST_FIRST else
+                                        f" (test day {test_day(day.isoformat())} of {TEST_DAYS})")
+    if trades:
+        lines = [f"BUY {t[6]} {t[4].upper()} {CITY.get(t[3], t[3])} @ {t[5]}\u00a2 "
+                 f"(${(t[5] * t[6] + t[7]) / 100:.2f})" for t in trades]
+        body = "\n".join(lines)
+    else:
+        body = f"No trades: none of the {len(markets)} markets met the rule tonight."
+    if skipped:
+        body += f"\n{skipped} signal(s) skipped for lack of cash or size."
+    notify(f"Paper trades {label}", body + "\n" + account_line(conn), tags="umbrella")
+
 
 def cmd_update(conn):
     now = int(time.time())
-    for ticker, side in conn.execute(
-            "SELECT ticker, side FROM paper_trades WHERE status='open'").fetchall():
+    settled_now = []
+    for ticker, side, city, price, n, fee in conn.execute(
+            "SELECT ticker, side, city, price_c, contracts, fee_c FROM paper_trades "
+            "WHERE status='open'").fetchall():
         m = (get(f"/markets/{ticker}") or {}).get("market") or {}
         result = m.get("result")
         if result in ("yes", "no"):
+            won = result == side
             conn.execute("UPDATE paper_trades SET status=?, settled_ts=?, mark_c=?, marked_ts=? "
                          "WHERE ticker=?",
-                         ("won" if result == side else "lost", now,
-                          100 if result == side else 0, now, ticker))
+                         ("won" if won else "lost", now, 100 if won else 0, now, ticker))
+            pnl = (100 if won else 0) * n - price * n - fee
+            settled_now.append(f"{'\u2713 Won' if won else '\u2715 Lost'} "
+                               f"{CITY.get(city, city)} {side.upper()}: {money(pnl, True)}")
             continue
         yes_bid = _cents(_num(m, "yes_bid"))
         yes_ask = _cents(_num(m, "yes_ask"))
@@ -203,6 +252,82 @@ def cmd_update(conn):
     conn.commit()
     path = render(conn)
     print(f"{cand.utcnow()}  equity ${(cash + open_val) / 100:,.2f}  -> {path}")
+
+    if settled_now:
+        notify(f"{len(settled_now)} paper position(s) settled",
+               "\n".join(settled_now) + "\n" + account_line(conn), tags="moneybag")
+    today = datetime.fromtimestamp(now, timezone.utc)
+    last = conn.execute("SELECT value FROM paper_meta WHERE key='summary_day'").fetchone()
+    has_trades = conn.execute("SELECT 1 FROM paper_trades LIMIT 1").fetchone()
+    if (has_trades and today.hour >= SUMMARY_HOUR_UTC
+            and (not last or last[0] != today.date().isoformat())):
+        notify("Paper trading: daily summary", summary_text(conn), tags="bar_chart")
+        conn.execute("INSERT OR REPLACE INTO paper_meta VALUES ('summary_day', ?)",
+                     (today.date().isoformat(),))
+        conn.commit()
+
+
+def money(c, sign=False):
+    s = f"${abs(c) / 100:,.2f}"
+    return (("+" if c > 0 else "-" if c < 0 else "") if sign else ("-" if c < 0 else "")) + s
+
+
+def fmt_day(iso):
+    return datetime.fromisoformat(iso).strftime("%a %b %d").replace(" 0", " ")
+
+
+def test_day(iso):
+    return (datetime.fromisoformat(iso) - datetime.fromisoformat(TEST_FIRST)).days + 1
+
+
+def trade_pnl(price, n, fee, status):
+    return (100 if status == "won" else 0) * n - price * n - fee
+
+
+def account_line(conn):
+    cash, open_val = ledger(conn)
+    eq = cash + open_val
+    rows = conn.execute("SELECT status FROM paper_trades").fetchall()
+    won = sum(r[0] == "won" for r in rows)
+    lost = sum(r[0] == "lost" for r in rows)
+    n_open = sum(r[0] == "open" for r in rows)
+    return (f"Account {money(eq)} ({money(eq - START_BANKROLL_C, True)} since start) \u00b7 "
+            f"{won} won, {lost} lost, {n_open} open")
+
+
+def summary_text(conn):
+    rows = conn.execute("SELECT day, price_c, contracts, fee_c, status FROM paper_trades "
+                        "WHERE status != 'open'").fetchall()
+    test = [r for r in rows if r[0] >= TEST_FIRST]
+    done = conn.execute("SELECT COUNT(*) FROM paper_days WHERE day BETWEEN ? AND ?",
+                        (TEST_FIRST, TEST_LAST)).fetchone()[0]
+    missed = conn.execute("SELECT COUNT(*) FROM paper_days WHERE status='missed'").fetchone()[0]
+    lines = [account_line(conn)]
+    if test:
+        lines.append(f"Test days only: {money(sum(trade_pnl(*r[1:]) for r in test), True)} "
+                     f"on {len(test)} settled trades")
+    lines.append(f"Test progress: day {min(done, TEST_DAYS)} of {TEST_DAYS}"
+                 + (f" \u00b7 {missed} night(s) missed" if missed else ""))
+    summary, problems = cand.health_report(conn)
+    lines.append("Collector OK" if not problems else "Collector PROBLEM: " + "; ".join(problems))
+    return "\n".join(lines)
+
+
+def notify(title, body, priority="default", tags=None):
+    """Push to the ntfy.sh topic in deploy/alert_topic.txt, if there is one. Outbound
+    only. Never lets an alert failure break trading or the dashboard."""
+    if not os.path.exists(TOPIC_FILE):
+        return
+    topic = open(TOPIC_FILE).read().strip()
+    headers = {"Title": title, "Priority": priority}     # titles are kept ASCII
+    if tags:
+        headers["Tags"] = tags
+    try:
+        req = urllib.request.Request(f"https://ntfy.sh/{topic}", data=body.encode("utf-8"),
+                                     headers=headers, method="POST")
+        urllib.request.urlopen(req, timeout=20).read()
+    except Exception as e:
+        print(f"  alert not sent: {e}")
 
 
 def ledger(conn):
@@ -250,7 +375,7 @@ def render(conn):
         updated=int(time.time()), start=START_BANKROLL_C, cash=cash, open=open_val,
         trades=trades, equity=equity, days=days,
         health=dict(ok=not problems, summary=summary, problems=problems),
-        test=dict(first=TEST_FIRST, last=TEST_LAST, days=TEST_DAYS),
+        test=dict(first=TEST_FIRST, last=TEST_LAST, days=TEST_DAYS, paper_first=PAPER_FIRST),
     )
     html = open(TEMPLATE, encoding="utf-8").read().replace(
         "/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
