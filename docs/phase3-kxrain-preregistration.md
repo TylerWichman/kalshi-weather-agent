@@ -156,3 +156,31 @@ Any of these would need its own pre-registration:
 The analysis script (`scripts/rain_calibration.py`) is written after this document is
 committed, and must implement §3–§5 exactly as written. Any discrepancy between this
 document and the script is resolved in favour of this document.
+
+---
+
+## Amendment 1 (2026-09-24, before any test-period price exists)
+
+**Additional analysis only. It does not change what is traded or how the verdict is
+reached.**
+
+Gate 1 found YES most overpriced in the 30–50¢ mid band (`docs/phase3-kxrain-gate1.md`).
+That band was found by looking at development results, so it is **not** added to the
+trading rule. The frozen rule in §3 is traded unchanged on the test set.
+
+After the Gate 2 verdict is printed, `scripts/rain_calibration.py gate2` also reports:
+
+1. The frozen rule's test trades broken out by market mid at the decision time, in
+   10¢ bands, with the mean net per contract and a day-block 95% CI for each band with
+   at least 10 trades.
+2. The flagged 30–50¢ band on its own, against all trades.
+3. The market reliability tables at 00:00 and 12:00 UTC on the test set, which §5
+   already promised and which the first version of the script left out.
+
+**What a good 30–50¢ result would mean, fixed now.** If that band has at least 30
+trades and a mean net per contract at least 2¢ above the rule as a whole, it
+qualifies as **a new hypothesis**. That hypothesis needs its own pre-registration,
+fixed before any further data is seen, and its own forward test period starting after
+that registration. The Gate 2 test data **cannot** be reused to confirm it, because it
+would then have been used to select it. It is never a route into this test's verdict.
+Below that trigger, no new hypothesis is drawn from the band.

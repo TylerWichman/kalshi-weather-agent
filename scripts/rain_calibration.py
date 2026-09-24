@@ -56,6 +56,15 @@ MAX_MISSING_BOOK = 0.10
 MAX_DAY_SHARE = 0.25
 MAX_CITY_SHARE = 0.40
 
+# Additional analysis, registered 2026-09-24 before any test-period data existed
+# (pre-registration Amendment 1). Reported after the verdict; never changes what
+# is traded or the verdict. The 30-50c band was found by looking at Gate 1, so any
+# result in it can only motivate a NEW, separately pre-registered hypothesis.
+BAND_EDGES = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]   # by market mid, cents
+FLAGGED_BAND = (30, 50)
+FLAG_MIN_TRADES = 30
+FLAG_MIN_LIFT_C = 2.0
+
 
 # --------------------------------------------------------------------------- #
 # Data
@@ -398,6 +407,44 @@ def gate2(conn):
         print(f"  {'PASS' if v else 'FAIL'}  {k}")
     print(f"GATE 2: {'GO' if all(checks.values()) else 'NO-GO'}")
     print("=" * 78)
+    additional_analysis(conn, rows, trades, last)
+
+
+def in_band(mid, lo, hi):
+    return lo <= mid < hi or (hi == 100 and mid == 100)
+
+
+def additional_analysis(conn, rows, trades, last):
+    """Amendment 1. Descriptive only: the verdict above is already final."""
+    print("\nADDITIONAL ANALYSIS -- Amendment 1. NOT part of the verdict above, and")
+    print("not a basis for changing this rule. Trades are the frozen rule's, unaltered.\n")
+    overall = float(np.mean([t["pnl"] for t in trades])) if trades else 0.0
+    print(f"  Frozen-rule trades by market mid at decision time (all trades: "
+          f"{len(trades)}, mean {overall:+.2f}c)")
+    print(f"    {'mid band':<10}{'trades':>7}{'mean net':>10}{'total':>9}   day-block 95% CI")
+    for lo, hi in zip(BAND_EDGES, BAND_EDGES[1:]):
+        b = [t for t in trades if in_band(t["mid"], lo, hi)]
+        if not b:
+            continue
+        ci = day_bootstrap(b) if len(b) >= 10 else None
+        print(f"    {lo:>3}-{hi:<5}{len(b):>8}{np.mean([t['pnl'] for t in b]):>+10.2f}"
+              f"{sum(t['pnl'] for t in b):>+9.0f}   "
+              + (f"[{ci[0]:+.2f}, {ci[1]:+.2f}]" if ci else "(n < 10)"))
+
+    lo, hi = FLAGGED_BAND
+    f = [t for t in trades if in_band(t["mid"], lo, hi)]
+    fm = float(np.mean([t["pnl"] for t in f])) if f else float("nan")
+    trigger = len(f) >= FLAG_MIN_TRADES and fm - overall >= FLAG_MIN_LIFT_C
+    print(f"\n  Flagged {lo}-{hi}c band (found in Gate 1): {len(f)} trades, mean {fm:+.2f}c, "
+          f"lift {fm - overall:+.2f}c over all trades")
+    print("  -> " + ("MEETS the registered trigger (>= 30 trades, >= +2c lift): write a NEW "
+                     "pre-registration with its own forward test. It does not change this "
+                     "verdict." if trigger else
+                     "does not meet the registered trigger for a new hypothesis."))
+
+    reliability(rows, f"test, {DECISION_HOUR_UTC:02d}:00 UTC (decision time)")
+    diag, _ = load(conn, TEST_FIRST, last, DIAG_HOUR_UTC)
+    reliability(diag, f"test, {DIAG_HOUR_UTC:02d}:00 UTC (observations available -- control)")
 
 
 def main():
