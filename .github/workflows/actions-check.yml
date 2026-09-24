@@ -1,9 +1,0 @@
-name: actions-check
-on:
-  push:
-  workflow_dispatch:
-jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Actions is processing this repository"
