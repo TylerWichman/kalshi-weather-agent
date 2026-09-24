@@ -1,0 +1,42 @@
+name: KXRAIN nightly
+
+# 23:29 UTC, backup 23:44. GitHub often starts scheduled jobs 5-30 min late, so the
+# job starts early and waits inside itself for 23:51, 23:56 and 00:00:30 UTC.
+on:
+  schedule:
+    - cron: "29 23 * * *"
+    - cron: "44 23 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dryrun = one snapshot now, no trade (plumbing check)"
+        type: choice
+        options: [dryrun, nightly]
+        default: dryrun
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kxrain-state
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load state
+        run: bash .github/scripts/load_state.sh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet numpy
+      - name: Run
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python -m src.actions ${{ github.event_name == 'schedule' && 'nightly' || inputs.mode }}
+      - name: Save state
+        if: always()
+        run: bash .github/scripts/save_state.sh nightly

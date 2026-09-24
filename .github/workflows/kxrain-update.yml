@@ -1,0 +1,35 @@
+name: KXRAIN update
+
+# Every 3 hours at :13: settle positions, mark to market, send alerts. The 13:13 UTC
+# run sends the morning summary (9 AM Eastern, later if GitHub starts it late).
+on:
+  schedule:
+    - cron: "13 1-22/3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kxrain-state
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load state
+        run: bash .github/scripts/load_state.sh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet numpy
+      - name: Run
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python -m src.actions update
+      - name: Save state
+        if: always()
+        run: bash .github/scripts/save_state.sh update
