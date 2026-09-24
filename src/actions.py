@@ -17,8 +17,10 @@ time with `python -m src.candidates history --series KXRAIN`.
 
 Timing: GitHub starts scheduled jobs late, often by 5-30 minutes and worst around the
 top of the hour. The job therefore starts early (23:29, backup 23:44) and waits inside
-itself for the exact times. A start later than 23:51 loses snapshots; later than 00:30
-loses the night, which paper.py records as MISSED and alerts on.
+itself for the exact times. A start later than 23:51 loses snapshots; later than 00:05
+loses the night, which paper.py records as MISSED and alerts on. A snapshot run that
+starts within 60 s of 00:00, or is still fetching at 00:00, is discarded and logged
+(candidates.DECISION_GUARD_S), so lateness shows up as a gap, never as bad data.
 """
 
 import argparse
@@ -39,6 +41,7 @@ TRADE_OFFSET_S = 30                         # 00:00:30 UTC
 # table -> (primary-key columns, optional WHERE for export)
 TABLES = {
     "books": ("ticker, snap_ts", f"series_ticker = '{SERIES}'"),
+    "snapshot_runs": ("snap_ts", f"series_ticker = '{SERIES}'"),
     "paper_trades": ("ticker", None),
     "paper_days": ("day", None),
     "paper_meta": ("key", None),
@@ -97,11 +100,16 @@ def actions_health(conn):
     while d.timestamp() <= now and d.date().isoformat() <= paper.TEST_LAST:
         ts = int(d.timestamp())
         if not conn.execute("SELECT 1 FROM books WHERE series_ticker=? AND snap_ts BETWEEN ? AND ?",
-                            (SERIES, ts - 600, ts + 120)).fetchone():
+                            (SERIES, ts - 600, ts - cand.DECISION_GUARD_S)).fetchone():
             missed.append(d.strftime("%m-%d"))
         d += timedelta(days=1)
     if missed:
-        problems.append(f"no decision-time book snapshot on: {', '.join(missed)}")
+        problems.append(f"no book snapshot in 23:50-23:59 UTC before: {', '.join(missed)}")
+    discarded = [datetime.fromtimestamp(t, timezone.utc).strftime("%m-%d %H:%M:%S")
+                 for (t,) in conn.execute("SELECT snap_ts FROM snapshot_runs WHERE "
+                                          "series_ticker=? AND status='discarded'", (SERIES,))]
+    if discarded:
+        problems.append(f"snapshot runs discarded by the 00:00 guard: {', '.join(discarded)}")
     miss_days = [r[0][5:] for r in conn.execute(
         "SELECT day FROM paper_days WHERE status='missed' ORDER BY day")]
     if miss_days:
@@ -138,7 +146,7 @@ def cmd_nightly(conn):
         return
     for off in SNAP_OFFSETS_S:
         at = decision + off
-        if time.time() > at + 240:
+        if time.time() > at + 180:
             print(f"  snapshot {off // 60:+d} min: too late, skipped")
             continue
         wait_until(at)

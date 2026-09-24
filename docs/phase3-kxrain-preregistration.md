@@ -211,3 +211,29 @@ the candle close, so its P&L will differ slightly from Gate 2's. The verdict is
 Gate 2 in `scripts/rain_calibration.py`, run once after `26OCT24` settles, because it
 does not depend on a machine being up at 00:00 UTC each night. Watching the dashboard
 changes nothing in §3–§5.
+
+---
+
+## Amendment 3 (2026-09-24, before any test-period price exists)
+
+**A 60-second buffer on the decision-time book snapshot, and a discard rule for late
+runs.** Collection moves to GitHub Actions, whose scheduled jobs start late by an
+unpredictable amount. A late run must show up as a **missing** day, never as
+**silently wrong** data.
+
+The failure this closes: a snapshot run is stamped with its start time but fetches
+books for 10–30 seconds. A run starting at 23:59:50 would store books fetched after
+00:00 UTC under a pre-decision timestamp.
+
+1. **Guard (collection).** A KXRAIN snapshot run that starts less than 60 seconds
+   before 00:00 UTC is not taken. A run still fetching at 00:00 UTC is discarded
+   whole. Both are recorded in `snapshot_runs` with status `discarded` and are
+   reported by the health check and in the daily alert.
+2. **Window (§5 Gate 2.3).** Depth sizing uses the latest snapshot stamped
+   **23:50:00–23:59:00 UTC**, where it was previously 23:50:00–00:00:00. Trades without
+   one count as "lacking a snapshot" under the existing 10% rule.
+3. **Paper trading (display only).** A trade run more than 5 minutes after 00:00 UTC
+   records the night as missed and places no trades. The limit was 30 minutes.
+
+Nothing about what is traded, the thresholds, or the test dates changes. The Gate 2
+per-contract statistic uses candles, not snapshots, and is unaffected.

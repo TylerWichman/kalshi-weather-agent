@@ -9,9 +9,9 @@ close, so its P&L will differ slightly from Gate 2's.
     python -m src.paper update   # every 10 min: settle, mark to market, redraw dashboard
 
 Rules of the simulation, fixed here:
-- Decision at 00:00 UTC on the contract date. A trade run more than 30 minutes late
-  (machine asleep, restarted) records the day as MISSED rather than trading late
-  on information the rule is not allowed to have.
+- Decision at 00:00 UTC on the contract date. A trade run more than 5 minutes late
+  (machine asleep, GitHub starting the job late) records the day as MISSED rather
+  than trading on prices from after the decision time.
 - Taker fills at the best price on the book. Real quadratic taker fee.
 - Mock account starts at $100. Each trade spends at most $5 including the fee (5% of
   the starting account), and never more than the contracts shown at the best price or
@@ -52,7 +52,7 @@ SERIES = "KXRAIN"
 START_BANKROLL_C = 10_000      # $100
 MAX_TRADE_C = 500              # $5 per trade, fee included
 DEPTH_CAP = 100
-LATE_LIMIT_S = 30 * 60
+LATE_LIMIT_S = 5 * 60         # Amendment 3: a later run trades on post-decision prices
 PAPER_FIRST = "2026-09-25"     # warm-up nights 09-25, 09-26 (embargo; see docstring)
 TEST_FIRST = "2026-09-27"
 TEST_LAST = "2026-10-24"
@@ -155,7 +155,8 @@ def cmd_trade(conn):
         notify(f"Paper trading MISSED {fmt_day(day.isoformat())}",
                f"The trade run started {(now - decision) // 60} min after 00:00 UTC, so "
                "no trades were placed (the rule only trades at the decision time). "
-               "The machine was probably asleep or off.\n" + account_line(conn),
+               "The run started late: the machine was off or asleep, or GitHub started "
+               "the job late.\n" + account_line(conn),
                priority="high", tags="warning")
         return
 

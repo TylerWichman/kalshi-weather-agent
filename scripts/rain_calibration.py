@@ -52,6 +52,7 @@ MIN_TRADES = 100
 MIN_DOLLARS_PER_DAY = 5.0
 DEPTH_CAP = 100
 BOOK_WINDOW_S = 600
+BOOK_GUARD_S = 60             # Amendment 3: only snapshots taken >= 60 s before 00:00 UTC
 MAX_MISSING_BOOK = 0.10
 MAX_DAY_SHARE = 0.25
 MAX_CITY_SHARE = 0.40
@@ -333,11 +334,12 @@ def gate1(conn, freeze):
 # Gate 2 -- §5, test set, evaluated once
 
 def book_size(conn, t):
-    """Contracts shown at the best price on the side bought, latest snapshot within
-    10 minutes before the decision time. None if no snapshot (§5 Gate 2.3)."""
+    """Contracts shown at the best price on the side bought, from the latest snapshot
+    taken 23:50:00-23:59:00 UTC (§5 Gate 2.3 with Amendment 3's 60 s buffer). Runs the
+    00:00 guard discarded never reach the books table. None if no snapshot."""
     r = conn.execute(
         "SELECT yes_levels, no_levels FROM books WHERE ticker=? AND snap_ts BETWEEN ? AND ? "
-        "ORDER BY snap_ts DESC LIMIT 1", (t["ticker"], t["ts"] - BOOK_WINDOW_S, t["ts"])).fetchone()
+        "ORDER BY snap_ts DESC LIMIT 1", (t["ticker"], t["ts"] - BOOK_WINDOW_S, t["ts"] - BOOK_GUARD_S)).fetchone()
     if r is None:
         return None
     # Buying YES lifts resting NO bids; buying NO lifts resting YES bids.

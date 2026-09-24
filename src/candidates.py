@@ -81,6 +81,12 @@ BOOK_HORIZON_OVERRIDE = {
 BOOK_DEPTH = 10
 BOOK_QUOTE_BAND = (0.03, 0.97)   # on the quote midpoint
 
+# Decision-time guard (pre-registration Amendment 3). A snapshot run is stamped with its
+# START time but fetches books for 10-30 s. A run that starts within GUARD_S of 00:00
+# UTC, or is still fetching at 00:00, would label post-decision books as pre-decision.
+# Such a run is discarded whole and logged in snapshot_runs, never silently kept.
+DECISION_GUARD_S = 60
+
 EVENT_CANDLE_CAP = 4500   # stay under the ~5,000-candle response cap
 PAUSE = 0.06              # ~15 req/s, under the basic-tier read limit
 
@@ -141,6 +147,16 @@ CREATE TABLE IF NOT EXISTS books (
     PRIMARY KEY (ticker, snap_ts)
 );
 CREATE INDEX IF NOT EXISTS ix_b_series ON books(series_ticker, snap_ts);
+
+CREATE TABLE IF NOT EXISTS snapshot_runs (
+    series_ticker   TEXT NOT NULL,
+    snap_ts         INTEGER NOT NULL,  -- start of the run (= books.snap_ts)
+    finished_ts     INTEGER NOT NULL,
+    n_books         INTEGER,
+    status          TEXT NOT NULL,     -- ok | discarded
+    note            TEXT,
+    PRIMARY KEY (series_ticker, snap_ts)
+);
 
 CREATE TABLE IF NOT EXISTS daily_volume (
     series_ticker   TEXT NOT NULL,
@@ -416,6 +432,17 @@ def cmd_books(conn, series_list):
         live = [m for m in mk
                 if lo <= ((fnum(m, "yes_bid") or 0) + (fnum(m, "yes_ask") or 1)) / 2 <= hi]
         rows = []
+        started = time.time()
+        next_midnight = (int(started) // 86400 + 1) * 86400
+        if next_midnight - started < DECISION_GUARD_S:
+            # Too close to 00:00 to finish safely before it: do not fetch at all.
+            conn.execute("INSERT OR REPLACE INTO snapshot_runs VALUES (?,?,?,?,?,?)",
+                         (st, now, int(started), 0, "discarded",
+                          f"started {next_midnight - started:.0f}s before 00:00 UTC"))
+            conn.commit()
+            print(f"  {st:<11} DISCARDED: started {next_midnight - started:.0f}s before "
+                  "00:00 UTC (guard is 60s)")
+            continue
         for m in live:
             r = get(f"/markets/{m['ticker']}/orderbook?depth={BOOK_DEPTH}")
             ob = (r or {}).get("orderbook_fp") or (r or {}).get("orderbook") or {}
@@ -426,7 +453,17 @@ def cmd_books(conn, series_list):
                          (100 - no[0][0]) if no else None,
                          json.dumps(yes), json.dumps(no)))
             time.sleep(PAUSE)
+        finished = time.time()
+        if finished >= next_midnight:
+            conn.execute("INSERT OR REPLACE INTO snapshot_runs VALUES (?,?,?,?,?,?)",
+                         (st, now, int(finished), len(rows), "discarded",
+                          f"still fetching {finished - next_midnight:.0f}s after 00:00 UTC"))
+            conn.commit()
+            print(f"  {st:<11} DISCARDED: run crossed 00:00 UTC; {len(rows)} books dropped")
+            continue
         conn.executemany("INSERT OR REPLACE INTO books VALUES (?,?,?,?,?,?,?,?)", rows)
+        conn.execute("INSERT OR REPLACE INTO snapshot_runs VALUES (?,?,?,?,?,?)",
+                     (st, now, int(finished), len(rows), "ok", None))
         conn.commit()
         n_snap += len(rows)
         print(f"  {st:<11} {len(mk):>4} open <= {hours}h, {len(rows):>4} quoted -> snapped")
@@ -484,11 +521,17 @@ def health_report(conn):
     d = since
     while d <= now:
         if not conn.execute("SELECT 1 FROM books WHERE series_ticker=? AND snap_ts BETWEEN ? AND ?",
-                            (HEALTH_SERIES, d - 600, d)).fetchone():
+                            (HEALTH_SERIES, d - 600, d - DECISION_GUARD_S)).fetchone():
             missed.append(datetime.fromtimestamp(d, timezone.utc).strftime("%m-%d"))
         d += 86400
     if missed:
-        problems.append(f"no snapshot in the 10 min before 00:00Z on: {', '.join(missed)}")
+        problems.append(f"no snapshot in 23:50-23:59 UTC before: {', '.join(missed)}")
+    discarded = [datetime.fromtimestamp(t, timezone.utc).strftime("%m-%d %H:%M:%S")
+                 for (t,) in conn.execute(
+                     "SELECT snap_ts FROM snapshot_runs WHERE series_ticker=? AND status="
+                     "'discarded' AND snap_ts>=?", (HEALTH_SERIES, since - 86400))]
+    if discarded:
+        problems.append(f"snapshot runs discarded by the 00:00 guard: {', '.join(discarded)}")
 
     # Every test event should be loaded within two days of its date. Expected events
     # come from the calendar, not the markets table, so a never-loaded event shows up.
