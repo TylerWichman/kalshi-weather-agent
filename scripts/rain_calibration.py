@@ -65,6 +65,17 @@ FLAGGED_BAND = (30, 50)
 FLAG_MIN_TRADES = 30
 FLAG_MIN_LIFT_C = 2.0
 
+# §5 diagnostic: per-city and per-region breakdown, labelled thin. US Census regions.
+REGION = {
+    "BOS": "Northeast", "PVD": "Northeast", "NYC": "Northeast", "EWR": "Northeast",
+    "TTN": "Northeast", "PHIL": "Northeast", "PIT": "Northeast",
+    "CHI": "Midwest", "MKE": "Midwest", "MIN": "Midwest", "CMH": "Midwest",
+    "DC": "South", "ATL": "South", "MIA": "South", "LEX": "South", "NOLA": "South",
+    "HOU": "South", "AUS": "South", "SATX": "South", "DAL": "South", "CLL": "South",
+    "OKC": "South",
+    "DEN": "West", "PHX": "West", "LV": "West", "LAX": "West", "SFO": "West", "SEA": "West",
+}
+
 
 # --------------------------------------------------------------------------- #
 # Data
@@ -441,6 +452,15 @@ def additional_analysis(conn, rows, trades, last):
                      "pre-registration with its own forward test. It does not change this "
                      "verdict." if trigger else
                      "does not meet the registered trigger for a new hypothesis."))
+
+    print(f"\n  By region and city -- THIN: each slice is a handful of trades on correlated days.")
+    for key, label in ((lambda t: REGION.get(t["city"], "(unmapped)"), "region"),
+                       (lambda t: t["city"], "city")):
+        g = defaultdict(list)
+        for t in trades:
+            g[key(t)].append(t["pnl"])
+        print(f"    {label:<11}" + "  ".join(
+            f"{k} {len(v)}/{np.mean(v):+.1f}c" for k, v in sorted(g.items())))
 
     reliability(rows, f"test, {DECISION_HOUR_UTC:02d}:00 UTC (decision time)")
     diag, _ = load(conn, TEST_FIRST, last, DIAG_HOUR_UTC)
