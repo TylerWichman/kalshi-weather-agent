@@ -242,3 +242,51 @@ It reuses the stations, observations and ensemble pipeline already built.
   Compass Pathways, trades 1,897.
 - **Weather ranks #6 of 16 categories**, at 3.8% of non-sports volume.
 - A one-day snapshot is noisy. KXHIGHLAX traded 508k the day before and 136k on this day.
+
+## Addendum (2026-09-24): the survey undercounts short-lived markets
+
+**Correction to the 2026-09-23 addendum.** `site_liquidity.py` sums `volume_24h` over
+markets that are *open at the moment of the sweep*. Every market that closed in the
+previous 24h is missing from it. For a series whose contracts live an hour, that is
+nearly all of its volume. `python -m src.candidates volume` measures the same thing
+from the other side: the lifetime volume of every market that *settled* on each UTC
+day, over 30 days.
+
+| series | 1-day snapshot | settled/day, median (IQR) | life of one contract |
+|---|---:|---:|---|
+| `KXBTCD` BTC above/below | 1,591,762 | **38.7M** (33.1M–45.3M) | 1 hour |
+| `KXETHD` ETH above/below | 722,994 | 1.51M (1.12M–1.88M) | 1 hour |
+| `KXRAIN` daily rain | 197,456 | 683k (630k–862k) | ~44 hours |
+| `KXHIGHLAX` (tested) | 135,900 | 507k (321k–693k) | ~2 days |
+| `KXWTI` daily WTI | 162,281 | 456k (373k–528k) | ~2 days |
+| `KXETH` ETH range | 682,269 | 176k (159k–219k) | 1 hour |
+| `KXNATGASW` (weekly) | 180,897 | 71k per week | 1 week |
+
+`KXBTCD` is about 75 times larger than the snapshot showed, and larger than every
+weather series combined. Contract counts overstate money traded, though. In
+`KXBTCD-26SEP2408` the busiest strike (244k contracts) was a 1c far-out-of-the-money
+line. `data/candidates.sqlite` stores candle mean prices, so dollar volume can be
+computed before any claim is made about depth.
+
+**Crypto is out of scope.** `KXBTCD` is the largest short-dated volume on the site,
+but it settles on a live, heavily arbitraged spot index. That makes it the most
+researched market available and the least plausible place for a forecasting edge.
+Collection of crypto data was started and then stopped.
+
+Data collected for a pre-registered test (`src/candidates.py`, `data/candidates.sqlite`):
+
+| series | settled markets | events | hourly candles | trade prints | span |
+|---|---:|---:|---:|---:|---|
+| `KXRAIN` | 1,405 | 66 | 59,294 | 1,340,412 | 2026-07-16 to 09-24 (series start) |
+| `KXWTI` | 2,163 | 83 | 128,823 | 469,146 | 2026-05-27 to 09-23 |
+| `KXNATGASW` | 1,029 | 25 weekly | 68,827 | 6,272 | 2026-04-03 to 09-18 |
+
+Each market row carries strikes, result and the settled underlying
+(`expiration_value`). Trade prints exist only after the 2026-07-25 cutoff.
+
+Order-book snapshots (10 levels, strikes with a midpoint between 3c and 97c) run every
+10 minutes through the `KalshiCandidateBooks` scheduled task. This is the one dataset
+that cannot be backfilled.
+To stop it: `schtasks /Delete /TN "KalshiCandidateBooks" /F`.
+
+The three weather collectors listed in §6 are no longer registered on this machine.
