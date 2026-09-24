@@ -36,6 +36,7 @@ Usage:
     python -m src.candidates history [--series A,B] [--days N] [--no-trades]
     python -m src.candidates books
     python -m src.candidates status
+    python -m src.candidates health   # exit 1 if the Gate 2 record has a hole
 """
 
 import argparse
@@ -45,9 +46,10 @@ import sqlite3
 import sys
 import time
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from .history import get, _num, _cents, cutoff_ts, _cutoff_cache
+from .kalshi import parse_event_date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(ROOT, "data", "candidates.sqlite")
@@ -449,6 +451,69 @@ def cmd_status(conn):
     print()
 
 
+# Gate 2 of the KXRAIN pre-registration sizes every trade against the book snapshot
+# in the 10 minutes before 00:00 UTC, and needs each test event's candles loaded.
+# Neither failure is visible unless something looks for it.
+HEALTH_SERIES = "KXRAIN"
+HEALTH_SINCE = "2026-09-27"
+HEALTH_MAX_AGE_MIN = 25
+HEALTH_MAX_GAP_MIN = 25
+
+
+def cmd_health(conn):
+    problems = []
+    now = int(time.time())
+    last = conn.execute("SELECT MAX(snap_ts) FROM books WHERE series_ticker=?",
+                        (HEALTH_SERIES,)).fetchone()[0]
+    age = (now - last) / 60 if last else float("inf")
+    if age > HEALTH_MAX_AGE_MIN:
+        problems.append(f"last {HEALTH_SERIES} snapshot is {age:.0f} min old")
+
+    since = int(datetime.fromisoformat(HEALTH_SINCE + "T00:00:00+00:00").timestamp())
+    snaps = [r[0] for r in conn.execute(
+        "SELECT DISTINCT snap_ts FROM books WHERE series_ticker=? AND snap_ts>=? "
+        "ORDER BY snap_ts", (HEALTH_SERIES, since - 86400))]
+    gaps = [(a, b) for a, b in zip(snaps, snaps[1:]) if (b - a) / 60 > HEALTH_MAX_GAP_MIN]
+    for a, b in gaps[-5:]:
+        problems.append(f"snapshot gap {(b - a) / 60:.0f} min ending "
+                        f"{datetime.fromtimestamp(b, timezone.utc):%Y-%m-%d %H:%M}Z")
+
+    # Every decision time since the test began needs a snapshot in the window before it.
+    missed = []
+    d = since
+    while d <= now:
+        if not conn.execute("SELECT 1 FROM books WHERE series_ticker=? AND snap_ts BETWEEN ? AND ?",
+                            (HEALTH_SERIES, d - 600, d)).fetchone():
+            missed.append(datetime.fromtimestamp(d, timezone.utc).strftime("%m-%d"))
+        d += 86400
+    if missed:
+        problems.append(f"no snapshot in the 10 min before 00:00Z on: {', '.join(missed)}")
+
+    # Every test event should be loaded within two days of its date. Expected events
+    # come from the calendar, not the markets table, so a never-loaded event shows up.
+    # (Tickers are compared as dates: "26OCT01" sorts before "26SEP27" as a string.)
+    loaded_days = {parse_event_date(e) for (e,) in conn.execute(
+        "SELECT event_ticker FROM load_log WHERE series_ticker=?", (HEALTH_SERIES,))}
+    first = datetime.fromisoformat(HEALTH_SINCE).date()
+    due_by = datetime.fromtimestamp(now - 2 * 86400, timezone.utc).date()
+    unloaded, d = [], first
+    while d <= due_by:
+        if d not in loaded_days:
+            unloaded.append(d.strftime("%m-%d"))
+        d += timedelta(days=1)
+    if unloaded:
+        problems.append(f"test events not loaded: {', '.join(unloaded)}")
+    loaded = sum(1 for d in loaded_days if d and d >= first)
+
+    print(f"{utcnow()}  {HEALTH_SERIES} health: last snapshot {age:.0f} min ago, "
+          f"{len(snaps)} snapshot runs since test start, "
+          f"{loaded} test events loaded")
+    for p in problems:
+        print("  PROBLEM:", p)
+    print("  OK" if not problems else f"  {len(problems)} problem(s)")
+    return not problems
+
+
 def survey_series(top):
     """Top non-sports series from the site survey, for the volume sweep."""
     d = json.load(open(SURVEY))
@@ -462,7 +527,7 @@ def survey_series(top):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["history", "volume", "books", "status"])
+    ap.add_argument("cmd", choices=["history", "volume", "books", "status", "health"])
     ap.add_argument("--series", help="comma-separated series (default: the candidates)")
     ap.add_argument("--days", type=int, help="override the per-series history window")
     ap.add_argument("--top", type=int, default=30,
@@ -482,6 +547,10 @@ def main():
         cmd_volume(conn, series, args.days or 30)
     elif args.cmd == "books":
         cmd_books(conn, series)
+    elif args.cmd == "health":
+        ok = cmd_health(conn)
+        conn.close()
+        sys.exit(0 if ok else 1)
     else:
         cmd_status(conn)
     conn.close()

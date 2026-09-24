@@ -65,3 +65,21 @@ side with at least 20% of test trades must have mean net > 0.
 Gate 2 runs once, after event `26NOV10` settles and is loaded. The rule is not changed
 before then. That includes not stopping early because the Gate 1 margin is thin: an
 early stop on discretion is a rule change too.
+
+## Keeping the Gate 2 record intact (2026-09-24)
+
+Gate 2 needs a book snapshot in the 10 minutes before 00:00 UTC on each of 45 days,
+and candles for each test event. Each failure mode found, and what was done about it:
+
+| failure mode | fix |
+|---|---|
+| Book horizon was 30h; KXRAIN closes exactly 30h after the decision time, so every rain market fell outside it | Horizon for KXRAIN set to 48h (818b322) |
+| Idle sleep after 45 min on AC; lid close = sleep; Modern Standby does not run tasks | AC: never sleep, never hibernate, lid close = do nothing, wake timers on |
+| Task ran only while logged in, so a Windows Update reboot stops it until the next login | Needs admin: re-register the data tasks as run-whether-logged-on-or-not (S4U) |
+| Test events not loaded promptly lose zero-volume candles at the historical cutoff | `KalshiCandidateHistory` loads settled events daily at 14:00 local |
+| Any of the above failing silently | `python -m src.candidates health` checks snapshot age, gaps, every decision-time window and every due event; `KalshiCandidateHealth` runs it at 09:00, 21:00 and at logon and shows a Windows notification on any problem |
+
+**Battery behaviour is deliberately unchanged** (3 min idle sleep, lid = sleep). A
+laptop that never sleeps on battery runs hot in a bag and dies flat anyway. **The
+laptop needs to stay plugged in through 2026-11-11.** Time spent unplugged and idle
+will show up as a health alert, not as silent loss.
