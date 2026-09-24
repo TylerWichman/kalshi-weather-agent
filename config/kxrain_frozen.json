@@ -1,0 +1,29 @@
+{
+  "registered_in": "docs/phase3-kxrain-preregistration.md",
+  "frozen_at": "2026-09-24T14:07:22Z",
+  "alpha": -0.31947630832803087,
+  "beta": 1.17062863218865,
+  "margin": 0.03,
+  "band_cents": [
+    5,
+    95
+  ],
+  "decision_hour_utc": 0,
+  "dev": {
+    "first": "2026-07-15",
+    "last": "2026-09-23",
+    "markets": 1297,
+    "events": 65,
+    "oof_trades": 305,
+    "oof_mean_net_c": 0.4459016393442623,
+    "insample_trades": 302,
+    "insample_yes": 0,
+    "insample_no": 302
+  },
+  "direction": {
+    "sides_traded": [
+      "no"
+    ],
+    "rule": "every side with >= 20% of test trades must have mean net > 0"
+  }
+}
