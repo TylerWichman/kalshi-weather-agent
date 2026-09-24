@@ -184,3 +184,30 @@ fixed before any further data is seen, and its own forward test period starting 
 that registration. The Gate 2 test data **cannot** be reused to confirm it, because it
 would then have been used to select it. It is never a route into this test's verdict.
 Below that trigger, no new hypothesis is drawn from the band.
+
+---
+
+## Amendment 2 (2026-09-24, before any test-period price exists)
+
+**The test period is shortened from 45 to 28 events: `26SEP27` through `26OCT24`.**
+The decision and every threshold in §5 are otherwise unchanged. The Gate 2.2 extension
+(if fewer than 100 trades) now runs to `26NOV24` at the latest.
+
+This is decided before the first test decision time (2026-09-27 00:00 UTC), on the
+owner's time budget, not on any data. Its costs are stated now:
+
+- **Less power.** Scaling Gate 1's day-block interval (±4.8¢ on 305 trades over 57
+  days) gives roughly ±7¢ at 28 days against ±5.5¢ at 45. A GO now needs a true edge
+  near 7¢ per contract. The Gate 1 estimate is +0.45¢.
+- **Narrower regime.** The test no longer crosses the end of DST (2026-11-01). It
+  covers early autumn only, and the §4 regime bound is narrower to match.
+- **Fixed end.** 28 events is the end. There is no stopping early and no extending on
+  the strength of interim results, whichever way they look.
+
+**Live paper trading runs alongside and is watched, but it does not decide.**
+`src/paper.py` trades the frozen rule with mock money against the live order book at
+each decision time and publishes a dashboard. Its fills come from the live book, not
+the candle close, so its P&L will differ slightly from Gate 2's. The verdict is
+Gate 2 in `scripts/rain_calibration.py`, run once after `26OCT24` settles, because it
+does not depend on a machine being up at 00:00 UTC each night. Watching the dashboard
+changes nothing in §3–§5.

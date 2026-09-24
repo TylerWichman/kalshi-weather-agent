@@ -5,7 +5,7 @@ discrepancy between this script and it is a bug in this script.
 
     python scripts/rain_calibration.py gate1           # development set, early kill
     python scripts/rain_calibration.py gate1 --freeze  # also writes config/kxrain_frozen.json
-    python scripts/rain_calibration.py gate2           # test set, run ONCE after 26NOV10 settles
+    python scripts/rain_calibration.py gate2           # test set, run ONCE after 26OCT24 settles
 
 Model-free: the only inputs are Kalshi's own quotes (hourly candles) and Kalshi's
 own `result`. No weather data is read.
@@ -42,9 +42,9 @@ DIAG_HOUR_UTC = 12            # §5 diagnostic only
 # §4
 DEV_FIRST, DEV_LAST = date(2026, 7, 15), date(2026, 9, 23)
 TEST_FIRST = date(2026, 9, 27)
-TEST_EVENTS = 45
-TEST_NOMINAL_LAST = date(2026, 11, 10)
-TEST_EXTEND_LAST = date(2026, 12, 10)
+TEST_EVENTS = 28                             # Amendment 2 (was 45)
+TEST_NOMINAL_LAST = date(2026, 10, 24)       # Amendment 2 (was 2026-11-10)
+TEST_EXTEND_LAST = date(2026, 11, 24)        # Amendment 2 (was 2026-12-10)
 
 # §5
 BOOT = 10_000
