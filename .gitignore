@@ -3,3 +3,5 @@ data/
 .env
 __pycache__/
 *.pyc
+deploy/alert_topic.txt
+dist/
