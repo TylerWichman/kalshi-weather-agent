@@ -69,7 +69,13 @@ CANDIDATES = {
 # Books: only markets expiring within this many hours, and only strikes with a
 # live two-sided-ish quote. Dead 1c/99c strikes carry no information.
 BOOK_HORIZON_H = 30
-BOOK_HORIZON_OVERRIDE = {"KXNATGASW": 7 * 24}   # weekly contract, traded all week
+BOOK_HORIZON_OVERRIDE = {
+    "KXNATGASW": 7 * 24,   # weekly contract, traded all week
+    # KXRAIN closes exactly 30h after the pre-registered 00:00 UTC decision time,
+    # so a 30h horizon would drop every market from the snapshots Gate 2 sizes
+    # against. 48h covers a rain market's whole ~45h life.
+    "KXRAIN": 48,
+}
 BOOK_DEPTH = 10
 BOOK_QUOTE_BAND = (0.03, 0.97)   # on the quote midpoint
 
