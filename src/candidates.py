@@ -460,7 +460,8 @@ HEALTH_MAX_AGE_MIN = 25
 HEALTH_MAX_GAP_MIN = 25
 
 
-def cmd_health(conn):
+def health_report(conn):
+    """(summary line, [problems]). Shared by `health` and the paper-trading dashboard."""
     problems = []
     now = int(time.time())
     last = conn.execute("SELECT MAX(snap_ts) FROM books WHERE series_ticker=?",
@@ -505,9 +506,14 @@ def cmd_health(conn):
         problems.append(f"test events not loaded: {', '.join(unloaded)}")
     loaded = sum(1 for d in loaded_days if d and d >= first)
 
-    print(f"{utcnow()}  {HEALTH_SERIES} health: last snapshot {age:.0f} min ago, "
-          f"{len(snaps)} snapshot runs since test start, "
-          f"{loaded} test events loaded")
+    summary = (f"last snapshot {age:.0f} min ago, {len(snaps)} snapshot runs since test "
+               f"start, {loaded} test events loaded")
+    return summary, problems
+
+
+def cmd_health(conn):
+    summary, problems = health_report(conn)
+    print(f"{utcnow()}  {HEALTH_SERIES} health: {summary}")
     for p in problems:
         print("  PROBLEM:", p)
     print("  OK" if not problems else f"  {len(problems)} problem(s)")

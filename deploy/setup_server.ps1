@@ -77,6 +77,8 @@ Register "KalshiRainDecisionBooks" "scripts\run_rain_decision_books.cmd" `
     @((New-ScheduledTaskTrigger -Daily -At "23:51"), (New-ScheduledTaskTrigger -Daily -At "23:56")) 4 "Parallel"
 Register "KalshiCandidateHistory" "scripts\run_candidate_history.cmd" `
     (New-ScheduledTaskTrigger -Daily -At "18:00") 120
+Register "KalshiPaperTrade" "scripts\run_paper_trade.cmd" `
+    (New-ScheduledTaskTrigger -Daily -At "00:01") 10
 Register "KalshiCandidateHealth" "deploy\health_alert.ps1" `
     @((New-ScheduledTaskTrigger -Daily -At "01:00"), (New-ScheduledTaskTrigger -Daily -At "13:00")) 10
 

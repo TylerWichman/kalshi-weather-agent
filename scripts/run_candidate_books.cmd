@@ -11,4 +11,6 @@ if not exist "%LOGDIR%" mkdir "%LOGDIR%"
 cd /d "%PROJ%"
 echo RUN %DATE% %TIME% >> "%LOGDIR%\candidate_books.log"
 "%PY%" -m src.candidates books >> "%LOGDIR%\candidate_books.log" 2>&1
+REM Paper trading: settle, mark to market, redraw the dashboard.
+"%PY%" -m src.paper update >> "%LOGDIR%\paper.log" 2>&1
 endlocal
