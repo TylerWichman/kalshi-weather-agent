@@ -41,10 +41,13 @@ GUARD_S = 60
 START_BANKROLL_C = 10_000
 MAX_TRADE_C = 500
 DEPTH_CAP = 100
-PAPER_FIRST = date(2026, 9, 28)        # warm-up events 26SEP28, 26SEP29 (never scored)
-TEST_FIRST = date(2026, 9, 30)
-TEST_LAST = date(2026, 10, 27)
-TEST_DAYS = 28
+# The paper account runs live from the first check after it was switched on (Amendment 1
+# in 00-common.md) and keeps running past the test. The dashboard shows it as one live
+# account. The shakeout-vs-scored split exists only in the verdict, which scores events
+# 26SEP30..26OCT27 from candles (scripts/sandbox_gates.py) and never reads this ledger.
+LIVE_SINCE = datetime(2026, 9, 25, 18, 45, tzinfo=timezone.utc)
+PAPER_FIRST = date(2026, 9, 26)
+PAPER_LAST = date(2026, 12, 31)
 
 TEXT = {
     "baseline": dict(
@@ -103,7 +106,7 @@ def event_for(d):
 def schedule(arm):
     """Every (check_ts, contract date, offset) in the paper window, in time order."""
     out, d = [], PAPER_FIRST
-    while d <= TEST_LAST:
+    while d <= PAPER_LAST:
         out += [(midnight(d) + h * 3600, d, h) for h in R.ARMS[arm]["checks"]]
         d += timedelta(days=1)
     return sorted(out)
@@ -322,17 +325,6 @@ def cmd_dryrun(conn, arm):
 # --------------------------------------------------------------------------- #
 # Dashboard: one page per arm, on the arm's own branch
 
-def test_events_done(conn):
-    last_offset = max(R.ARMS[ARM]["checks"])
-    now = time.time()
-    n, d = 0, TEST_FIRST
-    while d <= TEST_LAST:
-        if midnight(d) + last_offset * 3600 <= now:
-            n += 1
-        d += timedelta(days=1)
-    return n
-
-
 def problems(conn):
     out = []
     for status, label in (("missed", "missed"), ("discarded", "discarded by the time guard")):
@@ -363,8 +355,8 @@ def render(conn, arm, state_dir):
         trades=trades, checks=checks,
         equity=[dict(t=a, v=b) for a, b in conn.execute("SELECT ts, equity_c FROM equity ORDER BY ts")],
         health=dict(ok=not probs, summary="", problems=probs),
-        test=dict(first=TEST_FIRST.isoformat(), last=TEST_LAST.isoformat(), days=TEST_DAYS,
-                  done=test_events_done(conn)),
+        live=dict(since=int(LIVE_SINCE.timestamp()), checks=conn.execute(
+            "SELECT COUNT(*) FROM checks WHERE status='ok'").fetchone()[0]),
         stale_min=t["stale_min"],
         footer=[
             "Mock money only. No orders are placed.",
@@ -372,12 +364,9 @@ def render(conn, arm, state_dir):
             "check, with the real taker fee, held to settlement. The account started at $100, "
             "and each trade spends at most $5. Open positions are valued at what they could "
             "be sold for now.",
-            f"Events {PAPER_FIRST:%b %d} and {PAPER_FIRST + timedelta(days=1):%b %d} are "
-            f"warm-up. The test is the 28 events from {TEST_FIRST:%b %d} to {TEST_LAST:%b %d}.",
-            "This is a sandbox arm, separate from Gate 2 and from the other two arms. The "
-            "verdict comes from the pre-registered scoring (docs/sandbox/) after the last "
-            "test event settles, at a 99% bar because three arms are tested at once. "
-            "Nothing seen here changes a rule or a date.",
+            "This is a sandbox arm, separate from Gate 2 and from the other two arms. Its "
+            "go/no-go comes from the pre-registered scoring in docs/sandbox/, at a 99% bar "
+            "because three arms are tested at once. Nothing seen here changes a rule.",
         ],
         note=f"Updated after every check and at the start of each run. Branch "
              f"sbx-state-{arm}. Reloads itself every minute.",

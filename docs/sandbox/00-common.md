@@ -176,3 +176,19 @@ settles. Nothing on a dashboard changes a rule or a date.
 - **Choosing the best single time** out of a scan. Arm 2 checks all four of its times.
   It does not pick one after seeing which did best.
 - Anything after the climate day begins (§3), maker execution, and weather models.
+
+---
+
+## Amendment 1 (2026-09-25, display only, before any test-period data exists)
+
+At the owner's request, the three paper accounts go live **now**. They trade every check
+from the first one after this commit (events from `26SEP26`) and keep running after the
+test ends. Each dashboard shows the account as one continuous live account, with no
+warm-up or test labels.
+
+**The verdict does not change.** It still scores only `26SEP30`–`26OCT27`, from candles
+and each arm's own snapshots, and it never reads the paper ledger (§7). The days before
+`26SEP30` are the pipeline's shakeout: they must show the checks running and the
+snapshots landing, and they count toward nothing. If the shakeout shows a pipeline
+fault, it is fixed before 2026-09-29 12:00 UTC. A fault found later is reported with the
+verdict. It is never a reason to change a rule.

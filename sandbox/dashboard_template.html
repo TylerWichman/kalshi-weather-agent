@@ -138,9 +138,8 @@ footer p { margin: 4px 0; }
       <div class="delta flat" id="open-sub"></div>
     </div>
     <div class="card tile">
-      <div class="label">Test progress</div>
+      <div class="label">Running</div>
       <div class="value" id="progress"></div>
-      <div class="meter"><div id="meter"></div></div>
       <div class="delta flat" id="progress-sub"></div>
     </div>
   </section>
@@ -246,11 +245,9 @@ function render() {
                       - t.price) * t.contracts - t.fee;
   const realized = settled.reduce((s, t) => s + pnl(t), 0);
   $("settled").textContent = `${won} won · ${settled.length - won} lost`;
-  const testSettled = settled.filter((t) => t.day >= d.test.first);
-  const testPnl = testSettled.reduce((s, t) => s + pnl(t), 0);
   $("settled-sub").textContent = settled.length
     ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized` +
-      (testSettled.length ? ` · test days ${usd(testPnl, true)}` : "")
+
     : "None settled yet";
 
   const open = d.trades.filter((t) => t.status === "open");
@@ -258,10 +255,9 @@ function render() {
   $("open").textContent = open.length;
   $("open-sub").textContent = open.length ? `${usd(atRisk)} committed` : "No open positions";
 
-  const done = d.test.done;
-  $("progress").textContent = `Event ${Math.min(done, d.test.days)} of ${d.test.days}`;
-  $("meter").style.width = (100 * Math.min(done, d.test.days) / d.test.days) + "%";
-  $("progress-sub").textContent = `Test ${fmtDay(d.test.first)} to ${fmtDay(d.test.last)}`;
+  const dayN = Math.floor((now - d.live.since) / 86400) + 1;
+  $("progress").textContent = `Day ${dayN}`;
+  $("progress-sub").textContent = `Since ${fmtTime(d.live.since)} · ${d.live.checks} check${d.live.checks === 1 ? "" : "s"} run`;
 
   drawChart(d);
 
@@ -288,7 +284,7 @@ function render() {
   table($("days-table"), ["Check", "Event", "Status", "Markets", "Evaluated", "Trades"],
     d.checks.slice().reverse().map((x) => (tr) => {
       cell(tr, fmtCheck(x.ts));
-      cell(tr, fmtDay(x.day) + (x.day < d.test.first ? " (warm-up)" : ""));
+      cell(tr, fmtDay(x.day));
       cell(tr, label[x.status] || x.status);
       cell(tr, x.markets ?? "–"); cell(tr, x.evals ?? "–"); cell(tr, x.trades ?? "–");
     }), d.next_text);
