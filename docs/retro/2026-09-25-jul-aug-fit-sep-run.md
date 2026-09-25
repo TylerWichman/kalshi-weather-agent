@@ -9,7 +9,7 @@ result would be. It changes no rule, parameter, date or verdict. September's mon
 had already been looked at earlier the same day, before this was run.
 
 Reproduce: `python scripts/retro_check.py OUTDIR` on this branch (`retro-sep-check`, forked
-from `sandbox` at c5512cc+). Results: `docs/retro/2026-09-25-results.json`. The run reads only
+from `sandbox` at 2cc6f89). Results: `docs/retro/2026-09-25-results.json`. The run reads only
 `data/sandbox.sqlite`, the development copy. Sep 24–26 are Gate 2's embargo days and are not
 used.
 
