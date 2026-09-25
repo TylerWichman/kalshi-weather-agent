@@ -25,6 +25,7 @@ import subprocess
 import sys
 import time
 from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 from src.fees import trade_fee_cents
 from src.history import get, _num, _cents
@@ -50,28 +51,46 @@ LIVE_SINCE = datetime(2026, 9, 25, 18, 28, tzinfo=timezone.utc)   # first live s
 PAPER_FIRST = date(2026, 9, 26)
 PAPER_LAST = date(2026, 12, 31)
 
-TEXT = {
-    "baseline": dict(
-        title="Sandbox arm 1: baseline",
-        rule="Checks once a day at 00:00 UTC on the contract date. This is the frozen "
-             "Gate 2 rule re-run in the sandbox as the control.",
-        next="The next check is at 00:00 UTC (8 PM Eastern).",
-        stale_min=26 * 60),
-    "fixed": dict(
-        title="Sandbox arm 2: fixed times",
-        rule="Checks at 12:00 and 18:00 UTC the day before, then 00:00 and 04:00 UTC on the "
-             "contract date, with one curve per time. The first check that qualifies takes "
-             "the trade.",
-        next="Checks run at 12:00, 18:00, 00:00 and 04:00 UTC.",
-        stale_min=10 * 60),
-    "trigger": dict(
+# Display is in Eastern time (the owner's clock). The rules are fixed in UTC in the
+# pre-registration, so the Eastern clock times shift by an hour when DST ends on Nov 1.
+ET = ZoneInfo("America/New_York")
+
+
+def et(ts, fmt="%b %d %I:%M %p"):
+    return datetime.fromtimestamp(ts, ET).strftime(fmt).replace(" 0", " ") + " ET"
+
+
+def clock(offset_h):
+    """Eastern clock time of a check offset, for the contract day starting tomorrow."""
+    t = datetime.fromtimestamp(midnight(datetime.now(timezone.utc).date() + timedelta(days=1))
+                               + offset_h * 3600, ET)
+    return "midnight" if t.hour == 0 else f"{t.hour % 12 or 12} {'AM' if t.hour < 12 else 'PM'}"
+
+
+def text(arm):
+    c = [clock(h) for h in R.ARMS[arm]["checks"]]
+    if arm == "baseline":
+        return dict(
+            title="Sandbox arm 1: baseline",
+            rule=f"Checks once a day at {c[0]} ET, the evening before the rain day. This is "
+                 "the frozen Gate 2 rule re-run in the sandbox as the control.",
+            next=f"The next check is at {c[0]} ET.",
+            stale_min=26 * 60)
+    if arm == "fixed":
+        return dict(
+            title="Sandbox arm 2: fixed times",
+            rule=f"Checks at {c[0]}, {c[1]} and {c[2]} ET the day before the rain day, and at "
+                 f"{c[3]} ET as it begins, with one curve per time. The first check that "
+                 "qualifies takes the trade.",
+            next=f"Checks run at {c[0]}, {c[1]}, {c[2]} and {c[3]} ET.",
+            stale_min=10 * 60)
+    return dict(
         title="Sandbox arm 3: move trigger",
-        rule="Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract "
-             "date. It evaluates a market only after its mid has moved 10¢ or more since "
-             "that market's last evaluation.",
-        next="Checks run every hour from 12:00 to 04:00 UTC.",
-        stale_min=8 * 60),
-}
+        rule=f"Watches every hour from {c[0]} ET the day before the rain day until {c[-1]} ET "
+             "as it begins. It evaluates a market only after its price has moved 10¢ or "
+             "more since that market's last evaluation.",
+        next=f"Checks run every hour from {c[0]} to {c[-1]} ET.",
+        stale_min=8 * 60)
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS books (ticker TEXT, snap_ts INTEGER, check_ts INTEGER,
@@ -93,7 +112,7 @@ REPLACE = ("trades", "refs")      # rows that change after they are first writte
 
 
 def log(*a):
-    print(datetime.now(timezone.utc).strftime("%H:%M:%S"), *a, flush=True)
+    print(datetime.now(ET).strftime("%H:%M:%S ET"), *a, flush=True)
 
 
 def midnight(d):
@@ -281,7 +300,7 @@ def wait_until(ts):
     delay = ts - time.time()
     if delay > 0:
         log(f"waiting {delay / 60:.1f} min until "
-            f"{datetime.fromtimestamp(ts, timezone.utc):%m-%d %H:%M:%S} UTC")
+            f"{et(ts, '%b %d %I:%M:%S %p')}")
         time.sleep(delay)
 
 
@@ -332,14 +351,13 @@ def problems(conn):
         rows = conn.execute("SELECT check_ts FROM checks WHERE status=? ORDER BY check_ts",
                             (status,)).fetchall()
         if rows:
-            last = ", ".join(datetime.fromtimestamp(r[0], timezone.utc).strftime("%m-%d %H:%M")
-                             for r in rows[-4:])
-            out.append(f"{len(rows)} check(s) {label} (latest: {last} UTC)")
+            last = ", ".join(et(r[0]) for r in rows[-4:])
+            out.append(f"{len(rows)} check(s) {label} (latest: {last})")
     return out
 
 
 def render(conn, arm, state_dir):
-    t = TEXT[arm]
+    t = text(arm)
     trades = [dict(zip(("ticker", "day", "city", "side", "price", "contracts", "fee",
                         "p_model", "entered", "status", "settled", "mark"), r))
               for r in conn.execute(
@@ -402,19 +420,19 @@ def script_ok(html, scratch_dir):
 def readme(conn, arm, state_dir, equity, probs):
     """The branch's front page on GitHub: a plain summary and the dashboard link."""
     url = f"https://raw.githack.com/{REPO}/sbx-state-{arm}/index.html"
-    rows = conn.execute("SELECT day, city, offset_h, side, contracts, price_c, fee_c, status, "
+    rows = conn.execute("SELECT day, city, entered_ts, side, contracts, price_c, fee_c, status, "
                         "mark_c FROM trades ORDER BY entered_ts DESC LIMIT 30").fetchall()
-    lines = [f"# {TEXT[arm]['title']}", "", TEXT[arm]["rule"], "",
+    lines = [f"# {text(arm)['title']}", "", text(arm)["rule"], "",
              f"**Dashboard:** {url}", "",
              f"Mock account **${equity / 100:,.2f}** (started at $100). "
-             f"Updated {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC.", ""]
+             f"Updated {et(time.time())}.", ""]
     lines += [f"- ⚠ {p}" for p in probs] + ([""] if probs else [])
     if rows:
-        lines += ["| Event | City | Check | Side | Contracts | Paid | Status | P&L |",
+        lines += ["| Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |",
                   "|---|---|--:|---|--:|--:|---|--:|"]
-        for day, city, off, side, n, price, fee, status, mark in rows:
+        for day, city, entered, side, n, price, fee, status, mark in rows:
             v = 100 if status == "won" else 0 if status == "lost" else (mark or price)
-            lines.append(f"| {day[5:]} | {city} | {off:+d}h | {side.upper()} | {n} | {price}¢ | "
+            lines.append(f"| {day[5:]} | {city} | {et(entered)} | {side.upper()} | {n} | {price}¢ | "
                          f"{status} | {(v * n - price * n - fee) / 100:+.2f} |")
     lines += ["", "Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; "
               "not Gate 2."]
@@ -427,7 +445,7 @@ def step_summary(conn, arm):
         return
     cash, open_val = ledger(conn)
     with open(path, "a", encoding="utf-8") as f:
-        f.write(f"## {TEXT[arm]['title']}\n\nMock account ${(cash + open_val) / 100:,.2f}. "
+        f.write(f"## {text(arm)['title']}\n\nMock account ${(cash + open_val) / 100:,.2f}. "
                 f"Dashboard: https://raw.githack.com/{REPO}/sbx-state-{arm}/index.html\n")
         for p in problems(conn):
             f.write(f"- ⚠ {p}\n")

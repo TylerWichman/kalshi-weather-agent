@@ -181,8 +181,9 @@ const usd = (c, sign) => {
   return (v > 0 ? "+" : v < 0 ? "-" : "±") + s;
 };
 const cents = (c) => (c == null ? "–" : c + "¢");
+const ET = "America/New_York";      // every time on the page is Eastern (EDT/EST)
 const fmtTime = (ts) => new Date(ts * 1000).toLocaleString("en-US",
-  { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: ET }) + " ET";
 const fmtDay = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US",
   { month: "short", day: "numeric", timeZone: "UTC" });
 function setDelta(el, c, suffix) {
@@ -268,7 +269,7 @@ function render() {
       cell(tr, fmtTime(t.entered));
     }), "No open positions. " + d.next_text);
 
-  table($("settled-table"), ["Day", "City", "Side", "Contracts", "Paid", "Result", "Net P&L"],
+  table($("settled-table"), ["Rain day", "City", "Side", "Contracts", "Paid", "Result", "Net P&L"],
     settled.slice().reverse().map((t) => (tr) => {
       cell(tr, fmtDay(t.day)); cell(tr, t.city); cell(tr, t.side.toUpperCase());
       cell(tr, t.contracts); cell(tr, cents(t.price));
@@ -279,8 +280,8 @@ function render() {
   const label = { ok: "Checked", missed: "! Missed (run started too late)",
                   discarded: "! Discarded (fetch crossed the check time)" };
   const fmtCheck = (ts) => new Date(ts * 1000).toLocaleString("en-US", { month: "short",
-    day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }) + " UTC";
-  table($("days-table"), ["Check", "Event", "Status", "Markets", "Evaluated", "Trades"],
+    day: "numeric", hour: "numeric", minute: "2-digit", timeZone: ET }) + " ET";
+  table($("days-table"), ["Check", "Rain day", "Status", "Markets", "Evaluated", "Trades"],
     d.checks.slice().reverse().map((x) => (tr) => {
       cell(tr, fmtCheck(x.ts));
       cell(tr, fmtDay(x.day));
@@ -333,8 +334,8 @@ function drawChart(d) {
   const H1 = 3600, steps = [H1, 3 * H1, 6 * H1, 12 * H1, 24 * H1, 48 * H1, 168 * H1];
   const every = steps.find((s) => (t1 - t0) / s <= 6) || steps[steps.length - 1];
   const fmtTick = every < 24 * H1
-    ? (t) => new Date(t * 1000).toLocaleTimeString("en-US", { hour: "numeric" })
-    : (t) => new Date(t * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    ? (t) => new Date(t * 1000).toLocaleTimeString("en-US", { hour: "numeric", timeZone: ET })
+    : (t) => new Date(t * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: ET });
   const minGap = Math.max(40, (W - m.l - m.r) / 8);
   let lastX = -Infinity;
   for (let t = Math.ceil(t0 / every) * every; t <= t1; t += every) {
