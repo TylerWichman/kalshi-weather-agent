@@ -99,7 +99,7 @@ th, td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--gri
 th { color: var(--ink-2); font-weight: 500; font-size: 13px; }
 th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
 tr:last-child td { border-bottom: none; }
-.none { color: var(--ink-2); padding: 8px 0; }
+.none { color: var(--ink-2); padding: 8px 0; white-space: normal; }
 footer { color: var(--muted); font-size: 12.5px; margin-top: 20px; }
 footer p { margin: 4px 0; }
 </style>
@@ -177,7 +177,7 @@ footer p { margin: 4px 0; }
 </main>
 
 <script>
-const DATA = {"updated": 1790343587, "start": 10000, "cash": 10000, "open": 0, "trades": [], "equity": [{"t": 1790263170, "v": 10000}, {"t": 1790279922, "v": 10000}, {"t": 1790296335, "v": 10000}, {"t": 1790300764, "v": 10000}, {"t": 1790316544, "v": 10000}, {"t": 1790340277, "v": 10000}, {"t": 1790343587, "v": 10000}], "days": [{"day": "2026-09-25", "status": "missed", "markets": 0, "trades": 0}], "health": {"ok": false, "summary": "2 snapshot runs stored on GitHub", "problems": ["paper trading missed: 09-25"]}, "test": {"first": "2026-09-27", "last": "2026-10-24", "days": 28, "paper_first": "2026-09-25"}, "stale_min": 420, "note": "Updated after every GitHub run: nightly just after 00:00 UTC (8 PM Eastern) and about every 3 hours. Reloads itself every minute."};
+const DATA = {"updated": 1790343672, "start": 10000, "cash": 10000, "open": 0, "trades": [], "equity": [{"t": 1790263170, "v": 10000}, {"t": 1790279922, "v": 10000}, {"t": 1790296335, "v": 10000}, {"t": 1790300764, "v": 10000}, {"t": 1790316544, "v": 10000}, {"t": 1790340277, "v": 10000}, {"t": 1790343587, "v": 10000}, {"t": 1790343672, "v": 10000}], "days": [{"day": "2026-09-25", "status": "missed", "markets": 0, "trades": 0}], "health": {"ok": false, "summary": "2 snapshot runs stored on GitHub", "problems": ["paper trading missed: 09-25"]}, "test": {"first": "2026-09-27", "last": "2026-10-24", "days": 28, "paper_first": "2026-09-25"}, "stale_min": 420, "note": "Updated after every GitHub run: nightly just after 00:00 UTC (8 PM Eastern) and about every 3 hours. Reloads itself every minute."};
 
 const $ = (id) => document.getElementById(id);
 const usd = (c, sign) => {
