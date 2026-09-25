@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KXRAIN Sandbox Arm</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --ring: rgba(11,11,11,0.10);
+  --series: #2a78d6;
+  --up: #006300;
+  --down: #d03b3b;
+  --warn: #fab219;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --ring: rgba(255,255,255,0.10);
+    --series: #3987e5;
+    --up: #0ca30c;
+    --down: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --ring: rgba(255,255,255,0.10);
+  --series: #3987e5;
+  --up: #0ca30c;
+  --down: #e66767;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-start;
+         justify-content: space-between; margin-bottom: 20px; }
+h1 { font-size: 20px; font-weight: 600; margin: 0; }
+.sub { color: var(--ink-2); margin-top: 2px; }
+#rule { max-width: 640px; }
+.badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px;
+         border: 1px solid var(--ring); color: var(--ink-2); margin-left: 8px; vertical-align: 3px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
+        border-radius: 999px; border: 1px solid var(--ring); background: var(--surface);
+        font-weight: 500; white-space: nowrap; }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+.problems { margin: 6px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px;
+        padding: 16px; min-width: 0; }
+.top { display: grid; grid-template-columns: minmax(220px, 1.2fr) repeat(3, minmax(0, 1fr));
+       gap: 12px; margin-bottom: 12px; }
+@media (max-width: 760px) { .top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                            .top .hero { grid-column: 1 / -1; } }
+.label { color: var(--ink-2); font-size: 13px; }
+.hero .value { font-size: 48px; font-weight: 600; line-height: 1.1; margin-top: 4px;
+               letter-spacing: -0.01em; }
+.tile .value { font-size: 22px; font-weight: 600; margin-top: 4px; }
+.delta { font-size: 13px; margin-top: 4px; font-weight: 500; }
+.up { color: var(--up); } .down { color: var(--down); } .flat { color: var(--ink-2); }
+.meter { height: 6px; border-radius: 3px; background: var(--grid); margin-top: 10px;
+         overflow: hidden; }
+.meter > div { height: 100%; background: var(--series); border-radius: 3px; }
+h2 { font-size: 15px; font-weight: 600; margin: 0 0 10px; }
+.chart-card { margin-bottom: 12px; }
+#chart { position: relative; height: 260px; }
+#chart svg { display: block; width: 100%; height: 100%; }
+.empty { height: 100%; display: flex; align-items: center; justify-content: center;
+         color: var(--ink-2); text-align: center; padding: 0 24px; }
+.tip { position: absolute; pointer-events: none; background: var(--surface);
+       border: 1px solid var(--ring); border-radius: 8px; padding: 6px 10px;
+       box-shadow: 0 4px 16px rgba(0,0,0,0.12); font-size: 13px; white-space: nowrap;
+       display: none; }
+.tip b { font-size: 15px; }
+.tables { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--grid);
+         white-space: nowrap; }
+th { color: var(--ink-2); font-weight: 500; font-size: 13px; }
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+tr:last-child td { border-bottom: none; }
+.none { color: var(--ink-2); padding: 8px 0; white-space: normal; }
+footer { color: var(--muted); font-size: 12.5px; margin-top: 20px; }
+footer p { margin: 4px 0; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1 id="title">KXRAIN sandbox</h1>
+      <div class="sub" id="rule"></div>
+      <div class="sub" id="sub"></div>
+    </div>
+    <div>
+      <span class="pill" id="pill"><span class="dot"></span><span></span></span>
+      <ul class="problems" id="problems"></ul>
+    </div>
+  </header>
+
+  <section class="top">
+    <div class="card hero">
+      <div class="label">Mock account value</div>
+      <div class="value" id="equity"></div>
+      <div class="delta" id="equity-delta"></div>
+    </div>
+    <div class="card tile">
+      <div class="label">Settled trades</div>
+      <div class="value" id="settled"></div>
+      <div class="delta flat" id="settled-sub"></div>
+    </div>
+    <div class="card tile">
+      <div class="label">Open positions</div>
+      <div class="value" id="open"></div>
+      <div class="delta flat" id="open-sub"></div>
+    </div>
+    <div class="card tile">
+      <div class="label">Test progress</div>
+      <div class="value" id="progress"></div>
+      <div class="meter"><div id="meter"></div></div>
+      <div class="delta flat" id="progress-sub"></div>
+    </div>
+  </section>
+
+  <section class="card chart-card">
+    <h2>Account value over time</h2>
+    <div id="chart"></div>
+  </section>
+
+  <section class="tables">
+    <div class="card">
+      <h2>Open positions</h2>
+      <div class="scroll"><table id="open-table"></table></div>
+    </div>
+    <div class="card">
+      <h2>Settled trades</h2>
+      <div class="scroll"><table id="settled-table"></table></div>
+    </div>
+    <div class="card">
+      <h2>Check log</h2>
+      <div class="scroll"><table id="days-table"></table></div>
+    </div>
+  </section>
+
+  <footer>
+    <div id="footer"></div>
+    <p id="refresh"></p>
+  </footer>
+</main>
+
+<script>
+const DATA = {"title": "Sandbox arm 1: baseline", "rule": "Checks once a day at 00:00 UTC on the contract date. This is the frozen Gate 2 rule re-run in the sandbox as the control.", "next_text": "The next check is at 00:00 UTC (8 PM Eastern).", "updated": 1790360490, "start": 10000, "cash": 10000, "open": 0, "trades": [], "checks": [], "equity": [{"t": 1790360490, "v": 10000}], "health": {"ok": true, "summary": "", "problems": []}, "test": {"first": "2026-09-30", "last": "2026-10-27", "days": 28, "done": 0}, "stale_min": 1560, "footer": ["Mock money only. No orders are placed.", "Checks once a day at 00:00 UTC on the contract date. This is the frozen Gate 2 rule re-run in the sandbox as the control. Taker fills at the best price on a book fetched just before each check, with the real taker fee, held to settlement. The account started at $100, and each trade spends at most $5. Open positions are valued at what they could be sold for now.", "Events Sep 28 and Sep 29 are warm-up. The test is the 28 events from Sep 30 to Oct 27.", "This is a sandbox arm, separate from Gate 2 and from the other two arms. The verdict comes from the pre-registered scoring (docs/sandbox/) after the last test event settles, at a 99% bar because three arms are tested at once. Nothing seen here changes a rule or a date."], "note": "Updated after every check and at the start of each run. Branch sbx-state-baseline. Reloads itself every minute."};
+
+const $ = (id) => document.getElementById(id);
+const usd = (c, sign) => {
+  const v = c / 100;
+  const s = Math.abs(v).toLocaleString("en-US", { style: "currency", currency: "USD" });
+  if (!sign) return (v < 0 ? "-" : "") + s;
+  return (v > 0 ? "+" : v < 0 ? "-" : "±") + s;
+};
+const cents = (c) => (c == null ? "–" : c + "¢");
+const fmtTime = (ts) => new Date(ts * 1000).toLocaleString("en-US",
+  { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+const fmtDay = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US",
+  { month: "short", day: "numeric", timeZone: "UTC" });
+function setDelta(el, c, suffix) {
+  el.className = "delta " + (c > 0 ? "up" : c < 0 ? "down" : "flat");
+  el.textContent = (c > 0 ? "▲ " : c < 0 ? "▼ " : "") + usd(c, true) + (suffix || "");
+}
+function cell(tr, text, cls) {
+  const td = document.createElement("td");
+  td.textContent = text;
+  if (cls) td.className = cls;
+  tr.appendChild(td);
+  return td;
+}
+function table(el, headers, rows, emptyText) {
+  el.replaceChildren();
+  if (!rows.length) {
+    const tr = el.insertRow(); const td = tr.insertCell();
+    td.colSpan = headers.length; td.className = "none"; td.style.textAlign = "left";
+    td.textContent = emptyText; return;
+  }
+  const head = el.createTHead().insertRow();
+  headers.forEach((h) => { const th = document.createElement("th"); th.textContent = h; head.appendChild(th); });
+  const body = el.createTBody();
+  rows.forEach((r) => { const tr = body.insertRow(); r(tr); });
+}
+
+function render() {
+  const d = DATA;
+  if (!d) { $("sub").textContent = "No data yet."; return; }
+  document.title = d.title;
+  $("title").textContent = d.title;
+  const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = "sandbox · not Gate 2";
+  $("title").appendChild(badge);
+  $("rule").textContent = d.rule;
+  $("footer").replaceChildren(...d.footer.map((t, i) => { const p = document.createElement("p");
+    if (i === 0) { const b = document.createElement("strong"); b.textContent = t; p.appendChild(b); } else p.textContent = t;
+    return p; }));
+  const now = Date.now() / 1000;
+  const mins = Math.round((now - d.updated) / 60);
+  $("sub").textContent = `Mock money · updated ${fmtTime(d.updated)}` +
+    (mins > 1 ? ` (${mins} min ago)` : "");
+
+  const pill = $("pill");
+  const stale = mins > (d.stale_min || 25);
+  const ok = d.health.ok && !stale;
+  pill.querySelector(".dot").style.background = ok ? "var(--up)" : "var(--down)";
+  pill.lastChild.textContent = ok ? "✓ Running OK" : "! Problem";
+  const probs = [...d.health.problems];
+  if (stale) probs.unshift(`This page has not been updated for ${mins} minutes.`);
+  $("problems").replaceChildren(...probs.map((p) => {
+    const li = document.createElement("li"); li.textContent = p; return li; }));
+
+  const equity = d.cash + d.open;
+  $("equity").textContent = usd(equity);
+  setDelta($("equity-delta"), equity - d.start, ` since start (${usd(d.start)})`);
+
+  const settled = d.trades.filter((t) => t.status !== "open");
+  const won = settled.filter((t) => t.status === "won").length;
+  const pnl = (t) => ((t.status === "won" ? 100 : t.status === "lost" ? 0 : (t.mark ?? t.price))
+                      - t.price) * t.contracts - t.fee;
+  const realized = settled.reduce((s, t) => s + pnl(t), 0);
+  $("settled").textContent = `${won} won · ${settled.length - won} lost`;
+  const testSettled = settled.filter((t) => t.day >= d.test.first);
+  const testPnl = testSettled.reduce((s, t) => s + pnl(t), 0);
+  $("settled-sub").textContent = settled.length
+    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized` +
+      (testSettled.length ? ` · test days ${usd(testPnl, true)}` : "")
+    : "None settled yet";
+
+  const open = d.trades.filter((t) => t.status === "open");
+  const atRisk = open.reduce((s, t) => s + t.price * t.contracts + t.fee, 0);
+  $("open").textContent = open.length;
+  $("open-sub").textContent = open.length ? `${usd(atRisk)} committed` : "No open positions";
+
+  const done = d.test.done;
+  $("progress").textContent = `Event ${Math.min(done, d.test.days)} of ${d.test.days}`;
+  $("meter").style.width = (100 * Math.min(done, d.test.days) / d.test.days) + "%";
+  $("progress-sub").textContent = `Test ${fmtDay(d.test.first)} to ${fmtDay(d.test.last)}`;
+
+  drawChart(d);
+
+  table($("open-table"), ["City", "Side", "Contracts", "Paid", "Now", "Unrealized", "Entered (check)"],
+    open.slice().reverse().map((t) => (tr) => {
+      cell(tr, t.city); cell(tr, t.side.toUpperCase()); cell(tr, t.contracts);
+      cell(tr, cents(t.price)); cell(tr, cents(t.mark));
+      const u = pnl(t); cell(tr, usd(u, true), u > 0 ? "up" : u < 0 ? "down" : "");
+      cell(tr, fmtTime(t.entered));
+    }), "No open positions. " + d.next_text);
+
+  table($("settled-table"), ["Day", "City", "Side", "Contracts", "Paid", "Result", "Net P&L"],
+    settled.slice().reverse().map((t) => (tr) => {
+      cell(tr, fmtDay(t.day)); cell(tr, t.city); cell(tr, t.side.toUpperCase());
+      cell(tr, t.contracts); cell(tr, cents(t.price));
+      cell(tr, t.status === "won" ? "✓ Won" : "✕ Lost");
+      const p = pnl(t); cell(tr, usd(p, true), p > 0 ? "up" : p < 0 ? "down" : "");
+    }), "Nothing settled yet. Positions settle the morning after their rain day.");
+
+  const label = { ok: "Checked", missed: "! Missed (run started too late)",
+                  discarded: "! Discarded (fetch crossed the check time)" };
+  const fmtCheck = (ts) => new Date(ts * 1000).toLocaleString("en-US", { month: "short",
+    day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }) + " UTC";
+  table($("days-table"), ["Check", "Event", "Status", "Markets", "Evaluated", "Trades"],
+    d.checks.slice().reverse().map((x) => (tr) => {
+      cell(tr, fmtCheck(x.ts));
+      cell(tr, fmtDay(x.day) + (x.day < d.test.first ? " (warm-up)" : ""));
+      cell(tr, label[x.status] || x.status);
+      cell(tr, x.markets ?? "–"); cell(tr, x.evals ?? "–"); cell(tr, x.trades ?? "–");
+    }), d.next_text);
+
+  $("refresh").textContent = d.note || "This page reloads itself every minute.";
+}
+
+function niceStep(range, target) {
+  const raw = range / target, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const n = raw / mag;
+  return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * mag;
+}
+
+function drawChart(d) {
+  const host = $("chart");
+  host.replaceChildren();
+  const pts = d.equity;
+  if (pts.length < 2) {
+    const e = document.createElement("div"); e.className = "empty";
+    e.textContent = "The line starts once the account has been valued twice. " + d.next_text;
+    host.appendChild(e); return;
+  }
+  const W = host.clientWidth, H = host.clientHeight;
+  const m = { l: 64, r: 16, t: 12, b: 28 };
+  const t0 = pts[0].t, t1 = pts[pts.length - 1].t;
+  let lo = Math.min(d.start, ...pts.map((p) => p.v)), hi = Math.max(d.start, ...pts.map((p) => p.v));
+  if (hi - lo < 2000) { const mid = (hi + lo) / 2; lo = mid - 1000; hi = mid + 1000; }
+  const step = niceStep(hi - lo, 4);
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  const x = (t) => m.l + (W - m.l - m.r) * (t - t0) / Math.max(1, t1 - t0);
+  const y = (v) => m.t + (H - m.t - m.b) * (1 - (v - lo) / (hi - lo));
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", `Mock account value from ${fmtTime(t0)} to ${fmtTime(t1)}, now ${usd(pts[pts.length - 1].v)}`);
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]); (parent || svg).appendChild(e); return e; };
+
+  for (let v = lo; v <= hi + 1; v += step) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: "var(--grid)", "stroke-width": 1 });
+    const tx = el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end", fill: "var(--muted)",
+      "font-size": 12, style: "font-variant-numeric: tabular-nums" });
+    tx.textContent = "$" + (v / 100).toLocaleString("en-US", { maximumFractionDigits: 0 });
+  }
+  // X ticks: the coarsest step that still gives at least two labels, at most ~6.
+  const H1 = 3600, steps = [H1, 3 * H1, 6 * H1, 12 * H1, 24 * H1, 48 * H1, 168 * H1];
+  const every = steps.find((s) => (t1 - t0) / s <= 6) || steps[steps.length - 1];
+  const fmtTick = every < 24 * H1
+    ? (t) => new Date(t * 1000).toLocaleTimeString("en-US", { hour: "numeric" })
+    : (t) => new Date(t * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  const minGap = Math.max(40, (W - m.l - m.r) / 8);
+  let lastX = -Infinity;
+  for (let t = Math.ceil(t0 / every) * every; t <= t1; t += every) {
+    if (x(t) - lastX < minGap) continue;
+    lastX = x(t);
+    const tx = el("text", { x: x(t), y: H - 8, "text-anchor": "middle", fill: "var(--muted)", "font-size": 12 });
+    tx.textContent = fmtTick(t);
+  }
+  // Starting bankroll: the reference the line is read against.
+  el("line", { x1: m.l, x2: W - m.r, y1: y(d.start), y2: y(d.start), stroke: "var(--axis)", "stroke-width": 1 });
+  const sl = el("text", { x: W - m.r, y: y(d.start) - 6, "text-anchor": "end", fill: "var(--ink-2)", "font-size": 12 });
+  sl.textContent = "Start " + usd(d.start);
+
+  const line = pts.map((p, i) => (i ? "L" : "M") + x(p.t).toFixed(1) + "," + y(p.v).toFixed(1)).join("");
+  el("path", { d: line + `L${x(t1)},${y(lo)}L${x(t0)},${y(lo)}Z`, fill: "var(--series)", "fill-opacity": 0.1 });
+  el("path", { d: line, fill: "none", stroke: "var(--series)", "stroke-width": 2,
+               "stroke-linejoin": "round", "stroke-linecap": "round" });
+  const last = pts[pts.length - 1];
+  el("circle", { cx: x(last.t), cy: y(last.v), r: 5, fill: "var(--series)", stroke: "var(--surface)", "stroke-width": 2 });
+
+  const cross = el("line", { y1: m.t, y2: H - m.b, stroke: "var(--axis)", "stroke-width": 1, visibility: "hidden" });
+  const dot = el("circle", { r: 5, fill: "var(--series)", stroke: "var(--surface)", "stroke-width": 2, visibility: "hidden" });
+  host.appendChild(svg);
+  const tip = document.createElement("div"); tip.className = "tip"; host.appendChild(tip);
+  const val = document.createElement("b"); const when = document.createElement("div");
+  when.style.color = "var(--ink-2)"; tip.append(val, when);
+
+  function show(evt) {
+    const r = svg.getBoundingClientRect();
+    const px = (evt.clientX - r.left) * W / r.width;
+    const tt = t0 + (px - m.l) / (W - m.l - m.r) * (t1 - t0);
+    let best = pts[0];
+    for (const p of pts) if (Math.abs(p.t - tt) < Math.abs(best.t - tt)) best = p;
+    const cx = x(best.t), cy = y(best.v);
+    cross.setAttribute("x1", cx); cross.setAttribute("x2", cx); cross.setAttribute("visibility", "visible");
+    dot.setAttribute("cx", cx); dot.setAttribute("cy", cy); dot.setAttribute("visibility", "visible");
+    val.textContent = usd(best.v); when.textContent = fmtTime(best.t);
+    tip.style.display = "block";
+    const left = cx * r.width / W;
+    tip.style.left = Math.min(Math.max(0, left - tip.offsetWidth / 2), r.width - tip.offsetWidth) + "px";
+    tip.style.top = Math.max(0, cy * r.height / H - tip.offsetHeight - 12) + "px";
+  }
+  function hide() { cross.setAttribute("visibility", "hidden"); dot.setAttribute("visibility", "hidden"); tip.style.display = "none"; }
+  svg.addEventListener("pointermove", show);
+  svg.addEventListener("pointerleave", hide);
+}
+
+render();
+let resizeTimer;
+window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => DATA && drawChart(DATA), 150); });
+setTimeout(() => location.reload(), 60000);
+</script>
+</body>
+</html>
