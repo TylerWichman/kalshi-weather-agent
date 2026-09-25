@@ -1,10 +1,10 @@
 # Sandbox arm 3: move trigger
 
-Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract date. It evaluates a market only after its mid has moved 10¢ or more since that market's last evaluation.
+Watches every hour from 8 AM ET the day before the rain day until midnight ET as it begins. It evaluates a market only after its price has moved 10¢ or more since that market's last evaluation.
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$100.00** (started at $100). Updated 2026-09-25 20:00 UTC.
+Mock account **$100.00** (started at $100). Updated Sep 25 4:13 PM ET.
 
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
