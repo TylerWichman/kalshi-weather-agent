@@ -1,0 +1,21 @@
+{
+  "arm": "baseline",
+  "registered_in": "docs/sandbox/ (00-common.md + arm file)",
+  "frozen_at": "2026-09-25T17:16:07Z",
+  "commit_before": "2026-09-29T12:00:00Z",
+  "margin": 0.03,
+  "band_cents": [
+    5,
+    95
+  ],
+  "checks_h": [
+    0
+  ],
+  "trigger_c": null,
+  "alpha": -0.31947630832803087,
+  "beta": 1.17062863218865,
+  "copied_from": "config/kxrain_frozen.json",
+  "sides_traded": [
+    "no"
+  ]
+}
