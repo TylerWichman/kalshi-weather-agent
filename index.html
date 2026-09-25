@@ -138,9 +138,8 @@ footer p { margin: 4px 0; }
       <div class="delta flat" id="open-sub"></div>
     </div>
     <div class="card tile">
-      <div class="label">Test progress</div>
+      <div class="label">Running</div>
       <div class="value" id="progress"></div>
-      <div class="meter"><div id="meter"></div></div>
       <div class="delta flat" id="progress-sub"></div>
     </div>
   </section>
@@ -172,7 +171,7 @@ footer p { margin: 4px 0; }
 </main>
 
 <script>
-const DATA = {"title": "Sandbox arm 2: fixed times", "rule": "Checks at 12:00 and 18:00 UTC the day before, then 00:00 and 04:00 UTC on the contract date, with one curve per time. The first check that qualifies takes the trade.", "next_text": "Checks run at 12:00, 18:00, 00:00 and 04:00 UTC.", "updated": 1790360493, "start": 10000, "cash": 10000, "open": 0, "trades": [], "checks": [], "equity": [{"t": 1790360493, "v": 10000}], "health": {"ok": true, "summary": "", "problems": []}, "test": {"first": "2026-09-30", "last": "2026-10-27", "days": 28, "done": 0}, "stale_min": 600, "footer": ["Mock money only. No orders are placed.", "Checks at 12:00 and 18:00 UTC the day before, then 00:00 and 04:00 UTC on the contract date, with one curve per time. The first check that qualifies takes the trade. Taker fills at the best price on a book fetched just before each check, with the real taker fee, held to settlement. The account started at $100, and each trade spends at most $5. Open positions are valued at what they could be sold for now.", "Events Sep 28 and Sep 29 are warm-up. The test is the 28 events from Sep 30 to Oct 27.", "This is a sandbox arm, separate from Gate 2 and from the other two arms. The verdict comes from the pre-registered scoring (docs/sandbox/) after the last test event settles, at a 99% bar because three arms are tested at once. Nothing seen here changes a rule or a date."], "note": "Updated after every check and at the start of each run. Branch sbx-state-fixed. Reloads itself every minute."};
+const DATA = {"title": "Sandbox arm 2: fixed times", "rule": "Checks at 12:00 and 18:00 UTC the day before, then 00:00 and 04:00 UTC on the contract date, with one curve per time. The first check that qualifies takes the trade.", "next_text": "Checks run at 12:00, 18:00, 00:00 and 04:00 UTC.", "updated": 1790360872, "start": 10000, "cash": 10000, "open": 0, "trades": [], "checks": [], "equity": [{"t": 1790360493, "v": 10000}, {"t": 1790360872, "v": 10000}], "health": {"ok": true, "summary": "", "problems": []}, "live": {"since": 1790361900, "checks": 0}, "stale_min": 600, "footer": ["Mock money only. No orders are placed.", "Checks at 12:00 and 18:00 UTC the day before, then 00:00 and 04:00 UTC on the contract date, with one curve per time. The first check that qualifies takes the trade. Taker fills at the best price on a book fetched just before each check, with the real taker fee, held to settlement. The account started at $100, and each trade spends at most $5. Open positions are valued at what they could be sold for now.", "This is a sandbox arm, separate from Gate 2 and from the other two arms. Its go/no-go comes from the pre-registered scoring in docs/sandbox/, at a 99% bar because three arms are tested at once. Nothing seen here changes a rule."], "note": "Updated after every check and at the start of each run. Branch sbx-state-fixed. Reloads itself every minute."};
 
 const $ = (id) => document.getElementById(id);
 const usd = (c, sign) => {
@@ -246,11 +245,9 @@ function render() {
                       - t.price) * t.contracts - t.fee;
   const realized = settled.reduce((s, t) => s + pnl(t), 0);
   $("settled").textContent = `${won} won · ${settled.length - won} lost`;
-  const testSettled = settled.filter((t) => t.day >= d.test.first);
-  const testPnl = testSettled.reduce((s, t) => s + pnl(t), 0);
   $("settled-sub").textContent = settled.length
     ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized` +
-      (testSettled.length ? ` · test days ${usd(testPnl, true)}` : "")
+
     : "None settled yet";
 
   const open = d.trades.filter((t) => t.status === "open");
@@ -258,10 +255,9 @@ function render() {
   $("open").textContent = open.length;
   $("open-sub").textContent = open.length ? `${usd(atRisk)} committed` : "No open positions";
 
-  const done = d.test.done;
-  $("progress").textContent = `Event ${Math.min(done, d.test.days)} of ${d.test.days}`;
-  $("meter").style.width = (100 * Math.min(done, d.test.days) / d.test.days) + "%";
-  $("progress-sub").textContent = `Test ${fmtDay(d.test.first)} to ${fmtDay(d.test.last)}`;
+  const dayN = Math.floor((now - d.live.since) / 86400) + 1;
+  $("progress").textContent = `Day ${dayN}`;
+  $("progress-sub").textContent = `Since ${fmtTime(d.live.since)} · ${d.live.checks} check${d.live.checks === 1 ? "" : "s"} run`;
 
   drawChart(d);
 
@@ -288,7 +284,7 @@ function render() {
   table($("days-table"), ["Check", "Event", "Status", "Markets", "Evaluated", "Trades"],
     d.checks.slice().reverse().map((x) => (tr) => {
       cell(tr, fmtCheck(x.ts));
-      cell(tr, fmtDay(x.day) + (x.day < d.test.first ? " (warm-up)" : ""));
+      cell(tr, fmtDay(x.day));
       cell(tr, label[x.status] || x.status);
       cell(tr, x.markets ?? "–"); cell(tr, x.evals ?? "–"); cell(tr, x.trades ?? "–");
     }), d.next_text);
