@@ -4,7 +4,7 @@ Checks once a day at 00:00 UTC on the contract date. This is the frozen Gate 2 r
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$100.00** (started at $100). Updated 2026-09-25 18:27 UTC.
+Mock account **$100.00** (started at $100). Updated 2026-09-25 18:32 UTC.
 
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
