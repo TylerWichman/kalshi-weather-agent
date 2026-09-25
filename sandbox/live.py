@@ -19,6 +19,7 @@ least 60 s before the check records the check as MISSED. Nothing is ever traded 
 import argparse
 import json
 import os
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -45,7 +46,7 @@ DEPTH_CAP = 100
 # in 00-common.md) and keeps running past the test. The dashboard shows it as one live
 # account. The shakeout-vs-scored split exists only in the verdict, which scores events
 # 26SEP30..26OCT27 from candles (scripts/sandbox_gates.py) and never reads this ledger.
-LIVE_SINCE = datetime(2026, 9, 25, 18, 45, tzinfo=timezone.utc)
+LIVE_SINCE = datetime(2026, 9, 25, 18, 28, tzinfo=timezone.utc)   # first live serve run
 PAPER_FIRST = date(2026, 9, 26)
 PAPER_LAST = date(2026, 12, 31)
 
@@ -375,10 +376,27 @@ def render(conn, arm, state_dir):
         "/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
     os.makedirs(state_dir, exist_ok=True)
     out = os.path.join(state_dir, "index.html")
-    open(out + ".tmp", "w", encoding="utf-8").write(html)
-    os.replace(out + ".tmp", out)
+    if script_ok(html, state_dir):
+        open(out + ".tmp", "w", encoding="utf-8").write(html)
+        os.replace(out + ".tmp", out)
+    else:
+        log("DASHBOARD SCRIPT FAILED ITS SYNTAX CHECK: keeping the last good page")
     readme(conn, arm, state_dir, cash + open_val, probs)
     return out
+
+
+def script_ok(html, scratch_dir):
+    """A page whose script does not parse shows as bare HTML. Check it with node (present
+    on GitHub's runners) before publishing; without node, publish as before."""
+    node = shutil.which("node")
+    if not node:
+        return True
+    js = os.path.join(scratch_dir, ".dashboard_check.js")
+    open(js, "w", encoding="utf-8").write(html[html.index("<script>") + 8:html.rindex("</script>")])
+    try:
+        return subprocess.run([node, "--check", js], capture_output=True).returncode == 0
+    finally:
+        os.remove(js)
 
 
 def readme(conn, arm, state_dir, equity, probs):

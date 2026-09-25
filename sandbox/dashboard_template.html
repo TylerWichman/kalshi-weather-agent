@@ -246,8 +246,7 @@ function render() {
   const realized = settled.reduce((s, t) => s + pnl(t), 0);
   $("settled").textContent = `${won} won · ${settled.length - won} lost`;
   $("settled-sub").textContent = settled.length
-    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized` +
-
+    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized`
     : "None settled yet";
 
   const open = d.trades.filter((t) => t.status === "open");
@@ -255,7 +254,7 @@ function render() {
   $("open").textContent = open.length;
   $("open-sub").textContent = open.length ? `${usd(atRisk)} committed` : "No open positions";
 
-  const dayN = Math.floor((now - d.live.since) / 86400) + 1;
+  const dayN = Math.max(1, Math.floor((now - d.live.since) / 86400) + 1);
   $("progress").textContent = `Day ${dayN}`;
   $("progress-sub").textContent = `Since ${fmtTime(d.live.since)} · ${d.live.checks} check${d.live.checks === 1 ? "" : "s"} run`;
 
