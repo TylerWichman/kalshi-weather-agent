@@ -5,7 +5,7 @@ on the repo's `state` branch, checked out at ./state. Each job loads them into a
 fresh SQLite database, runs the same code the laptop runs (src/candidates.py,
 src/paper.py), and writes them back.
 
-    python -m src.actions nightly   # 23:29 UTC cron: snapshots at 23:51 and 23:56,
+    python -m src.actions nightly   # 20:07 UTC cron: snapshots at 23:51 and 23:56,
                                     # paper trade at 00:00:30, then update
     python -m src.actions update    # every 3 h: settle, mark, alerts, morning summary
     python -m src.actions dryrun    # one snapshot now, no trade: checks the plumbing
@@ -15,9 +15,9 @@ Only what cannot be backfilled is kept: KXRAIN book snapshots (Gate 2's depth si
 and the paper-trading ledger. Candles and results come back from Kalshi's API at Gate 2
 time with `python -m src.candidates history --series KXRAIN`.
 
-Timing: GitHub starts scheduled jobs late, often by 5-30 minutes and worst around the
-top of the hour. The job therefore starts early (23:29, backup 23:44) and waits inside
-itself for the exact times. A start later than 23:51 loses snapshots; later than 00:05
+Timing: GitHub starts scheduled jobs late, sometimes by over 2 hours (the 23:29 run
+for 09-25 started at 01:45 and the night was missed). The job therefore starts about
+4 hours early (20:07, backup 21:37) and waits inside itself for the exact times. A start later than 23:51 loses snapshots; later than 00:05
 loses the night, which paper.py records as MISSED and alerts on. A snapshot run that
 starts within 60 s of 00:00, or is still fetching at 00:00, is discarded and logged
 (candidates.DECISION_GUARD_S), so lateness shows up as a gap, never as bad data.
