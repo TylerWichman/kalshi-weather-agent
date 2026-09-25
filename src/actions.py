@@ -37,6 +37,9 @@ STATE = os.path.join(cand.ROOT, "state")
 SERIES = "KXRAIN"
 SNAP_OFFSETS_S = (-9 * 60, -4 * 60)        # 23:51 and 23:56 UTC
 TRADE_OFFSET_S = 30                         # 00:00:30 UTC
+# Updates run every 3 h but start late, and none run while the nightly job waits
+# (19:13 to about 00:01), so the page may be ~5 h old on a normal day.
+PAGE_STALE_MIN = 7 * 60
 
 # table -> (primary-key columns, optional WHERE for export)
 TABLES = {
@@ -156,6 +159,15 @@ def cmd_nightly(conn):
     paper.cmd_update(conn)
 
 
+def publish_dashboard(conn, state_dir):
+    """The dashboard, drawn into the state branch, which GitHub Pages serves at
+    https://tylerwichman.github.io/kalshi-weather-agent/. Redrawn after every job."""
+    paper.render(conn, out=os.path.join(state_dir, "index.html"), stale_min=PAGE_STALE_MIN,
+                 note="Updated after every GitHub run: nightly just after 00:00 UTC "
+                      "(8 PM Eastern) and about every 3 hours. Reloads itself every minute.")
+    open(os.path.join(state_dir, ".nojekyll"), "w").close()   # serve files as-is
+
+
 def step_summary(conn):
     """A readable page on the run itself (Actions tab, also in the GitHub mobile app)."""
     path = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -212,6 +224,7 @@ def main():
         print(actions_health(conn))
 
     export_state(conn, args.state)
+    publish_dashboard(conn, args.state)
     step_summary(conn)
     conn.close()
 

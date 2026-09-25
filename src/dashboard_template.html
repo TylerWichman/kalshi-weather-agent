@@ -224,7 +224,7 @@ function render() {
     (mins > 1 ? ` (${mins} min ago)` : "");
 
   const pill = $("pill");
-  const stale = mins > 25;
+  const stale = mins > (d.stale_min || 25);
   const ok = d.health.ok && !stale;
   pill.querySelector(".dot").style.background = ok ? "var(--up)" : "var(--down)";
   pill.lastChild.textContent = ok ? "✓ Collector OK" : "! Collector problem";
@@ -278,7 +278,7 @@ function render() {
       const p = pnl(t); cell(tr, usd(p, true), p > 0 ? "up" : p < 0 ? "down" : "");
     }), "Nothing settled yet. Positions settle the morning after their rain day.");
 
-  const label = { traded: "Traded", "no-signal": "No signal", missed: "! Missed (machine was off)" };
+  const label = { traded: "Traded", "no-signal": "No signal", missed: "! Missed (run started too late)" };
   table($("days-table"), ["Day", "Status", "Markets", "Trades"],
     d.days.slice().reverse().map((x) => (tr) => {
       cell(tr, fmtDay(x.day));
@@ -286,7 +286,7 @@ function render() {
       cell(tr, x.markets); cell(tr, x.trades);
     }), "The first paper trades run at 00:00 UTC (8 PM Eastern).");
 
-  $("refresh").textContent = "This page reloads itself every minute.";
+  $("refresh").textContent = d.note || "This page reloads itself every minute.";
 }
 
 function niceStep(range, target) {

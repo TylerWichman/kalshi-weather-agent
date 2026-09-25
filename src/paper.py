@@ -360,7 +360,9 @@ def site_dir():
     return d
 
 
-def render(conn):
+def render(conn, out=None, stale_min=25, note=None):
+    """Draw the dashboard to `out` (default: site_dir()/index.html). stale_min is how
+    old the page may get before it flags itself; note replaces the footer line."""
     trades = [dict(zip(("ticker", "day", "city", "side", "price", "contracts", "fee",
                         "p_model", "entered", "status", "settled", "mark"), r))
               for r in conn.execute(
@@ -377,10 +379,11 @@ def render(conn):
         trades=trades, equity=equity, days=days,
         health=dict(ok=not problems, summary=summary, problems=problems),
         test=dict(first=TEST_FIRST, last=TEST_LAST, days=TEST_DAYS, paper_first=PAPER_FIRST),
+        stale_min=stale_min, note=note,
     )
     html = open(TEMPLATE, encoding="utf-8").read().replace(
         "/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
-    out = os.path.join(site_dir(), "index.html")
+    out = out or os.path.join(site_dir(), "index.html")
     tmp = out + ".tmp"
     open(tmp, "w", encoding="utf-8").write(html)
     os.replace(tmp, out)      # atomic: a viewer never loads a half-written page
