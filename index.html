@@ -171,7 +171,7 @@ footer p { margin: 4px 0; }
 </main>
 
 <script>
-const DATA = {"title": "Sandbox arm 3: move trigger", "rule": "Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract date. It evaluates a market only after its mid has moved 10\u00a2 or more since that market's last evaluation.", "next_text": "Checks run every hour from 12:00 to 04:00 UTC.", "updated": 1790360873, "start": 10000, "cash": 10000, "open": 0, "trades": [], "checks": [], "equity": [{"t": 1790360498, "v": 10000}, {"t": 1790360873, "v": 10000}], "health": {"ok": true, "summary": "", "problems": []}, "live": {"since": 1790361900, "checks": 0}, "stale_min": 480, "footer": ["Mock money only. No orders are placed.", "Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract date. It evaluates a market only after its mid has moved 10\u00a2 or more since that market's last evaluation. Taker fills at the best price on a book fetched just before each check, with the real taker fee, held to settlement. The account started at $100, and each trade spends at most $5. Open positions are valued at what they could be sold for now.", "This is a sandbox arm, separate from Gate 2 and from the other two arms. Its go/no-go comes from the pre-registered scoring in docs/sandbox/, at a 99% bar because three arms are tested at once. Nothing seen here changes a rule."], "note": "Updated after every check and at the start of each run. Branch sbx-state-trigger. Reloads itself every minute."};
+const DATA = {"title": "Sandbox arm 3: move trigger", "rule": "Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract date. It evaluates a market only after its mid has moved 10\u00a2 or more since that market's last evaluation.", "next_text": "Checks run every hour from 12:00 to 04:00 UTC.", "updated": 1790361116, "start": 10000, "cash": 10000, "open": 0, "trades": [], "checks": [], "equity": [{"t": 1790360498, "v": 10000}, {"t": 1790360873, "v": 10000}, {"t": 1790361116, "v": 10000}], "health": {"ok": true, "summary": "", "problems": []}, "live": {"since": 1790360880, "checks": 0}, "stale_min": 480, "footer": ["Mock money only. No orders are placed.", "Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract date. It evaluates a market only after its mid has moved 10\u00a2 or more since that market's last evaluation. Taker fills at the best price on a book fetched just before each check, with the real taker fee, held to settlement. The account started at $100, and each trade spends at most $5. Open positions are valued at what they could be sold for now.", "This is a sandbox arm, separate from Gate 2 and from the other two arms. Its go/no-go comes from the pre-registered scoring in docs/sandbox/, at a 99% bar because three arms are tested at once. Nothing seen here changes a rule."], "note": "Updated after every check and at the start of each run. Branch sbx-state-trigger. Reloads itself every minute."};
 
 const $ = (id) => document.getElementById(id);
 const usd = (c, sign) => {
@@ -246,8 +246,7 @@ function render() {
   const realized = settled.reduce((s, t) => s + pnl(t), 0);
   $("settled").textContent = `${won} won · ${settled.length - won} lost`;
   $("settled-sub").textContent = settled.length
-    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized` +
-
+    ? `${Math.round(100 * won / settled.length)}% won · ${usd(realized, true)} realized`
     : "None settled yet";
 
   const open = d.trades.filter((t) => t.status === "open");
@@ -255,7 +254,7 @@ function render() {
   $("open").textContent = open.length;
   $("open-sub").textContent = open.length ? `${usd(atRisk)} committed` : "No open positions";
 
-  const dayN = Math.floor((now - d.live.since) / 86400) + 1;
+  const dayN = Math.max(1, Math.floor((now - d.live.since) / 86400) + 1);
   $("progress").textContent = `Day ${dayN}`;
   $("progress-sub").textContent = `Since ${fmtTime(d.live.since)} · ${d.live.checks} check${d.live.checks === 1 ? "" : "s"} run`;
 
