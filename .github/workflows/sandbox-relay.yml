@@ -1,0 +1,48 @@
+name: Sandbox relay
+
+# Primary trigger for the three sandbox arms (branch `sandbox`). Each fire starts a serve run about 30 min before its first check; a serve run covers every check in the next 5 h. Separate from Gate 2's relay. A duplicate serve run skips checks already done.
+# Timer only: it decides WHEN existing jobs start, never what they do. Each run sleeps
+# until the next fire time below, dispatches that workflow (dispatched runs start within
+# about a minute, unlike GitHub's cron), and before its ~5 h 20 min limit dispatches the
+# next relay run, so the chain keeps itself going. The cron here only restarts the chain
+# if it ever breaks; the target workflows keep their own crons as a further backup.
+# Logic and tests: .github/scripts/relay.sh.
+on:
+  workflow_dispatch:
+    inputs:
+      after:
+        description: "internal: last fire time already handled (epoch seconds)"
+        default: "0"
+  schedule:
+    - cron: "41 */4 * * *"
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: sandbox-relay
+  cancel-in-progress: false
+
+jobs:
+  relay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    steps:
+      - uses: actions/checkout@v4
+      - name: Relay
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          AFTER: ${{ inputs.after || '0' }}
+          RELAY_WORKFLOW: sandbox-relay.yml
+          FIRES: |
+            11:30 sandbox-trigger.yml mode=serve
+            11:30 sandbox-fixed.yml mode=serve
+            16:30 sandbox-trigger.yml mode=serve
+            17:30 sandbox-fixed.yml mode=serve
+            21:30 sandbox-trigger.yml mode=serve
+            23:30 sandbox-fixed.yml mode=serve
+            23:30 sandbox-baseline.yml mode=serve
+            02:30 sandbox-trigger.yml mode=serve
+        run: bash .github/scripts/relay.sh

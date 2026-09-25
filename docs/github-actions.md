@@ -8,7 +8,8 @@ the ntfy topic is a repo secret and never appears in them. (The repo was private
 
 | workflow | when (UTC) | does |
 |---|---|---|
-| **KXRAIN nightly** | 20:07, backup 21:37 | waits in-job for book snapshots at 23:51 and 23:56, the paper trade at 00:00:30, then an update |
+| **KXRAIN relay** | always running | the primary trigger: dispatches *KXRAIN nightly* at 19:15 UTC (below) |
+| **KXRAIN nightly** | 19:15 via the relay; cron 20:07 and 21:37 as backup | waits in-job for book snapshots at 23:51 and 23:56, the paper trade at 00:00:30, then an update |
 | **KXRAIN update** | every 3 h at :13 | settles positions, marks to market, sends alerts; the 13:13 run sends the morning summary |
 
 State that cannot be backfilled lives on the **`state` branch** as JSON lines: KXRAIN
@@ -24,6 +25,16 @@ logged. Gate 2 uses only snapshots stamped 23:50:00–23:59:00. A paper trade mo
 5 minutes late becomes a missed night. Lateness shows up as a gap and an alert, never
 as bad data.
 
+**The relay (owner decision 2026-09-25, after a second late start).** The same day,
+the 20:07 and 21:37 crons had still not started by 21:48, so the nightly was started by
+hand. Cron is now only a backup. *KXRAIN relay* is a timer job that sleeps until 19:15 UTC
+and dispatches *KXRAIN nightly*. A dispatched run starts within about a minute. Before its
+own ~5 h 20 min limit, the relay dispatches its successor, so the chain keeps itself going.
+A cron every 4 h (:41) restarts the chain only if it ever breaks. The relay changes only
+*when* the nightly starts, never what it does, and a duplicate start logs "already
+handled". Logic: `.github/scripts/relay.sh`. The sandbox arms have their own separate
+*Sandbox relay*.
+
 ## Watching it
 
 - **Dashboard:** https://tylerwichman.github.io/kalshi-weather-agent/ (GitHub Pages,
@@ -36,6 +47,10 @@ as bad data.
 - **A failed job** also triggers GitHub's own failure email.
 
 ## Running a job by hand
+
+If the nightly has not started by about 23:30 UTC (7:30 PM ET), check *KXRAIN relay*
+first. A relay run should always be in progress. If none is, **Run workflow** on it
+restarts the chain.
 
 Actions → *KXRAIN nightly* → **Run workflow** → `dryrun` takes one snapshot and places
 no trade. *KXRAIN update* → **Run workflow** settles and marks now.
