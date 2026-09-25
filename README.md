@@ -4,7 +4,7 @@ Watches every hour from 12:00 UTC the day before to 04:00 UTC on the contract da
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$100.00** (started at $100). Updated 2026-09-25 19:00 UTC.
+Mock account **$100.00** (started at $100). Updated 2026-09-25 20:00 UTC.
 
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
