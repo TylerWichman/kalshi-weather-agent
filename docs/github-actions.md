@@ -26,6 +26,9 @@ as bad data.
 
 ## Watching it
 
+- **Dashboard:** https://tylerwichman.github.io/kalshi-weather-agent/ (GitHub Pages,
+  served from the `state` branch). Every job redraws it, so it updates just after
+  00:00 UTC and about every 3 hours; allow a minute or two for Pages to deploy.
 - **Phone:** ntfy alerts, one per night's trades, one per settlement, and a morning
   summary.
 - **GitHub:** repo → **Actions** → any run → the summary shows the account, the
