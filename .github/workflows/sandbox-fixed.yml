@@ -1,0 +1,50 @@
+name: Sandbox arm 2 (fixed times)
+
+# Sandbox arm `fixed` (docs/sandbox/ on branch `sandbox`). Separate from Gate 2:
+# runs the `sandbox` branch's code, keeps state on its own branch sbx-state-fixed, and
+# never touches `state`. Each run serves every check due in the next 5 h, starting
+# early and waiting in-job because GitHub starts scheduled jobs late.
+on:
+  schedule:
+    - cron: "7 8 * * *"
+    - cron: "37 9 * * *"
+    - cron: "7 14 * * *"
+    - cron: "37 15 * * *"
+    - cron: "7 20 * * *"
+    - cron: "37 21 * * *"
+    - cron: "7 0 * * *"
+    - cron: "37 1 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dryrun = one snapshot now, no trade (plumbing check)"
+        type: choice
+        options: [dryrun, serve]
+        default: dryrun
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sandbox-fixed
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: sandbox
+      - name: Load state
+        run: bash .github/scripts/sbx_load_state.sh sbx-state-fixed
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet numpy
+      - name: Run
+        run: python -m sandbox.live ${{ github.event_name == 'schedule' && 'serve' || inputs.mode }} --arm fixed
+      - name: Save state
+        if: always()
+        run: bash .github/scripts/sbx_save_state.sh sbx_state sbx-state-fixed final

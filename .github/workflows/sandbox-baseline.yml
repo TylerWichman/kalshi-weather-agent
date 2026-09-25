@@ -1,0 +1,45 @@
+name: Sandbox arm 1 (baseline)
+
+# Sandbox arm `baseline` (docs/sandbox/ on branch `sandbox`). Separate from Gate 2:
+# runs the `sandbox` branch's code, keeps state on its own branch sbx-state-baseline, and
+# never touches `state`. Each run serves every check due in the next 5 h, starting
+# early and waiting in-job because GitHub starts scheduled jobs late.
+on:
+  schedule:
+    - cron: "7 20 * * *"
+    - cron: "37 21 * * *"
+    - cron: "13 14 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dryrun = one snapshot now, no trade (plumbing check)"
+        type: choice
+        options: [dryrun, serve]
+        default: dryrun
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sandbox-baseline
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: sandbox
+      - name: Load state
+        run: bash .github/scripts/sbx_load_state.sh sbx-state-baseline
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet numpy
+      - name: Run
+        run: python -m sandbox.live ${{ github.event_name == 'schedule' && 'serve' || inputs.mode }} --arm baseline
+      - name: Save state
+        if: always()
+        run: bash .github/scripts/sbx_save_state.sh sbx_state sbx-state-baseline final
