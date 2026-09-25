@@ -1,0 +1,53 @@
+{
+  "arm": "fixed",
+  "registered_in": "docs/sandbox/ (00-common.md + arm file)",
+  "frozen_at": "2026-09-25T17:16:28Z",
+  "commit_before": "2026-09-29T12:00:00Z",
+  "margin": 0.03,
+  "band_cents": [
+    5,
+    95
+  ],
+  "checks_h": [
+    -12,
+    -6,
+    0,
+    4
+  ],
+  "trigger_c": null,
+  "curves": {
+    "-12": {
+      "alpha": -0.1220574280225501,
+      "beta": 1.3552961179679939,
+      "n": 1273
+    },
+    "-6": {
+      "alpha": -0.27296609405395184,
+      "beta": 1.1755704845960322,
+      "n": 1316
+    },
+    "0": {
+      "alpha": -0.3220695323349494,
+      "beta": 1.1721552876428722,
+      "n": 1303
+    },
+    "4": {
+      "alpha": -0.42036194048453923,
+      "beta": 1.1664095484453043,
+      "n": 1294
+    }
+  },
+  "dev": {
+    "first": "2026-07-15",
+    "last": "2026-09-23",
+    "markets": 1400,
+    "eval_points": 5186,
+    "oof_trades": 623,
+    "oof_mean_net_c": 3.0224719101123596,
+    "insample_trades": 620
+  },
+  "sides_traded": [
+    "no",
+    "yes"
+  ]
+}
