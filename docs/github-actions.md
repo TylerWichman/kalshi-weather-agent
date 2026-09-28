@@ -9,8 +9,9 @@ the ntfy topic is a repo secret and never appears in them. (The repo was private
 | workflow | when (UTC) | does |
 |---|---|---|
 | **KXRAIN relay** | always running | the primary trigger: dispatches *KXRAIN nightly* at 19:15 UTC (below) |
-| **KXRAIN nightly** | 19:15 via the relay; cron 20:07 and 21:37 as backup | waits in-job for book snapshots at 23:51 and 23:56, the paper trade at 00:00:30, then an update |
-| **KXRAIN update** | every 3 h at :13 | settles positions, marks to market, sends alerts; the 13:13 run sends the morning summary |
+| **KXRAIN nightly** | 19:15 via the relay; cron 20:07 and 21:37 as backup | waits in-job for book snapshots at 23:51 and 23:56, the paper trade at 00:00:30, then an update; while waiting it re-marks and republishes the dashboard every 20 min (none within 15 min of a snapshot) |
+| **KXRAIN update** | every 20 min, 00:33–18:53 | settles positions, marks to market, sends alerts; the first run after 13:00 sends the morning summary. Skipped while a nightly run is queued or running |
+| **Sandbox dashboards refresh** | every 20 min | display only: re-marks each sandbox arm's positions and redraws its page, skipping an arm whose serve run is active (serve runs re-mark themselves while waiting); nothing 23:40–00:10 |
 
 State that cannot be backfilled lives on the **`state` branch** as JSON lines: KXRAIN
 book snapshots, the snapshot-run audit log, and the paper-trading ledger
@@ -38,8 +39,9 @@ handled". Logic: `.github/scripts/relay.sh`. The sandbox arms have their own sep
 ## Watching it
 
 - **Dashboard:** https://tylerwichman.github.io/kalshi-weather-agent/ (GitHub Pages,
-  served from the `state` branch). Every job redraws it, so it updates just after
-  00:00 UTC and about every 3 hours; allow a minute or two for Pages to deploy.
+  served from the `state` branch). Every job redraws it, so prices are about 20 minutes
+  old at most when GitHub runs on time; allow a minute or two for Pages to deploy. The
+  open page checks for a newer copy every minute and whenever you return to the tab.
 - **Phone:** ntfy alerts, one per night's trades, one per settlement, and a morning
   summary.
 - **GitHub:** repo → **Actions** → any run → the summary shows the account, the

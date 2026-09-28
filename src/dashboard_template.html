@@ -384,7 +384,23 @@ function drawChart(d) {
 render();
 let resizeTimer;
 window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => DATA && drawChart(DATA), 150); });
-setTimeout(() => location.reload(), 60000);
+// Every minute, and whenever the tab is looked at again (background tabs pause timers),
+// fetch a fresh copy past the browser and CDN caches; switch to it only if it is newer.
+let checking = false;
+async function checkForUpdate() {
+  if (checking || document.hidden) return;
+  checking = true;
+  try {
+    const u = new URL(location.href); u.searchParams.set("t", Date.now());
+    const r = await fetch(u, { cache: "no-store" });
+    const m = r.ok && (await r.text()).match(/"updated":\s*(\d+)/);
+    if (m && (!DATA || +m[1] > DATA.updated)) location.replace(u);
+  } catch (e) { /* offline: keep showing what we have */ }
+  checking = false;
+}
+setInterval(checkForUpdate, 60000);
+document.addEventListener("visibilitychange", checkForUpdate);
+window.addEventListener("pageshow", (e) => { if (e.persisted) checkForUpdate(); });
 </script>
 </body>
 </html>

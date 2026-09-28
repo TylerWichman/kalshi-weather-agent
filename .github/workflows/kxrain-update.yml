@@ -1,23 +1,47 @@
 name: KXRAIN update
 
-# Every 3 hours at :13: settle positions, mark to market, send alerts. The 13:13 UTC
-# run sends the morning summary (9 AM Eastern, later if GitHub starts it late).
+# Every 20 minutes from 00:33 to 18:53 UTC: settle positions, mark to market, send
+# alerts (each settlement alerts once). The first run after 13:00 UTC sends the morning
+# summary (9 AM Eastern). None is scheduled 19:00-00:30 UTC: the nightly job holds the
+# state queue then and refreshes the page itself every 20 min.
+# A job that enters a queue cancels any run already waiting in it, which could be a
+# nightly run. So `gate`, outside the queue, skips the update entirely while a nightly
+# run is queued or running, and only `run` enters the queue.
 on:
   schedule:
-    - cron: "13 1-22/3 * * *"
+    - cron: "33,53 0 * * *"
+    - cron: "13,33,53 1-18 * * *"
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: write
 
-concurrency:
-  group: kxrain-state
-  cancel-in-progress: false
-
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          busy=$(gh run list --workflow kxrain-nightly.yml --limit 10 \
+                   --json status --jq '[.[] | select(.status != "completed")] | length')
+          echo "kxrain-nightly.yml runs not completed: $busy"
+          echo "go=$([ "$busy" = "0" ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+
   run:
+    needs: gate
+    if: needs.gate.outputs.go == 'yes'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    concurrency:
+      group: kxrain-state
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - name: Load state

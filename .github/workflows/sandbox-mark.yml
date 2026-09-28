@@ -1,0 +1,60 @@
+name: Sandbox dashboards refresh
+
+# Display only: settles and re-marks each sandbox arm's open positions and redraws its
+# dashboard, every 20 minutes between the arms' serve runs (`python -m sandbox.live mark`
+# on branch `sandbox`). Never fetches books, evaluates or trades.
+# A serve run re-marks by itself while it waits, so an arm whose serve run is queued or
+# running is skipped. The skip is decided in `gate`, outside the arms' queues, and a
+# skipped job never enters its queue: a job that enters one cancels any run already
+# waiting in it, which could be a serve run.
+# `mark` itself does nothing 23:40-00:10 UTC, when Gate 2 and the arms fetch books.
+on:
+  schedule:
+    - cron: "3,23,43 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      baseline: ${{ steps.check.outputs.baseline }}
+      fixed: ${{ steps.check.outputs.fixed }}
+      trigger: ${{ steps.check.outputs.trigger }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          for arm in baseline fixed trigger; do
+            busy=$(gh run list --workflow "sandbox-$arm.yml" --limit 10 \
+                     --json status --jq '[.[] | select(.status != "completed")] | length')
+            echo "sandbox-$arm.yml runs not completed: $busy"
+            echo "$arm=$([ "$busy" = "0" ] && echo go || echo skip)" >> "$GITHUB_OUTPUT"
+          done
+
+  baseline:
+    needs: gate
+    if: needs.gate.outputs.baseline == 'go'
+    uses: ./.github/workflows/sandbox-mark-arm.yml
+    with:
+      arm: baseline
+
+  fixed:
+    needs: gate
+    if: needs.gate.outputs.fixed == 'go'
+    uses: ./.github/workflows/sandbox-mark-arm.yml
+    with:
+      arm: fixed
+
+  trigger:
+    needs: gate
+    if: needs.gate.outputs.trigger == 'go'
+    uses: ./.github/workflows/sandbox-mark-arm.yml
+    with:
+      arm: trigger

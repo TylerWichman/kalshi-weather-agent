@@ -5,9 +5,10 @@ on the repo's `state` branch, checked out at ./state. Each job loads them into a
 fresh SQLite database, runs the same code the laptop runs (src/candidates.py,
 src/paper.py), and writes them back.
 
-    python -m src.actions nightly   # 20:07 UTC cron: snapshots at 23:51 and 23:56,
-                                    # paper trade at 00:00:30, then update
-    python -m src.actions update    # every 3 h: settle, mark, alerts, morning summary
+    python -m src.actions nightly   # 19:15 UTC relay: snapshots at 23:51 and 23:56,
+                                    # paper trade at 00:00:30, then update; re-marks and
+                                    # republishes the dashboard every 20 min while waiting
+    python -m src.actions update    # every 20 min: settle, mark, alerts, morning summary
     python -m src.actions dryrun    # one snapshot now, no trade: checks the plumbing
     python -m src.actions import-state --state PATH   # laptop, before Gate 2
 
@@ -26,6 +27,7 @@ starts within 60 s of 00:00, or is still fetching at 00:00, is discarded and log
 import argparse
 import json
 import os
+import subprocess
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -37,9 +39,11 @@ STATE = os.path.join(cand.ROOT, "state")
 SERIES = "KXRAIN"
 SNAP_OFFSETS_S = (-9 * 60, -4 * 60)        # 23:51 and 23:56 UTC
 TRADE_OFFSET_S = 30                         # 00:00:30 UTC
-# Updates run every 3 h but start late, and none run while the nightly job waits
-# (19:13 to about 00:01), so the page may be ~5 h old on a normal day.
-PAGE_STALE_MIN = 7 * 60
+# Updates run every 20 min (GitHub drops some), and the nightly job re-marks and
+# republishes every 20 min while it waits, so the page is rarely over an hour old.
+PAGE_STALE_MIN = 2 * 60
+REFRESH_EVERY_S = 20 * 60
+REFRESH_MARGIN_S = 15 * 60     # no refresh within 15 min of a snapshot or the trade
 
 # table -> (primary-key columns, optional WHERE for export)
 TABLES = {
@@ -132,6 +136,29 @@ def wait_until(ts):
         time.sleep(delay)
 
 
+def wait_refreshing(ts, refresh):
+    """wait_until(ts), calling refresh() every REFRESH_EVERY_S on the way, but never
+    within REFRESH_MARGIN_S of ts. A failed refresh is logged and ignored."""
+    while ts - time.time() > REFRESH_EVERY_S + REFRESH_MARGIN_S:
+        time.sleep(REFRESH_EVERY_S)
+        try:
+            refresh()
+        except Exception as e:
+            print(f"  dashboard refresh failed, carrying on: {e}", flush=True)
+    wait_until(ts)
+
+
+def refresh_published(conn, state_dir):
+    """Mid-run: settle and mark, then save the state branch so the dashboard is current."""
+    print(f"  refreshing the dashboard at {datetime.now(timezone.utc):%H:%M:%S} UTC", flush=True)
+    paper.cmd_update(conn)
+    export_state(conn, state_dir)
+    publish_dashboard(conn, state_dir)
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        subprocess.run(["bash", os.path.join(".github", "scripts", "save_state.sh"), "refresh"],
+                       cwd=cand.ROOT, check=True, timeout=120)
+
+
 def target_decision(now):
     """The midnight this run serves: tonight's if it is evening, else the one just past."""
     t = datetime.fromtimestamp(now, timezone.utc)
@@ -139,7 +166,7 @@ def target_decision(now):
     return int(datetime(day.year, day.month, day.day, tzinfo=timezone.utc).timestamp()), day
 
 
-def cmd_nightly(conn):
+def cmd_nightly(conn, state_dir):
     now = time.time()
     decision, day = target_decision(now)
     print(f"Nightly run for {day} (decision {datetime.fromtimestamp(decision, timezone.utc):%Y-%m-%d %H:%M} UTC), "
@@ -152,7 +179,7 @@ def cmd_nightly(conn):
         if time.time() > at + 180:
             print(f"  snapshot {off // 60:+d} min: too late, skipped")
             continue
-        wait_until(at)
+        wait_refreshing(at, lambda: refresh_published(conn, state_dir))
         cand.cmd_books(conn, [SERIES])
     wait_until(decision + TRADE_OFFSET_S)
     paper.cmd_trade(conn)
@@ -163,8 +190,9 @@ def publish_dashboard(conn, state_dir):
     """The dashboard, drawn into the state branch, which GitHub Pages serves at
     https://tylerwichman.github.io/kalshi-weather-agent/. Redrawn after every job."""
     paper.render(conn, out=os.path.join(state_dir, "index.html"), stale_min=PAGE_STALE_MIN,
-                 note="Updated after every GitHub run: nightly just after 00:00 UTC "
-                      "(8 PM Eastern) and about every 3 hours. Reloads itself every minute.")
+                 note="Prices are refreshed about every 20 minutes (GitHub sometimes skips "
+                      "a run). The page reloads itself every minute and whenever you return "
+                      "to the tab.")
     open(os.path.join(state_dir, ".nojekyll"), "w").close()   # serve files as-is
 
 
@@ -216,7 +244,7 @@ def main():
     print(f"loaded {n} state rows")
 
     if args.cmd == "nightly":
-        cmd_nightly(conn)
+        cmd_nightly(conn, args.state)
     elif args.cmd == "update":
         paper.cmd_update(conn)
     else:
