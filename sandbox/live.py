@@ -6,6 +6,11 @@ does read this arm's book snapshots, for criterion 3's depth sizing.
     python -m sandbox.live serve  --arm trigger   # serve every check due in the next 5 h
     python -m sandbox.live dryrun --arm trigger   # one snapshot now, no trade, no push
     python -m sandbox.live render --arm trigger   # redraw the dashboard only
+    python -m sandbox.live mark   --arm trigger   # settle, re-mark, redraw and push (no check)
+
+Marks are display only. A serve run re-marks every REFRESH_EVERY_S while it waits, and
+the sandbox-mark workflow runs `mark` between serve runs, so the page stays current.
+Neither refreshes near 00:00 UTC, when Gate 2 and the arms fetch books.
 
 State is JSON-lines on the arm's own branch sbx-state-<arm>, checked out at ./sbx_state.
 The arm never reads or writes Gate 2's `state` branch or data/candidates.sqlite, nor any
@@ -40,6 +45,9 @@ REPO = "TylerWichman/kalshi-weather-agent"
 PAUSE = 0.15                   # ~6 req/s: leaves Gate 2 its rate limit (00-common.md §1)
 HORIZON_S = 300 * 60           # serve checks up to 5 h ahead; the job's timeout is 330 min
 GUARD_S = 60
+REFRESH_EVERY_S = 20 * 60      # dashboard re-mark cadence while a serve run waits
+REFRESH_MARGIN_S = 15 * 60     # never re-mark within 15 min of a book fetch
+QUIET_UTC = (23 * 60 + 40, 10)  # no re-marking 23:40-00:10 UTC (minutes of the day)
 START_BANKROLL_C = 10_000
 MAX_TRADE_C = 500
 DEPTH_CAP = 100
@@ -75,7 +83,7 @@ def text(arm):
             rule=f"Checks once a day at {c[0]} ET, the evening before the rain day. This is "
                  "the frozen Gate 2 rule re-run in the sandbox as the control.",
             next=f"The next check is at {c[0]} ET.",
-            stale_min=26 * 60)
+            stale_min=2 * 60)
     if arm == "fixed":
         return dict(
             title="Sandbox arm 2: fixed times",
@@ -83,14 +91,14 @@ def text(arm):
                  f"{c[3]} ET as it begins, with one curve per time. The first check that "
                  "qualifies takes the trade.",
             next=f"Checks run at {c[0]}, {c[1]}, {c[2]} and {c[3]} ET.",
-            stale_min=10 * 60)
+            stale_min=2 * 60)
     return dict(
         title="Sandbox arm 3: move trigger",
         rule=f"Watches every hour from {c[0]} ET the day before the rain day until {c[-1]} ET "
              "as it begins. It evaluates a market only after its price has moved 10¢ or "
              "more since that market's last evaluation.",
         next=f"Checks run every hour from {c[0]} to {c[-1]} ET.",
-        stale_min=8 * 60)
+        stale_min=2 * 60)
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS books (ticker TEXT, snap_ts INTEGER, check_ts INTEGER,
@@ -304,6 +312,32 @@ def wait_until(ts):
         time.sleep(delay)
 
 
+def quiet_now(now=None):
+    """True in the 23:40-00:10 UTC window, when the dashboard is never re-marked."""
+    t = datetime.fromtimestamp(time.time() if now is None else now, timezone.utc)
+    m = t.hour * 60 + t.minute
+    return m >= QUIET_UTC[0] or m < QUIET_UTC[1]
+
+
+def wait_refreshing(ts, refresh_fn):
+    """wait_until(ts), calling refresh_fn() every REFRESH_EVERY_S on the way, but never
+    within REFRESH_MARGIN_S of ts or in the quiet window. Failures are logged, not raised."""
+    while ts - time.time() > REFRESH_EVERY_S + REFRESH_MARGIN_S:
+        time.sleep(REFRESH_EVERY_S)
+        if quiet_now():
+            continue
+        try:
+            refresh_fn()
+        except Exception as e:
+            log(f"dashboard refresh failed, carrying on: {e}")
+    wait_until(ts)
+
+
+def refresh(conn, arm, state_dir):
+    settle_and_mark(conn)
+    save(conn, arm, state_dir, "mark")
+
+
 # --------------------------------------------------------------------------- #
 
 def cmd_serve(conn, arm, params, state_dir):
@@ -324,7 +358,7 @@ def cmd_serve(conn, arm, params, state_dir):
                               None, "no run was in progress at the check time"))
             continue
         save(conn, arm, state_dir, "waiting")
-        wait_until(check_ts - lead)
+        wait_refreshing(check_ts - lead, lambda: refresh(conn, arm, state_dir))
         run_check(conn, arm, params, check_ts, day, offset)
         first_seen = first_seen or check_ts
         settle_and_mark(conn)
@@ -387,8 +421,9 @@ def render(conn, arm, state_dir):
             "go/no-go comes from the pre-registered scoring in docs/sandbox/, at a 99% bar "
             "because three arms are tested at once. Nothing seen here changes a rule.",
         ],
-        note=f"Updated after every check and at the start of each run. Branch "
-             f"sbx-state-{arm}. Reloads itself every minute.",
+        note=f"Prices are refreshed about every 20 minutes (GitHub sometimes skips a run) "
+             f"and after every check. Branch sbx-state-{arm}. The page reloads itself every "
+             f"minute and whenever you return to the tab.",
     )
     html = open(TEMPLATE, encoding="utf-8").read().replace(
         "/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
@@ -457,7 +492,7 @@ ARM = None
 def main():
     global ARM
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["serve", "dryrun", "render"])
+    ap.add_argument("cmd", choices=["serve", "dryrun", "render", "mark"])
     ap.add_argument("--arm", required=True, choices=list(R.ARMS))
     ap.add_argument("--state", default=STATE)
     args = ap.parse_args()
@@ -471,6 +506,11 @@ def main():
     elif args.cmd == "dryrun":
         cmd_dryrun(conn, args.arm)
         save(conn, args.arm, args.state, "dryrun")
+    elif args.cmd == "mark":
+        if quiet_now():
+            log("23:40-00:10 UTC: book fetches run now, so no re-mark")
+        else:
+            refresh(conn, args.arm, args.state)
     else:
         print(render(conn, args.arm, args.state))
 
