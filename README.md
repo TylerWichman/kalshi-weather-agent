@@ -4,19 +4,19 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$73.10** (started at $100). Updated Sep 29 6:27 AM ET.
+Mock account **$72.05** (started at $100). Updated Sep 29 6:47 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 09-29 | CLL | Sep 29 12:00 AM ET | NO | 4 | 88¢ | open | -0.07 |
-| 09-29 | MKE | Sep 29 12:00 AM ET | NO | 5 | 90¢ | open | -0.44 |
-| 09-29 | DEN | Sep 28 8:00 PM ET | NO | 9 | 49¢ | open | +2.90 |
-| 09-29 | AUS | Sep 28 2:00 PM ET | NO | 5 | 89¢ | open | -0.14 |
-| 09-29 | LV | Sep 28 2:00 PM ET | NO | 7 | 61¢ | open | -0.12 |
-| 09-29 | BOS | Sep 28 8:00 AM ET | NO | 2 | 63¢ | open | +0.48 |
-| 09-29 | HOU | Sep 28 8:00 AM ET | NO | 1 | 84¢ | open | -0.18 |
-| 09-29 | OKC | Sep 28 8:00 AM ET | NO | 6 | 82¢ | open | -2.05 |
-| 09-29 | PHX | Sep 28 8:00 AM ET | YES | 5 | 88¢ | open | +0.26 |
+| 09-29 | MKE | Sep 29 12:00 AM ET | NO | 5 | 90¢ | open | -0.64 |
+| 09-29 | DEN | Sep 28 8:00 PM ET | NO | 9 | 49¢ | open | +2.99 |
+| 09-29 | AUS | Sep 28 2:00 PM ET | NO | 5 | 89¢ | open | -0.19 |
+| 09-29 | LV | Sep 28 2:00 PM ET | NO | 7 | 61¢ | open | -0.75 |
+| 09-29 | BOS | Sep 28 8:00 AM ET | NO | 2 | 63¢ | open | +0.38 |
+| 09-29 | HOU | Sep 28 8:00 AM ET | NO | 1 | 84¢ | open | -0.17 |
+| 09-29 | OKC | Sep 28 8:00 AM ET | NO | 6 | 82¢ | open | -2.17 |
+| 09-29 | PHX | Sep 28 8:00 AM ET | YES | 5 | 88¢ | open | +0.21 |
 | 09-29 | PVD | Sep 28 8:00 AM ET | NO | 5 | 87¢ | open | +0.36 |
 | 09-29 | SATX | Sep 28 8:00 AM ET | NO | 6 | 77¢ | open | +0.46 |
 | 09-29 | SEA | Sep 28 8:00 AM ET | YES | 5 | 86¢ | open | -0.05 |
