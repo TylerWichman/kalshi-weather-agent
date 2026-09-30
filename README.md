@@ -4,20 +4,20 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$84.83** (started at $100). Updated Sep 30 9:00 AM ET.
+Mock account **$92.51** (started at $100). Updated Sep 30 9:20 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 09-30 | DAL | Sep 29 7:00 PM ET | NO | 12 | 37¢ | open | -1.16 |
-| 09-30 | DEN | Sep 29 7:00 PM ET | NO | 24 | 19¢ | open | +3.82 |
-| 09-30 | HOU | Sep 29 4:00 PM ET | NO | 1 | 38¢ | open | +0.33 |
+| 09-30 | DAL | Sep 29 7:00 PM ET | NO | 12 | 37¢ | open | -2.48 |
+| 09-30 | DEN | Sep 29 7:00 PM ET | NO | 24 | 19¢ | open | +4.54 |
+| 09-30 | HOU | Sep 29 4:00 PM ET | NO | 1 | 38¢ | open | +0.29 |
 | 09-30 | AUS | Sep 29 3:00 PM ET | NO | 9 | 52¢ | open | -0.16 |
-| 09-30 | SATX | Sep 29 12:00 PM ET | NO | 8 | 59¢ | open | -1.74 |
+| 09-30 | SATX | Sep 29 12:00 PM ET | NO | 8 | 59¢ | open | -1.42 |
 | 09-30 | MIA | Sep 29 11:00 AM ET | NO | 4 | 18¢ | open | -0.05 |
 | 09-29 | BOS | Sep 28 11:00 PM ET | NO | 8 | 58¢ | won | +3.22 |
 | 09-29 | OKC | Sep 28 11:00 PM ET | NO | 2 | 60¢ | won | +0.76 |
 | 09-29 | LV | Sep 28 6:00 PM ET | NO | 1 | 54¢ | open | -0.02 |
-| 09-29 | DEN | Sep 28 5:00 PM ET | NO | 8 | 56¢ | open | -0.14 |
+| 09-29 | DEN | Sep 28 5:00 PM ET | NO | 8 | 56¢ | won | +3.38 |
 | 09-28 | DAL | Sep 27 8:00 PM ET | NO | 3 | 47¢ | won | +1.53 |
 | 09-28 | PHIL | Sep 27 7:00 PM ET | NO | 20 | 10¢ | lost | -2.13 |
 | 09-28 | PHX | Sep 27 7:00 PM ET | NO | 31 | 15¢ | lost | -4.93 |
