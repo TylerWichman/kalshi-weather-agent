@@ -4,16 +4,17 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$103.87** (started at $100). Updated Sep 30 7:20 PM ET.
+Mock account **$102.04** (started at $100). Updated Sep 30 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-01 | DEN | Sep 30 8:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
 | 09-30 | AUS | Sep 29 8:00 PM ET | NO | 7 | 64¢ | open | -0.12 |
-| 09-30 | CLL | Sep 29 8:00 PM ET | NO | 3 | 73¢ | open | +0.64 |
+| 09-30 | CLL | Sep 29 8:00 PM ET | NO | 3 | 73¢ | open | +0.61 |
 | 09-30 | DAL | Sep 29 8:00 PM ET | NO | 9 | 51¢ | open | -0.16 |
-| 09-30 | HOU | Sep 29 8:00 PM ET | NO | 10 | 45¢ | open | +4.92 |
+| 09-30 | HOU | Sep 29 8:00 PM ET | NO | 10 | 45¢ | open | +5.02 |
 | 09-30 | PHX | Sep 29 8:00 PM ET | NO | 5 | 88¢ | open | +0.51 |
-| 09-30 | SATX | Sep 29 8:00 PM ET | NO | 3 | 57¢ | open | +0.84 |
+| 09-30 | SATX | Sep 29 8:00 PM ET | NO | 3 | 57¢ | open | -0.96 |
 | 09-29 | BOS | Sep 28 8:00 PM ET | NO | 4 | 73¢ | won | +1.02 |
 | 09-29 | DEN | Sep 28 8:00 PM ET | NO | 9 | 49¢ | won | +4.43 |
 | 09-29 | HOU | Sep 28 8:00 PM ET | NO | 6 | 75¢ | won | +1.42 |
