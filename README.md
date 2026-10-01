@@ -8,9 +8,9 @@ Mock account **$71.76** (started at $100). Updated Oct 1 12:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -0.46 |
 | 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -0.65 |
 | 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -0.29 |
-| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -0.46 |
 | 10-01 | NOLA | Sep 30 6:00 PM ET | NO | 14 | 32¢ | open | -0.22 |
 | 09-30 | DAL | Sep 29 7:00 PM ET | NO | 12 | 37¢ | lost | -4.64 |
 | 09-30 | DEN | Sep 29 7:00 PM ET | NO | 24 | 19¢ | lost | -4.82 |
