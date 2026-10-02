@@ -4,23 +4,23 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$81.82** (started at $100). Updated Oct 2 8:00 AM ET.
+Mock account **$80.65** (started at $100). Updated Oct 2 8:20 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | +0.01 |
-| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | +0.06 |
-| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | -0.18 |
+| 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | -0.01 |
+| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | +0.07 |
+| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | -0.25 |
 | 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | open | -1.42 |
 | 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | open | -0.78 |
 | 10-02 | CHI | Oct 1 2:00 PM ET | NO | 8 | 55¢ | open | +3.06 |
-| 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | open | +0.07 |
-| 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -0.53 |
-| 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | +14.47 |
-| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -1.98 |
-| 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -3.89 |
+| 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | open | +0.18 |
+| 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -0.77 |
+| 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | +13.39 |
+| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -1.50 |
+| 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -4.25 |
 | 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -0.23 |
-| 10-01 | NOLA | Sep 30 6:00 PM ET | NO | 14 | 32¢ | open | -0.22 |
+| 10-01 | NOLA | Sep 30 6:00 PM ET | NO | 14 | 32¢ | lost | -4.70 |
 | 09-30 | DAL | Sep 29 7:00 PM ET | NO | 12 | 37¢ | lost | -4.64 |
 | 09-30 | DEN | Sep 29 7:00 PM ET | NO | 24 | 19¢ | lost | -4.82 |
 | 09-30 | HOU | Sep 29 4:00 PM ET | NO | 1 | 38¢ | won | +0.60 |
