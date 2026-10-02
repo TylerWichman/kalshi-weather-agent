@@ -4,22 +4,23 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$77.75** (started at $100). Updated Oct 2 11:40 AM ET.
+Mock account **$78.19** (started at $100). Updated Oct 2 12:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | -0.05 |
-| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | -0.06 |
-| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | +1.01 |
-| 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | open | -2.06 |
-| 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | open | -1.90 |
+| 10-03 | MIN | Oct 2 12:00 PM ET | NO | 12 | 39¢ | open | -0.56 |
+| 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | -0.04 |
+| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | -0.05 |
+| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | +1.08 |
+| 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | open | -2.22 |
+| 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | open | -1.98 |
 | 10-02 | CHI | Oct 1 2:00 PM ET | NO | 8 | 55¢ | open | +3.38 |
-| 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | open | +0.23 |
-| 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -1.19 |
-| 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | +13.03 |
-| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -2.30 |
-| 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -4.25 |
-| 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -1.25 |
+| 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | open | +0.06 |
+| 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -1.13 |
+| 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | +13.75 |
+| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -2.06 |
+| 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -3.89 |
+| 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -1.31 |
 | 10-01 | NOLA | Sep 30 6:00 PM ET | NO | 14 | 32¢ | lost | -4.70 |
 | 09-30 | DAL | Sep 29 7:00 PM ET | NO | 12 | 37¢ | lost | -4.64 |
 | 09-30 | DEN | Sep 29 7:00 PM ET | NO | 24 | 19¢ | lost | -4.82 |
@@ -37,6 +38,5 @@ Mock account **$77.75** (started at $100). Updated Oct 2 11:40 AM ET.
 | 09-28 | LV | Sep 27 4:00 PM ET | NO | 8 | 59¢ | lost | -4.86 |
 | 09-28 | DEN | Sep 27 11:00 AM ET | NO | 7 | 61¢ | won | +2.61 |
 | 09-27 | DAL | Sep 26 6:00 PM ET | NO | 9 | 53¢ | won | +4.07 |
-| 09-27 | MIN | Sep 26 12:00 PM ET | NO | 8 | 59¢ | lost | -4.86 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
