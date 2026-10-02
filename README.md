@@ -4,22 +4,22 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$81.79** (started at $100). Updated Oct 2 10:00 AM ET.
+Mock account **$80.20** (started at $100). Updated Oct 2 10:20 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | +0.10 |
-| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | +0.00 |
-| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | +0.94 |
-| 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | open | -1.50 |
-| 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | open | -1.34 |
+| 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | +0.05 |
+| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | +0.01 |
+| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | +0.87 |
+| 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | open | -1.82 |
+| 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | open | -1.66 |
 | 10-02 | CHI | Oct 1 2:00 PM ET | NO | 8 | 55¢ | open | +3.30 |
 | 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | open | +0.09 |
-| 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -0.83 |
-| 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | +14.83 |
+| 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -0.47 |
+| 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | +14.11 |
 | 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | -1.58 |
-| 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -4.25 |
-| 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -1.13 |
+| 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -4.61 |
+| 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -1.25 |
 | 10-01 | NOLA | Sep 30 6:00 PM ET | NO | 14 | 32¢ | lost | -4.70 |
 | 09-30 | DAL | Sep 29 7:00 PM ET | NO | 12 | 37¢ | lost | -4.64 |
 | 09-30 | DEN | Sep 29 7:00 PM ET | NO | 24 | 19¢ | lost | -4.82 |
