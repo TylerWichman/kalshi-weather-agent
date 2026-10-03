@@ -8,10 +8,10 @@ Mock account **$74.20** (started at $100). Updated Oct 3 8:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | open | -0.19 |
-| 10-04 | MIA | Oct 3 8:00 AM ET | NO | 6 | 79¢ | open | -0.37 |
-| 10-04 | DAL | Oct 3 8:00 AM ET | NO | 4 | 65¢ | open | -0.19 |
 | 10-04 | BOS | Oct 3 8:00 AM ET | NO | 6 | 82¢ | open | -0.13 |
+| 10-04 | DAL | Oct 3 8:00 AM ET | NO | 4 | 65¢ | open | -0.19 |
+| 10-04 | MIA | Oct 3 8:00 AM ET | NO | 6 | 79¢ | open | -0.37 |
+| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | open | -0.19 |
 | 10-03 | MIN | Oct 3 12:00 AM ET | NO | 16 | 29¢ | open | -1.20 |
 | 10-03 | SATX | Oct 3 12:00 AM ET | NO | 4 | 40¢ | open | -0.19 |
 | 10-03 | TTN | Oct 3 12:00 AM ET | NO | 5 | 91¢ | open | +0.37 |
