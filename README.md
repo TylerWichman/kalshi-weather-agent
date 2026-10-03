@@ -4,21 +4,21 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$88.06** (started at $100). Updated Oct 3 1:57 PM ET.
+Mock account **$110.04** (started at $100). Updated Oct 3 4:12 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-03 | MIA | Oct 2 8:00 PM ET | NO | 10 | 47¢ | open | +2.42 |
-| 10-03 | OKC | Oct 2 8:00 PM ET | NO | 5 | 91¢ | open | -0.98 |
-| 10-03 | PHIL | Oct 2 8:00 PM ET | NO | 6 | 71¢ | open | +1.53 |
-| 10-02 | ATL | Oct 1 8:00 PM ET | NO | 6 | 72¢ | open | -0.09 |
-| 10-02 | BOS | Oct 1 8:00 PM ET | NO | 1 | 53¢ | open | -0.02 |
-| 10-02 | CHI | Oct 1 8:00 PM ET | NO | 7 | 63¢ | open | -0.12 |
-| 10-02 | EWR | Oct 1 8:00 PM ET | NO | 1 | 50¢ | open | -0.02 |
-| 10-02 | NYC | Oct 1 8:00 PM ET | NO | 8 | 57¢ | open | -0.14 |
-| 10-02 | PHIL | Oct 1 8:00 PM ET | NO | 2 | 55¢ | open | -0.04 |
-| 10-02 | PVD | Oct 1 8:00 PM ET | NO | 2 | 55¢ | open | -0.04 |
-| 10-02 | TTN | Oct 1 8:00 PM ET | NO | 1 | 48¢ | open | -0.02 |
+| 10-03 | MIA | Oct 2 8:00 PM ET | NO | 10 | 47¢ | open | +1.32 |
+| 10-03 | OKC | Oct 2 8:00 PM ET | NO | 5 | 91¢ | open | +0.22 |
+| 10-03 | PHIL | Oct 2 8:00 PM ET | NO | 6 | 71¢ | open | +1.41 |
+| 10-02 | ATL | Oct 1 8:00 PM ET | NO | 6 | 72¢ | won | +1.59 |
+| 10-02 | BOS | Oct 1 8:00 PM ET | NO | 1 | 53¢ | won | +0.45 |
+| 10-02 | CHI | Oct 1 8:00 PM ET | NO | 7 | 63¢ | won | +2.47 |
+| 10-02 | EWR | Oct 1 8:00 PM ET | NO | 1 | 50¢ | lost | -0.52 |
+| 10-02 | NYC | Oct 1 8:00 PM ET | NO | 8 | 57¢ | won | +3.30 |
+| 10-02 | PHIL | Oct 1 8:00 PM ET | NO | 2 | 55¢ | lost | -1.14 |
+| 10-02 | PVD | Oct 1 8:00 PM ET | NO | 2 | 55¢ | lost | -1.14 |
+| 10-02 | TTN | Oct 1 8:00 PM ET | NO | 1 | 48¢ | lost | -0.50 |
 | 10-01 | DEN | Sep 30 8:00 PM ET | NO | 5 | 84¢ | won | +0.75 |
 | 09-30 | AUS | Sep 29 8:00 PM ET | NO | 7 | 64¢ | lost | -4.60 |
 | 09-30 | CLL | Sep 29 8:00 PM ET | NO | 3 | 73¢ | won | +0.76 |
