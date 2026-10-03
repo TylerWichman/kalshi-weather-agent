@@ -4,18 +4,18 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$51.94** (started at $100). Updated Oct 2 10:00 PM ET.
+Mock account **$53.11** (started at $100). Updated Oct 2 10:20 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-03 | MIA | Oct 2 10:00 PM ET | NO | 14 | 34¢ | open | -0.50 |
+| 10-03 | MIA | Oct 2 10:00 PM ET | NO | 14 | 34¢ | open | -0.64 |
 | 10-03 | CLL | Oct 2 6:00 PM ET | NO | 6 | 42¢ | open | -0.65 |
-| 10-03 | AUS | Oct 2 2:00 PM ET | NO | 33 | 14¢ | open | +1.04 |
-| 10-03 | DC | Oct 2 2:00 PM ET | NO | 1 | 22¢ | open | -0.09 |
-| 10-03 | SATX | Oct 2 1:00 PM ET | NO | 4 | 24¢ | open | +0.02 |
-| 10-03 | MIN | Oct 2 12:00 PM ET | NO | 12 | 39¢ | open | -2.00 |
+| 10-03 | AUS | Oct 2 2:00 PM ET | NO | 33 | 14¢ | open | +1.70 |
+| 10-03 | DC | Oct 2 2:00 PM ET | NO | 1 | 22¢ | open | -0.06 |
+| 10-03 | SATX | Oct 2 1:00 PM ET | NO | 4 | 24¢ | open | +0.46 |
+| 10-03 | MIN | Oct 2 12:00 PM ET | NO | 12 | 39¢ | open | -1.64 |
 | 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | open | -0.02 |
-| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | +0.51 |
+| 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | open | +0.49 |
 | 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | open | +1.92 |
 | 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | open | -0.14 |
 | 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | open | -0.14 |
@@ -23,7 +23,7 @@ Mock account **$51.94** (started at $100). Updated Oct 2 10:00 PM ET.
 | 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | open | -0.02 |
 | 10-02 | EWR | Oct 1 1:00 PM ET | NO | 6 | 52¢ | open | -0.11 |
 | 10-02 | MIA | Oct 1 1:00 PM ET | NO | 36 | 13¢ | open | -0.29 |
-| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | +2.50 |
+| 10-02 | BOS | Oct 1 11:00 AM ET | NO | 8 | 59¢ | open | +2.34 |
 | 10-02 | PIT | Oct 1 11:00 AM ET | NO | 36 | 13¢ | open | -0.29 |
 | 10-02 | PVD | Oct 1 11:00 AM ET | NO | 6 | 52¢ | open | -0.11 |
 | 10-01 | NOLA | Sep 30 6:00 PM ET | NO | 14 | 32¢ | lost | -4.70 |
