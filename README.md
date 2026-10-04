@@ -4,20 +4,20 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$82.22** (started at $100). Updated Oct 3 11:20 PM ET.
+Mock account **$82.06** (started at $100). Updated Oct 3 11:40 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-04 | NYC | Oct 3 8:00 PM ET | NO | 16 | 29¢ | open | +1.36 |
+| 10-04 | NYC | Oct 3 8:00 PM ET | NO | 16 | 29¢ | open | +1.04 |
 | 10-04 | PVD | Oct 3 8:00 PM ET | NO | 8 | 57¢ | open | -1.42 |
 | 10-04 | DC | Oct 3 6:00 PM ET | NO | 4 | 28¢ | open | -0.06 |
-| 10-04 | DAL | Oct 3 5:00 PM ET | NO | 2 | 45¢ | open | -0.10 |
-| 10-04 | AUS | Oct 3 3:00 PM ET | NO | 9 | 52¢ | open | -0.70 |
-| 10-04 | CLL | Oct 3 3:00 PM ET | NO | 1 | 49¢ | open | -0.04 |
-| 10-04 | HOU | Oct 3 1:00 PM ET | NO | 10 | 47¢ | open | -1.98 |
-| 10-03 | MIA | Oct 2 10:00 PM ET | NO | 14 | 34¢ | open | +7.76 |
+| 10-04 | DAL | Oct 3 5:00 PM ET | NO | 2 | 45¢ | open | -0.18 |
+| 10-04 | AUS | Oct 3 3:00 PM ET | NO | 9 | 52¢ | open | -0.61 |
+| 10-04 | CLL | Oct 3 3:00 PM ET | NO | 1 | 49¢ | open | -0.06 |
+| 10-04 | HOU | Oct 3 1:00 PM ET | NO | 10 | 47¢ | open | -2.28 |
+| 10-03 | MIA | Oct 2 10:00 PM ET | NO | 14 | 34¢ | open | +7.90 |
 | 10-03 | CLL | Oct 2 6:00 PM ET | NO | 6 | 42¢ | open | -0.11 |
-| 10-03 | AUS | Oct 2 2:00 PM ET | NO | 33 | 14¢ | open | +27.11 |
+| 10-03 | AUS | Oct 2 2:00 PM ET | NO | 33 | 14¢ | open | +27.44 |
 | 10-03 | DC | Oct 2 2:00 PM ET | NO | 1 | 22¢ | open | -0.02 |
 | 10-03 | SATX | Oct 2 1:00 PM ET | NO | 4 | 24¢ | open | +2.90 |
 | 10-03 | MIN | Oct 2 12:00 PM ET | NO | 12 | 39¢ | open | -0.20 |
