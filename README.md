@@ -4,21 +4,21 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$94.62** (started at $100). Updated Oct 3 8:40 PM ET.
+Mock account **$95.43** (started at $100). Updated Oct 3 9:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-04 | EWR | Oct 3 8:00 PM ET | NO | 10 | 46¢ | open | -0.38 |
-| 10-04 | AUS | Oct 3 2:00 PM ET | NO | 8 | 58¢ | open | -1.42 |
-| 10-04 | CLL | Oct 3 2:00 PM ET | NO | 1 | 57¢ | open | -0.16 |
-| 10-04 | MKE | Oct 3 2:00 PM ET | NO | 5 | 88¢ | open | -0.09 |
+| 10-04 | AUS | Oct 3 2:00 PM ET | NO | 8 | 58¢ | open | -0.94 |
+| 10-04 | CLL | Oct 3 2:00 PM ET | NO | 1 | 57¢ | open | -0.17 |
+| 10-04 | MKE | Oct 3 2:00 PM ET | NO | 5 | 88¢ | open | -0.19 |
 | 10-04 | PVD | Oct 3 2:00 PM ET | NO | 7 | 51¢ | open | -0.06 |
 | 10-04 | BOS | Oct 3 8:00 AM ET | NO | 6 | 82¢ | open | -1.09 |
-| 10-04 | DAL | Oct 3 8:00 AM ET | NO | 4 | 65¢ | open | -0.83 |
+| 10-04 | DAL | Oct 3 8:00 AM ET | NO | 4 | 65¢ | open | -0.71 |
 | 10-04 | MIA | Oct 3 8:00 AM ET | NO | 6 | 79¢ | open | +0.17 |
-| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | open | -0.37 |
+| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | open | -0.13 |
 | 10-03 | MIN | Oct 3 12:00 AM ET | NO | 16 | 29¢ | open | -0.24 |
-| 10-03 | SATX | Oct 3 12:00 AM ET | NO | 4 | 40¢ | open | +2.21 |
+| 10-03 | SATX | Oct 3 12:00 AM ET | NO | 4 | 40¢ | open | +2.29 |
 | 10-03 | TTN | Oct 3 12:00 AM ET | NO | 5 | 91¢ | open | +0.37 |
 | 10-03 | MIA | Oct 2 8:00 PM ET | NO | 10 | 47¢ | open | +3.72 |
 | 10-03 | OKC | Oct 2 8:00 AM ET | NO | 5 | 84¢ | open | +0.70 |
