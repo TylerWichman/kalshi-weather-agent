@@ -4,10 +4,11 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$81.77** (started at $100). Updated Oct 4 1:34 PM ET.
+Mock account **$81.02** (started at $100). Updated Oct 4 2:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-05 | MIA | Oct 4 2:00 PM ET | NO | 7 | 62¢ | open | -0.33 |
 | 10-04 | NYC | Oct 4 12:00 AM ET | NO | 4 | 33¢ | open | -0.07 |
 | 10-04 | PHIL | Oct 4 12:00 AM ET | NO | 7 | 39¢ | open | -0.12 |
 | 10-04 | TTN | Oct 4 12:00 AM ET | NO | 1 | 38¢ | open | -0.02 |
@@ -15,11 +16,11 @@ Mock account **$81.77** (started at $100). Updated Oct 4 1:34 PM ET.
 | 10-04 | AUS | Oct 3 2:00 PM ET | NO | 8 | 58¢ | open | -0.14 |
 | 10-04 | CLL | Oct 3 2:00 PM ET | NO | 1 | 57¢ | open | -0.02 |
 | 10-04 | MKE | Oct 3 2:00 PM ET | NO | 5 | 88¢ | open | +0.51 |
-| 10-04 | PVD | Oct 3 2:00 PM ET | NO | 7 | 51¢ | open | -1.46 |
-| 10-04 | BOS | Oct 3 8:00 AM ET | NO | 6 | 82¢ | open | -0.73 |
+| 10-04 | PVD | Oct 3 2:00 PM ET | NO | 7 | 51¢ | open | -1.88 |
+| 10-04 | BOS | Oct 3 8:00 AM ET | NO | 6 | 82¢ | open | -0.79 |
 | 10-04 | DAL | Oct 3 8:00 AM ET | NO | 4 | 65¢ | open | -0.07 |
-| 10-04 | MIA | Oct 3 8:00 AM ET | NO | 6 | 79¢ | open | +0.17 |
-| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | open | +0.17 |
+| 10-04 | MIA | Oct 3 8:00 AM ET | NO | 6 | 79¢ | open | +0.41 |
+| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | open | -0.01 |
 | 10-03 | MIN | Oct 3 12:00 AM ET | NO | 16 | 29¢ | lost | -4.88 |
 | 10-03 | SATX | Oct 3 12:00 AM ET | NO | 4 | 40¢ | won | +2.33 |
 | 10-03 | TTN | Oct 3 12:00 AM ET | NO | 5 | 91¢ | won | +0.42 |
@@ -37,6 +38,5 @@ Mock account **$81.77** (started at $100). Updated Oct 4 1:34 PM ET.
 | 10-02 | BOS | Oct 1 8:00 AM ET | NO | 6 | 71¢ | won | +1.65 |
 | 10-02 | CHI | Oct 1 8:00 AM ET | NO | 6 | 74¢ | won | +1.47 |
 | 10-02 | DC | Oct 1 8:00 AM ET | NO | 8 | 60¢ | lost | -4.94 |
-| 10-02 | EWR | Oct 1 8:00 AM ET | NO | 4 | 65¢ | lost | -2.67 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
