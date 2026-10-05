@@ -4,18 +4,21 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$103.62** (started at $100). Updated Oct 4 7:21 PM ET.
+Mock account **$101.58** (started at $100). Updated Oct 4 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-05 | ATL | Oct 4 8:00 PM ET | NO | 10 | 45¢ | open | -0.48 |
+| 10-05 | HOU | Oct 4 8:00 PM ET | NO | 3 | 82¢ | open | -0.13 |
+| 10-05 | MIA | Oct 4 8:00 PM ET | NO | 2 | 71¢ | open | -0.05 |
 | 10-04 | BOS | Oct 3 8:00 PM ET | NO | 7 | 67¢ | open | +1.85 |
 | 10-04 | CLL | Oct 3 8:00 PM ET | NO | 10 | 48¢ | open | -0.18 |
 | 10-04 | DAL | Oct 3 8:00 PM ET | NO | 10 | 44¢ | open | -0.18 |
 | 10-04 | EWR | Oct 3 8:00 PM ET | NO | 10 | 46¢ | open | -0.18 |
 | 10-04 | MIA | Oct 3 8:00 PM ET | NO | 5 | 85¢ | open | +0.65 |
 | 10-04 | MKE | Oct 3 8:00 PM ET | NO | 5 | 88¢ | open | +0.51 |
-| 10-04 | PVD | Oct 3 8:00 PM ET | NO | 3 | 57¢ | open | -0.51 |
-| 10-04 | SATX | Oct 3 8:00 PM ET | NO | 6 | 77¢ | open | +1.18 |
+| 10-04 | PVD | Oct 3 8:00 PM ET | NO | 3 | 57¢ | open | -0.06 |
+| 10-04 | SATX | Oct 3 8:00 PM ET | NO | 6 | 77¢ | open | +1.06 |
 | 10-03 | MIA | Oct 2 8:00 PM ET | NO | 10 | 47¢ | won | +5.12 |
 | 10-03 | OKC | Oct 2 8:00 PM ET | NO | 5 | 91¢ | won | +0.42 |
 | 10-03 | PHIL | Oct 2 8:00 PM ET | NO | 6 | 71¢ | won | +1.65 |
@@ -35,8 +38,5 @@ Mock account **$103.62** (started at $100). Updated Oct 4 7:21 PM ET.
 | 09-30 | PHX | Sep 29 8:00 PM ET | NO | 5 | 88¢ | won | +0.56 |
 | 09-30 | SATX | Sep 29 8:00 PM ET | NO | 3 | 57¢ | lost | -1.77 |
 | 09-29 | BOS | Sep 28 8:00 PM ET | NO | 4 | 73¢ | won | +1.02 |
-| 09-29 | DEN | Sep 28 8:00 PM ET | NO | 9 | 49¢ | won | +4.43 |
-| 09-29 | HOU | Sep 28 8:00 PM ET | NO | 6 | 75¢ | won | +1.42 |
-| 09-29 | LV | Sep 28 8:00 PM ET | NO | 7 | 63¢ | lost | -4.53 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
