@@ -8,8 +8,9 @@ does read this arm's book snapshots, for criterion 3's depth sizing.
     python -m sandbox.live render --arm trigger   # redraw the dashboard only
     python -m sandbox.live mark   --arm trigger   # settle, re-mark, redraw and push (no check)
 
-Marks are display only. A serve run re-marks every REFRESH_EVERY_S while it waits, and
-the sandbox-mark workflow runs `mark` between serve runs, so the page stays current.
+Marks are display only. A serve run re-marks every REFRESH_EVERY_S while it waits (and
+within ~30 s of a dashboard Refresh press), and the sandbox-mark workflow runs `mark`
+between serve runs, so the page stays current.
 Neither refreshes near 00:00 UTC, when Gate 2 and the arms fetch books.
 
 State is JSON-lines on the arm's own branch sbx-state-<arm>, checked out at ./sbx_state.
@@ -29,6 +30,7 @@ import sqlite3
 import subprocess
 import sys
 import time
+import urllib.request
 from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -48,6 +50,8 @@ GUARD_S = 60
 REFRESH_EVERY_S = 20 * 60      # dashboard re-mark cadence while a serve run waits
 REFRESH_MARGIN_S = 15 * 60     # never re-mark within 15 min of a book fetch
 QUIET_UTC = (23 * 60 + 40, 10)  # no re-marking 23:40-00:10 UTC (minutes of the day)
+REQUEST_POLL_S = 30            # while waiting, look this often for a refresh-button press
+REQUEST_WORKFLOW = "sandbox-mark.yml"
 START_BANKROLL_C = 10_000
 MAX_TRADE_C = 500
 DEPTH_CAP = 100
@@ -319,17 +323,46 @@ def quiet_now(now=None):
     return m >= QUIET_UTC[0] or m < QUIET_UTC[1]
 
 
+def refresh_requested(since):
+    """True if a dashboard's Refresh button was pressed after `since`. The button starts
+    the sandbox-mark workflow by hand; that run skips an arm whose serve run is active, so
+    the waiting serve run refreshes for it. Any error counts as no."""
+    token, repo = os.environ.get("GH_TOKEN"), os.environ.get("GITHUB_REPOSITORY")
+    if not token or not repo:
+        return False
+    url = (f"https://api.github.com/repos/{repo}/actions/workflows/{REQUEST_WORKFLOW}"
+           f"/runs?event=workflow_dispatch&per_page=3")
+    try:
+        req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}",
+                                                   "Accept": "application/vnd.github+json"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            runs = json.load(r).get("workflow_runs", [])
+        return any(datetime.fromisoformat(x["created_at"].replace("Z", "+00:00")).timestamp()
+                   > since for x in runs)
+    except Exception as e:
+        log(f"refresh-request check failed, ignoring: {e}")
+        return False
+
+
 def wait_refreshing(ts, refresh_fn):
-    """wait_until(ts), calling refresh_fn() every REFRESH_EVERY_S on the way, but never
-    within REFRESH_MARGIN_S of ts or in the quiet window. Failures are logged, not raised."""
-    while ts - time.time() > REFRESH_EVERY_S + REFRESH_MARGIN_S:
-        time.sleep(REFRESH_EVERY_S)
+    """wait_until(ts), calling refresh_fn() every REFRESH_EVERY_S on the way and whenever a
+    Refresh button asks, but never within REFRESH_MARGIN_S of ts or in the quiet window.
+    Failures are logged, not raised."""
+    last = time.time()
+    while ts - time.time() > REFRESH_MARGIN_S:
+        time.sleep(max(0, min(REQUEST_POLL_S, ts - REFRESH_MARGIN_S - time.time())))
+        if ts - time.time() <= REFRESH_MARGIN_S:
+            break
         if quiet_now():
             continue
+        if time.time() - last < REFRESH_EVERY_S and not refresh_requested(last):
+            continue
+        started = time.time()
         try:
             refresh_fn()
         except Exception as e:
             log(f"dashboard refresh failed, carrying on: {e}")
+        last = started
     wait_until(ts)
 
 
@@ -403,7 +436,7 @@ def render(conn, arm, state_dir):
     cash, open_val = ledger(conn)
     probs = problems(conn)
     data = dict(
-        title=t["title"], rule=t["rule"], next_text=t["next"],
+        arm=arm, title=t["title"], rule=t["rule"], next_text=t["next"],
         updated=int(time.time()), start=START_BANKROLL_C, cash=cash, open=open_val,
         trades=trades, checks=checks,
         equity=[dict(t=a, v=b) for a, b in conn.execute("SELECT ts, equity_c FROM equity ORDER BY ts")],
@@ -421,9 +454,9 @@ def render(conn, arm, state_dir):
             "go/no-go comes from the pre-registered scoring in docs/sandbox/, at a 99% bar "
             "because three arms are tested at once. Nothing seen here changes a rule.",
         ],
-        note=f"Prices are refreshed about every 20 minutes (GitHub sometimes skips a run) "
-             f"and after every check. Branch sbx-state-{arm}. The page reloads itself every "
-             f"minute and whenever you return to the tab.",
+        note=f"Prices are refreshed about every 20 minutes and after every check, but GitHub "
+             f"skips many scheduled runs: press Refresh now for fresh prices in about a "
+             f"minute. Branch sbx-state-{arm}.",
     )
     html = open(TEMPLATE, encoding="utf-8").read().replace(
         "/*__DATA__*/null", json.dumps(data).replace("</", "<\\/"))
