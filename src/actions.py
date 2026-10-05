@@ -7,7 +7,8 @@ src/paper.py), and writes them back.
 
     python -m src.actions nightly   # 19:15 UTC relay: snapshots at 23:51 and 23:56,
                                     # paper trade at 00:00:30, then update; re-marks and
-                                    # republishes the dashboard every 20 min while waiting
+                                    # republishes the dashboard every 20 min while waiting,
+                                    # and within ~30 s of a dashboard Refresh press
     python -m src.actions update    # every 20 min: settle, mark, alerts, morning summary
     python -m src.actions dryrun    # one snapshot now, no trade: checks the plumbing
     python -m src.actions import-state --state PATH   # laptop, before Gate 2
@@ -27,9 +28,11 @@ starts within 60 s of 00:00, or is still fetching at 00:00, is discarded and log
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
+import urllib.request
 from datetime import datetime, timedelta, timezone
 
 from . import candidates as cand
@@ -44,6 +47,8 @@ TRADE_OFFSET_S = 30                         # 00:00:30 UTC
 PAGE_STALE_MIN = 2 * 60
 REFRESH_EVERY_S = 20 * 60
 REFRESH_MARGIN_S = 15 * 60     # no refresh within 15 min of a snapshot or the trade
+REQUEST_POLL_S = 30            # while waiting, look this often for a refresh-button press
+REQUEST_WORKFLOW = "kxrain-update.yml"
 
 # table -> (primary-key columns, optional WHERE for export)
 TABLES = {
@@ -136,15 +141,44 @@ def wait_until(ts):
         time.sleep(delay)
 
 
+def refresh_requested(since):
+    """True if a dashboard's Refresh button was pressed after `since`. The button starts
+    the update workflow by hand; that run skips itself while the nightly job holds the
+    state queue, so the waiting nightly refreshes for it. Any error counts as no."""
+    token, repo = os.environ.get("GH_TOKEN"), os.environ.get("GITHUB_REPOSITORY")
+    if not token or not repo:
+        return False
+    url = (f"https://api.github.com/repos/{repo}/actions/workflows/{REQUEST_WORKFLOW}"
+           f"/runs?event=workflow_dispatch&per_page=3")
+    try:
+        req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}",
+                                                   "Accept": "application/vnd.github+json"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            runs = json.load(r).get("workflow_runs", [])
+        return any(datetime.fromisoformat(x["created_at"].replace("Z", "+00:00")).timestamp()
+                   > since for x in runs)
+    except Exception as e:
+        print(f"  refresh-request check failed, ignoring: {e}", flush=True)
+        return False
+
+
 def wait_refreshing(ts, refresh):
-    """wait_until(ts), calling refresh() every REFRESH_EVERY_S on the way, but never
-    within REFRESH_MARGIN_S of ts. A failed refresh is logged and ignored."""
-    while ts - time.time() > REFRESH_EVERY_S + REFRESH_MARGIN_S:
-        time.sleep(REFRESH_EVERY_S)
+    """wait_until(ts), calling refresh() every REFRESH_EVERY_S on the way and whenever a
+    Refresh button asks, but never within REFRESH_MARGIN_S of ts. A failed refresh is
+    logged and ignored."""
+    last = time.time()
+    while ts - time.time() > REFRESH_MARGIN_S:
+        time.sleep(max(0, min(REQUEST_POLL_S, ts - REFRESH_MARGIN_S - time.time())))
+        if ts - time.time() <= REFRESH_MARGIN_S:
+            break
+        if time.time() - last < REFRESH_EVERY_S and not refresh_requested(last):
+            continue
+        started = time.time()
         try:
             refresh()
         except Exception as e:
             print(f"  dashboard refresh failed, carrying on: {e}", flush=True)
+        last = started
     wait_until(ts)
 
 
@@ -190,10 +224,13 @@ def publish_dashboard(conn, state_dir):
     """The dashboard, drawn into the state branch, which GitHub Pages serves at
     https://tylerwichman.github.io/kalshi-weather-agent/. Redrawn after every job."""
     paper.render(conn, out=os.path.join(state_dir, "index.html"), stale_min=PAGE_STALE_MIN,
-                 note="Prices are refreshed about every 20 minutes (GitHub sometimes skips "
-                      "a run). The page reloads itself every minute and whenever you return "
-                      "to the tab.")
+                 note="Prices are refreshed about every 20 minutes, but GitHub skips many of "
+                      "those runs: press Refresh now for fresh prices in about a minute. The "
+                      "page also reloads itself when a newer copy is published.")
     open(os.path.join(state_dir, ".nojekyll"), "w").close()   # serve files as-is
+    # The Refresh buttons' page (all four dashboards), on this GitHub Pages site.
+    shutil.copyfile(os.path.join(os.path.dirname(__file__), "live.html"),
+                    os.path.join(state_dir, "live.html"))
 
 
 def step_summary(conn):

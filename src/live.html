@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KXRAIN Live Dashboard</title>
+<!--
+  Served by GitHub Pages from the `state` branch (copied there by src/actions.py).
+  Shows the newest copy of any of the four dashboards straight from GitHub's API, past
+  every CDN cache, and powers their "Refresh now" buttons: it starts the refresh workflow
+  (kxrain-update.yml or sandbox-mark.yml) and swaps the page in as soon as the run pushes.
+  Starting a workflow needs a GitHub token. It is kept only in this browser's storage for
+  tylerwichman.github.io, never in the repo. That is why the sandbox pages (on the shared
+  raw.githack.com site) send their button here instead of starting the run themselves.
+-->
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e;
+  --ring: rgba(11,11,11,0.10); --series: #2a78d6; --up: #006300; --down: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
+    --ring: rgba(255,255,255,0.10); --series: #3987e5; --up: #0ca30c; --down: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
+  --ring: rgba(255,255,255,0.10); --series: #3987e5; --up: #0ca30c; --down: #e66767;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink);
+       font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block;
+         background: var(--page); }
+.toast { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+         width: min(560px, calc(100% - 32px)); background: var(--surface); color: var(--ink);
+         border: 1px solid var(--ring); border-radius: 12px; padding: 12px 14px;
+         box-shadow: 0 6px 24px rgba(0,0,0,0.18); display: none; z-index: 2; }
+.toast.show { display: block; }
+.toast .row { display: flex; gap: 10px; align-items: flex-start; }
+.toast .dot { flex: none; width: 10px; height: 10px; border-radius: 50%; margin-top: 5px;
+              background: var(--series); }
+.toast.ok .dot { background: var(--up); } .toast.bad .dot { background: var(--down); }
+.toast.busy .dot { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.3; } }
+.toast p { margin: 0; } .toast .more { color: var(--ink-2); font-size: 13px; margin-top: 2px; }
+.toast .acts { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+button, .btn { font: inherit; font-weight: 500; padding: 6px 12px; border-radius: 8px;
+               border: 1px solid var(--ring); background: var(--page); color: var(--ink);
+               cursor: pointer; text-decoration: none; }
+button.primary { background: var(--series); border-color: var(--series); color: #fff; }
+.setup { max-width: 620px; margin: 0 auto; padding: 32px 16px; display: none; }
+.setup.show { display: block; }
+.setup h1 { font-size: 20px; margin: 0 0 8px; }
+.setup ol { padding-left: 20px; } .setup li { margin: 6px 0; }
+.setup code { font-size: 13px; }
+.setup input { width: 100%; font: 13px ui-monospace, monospace; padding: 8px 10px;
+               border-radius: 8px; border: 1px solid var(--ring); background: var(--surface);
+               color: var(--ink); margin: 8px 0; }
+.setup .err { color: var(--down); min-height: 1.4em; }
+.setup .note { color: var(--ink-2); font-size: 13px; }
+</style>
+</head>
+<body>
+<iframe id="frame" title="Dashboard"></iframe>
+
+<section class="setup" id="setup">
+  <h1>Connect the Refresh button</h1>
+  <p>The button asks GitHub to fetch fresh prices right away. GitHub only allows that with
+     a token. You need to do this once per browser.</p>
+  <ol>
+    <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank"
+        rel="noopener">GitHub → New fine-grained token</a>.</li>
+    <li>Name it, for example <code>dashboard refresh</code>, and pick an expiration.</li>
+    <li>Repository access: <b>Only select repositories</b> → <code>kalshi-weather-agent</code>.</li>
+    <li>Permissions → Repository: <b>Actions: Read and write</b> and <b>Contents: Read-only</b>.
+        Nothing else.</li>
+    <li>Generate it, copy it and paste it here.</li>
+  </ol>
+  <input id="token" type="password" autocomplete="off" spellcheck="false"
+         placeholder="github_pat_…">
+  <div class="err" id="setup-err"></div>
+  <button class="primary" id="save">Save and refresh</button>
+  <button id="cancel">Cancel</button>
+  <p class="note">The token is saved only in this browser, for tylerwichman.github.io. It is
+     never written to the repo or sent anywhere except api.github.com. It can start, stop and
+     read this repo's workflows. It can't edit code or files. To remove it, revoke it on
+     GitHub or clear this site's data.</p>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <div class="row"><span class="dot"></span>
+    <div><p id="toast-msg"></p><p class="more" id="toast-more"></p>
+      <div class="acts" id="toast-acts"></div></div>
+  </div>
+</div>
+
+<script>
+const REPO = "TylerWichman/kalshi-weather-agent";
+const BOARDS = {
+  gate2:    { branch: "state",              workflow: "kxrain-update.yml" },
+  baseline: { branch: "sbx-state-baseline", workflow: "sandbox-mark.yml" },
+  fixed:    { branch: "sbx-state-fixed",    workflow: "sandbox-mark.yml" },
+  trigger:  { branch: "sbx-state-trigger",  workflow: "sandbox-mark.yml" },
+};
+const KEY = "kxrain-dashboard-token";
+const WAIT_S = 240, POLL_S = 5;
+
+const params = new URLSearchParams(location.search);
+const id = BOARDS[params.get("d")] ? params.get("d") : "gate2";
+const board = BOARDS[id];
+const $ = (x) => document.getElementById(x);
+let shownSha = null, busy = false;
+
+function getToken() { try { return localStorage.getItem(KEY) || ""; } catch (e) { return ""; } }
+function setToken(t) { try { t ? localStorage.setItem(KEY, t) : localStorage.removeItem(KEY); }
+                       catch (e) { /* private mode: token lasts for this page only */ }
+                       memToken = t; }
+let memToken = getToken();
+
+async function api(path, { method = "GET", accept = "application/vnd.github+json", body } = {}) {
+  const headers = { Accept: accept, "X-GitHub-Api-Version": "2022-11-28" };
+  if (memToken) headers.Authorization = "Bearer " + memToken;
+  if (body) headers["Content-Type"] = "application/json";
+  return fetch("https://api.github.com" + path, { method, headers, cache: "no-store",
+                                                   body: body && JSON.stringify(body) });
+}
+
+async function headSha() {
+  const r = await api(`/repos/${REPO}/commits/${board.branch}`, { accept: "application/vnd.github.sha" });
+  if (!r.ok) throw new Error(`GitHub answered ${r.status} reading the branch`);
+  return (await r.text()).trim();
+}
+
+async function show(sha) {
+  const r = await api(`/repos/${REPO}/contents/index.html?ref=${sha}`,
+                      { accept: "application/vnd.github.raw" });
+  if (!r.ok) throw new Error(`GitHub answered ${r.status} reading the page`);
+  const html = await r.text();
+  const keepScroll = shownSha && $("frame").contentWindow ? $("frame").contentWindow.scrollY : 0;
+  shownSha = sha;
+  $("frame").onload = () => {
+    const w = $("frame").contentWindow, doc = $("frame").contentDocument;
+    document.title = doc.title || document.title;
+    if (keepScroll) w.scrollTo(0, keepScroll);
+    // The page's own button would reload this whole page; refresh in place instead.
+    const b = doc.getElementById("refresh-btn");
+    if (b) b.addEventListener("click", (e) => { e.preventDefault(); refresh(); });
+  };
+  $("frame").srcdoc = html;
+}
+
+function toast(kind, msg, more = "", acts = []) {
+  const t = $("toast");
+  t.className = "toast show " + kind;
+  $("toast-msg").textContent = msg;
+  $("toast-more").textContent = more;
+  $("toast-acts").replaceChildren(...acts.map(([label, fn, primary]) => {
+    const b = document.createElement("button");
+    b.textContent = label; if (primary) b.className = "primary";
+    b.onclick = fn; return b;
+  }));
+}
+function hideToast() { $("toast").className = "toast"; }
+let hideTimer;
+
+function askToken(err = "") {
+  $("setup").classList.add("show");
+  $("frame").style.display = "none";
+  $("setup-err").textContent = err;
+  $("token").value = "";
+  $("token").focus();
+}
+function closeSetup() { $("setup").classList.remove("show"); $("frame").style.display = ""; }
+$("cancel").onclick = () => { closeSetup(); hideToast(); };
+$("save").onclick = async () => {
+  const t = $("token").value.trim();
+  if (!t) { $("setup-err").textContent = "Paste the token first."; return; }
+  setToken(t);
+  const r = await api(`/repos/${REPO}/actions/workflows/${board.workflow}`).catch(() => null);
+  if (!r || !r.ok) {
+    setToken("");
+    $("setup-err").textContent = r && r.status === 401 ? "GitHub didn't accept that token."
+      : "That token can't see this repo's workflows. Check the repository and permissions.";
+    return;
+  }
+  closeSetup(); refresh();
+};
+
+const sleep = (s) => new Promise((ok) => setTimeout(ok, s * 1000));
+
+async function refresh() {
+  if (busy) return;
+  if (!memToken) { askToken(); return; }
+  busy = true; clearTimeout(hideTimer);
+  try {
+    toast("busy", "Asking GitHub for fresh prices…");
+    const before = await headSha();
+    const r = await api(`/repos/${REPO}/actions/workflows/${board.workflow}/dispatches`,
+                        { method: "POST", body: { ref: "master" } });
+    if (r.status === 401) { setToken(""); busy = false; hideToast();
+                            askToken("The saved token stopped working (expired or revoked). Paste a new one."); return; }
+    if (!r.ok) throw new Error(`GitHub refused to start the refresh (${r.status}). The token may lack Actions: Read and write.`);
+    const t0 = Date.now();
+    while ((Date.now() - t0) / 1000 < WAIT_S) {
+      await sleep(POLL_S);
+      const s = Math.round((Date.now() - t0) / 1000);
+      toast("busy", `Refreshing… ${s} s`, "Usually ready in about a minute.");
+      const sha = await headSha().catch(() => null);
+      if (sha && sha !== before) {
+        await show(sha);
+        toast("ok", "Updated with fresh prices.");
+        hideTimer = setTimeout(hideToast, 4000);
+        busy = false; return;
+      }
+    }
+    toast("bad", "No new data after 4 minutes.",
+      "A job that is waiting for a price check doesn't refresh within 15 minutes of it, or " +
+      "from 7:40 to 8:10 PM ET. It will catch up after that. GitHub may also be slow to start runs.",
+      [["Try again", () => refresh(), true], ["Open Actions", () => window.open(
+        `https://github.com/${REPO}/actions/workflows/${board.workflow}`, "_blank")], ["Close", hideToast]]);
+  } catch (e) {
+    toast("bad", "Refresh failed.", String(e.message || e),
+          [["Try again", () => refresh(), true], ["Close", hideToast]]);
+  }
+  busy = false;
+}
+
+// Keep the view current without a button press too: look for a newer commit every
+// minute (every 3 min without a token: GitHub allows 60 anonymous calls an hour).
+async function follow() {
+  if (busy || document.hidden) return;
+  try { const sha = await headSha(); if (sha !== shownSha) await show(sha); } catch (e) { /* retry next time */ }
+}
+
+(async () => {
+  const wantRefresh = params.get("refresh") === "1";
+  if (wantRefresh) { params.delete("refresh");
+                     history.replaceState(null, "", "?" + params.toString()); }
+  try { await show(await headSha()); }
+  catch (e) { toast("bad", "Couldn't load the dashboard from GitHub.", String(e.message || e),
+                    [["Retry", () => location.reload(), true]]); }
+  if (wantRefresh) refresh();
+  setInterval(follow, (memToken ? 60 : 180) * 1000);
+  document.addEventListener("visibilitychange", follow);
+})();
+</script>
+</body>
+</html>

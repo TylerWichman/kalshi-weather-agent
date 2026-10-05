@@ -18,6 +18,7 @@ on:
         default: dryrun
 
 permissions:
+  actions: read      # to see dashboard Refresh presses while waiting
   contents: write
 
 concurrency:
@@ -38,6 +39,7 @@ jobs:
       - run: pip install --quiet numpy
       - name: Run
         env:
+          GH_TOKEN: ${{ github.token }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python -m src.actions ${{ github.event_name == 'schedule' && 'nightly' || inputs.mode }}
       - name: Save state

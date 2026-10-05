@@ -64,6 +64,15 @@ h1 { font-size: 20px; font-weight: 600; margin: 0; }
         border-radius: 999px; border: 1px solid var(--ring); background: var(--surface);
         font-weight: 500; white-space: nowrap; }
 .pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+.head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.head-right .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+                   justify-content: flex-end; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px;
+       border-radius: 999px; border: 1px solid var(--series); color: var(--series);
+       background: var(--surface); font-weight: 500; text-decoration: none; white-space: nowrap; }
+.btn:hover { background: var(--series); color: #fff; }
+@media (max-width: 560px) { .head-right { align-items: flex-start; }
+                            .head-right .row { justify-content: flex-start; } }
 .problems { margin: 6px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; }
 .card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px;
         padding: 16px; min-width: 0; }
@@ -111,8 +120,13 @@ footer p { margin: 4px 0; }
       <h1>KXRAIN paper trading</h1>
       <div class="sub" id="sub"></div>
     </div>
-    <div>
-      <span class="pill" id="pill"><span class="dot"></span><span></span></span>
+    <div class="head-right">
+      <div class="row">
+        <span class="pill" id="pill"><span class="dot"></span><span></span></span>
+        <a class="btn" id="refresh-btn"
+           href="https://tylerwichman.github.io/kalshi-weather-agent/live.html?d=gate2&amp;refresh=1"
+           title="Fetch fresh prices now (about a minute)">&#8635; Refresh now</a>
+      </div>
       <ul class="problems" id="problems"></ul>
     </div>
   </header>

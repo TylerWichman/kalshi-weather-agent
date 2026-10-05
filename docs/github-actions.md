@@ -42,6 +42,16 @@ handled". Logic: `.github/scripts/relay.sh`. The sandbox arms have their own sep
   served from the `state` branch). Every job redraws it, so prices are about 20 minutes
   old at most when GitHub runs on time; allow a minute or two for Pages to deploy. The
   open page checks for a newer copy every minute and whenever you return to the tab.
+  GitHub skips most of the 20-minute scheduled runs, so every dashboard (Gate 2 and the
+  three sandbox arms) has a **Refresh now** button. It opens
+  https://tylerwichman.github.io/kalshi-weather-agent/live.html?d=gate2 (or `d=baseline`,
+  `fixed`, `trigger`). That page starts `kxrain-update.yml` or `sandbox-mark.yml` with a
+  fine-grained token kept only in that browser (Actions read/write, Contents read, this
+  repo only). It shows the new page as soon as the run pushes, usually within a minute.
+  A job that is waiting (nightly or a sandbox serve run) sees the button press within
+  30 s and refreshes itself, except within 15 min of a book fetch or 23:40–00:10 UTC.
+  Opening live.html without `refresh=1` always shows the newest copy straight from
+  GitHub's API, past every cache, so it's the best link to bookmark.
 - **Phone:** ntfy alerts, one per night's trades, one per settlement, and a morning
   summary.
 - **GitHub:** repo → **Actions** → any run → the summary shows the account, the
