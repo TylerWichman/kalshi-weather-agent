@@ -4,12 +4,12 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$89.69** (started at $100). Updated Oct 6 12:02 PM ET.
+Mock account **$89.71** (started at $100). Updated Oct 6 12:23 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-07 | HOU | Oct 6 8:00 AM ET | NO | 5 | 92¢ | open | -0.03 |
-| 10-06 | MIA | Oct 6 12:00 AM ET | NO | 2 | 45¢ | open | -0.16 |
+| 10-06 | MIA | Oct 6 12:00 AM ET | NO | 2 | 45¢ | open | -0.14 |
 | 10-06 | HOU | Oct 5 8:00 AM ET | NO | 5 | 92¢ | open | +0.32 |
 | 10-06 | NOLA | Oct 5 8:00 AM ET | NO | 6 | 82¢ | open | +0.11 |
 | 10-05 | ATL | Oct 4 8:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
