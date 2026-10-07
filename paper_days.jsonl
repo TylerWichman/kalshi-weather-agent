@@ -10,3 +10,4 @@
 {"day":"2026-10-04","run_ts":1791072030,"status":"traded","n_markets":30,"n_trades":9}
 {"day":"2026-10-05","run_ts":1791158430,"status":"traded","n_markets":30,"n_trades":3}
 {"day":"2026-10-06","run_ts":1791244830,"status":"traded","n_markets":30,"n_trades":1}
+{"day":"2026-10-07","run_ts":1791331230,"status":"no-signal","n_markets":31,"n_trades":0}
