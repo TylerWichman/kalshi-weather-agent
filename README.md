@@ -8,8 +8,8 @@ Mock account **$80.98** (started at $100). Updated Oct 7 8:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-08 | NOLA | Oct 7 8:00 AM ET | NO | 5 | 93¢ | open | -0.08 |
 | 10-08 | BOS | Oct 7 8:00 AM ET | NO | 5 | 83¢ | open | -0.10 |
+| 10-08 | NOLA | Oct 7 8:00 AM ET | NO | 5 | 93¢ | open | -0.08 |
 | 10-07 | HOU | Oct 6 8:00 AM ET | NO | 5 | 92¢ | open | +0.27 |
 | 10-06 | MIA | Oct 6 12:00 AM ET | NO | 2 | 45¢ | won | +1.06 |
 | 10-06 | HOU | Oct 5 8:00 AM ET | NO | 5 | 92¢ | open | -0.03 |
