@@ -8,8 +8,8 @@ Mock account **$106.57** (started at $100). Updated Oct 7 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-08 | PVD | Oct 7 8:00 PM ET | NO | 5 | 90¢ | open | -0.14 |
 | 10-08 | BOS | Oct 7 8:00 PM ET | NO | 5 | 86¢ | open | -0.10 |
+| 10-08 | PVD | Oct 7 8:00 PM ET | NO | 5 | 90¢ | open | -0.14 |
 | 10-06 | NOLA | Oct 5 8:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
 | 10-05 | ATL | Oct 4 8:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
 | 10-05 | HOU | Oct 4 8:00 PM ET | NO | 3 | 82¢ | lost | -2.50 |
