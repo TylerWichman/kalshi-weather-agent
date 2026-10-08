@@ -4,13 +4,13 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$93.42** (started at $100). Updated Oct 8 2:00 PM ET.
+Mock account **$92.45** (started at $100). Updated Oct 8 2:20 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-09 | NOLA | Oct 8 2:00 PM ET | NO | 11 | 42¢ | open | -0.30 |
-| 10-09 | ATL | Oct 8 11:00 AM ET | NO | 9 | 50¢ | open | +0.11 |
-| 10-08 | MIA | Oct 7 3:00 PM ET | NO | 39 | 12¢ | open | +16.87 |
+| 10-09 | NOLA | Oct 8 2:00 PM ET | NO | 11 | 42¢ | open | -0.19 |
+| 10-09 | ATL | Oct 8 11:00 AM ET | NO | 9 | 50¢ | open | +0.20 |
+| 10-08 | MIA | Oct 7 3:00 PM ET | NO | 39 | 12¢ | open | +15.70 |
 | 10-06 | MIA | Oct 6 12:00 AM ET | NO | 2 | 45¢ | won | +1.06 |
 | 10-05 | ATL | Oct 4 9:00 AM ET | NO | 15 | 31¢ | won | +10.12 |
 | 10-04 | NYC | Oct 3 8:00 PM ET | NO | 16 | 29¢ | lost | -4.88 |
