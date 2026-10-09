@@ -4,17 +4,19 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$112.22** (started at $100). Updated Oct 9 10:40 AM ET.
+Mock account **$111.30** (started at $100). Updated Oct 9 11:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-10 | IND | Oct 9 11:00 AM ET | NO | 11 | 40¢ | open | -0.30 |
+| 10-10 | MIA | Oct 9 11:00 AM ET | NO | 15 | 31¢ | open | -0.38 |
 | 10-10 | CMH | Oct 9 10:00 AM ET | NO | 7 | 31¢ | open | -0.11 |
-| 10-10 | LV | Oct 9 9:00 AM ET | NO | 7 | 65¢ | open | -0.12 |
+| 10-10 | LV | Oct 9 9:00 AM ET | NO | 7 | 65¢ | open | -0.05 |
 | 10-09 | SEA | Oct 8 7:00 PM ET | NO | 2 | 27¢ | open | -0.03 |
-| 10-09 | MIA | Oct 8 6:00 PM ET | NO | 8 | 60¢ | open | -0.14 |
-| 10-09 | CHI | Oct 8 3:00 PM ET | NO | 11 | 43¢ | open | +1.24 |
-| 10-09 | NOLA | Oct 8 2:00 PM ET | NO | 11 | 42¢ | open | +5.09 |
-| 10-09 | ATL | Oct 8 11:00 AM ET | NO | 9 | 50¢ | open | -3.94 |
+| 10-09 | MIA | Oct 8 6:00 PM ET | NO | 8 | 60¢ | open | +0.34 |
+| 10-09 | CHI | Oct 8 3:00 PM ET | NO | 11 | 43¢ | open | +0.47 |
+| 10-09 | NOLA | Oct 8 2:00 PM ET | NO | 11 | 42¢ | open | +4.98 |
+| 10-09 | ATL | Oct 8 11:00 AM ET | NO | 9 | 50¢ | open | -3.85 |
 | 10-08 | MIA | Oct 7 3:00 PM ET | NO | 39 | 12¢ | won | +34.03 |
 | 10-06 | MIA | Oct 6 12:00 AM ET | NO | 2 | 45¢ | won | +1.06 |
 | 10-05 | ATL | Oct 4 9:00 AM ET | NO | 15 | 31¢ | won | +10.12 |
@@ -36,7 +38,5 @@ Mock account **$112.22** (started at $100). Updated Oct 9 10:40 AM ET.
 | 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | won | +2.13 |
 | 10-02 | DC | Oct 1 6:00 PM ET | NO | 8 | 60¢ | lost | -4.94 |
 | 10-02 | PHIL | Oct 1 5:00 PM ET | NO | 8 | 60¢ | lost | -4.94 |
-| 10-02 | CHI | Oct 1 2:00 PM ET | NO | 8 | 55¢ | won | +3.46 |
-| 10-02 | OKC | Oct 1 2:00 PM ET | NO | 1 | 58¢ | lost | -0.60 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
