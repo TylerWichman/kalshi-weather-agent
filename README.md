@@ -4,23 +4,23 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$91.55** (started at $100). Updated Oct 9 3:46 PM ET.
+Mock account **$91.59** (started at $100). Updated Oct 9 4:06 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-10 | CMH | Oct 9 2:00 PM ET | NO | 4 | 86¢ | open | -0.52 |
+| 10-10 | CMH | Oct 9 2:00 PM ET | NO | 4 | 86¢ | open | -0.60 |
 | 10-10 | ABQ | Oct 9 8:00 AM ET | NO | 5 | 91¢ | open | +0.17 |
-| 10-10 | DC | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | +0.00 |
+| 10-10 | DC | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.05 |
 | 10-10 | LAX | Oct 9 8:00 AM ET | NO | 6 | 77¢ | open | -0.14 |
-| 10-10 | LV | Oct 9 8:00 AM ET | NO | 6 | 79¢ | open | -1.09 |
-| 10-10 | NOLA | Oct 9 8:00 AM ET | NO | 6 | 70¢ | open | +0.45 |
-| 10-10 | SEA | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.20 |
-| 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | open | +1.46 |
-| 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | open | +0.89 |
+| 10-10 | LV | Oct 9 8:00 AM ET | NO | 6 | 79¢ | open | -1.15 |
+| 10-10 | NOLA | Oct 9 8:00 AM ET | NO | 6 | 70¢ | open | +0.33 |
+| 10-10 | SEA | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.25 |
+| 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | open | +1.70 |
+| 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | open | +0.61 |
 | 10-09 | ATL | Oct 8 8:00 AM ET | NO | 6 | 73¢ | open | -4.29 |
-| 10-09 | CHI | Oct 8 8:00 AM ET | NO | 6 | 65¢ | open | +1.28 |
+| 10-09 | CHI | Oct 8 8:00 AM ET | NO | 6 | 65¢ | open | +1.76 |
 | 10-09 | HOU | Oct 8 8:00 AM ET | NO | 5 | 93¢ | open | +0.27 |
-| 10-09 | MKE | Oct 8 8:00 AM ET | NO | 1 | 80¢ | open | -0.69 |
+| 10-09 | MKE | Oct 8 8:00 AM ET | NO | 1 | 80¢ | open | -0.73 |
 | 10-09 | SEA | Oct 8 8:00 AM ET | YES | 1 | 86¢ | open | +0.12 |
 | 10-08 | PVD | Oct 7 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
 | 10-08 | BOS | Oct 7 8:00 AM ET | NO | 5 | 83¢ | won | +0.80 |
