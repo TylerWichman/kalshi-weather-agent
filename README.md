@@ -4,16 +4,22 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$84.02** (started at $100). Updated Oct 9 7:40 AM ET.
+Mock account **$82.97** (started at $100). Updated Oct 9 8:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | open | -0.70 |
-| 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | open | +0.29 |
-| 10-09 | ATL | Oct 8 8:00 AM ET | NO | 6 | 73¢ | open | -3.51 |
-| 10-09 | CHI | Oct 8 8:00 AM ET | NO | 6 | 65¢ | open | -1.00 |
+| 10-10 | ABQ | Oct 9 8:00 AM ET | NO | 5 | 91¢ | open | -0.08 |
+| 10-10 | SEA | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.10 |
+| 10-10 | LV | Oct 9 8:00 AM ET | NO | 6 | 79¢ | open | -0.37 |
+| 10-10 | NOLA | Oct 9 8:00 AM ET | NO | 6 | 70¢ | open | -0.21 |
+| 10-10 | LAX | Oct 9 8:00 AM ET | NO | 6 | 77¢ | open | -0.14 |
+| 10-10 | DC | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.10 |
+| 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | open | -0.78 |
+| 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | open | +0.37 |
+| 10-09 | ATL | Oct 8 8:00 AM ET | NO | 6 | 73¢ | open | -3.57 |
+| 10-09 | CHI | Oct 8 8:00 AM ET | NO | 6 | 65¢ | open | -1.06 |
 | 10-09 | HOU | Oct 8 8:00 AM ET | NO | 5 | 93¢ | open | +0.27 |
-| 10-09 | MKE | Oct 8 8:00 AM ET | NO | 1 | 80¢ | open | -0.29 |
+| 10-09 | MKE | Oct 8 8:00 AM ET | NO | 1 | 80¢ | open | -0.22 |
 | 10-09 | SEA | Oct 8 8:00 AM ET | YES | 1 | 86¢ | open | +0.12 |
 | 10-08 | PVD | Oct 7 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
 | 10-08 | BOS | Oct 7 8:00 AM ET | NO | 5 | 83¢ | won | +0.80 |
@@ -32,11 +38,5 @@ Mock account **$84.02** (started at $100). Updated Oct 9 7:40 AM ET.
 | 10-04 | AUS | Oct 3 2:00 PM ET | NO | 8 | 58¢ | lost | -4.78 |
 | 10-04 | CLL | Oct 3 2:00 PM ET | NO | 1 | 57¢ | lost | -0.59 |
 | 10-04 | MKE | Oct 3 2:00 PM ET | NO | 5 | 88¢ | won | +0.56 |
-| 10-04 | PVD | Oct 3 2:00 PM ET | NO | 7 | 51¢ | lost | -3.70 |
-| 10-04 | BOS | Oct 3 8:00 AM ET | NO | 6 | 82¢ | won | +1.01 |
-| 10-04 | DAL | Oct 3 8:00 AM ET | NO | 4 | 65¢ | lost | -2.67 |
-| 10-04 | MIA | Oct 3 8:00 AM ET | NO | 6 | 79¢ | won | +1.19 |
-| 10-04 | SATX | Oct 3 8:00 AM ET | NO | 6 | 81¢ | won | +1.07 |
-| 10-03 | MIN | Oct 3 12:00 AM ET | NO | 16 | 29¢ | lost | -4.88 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
