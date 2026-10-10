@@ -4,15 +4,23 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$106.74** (started at $100). Updated Oct 9 7:36 PM ET.
+Mock account **$105.47** (started at $100). Updated Oct 9 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-10 | IND | Oct 9 8:00 PM ET | NO | 11 | 43¢ | open | -0.30 |
+| 10-10 | LV | Oct 9 8:00 PM ET | NO | 8 | 60¢ | open | -0.22 |
+| 10-10 | SEA | Oct 9 8:00 PM ET | NO | 5 | 83¢ | open | -0.20 |
+| 10-10 | LAX | Oct 9 8:00 PM ET | NO | 5 | 86¢ | open | -0.10 |
+| 10-10 | PIT | Oct 9 8:00 PM ET | NO | 5 | 83¢ | open | -0.10 |
+| 10-10 | NOLA | Oct 9 8:00 PM ET | NO | 6 | 74¢ | open | -0.15 |
+| 10-10 | DC | Oct 9 8:00 PM ET | NO | 5 | 85¢ | open | -0.10 |
+| 10-10 | ABQ | Oct 9 8:00 PM ET | NO | 2 | 83¢ | open | -0.10 |
 | 10-09 | ATL | Oct 8 8:00 PM ET | NO | 1 | 40¢ | open | -0.02 |
 | 10-09 | CHI | Oct 8 8:00 PM ET | NO | 2 | 38¢ | open | +1.18 |
-| 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | open | +1.78 |
+| 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | open | +1.86 |
 | 10-09 | MKE | Oct 8 8:00 PM ET | NO | 6 | 74¢ | open | -0.09 |
-| 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | open | +0.81 |
+| 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | open | +0.73 |
 | 10-08 | BOS | Oct 7 8:00 PM ET | NO | 5 | 86¢ | won | +0.65 |
 | 10-08 | PVD | Oct 7 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
 | 10-06 | NOLA | Oct 5 8:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
@@ -30,13 +38,5 @@ Mock account **$106.74** (started at $100). Updated Oct 9 7:36 PM ET.
 | 10-03 | MIA | Oct 2 8:00 PM ET | NO | 10 | 47¢ | won | +5.12 |
 | 10-03 | OKC | Oct 2 8:00 PM ET | NO | 5 | 91¢ | won | +0.42 |
 | 10-03 | PHIL | Oct 2 8:00 PM ET | NO | 6 | 71¢ | won | +1.65 |
-| 10-02 | ATL | Oct 1 8:00 PM ET | NO | 6 | 72¢ | won | +1.59 |
-| 10-02 | BOS | Oct 1 8:00 PM ET | NO | 1 | 53¢ | won | +0.45 |
-| 10-02 | CHI | Oct 1 8:00 PM ET | NO | 7 | 63¢ | won | +2.47 |
-| 10-02 | EWR | Oct 1 8:00 PM ET | NO | 1 | 50¢ | lost | -0.52 |
-| 10-02 | NYC | Oct 1 8:00 PM ET | NO | 8 | 57¢ | won | +3.30 |
-| 10-02 | PHIL | Oct 1 8:00 PM ET | NO | 2 | 55¢ | lost | -1.14 |
-| 10-02 | PVD | Oct 1 8:00 PM ET | NO | 2 | 55¢ | lost | -1.14 |
-| 10-02 | TTN | Oct 1 8:00 PM ET | NO | 1 | 48¢ | lost | -0.50 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
