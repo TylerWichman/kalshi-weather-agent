@@ -244,3 +244,4 @@
 {"check_ts":1791590400,"day":"2026-10-10","offset_h":0,"status":"ok","snap_ts":1791590310,"n_markets":33,"n_evals":3,"n_trades":1,"note":null}
 {"check_ts":1791594000,"day":"2026-10-10","offset_h":1,"status":"ok","snap_ts":1791593910,"n_markets":33,"n_evals":3,"n_trades":0,"note":null}
 {"check_ts":1791597600,"day":"2026-10-10","offset_h":2,"status":"ok","snap_ts":1791597510,"n_markets":33,"n_evals":2,"n_trades":0,"note":null}
+{"check_ts":1791601200,"day":"2026-10-10","offset_h":3,"status":"ok","snap_ts":1791601110,"n_markets":33,"n_evals":2,"n_trades":0,"note":null}
