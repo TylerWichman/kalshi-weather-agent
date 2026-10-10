@@ -4,16 +4,17 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$138.74** (started at $100). Updated Oct 10 8:40 AM ET.
+Mock account **$137.37** (started at $100). Updated Oct 10 9:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-11 | TPA | Oct 10 9:00 AM ET | NO | 2 | 54¢ | open | -0.16 |
 | 10-10 | TAM | Oct 9 8:00 PM ET | NO | 15 | 27¢ | open | -3.36 |
-| 10-10 | PHX | Oct 9 12:00 PM ET | NO | 42 | 11¢ | open | +17.35 |
-| 10-10 | IND | Oct 9 11:00 AM ET | NO | 11 | 40¢ | open | -0.41 |
-| 10-10 | MIA | Oct 9 11:00 AM ET | NO | 15 | 31¢ | open | +5.92 |
-| 10-10 | CMH | Oct 9 10:00 AM ET | NO | 7 | 31¢ | open | -0.95 |
-| 10-10 | LV | Oct 9 9:00 AM ET | NO | 7 | 65¢ | open | -0.68 |
+| 10-10 | PHX | Oct 9 12:00 PM ET | NO | 42 | 11¢ | open | +16.51 |
+| 10-10 | IND | Oct 9 11:00 AM ET | NO | 11 | 40¢ | open | -0.63 |
+| 10-10 | MIA | Oct 9 11:00 AM ET | NO | 15 | 31¢ | open | +5.77 |
+| 10-10 | CMH | Oct 9 10:00 AM ET | NO | 7 | 31¢ | open | -1.23 |
+| 10-10 | LV | Oct 9 9:00 AM ET | NO | 7 | 65¢ | open | -0.40 |
 | 10-09 | SEA | Oct 8 7:00 PM ET | NO | 2 | 27¢ | open | -0.03 |
 | 10-09 | MIA | Oct 8 6:00 PM ET | NO | 8 | 60¢ | won | +3.06 |
 | 10-09 | CHI | Oct 8 3:00 PM ET | NO | 11 | 43¢ | won | +6.08 |
@@ -37,6 +38,5 @@ Mock account **$138.74** (started at $100). Updated Oct 10 8:40 AM ET.
 | 10-03 | MIN | Oct 2 12:00 PM ET | NO | 12 | 39¢ | lost | -4.88 |
 | 10-02 | TTN | Oct 2 12:00 AM ET | NO | 1 | 45¢ | lost | -0.47 |
 | 10-02 | NYC | Oct 1 10:00 PM ET | NO | 1 | 38¢ | won | +0.60 |
-| 10-02 | ATL | Oct 1 9:00 PM ET | NO | 7 | 68¢ | won | +2.13 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
