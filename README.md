@@ -4,7 +4,7 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$94.54** (started at $100). Updated Oct 10 11:06 AM ET.
+Mock account **$94.07** (started at $100). Updated Oct 10 11:26 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
@@ -13,18 +13,18 @@ Mock account **$94.54** (started at $100). Updated Oct 10 11:06 AM ET.
 | 10-11 | BOS | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | +0.46 |
 | 10-11 | IND | Oct 10 8:00 AM ET | NO | 1 | 62¢ | open | +0.04 |
 | 10-11 | LAX | Oct 10 8:00 AM ET | YES | 5 | 85¢ | open | +0.00 |
-| 10-11 | MIA | Oct 10 8:00 AM ET | NO | 7 | 68¢ | open | -0.32 |
+| 10-11 | MIA | Oct 10 8:00 AM ET | NO | 7 | 68¢ | open | -0.39 |
 | 10-11 | PHX | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.04 |
-| 10-10 | MIA | Oct 10 12:00 AM ET | NO | 10 | 46¢ | open | +2.62 |
-| 10-10 | IND | Oct 9 8:00 PM ET | NO | 11 | 43¢ | open | -0.30 |
+| 10-10 | MIA | Oct 10 12:00 AM ET | NO | 10 | 46¢ | open | +2.22 |
+| 10-10 | IND | Oct 9 8:00 PM ET | NO | 11 | 43¢ | open | -0.08 |
 | 10-10 | PIT | Oct 9 8:00 PM ET | NO | 5 | 83¢ | open | -0.45 |
-| 10-10 | CMH | Oct 9 2:00 PM ET | NO | 4 | 86¢ | open | -2.64 |
-| 10-10 | ABQ | Oct 9 8:00 AM ET | NO | 5 | 91¢ | open | -0.18 |
-| 10-10 | DC | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.80 |
-| 10-10 | LAX | Oct 9 8:00 AM ET | NO | 6 | 77¢ | open | -0.02 |
-| 10-10 | LV | Oct 9 8:00 AM ET | NO | 6 | 79¢ | open | -0.61 |
+| 10-10 | CMH | Oct 9 2:00 PM ET | NO | 4 | 86¢ | open | -2.92 |
+| 10-10 | ABQ | Oct 9 8:00 AM ET | NO | 5 | 91¢ | open | -0.08 |
+| 10-10 | DC | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.70 |
+| 10-10 | LAX | Oct 9 8:00 AM ET | NO | 6 | 77¢ | open | -0.14 |
+| 10-10 | LV | Oct 9 8:00 AM ET | NO | 6 | 79¢ | open | -0.73 |
 | 10-10 | NOLA | Oct 9 8:00 AM ET | NO | 6 | 70¢ | open | +1.65 |
-| 10-10 | SEA | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.15 |
+| 10-10 | SEA | Oct 9 8:00 AM ET | NO | 5 | 86¢ | open | -0.05 |
 | 10-09 | MIA | Oct 8 8:00 PM ET | NO | 8 | 57¢ | won | +3.30 |
 | 10-09 | NOLA | Oct 8 8:00 PM ET | NO | 4 | 65¢ | won | +1.33 |
 | 10-09 | ATL | Oct 8 8:00 AM ET | NO | 6 | 73¢ | lost | -4.47 |
