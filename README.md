@@ -8,13 +8,13 @@ Mock account **$74.52** (started at $100). Updated Oct 10 8:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-11 | LAX | Oct 10 8:00 AM ET | YES | 5 | 85¢ | open | -0.10 |
 | 10-11 | ABQ | Oct 10 8:00 AM ET | NO | 5 | 84¢ | open | -0.10 |
-| 10-11 | IND | Oct 10 8:00 AM ET | NO | 1 | 62¢ | open | -0.03 |
-| 10-11 | BOS | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.09 |
 | 10-11 | ATL | Oct 10 8:00 AM ET | NO | 7 | 67¢ | open | -0.25 |
-| 10-11 | PHX | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.14 |
+| 10-11 | BOS | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.09 |
+| 10-11 | IND | Oct 10 8:00 AM ET | NO | 1 | 62¢ | open | -0.03 |
+| 10-11 | LAX | Oct 10 8:00 AM ET | YES | 5 | 85¢ | open | -0.10 |
 | 10-11 | MIA | Oct 10 8:00 AM ET | NO | 7 | 68¢ | open | -0.39 |
+| 10-11 | PHX | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.14 |
 | 10-10 | MIA | Oct 10 12:00 AM ET | NO | 10 | 46¢ | open | +2.42 |
 | 10-10 | IND | Oct 9 8:00 PM ET | NO | 11 | 43¢ | open | -1.07 |
 | 10-10 | PIT | Oct 9 8:00 PM ET | NO | 5 | 83¢ | open | -0.95 |
