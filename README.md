@@ -4,17 +4,23 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$45.62** (started at $100). Updated Oct 11 7:31 AM ET.
+Mock account **$45.29** (started at $100). Updated Oct 11 8:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-11 | ABQ | Oct 10 8:00 AM ET | NO | 5 | 84¢ | open | -1.10 |
-| 10-11 | ATL | Oct 10 8:00 AM ET | NO | 7 | 67¢ | open | +1.57 |
+| 10-12 | LAX | Oct 11 8:00 AM ET | YES | 5 | 85¢ | open | -0.10 |
+| 10-12 | MIN | Oct 11 8:00 AM ET | NO | 6 | 72¢ | open | -0.15 |
+| 10-12 | SATX | Oct 11 8:00 AM ET | NO | 5 | 85¢ | open | -0.15 |
+| 10-12 | CLL | Oct 11 8:00 AM ET | NO | 6 | 75¢ | open | -0.14 |
+| 10-12 | MIA | Oct 11 8:00 AM ET | NO | 6 | 68¢ | open | -0.16 |
+| 10-12 | AUS | Oct 11 8:00 AM ET | NO | 2 | 72¢ | open | -0.05 |
+| 10-11 | ABQ | Oct 10 8:00 AM ET | NO | 5 | 84¢ | open | -0.75 |
+| 10-11 | ATL | Oct 10 8:00 AM ET | NO | 7 | 67¢ | open | +1.29 |
 | 10-11 | BOS | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | +0.46 |
 | 10-11 | IND | Oct 10 8:00 AM ET | NO | 1 | 62¢ | open | +0.33 |
-| 10-11 | LAX | Oct 10 8:00 AM ET | YES | 5 | 85¢ | open | -1.60 |
+| 10-11 | LAX | Oct 10 8:00 AM ET | YES | 5 | 85¢ | open | -1.55 |
 | 10-11 | MIA | Oct 10 8:00 AM ET | NO | 7 | 68¢ | open | -0.11 |
-| 10-11 | PHX | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.34 |
+| 10-11 | PHX | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.04 |
 | 10-10 | MIA | Oct 10 12:00 AM ET | NO | 10 | 46¢ | open | -0.18 |
 | 10-10 | IND | Oct 9 8:00 PM ET | NO | 11 | 43¢ | open | -0.19 |
 | 10-10 | PIT | Oct 9 8:00 PM ET | NO | 5 | 83¢ | open | -0.05 |
@@ -32,11 +38,5 @@ Mock account **$45.62** (started at $100). Updated Oct 11 7:31 AM ET.
 | 10-09 | HOU | Oct 8 8:00 AM ET | NO | 5 | 93¢ | won | +0.32 |
 | 10-09 | MKE | Oct 8 8:00 AM ET | NO | 1 | 80¢ | lost | -0.82 |
 | 10-09 | SEA | Oct 8 8:00 AM ET | YES | 1 | 86¢ | won | +0.13 |
-| 10-08 | PVD | Oct 7 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
-| 10-08 | BOS | Oct 7 8:00 AM ET | NO | 5 | 83¢ | won | +0.80 |
-| 10-08 | NOLA | Oct 7 8:00 AM ET | NO | 5 | 93¢ | won | +0.32 |
-| 10-07 | HOU | Oct 6 8:00 AM ET | NO | 5 | 92¢ | won | +0.37 |
-| 10-06 | MIA | Oct 6 12:00 AM ET | NO | 2 | 45¢ | won | +1.06 |
-| 10-06 | HOU | Oct 5 8:00 AM ET | NO | 5 | 92¢ | won | +0.37 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
