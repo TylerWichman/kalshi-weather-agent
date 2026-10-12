@@ -4,24 +4,24 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$49.28** (started at $100). Updated Oct 12 5:58 AM ET.
+Mock account **$49.95** (started at $100). Updated Oct 12 6:18 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-12 | PHX | Oct 12 12:00 AM ET | NO | 3 | 72¢ | open | -0.14 |
+| 10-12 | PHX | Oct 12 12:00 AM ET | NO | 3 | 72¢ | open | -0.26 |
 | 10-12 | PVD | Oct 12 12:00 AM ET | NO | 10 | 48¢ | open | -0.18 |
 | 10-12 | TTN | Oct 12 12:00 AM ET | NO | 2 | 51¢ | open | -0.04 |
-| 10-12 | EWR | Oct 11 8:00 PM ET | NO | 2 | 58¢ | open | +0.74 |
-| 10-12 | NYC | Oct 11 8:00 PM ET | NO | 8 | 57¢ | open | +2.74 |
-| 10-12 | HOU | Oct 11 2:00 PM ET | NO | 8 | 54¢ | open | -1.18 |
-| 10-12 | LV | Oct 11 2:00 PM ET | NO | 2 | 45¢ | open | -0.10 |
-| 10-12 | MKE | Oct 11 2:00 PM ET | NO | 3 | 88¢ | open | -0.21 |
+| 10-12 | EWR | Oct 11 8:00 PM ET | NO | 2 | 58¢ | open | +0.76 |
+| 10-12 | NYC | Oct 11 8:00 PM ET | NO | 8 | 57¢ | open | +3.14 |
+| 10-12 | HOU | Oct 11 2:00 PM ET | NO | 8 | 54¢ | open | -1.02 |
+| 10-12 | LV | Oct 11 2:00 PM ET | NO | 2 | 45¢ | open | -0.08 |
+| 10-12 | MKE | Oct 11 2:00 PM ET | NO | 3 | 88¢ | open | -0.18 |
 | 10-12 | AUS | Oct 11 8:00 AM ET | NO | 2 | 72¢ | open | -0.17 |
-| 10-12 | CLL | Oct 11 8:00 AM ET | NO | 6 | 75¢ | open | -1.64 |
+| 10-12 | CLL | Oct 11 8:00 AM ET | NO | 6 | 75¢ | open | -1.58 |
 | 10-12 | LAX | Oct 11 8:00 AM ET | YES | 5 | 85¢ | open | +0.65 |
-| 10-12 | MIA | Oct 11 8:00 AM ET | NO | 6 | 68¢ | open | -0.52 |
-| 10-12 | MIN | Oct 11 8:00 AM ET | NO | 6 | 72¢ | open | +0.27 |
-| 10-12 | SATX | Oct 11 8:00 AM ET | NO | 5 | 85¢ | open | -0.55 |
+| 10-12 | MIA | Oct 11 8:00 AM ET | NO | 6 | 68¢ | open | -0.64 |
+| 10-12 | MIN | Oct 11 8:00 AM ET | NO | 6 | 72¢ | open | +0.39 |
+| 10-12 | SATX | Oct 11 8:00 AM ET | NO | 5 | 85¢ | open | -0.45 |
 | 10-11 | ABQ | Oct 10 8:00 AM ET | NO | 5 | 84¢ | open | -0.05 |
 | 10-11 | ATL | Oct 10 8:00 AM ET | NO | 7 | 67¢ | open | -0.11 |
 | 10-11 | BOS | Oct 10 8:00 AM ET | YES | 5 | 88¢ | open | -0.04 |
