@@ -4,33 +4,33 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$75.77** (started at $100). Updated Oct 12 5:18 PM ET.
+Mock account **$73.42** (started at $100). Updated Oct 12 5:38 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-13 | CHI | Oct 12 2:00 PM ET | NO | 2 | 59¢ | open | -0.10 |
+| 10-13 | CHI | Oct 12 2:00 PM ET | NO | 2 | 59¢ | open | -0.04 |
 | 10-13 | CLL | Oct 12 2:00 PM ET | NO | 7 | 66¢ | open | +0.10 |
-| 10-13 | MKE | Oct 12 2:00 PM ET | NO | 6 | 82¢ | open | -0.25 |
-| 10-13 | PVD | Oct 12 2:00 PM ET | NO | 1 | 50¢ | open | +0.05 |
+| 10-13 | MKE | Oct 12 2:00 PM ET | NO | 6 | 82¢ | open | -0.19 |
+| 10-13 | PVD | Oct 12 2:00 PM ET | NO | 1 | 50¢ | open | +0.06 |
 | 10-13 | AUS | Oct 12 8:00 AM ET | NO | 1 | 85¢ | open | +0.06 |
-| 10-13 | DEN | Oct 12 8:00 AM ET | NO | 1 | 81¢ | open | +0.00 |
+| 10-13 | DEN | Oct 12 8:00 AM ET | NO | 1 | 81¢ | open | +0.01 |
 | 10-13 | LV | Oct 12 8:00 AM ET | NO | 5 | 92¢ | open | -0.08 |
 | 10-13 | OKC | Oct 12 8:00 AM ET | NO | 4 | 82¢ | open | -0.33 |
 | 10-13 | SATX | Oct 12 8:00 AM ET | NO | 5 | 87¢ | open | +0.26 |
-| 10-12 | PHX | Oct 12 12:00 AM ET | NO | 3 | 72¢ | open | +0.31 |
+| 10-12 | PHX | Oct 12 12:00 AM ET | NO | 3 | 72¢ | open | +0.01 |
 | 10-12 | PVD | Oct 12 12:00 AM ET | NO | 10 | 48¢ | open | -0.18 |
 | 10-12 | TTN | Oct 12 12:00 AM ET | NO | 2 | 51¢ | open | -0.04 |
 | 10-12 | EWR | Oct 11 8:00 PM ET | NO | 2 | 58¢ | open | +0.78 |
 | 10-12 | NYC | Oct 11 8:00 PM ET | NO | 8 | 57¢ | open | +3.22 |
-| 10-12 | HOU | Oct 11 2:00 PM ET | NO | 8 | 54¢ | open | -1.66 |
-| 10-12 | LV | Oct 11 2:00 PM ET | NO | 2 | 45¢ | open | +0.90 |
-| 10-12 | MKE | Oct 11 2:00 PM ET | NO | 3 | 88¢ | open | -0.03 |
-| 10-12 | AUS | Oct 11 8:00 AM ET | NO | 2 | 72¢ | open | +0.33 |
-| 10-12 | CLL | Oct 11 8:00 AM ET | NO | 6 | 75¢ | open | -1.28 |
+| 10-12 | HOU | Oct 11 2:00 PM ET | NO | 8 | 54¢ | open | -0.14 |
+| 10-12 | LV | Oct 11 2:00 PM ET | NO | 2 | 45¢ | open | +0.86 |
+| 10-12 | MKE | Oct 11 2:00 PM ET | NO | 3 | 88¢ | open | +0.09 |
+| 10-12 | AUS | Oct 11 8:00 AM ET | NO | 2 | 72¢ | open | +0.45 |
+| 10-12 | CLL | Oct 11 8:00 AM ET | NO | 6 | 75¢ | open | -0.92 |
 | 10-12 | LAX | Oct 11 8:00 AM ET | YES | 5 | 85¢ | open | +0.65 |
 | 10-12 | MIA | Oct 11 8:00 AM ET | NO | 6 | 68¢ | open | +1.58 |
 | 10-12 | MIN | Oct 11 8:00 AM ET | NO | 6 | 72¢ | open | +1.47 |
-| 10-12 | SATX | Oct 11 8:00 AM ET | NO | 5 | 85¢ | open | +0.40 |
+| 10-12 | SATX | Oct 11 8:00 AM ET | NO | 5 | 85¢ | open | +0.45 |
 | 10-11 | ABQ | Oct 10 8:00 AM ET | NO | 5 | 84¢ | won | +0.75 |
 | 10-11 | ATL | Oct 10 8:00 AM ET | NO | 7 | 67¢ | lost | -4.80 |
 | 10-11 | BOS | Oct 10 8:00 AM ET | YES | 5 | 88¢ | won | +0.56 |
