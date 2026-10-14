@@ -4,17 +4,17 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$120.04** (started at $100). Updated Oct 14 2:14 AM ET.
+Mock account **$131.18** (started at $100). Updated Oct 14 7:30 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-14 | PHIL | Oct 13 11:00 PM ET | NO | 7 | 61¢ | open | -0.47 |
-| 10-14 | CLL | Oct 13 9:00 PM ET | NO | 2 | 52¢ | open | -0.20 |
-| 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | open | -0.11 |
-| 10-14 | DET | Oct 13 10:00 AM ET | NO | 13 | 35¢ | open | -3.46 |
-| 10-14 | AUS | Oct 13 9:00 AM ET | NO | 1 | 49¢ | open | +0.01 |
+| 10-14 | PHIL | Oct 13 11:00 PM ET | NO | 7 | 61¢ | open | +0.51 |
+| 10-14 | CLL | Oct 13 9:00 PM ET | NO | 2 | 52¢ | open | -0.18 |
+| 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | open | -0.02 |
+| 10-14 | DET | Oct 13 10:00 AM ET | NO | 13 | 35¢ | open | +6.55 |
+| 10-14 | AUS | Oct 13 9:00 AM ET | NO | 1 | 49¢ | open | +0.05 |
 | 10-13 | PHX | Oct 12 6:00 PM ET | NO | 3 | 54¢ | open | -0.06 |
-| 10-13 | PVD | Oct 12 3:00 PM ET | NO | 2 | 57¢ | open | -0.04 |
+| 10-13 | PVD | Oct 12 3:00 PM ET | NO | 2 | 57¢ | lost | -1.18 |
 | 10-12 | TTN | Oct 12 12:00 AM ET | NO | 2 | 53¢ | lost | -1.10 |
 | 10-12 | HOU | Oct 11 11:00 PM ET | NO | 11 | 42¢ | lost | -4.81 |
 | 10-12 | PHIL | Oct 11 9:00 PM ET | NO | 33 | 14¢ | lost | -4.90 |
