@@ -8,8 +8,8 @@ Mock account **$124.86** (started at $100). Updated Oct 13 10:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | open | +0.01 |
 | 10-14 | CLL | Oct 13 9:00 PM ET | NO | 2 | 52¢ | open | -0.08 |
+| 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | open | +0.01 |
 | 10-14 | DET | Oct 13 10:00 AM ET | NO | 13 | 35¢ | open | -1.25 |
 | 10-14 | AUS | Oct 13 9:00 AM ET | NO | 1 | 49¢ | open | +0.05 |
 | 10-13 | PHX | Oct 12 6:00 PM ET | NO | 3 | 54¢ | open | -0.06 |
