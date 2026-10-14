@@ -4,29 +4,29 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$69.04** (started at $100). Updated Oct 13 8:00 PM ET.
+Mock account **$68.52** (started at $100). Updated Oct 13 8:20 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-14 | BOS | Oct 13 2:00 PM ET | NO | 5 | 77¢ | open | +0.28 |
-| 10-14 | CLL | Oct 13 2:00 PM ET | NO | 3 | 66¢ | open | -0.50 |
+| 10-14 | BOS | Oct 13 2:00 PM ET | NO | 5 | 77¢ | open | +0.23 |
+| 10-14 | CLL | Oct 13 2:00 PM ET | NO | 3 | 66¢ | open | -0.62 |
 | 10-14 | DAL | Oct 13 2:00 PM ET | NO | 4 | 85¢ | open | -0.12 |
-| 10-14 | MIA | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | -0.04 |
+| 10-14 | MIA | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | -0.53 |
 | 10-14 | PHIL | Oct 13 2:00 PM ET | NO | 6 | 71¢ | open | -0.21 |
 | 10-14 | SATX | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | +0.17 |
 | 10-14 | SEA | Oct 13 2:00 PM ET | NO | 6 | 80¢ | open | +0.05 |
 | 10-14 | AUS | Oct 13 8:00 AM ET | NO | 1 | 59¢ | open | -0.05 |
-| 10-14 | DC | Oct 13 8:00 AM ET | NO | 4 | 80¢ | open | -0.29 |
+| 10-14 | DC | Oct 13 8:00 AM ET | NO | 4 | 80¢ | open | -0.33 |
 | 10-14 | HOU | Oct 13 8:00 AM ET | NO | 4 | 82¢ | open | +0.03 |
-| 10-14 | MKE | Oct 13 8:00 AM ET | NO | 5 | 86¢ | open | +0.30 |
+| 10-14 | MKE | Oct 13 8:00 AM ET | NO | 5 | 86¢ | open | +0.35 |
 | 10-14 | PVD | Oct 13 8:00 AM ET | NO | 5 | 91¢ | open | -0.13 |
 | 10-13 | PHX | Oct 12 8:00 PM ET | NO | 8 | 49¢ | open | -0.14 |
 | 10-13 | CHI | Oct 12 2:00 PM ET | NO | 2 | 59¢ | open | -0.60 |
 | 10-13 | CLL | Oct 12 2:00 PM ET | NO | 7 | 66¢ | open | +2.20 |
-| 10-13 | MKE | Oct 12 2:00 PM ET | NO | 6 | 82¢ | open | -3.73 |
-| 10-13 | PVD | Oct 12 2:00 PM ET | NO | 1 | 50¢ | open | +0.36 |
+| 10-13 | MKE | Oct 12 2:00 PM ET | NO | 6 | 82¢ | open | -3.67 |
+| 10-13 | PVD | Oct 12 2:00 PM ET | NO | 1 | 50¢ | open | +0.32 |
 | 10-13 | AUS | Oct 12 8:00 AM ET | NO | 1 | 85¢ | open | +0.13 |
-| 10-13 | DEN | Oct 12 8:00 AM ET | NO | 1 | 81¢ | open | -0.55 |
+| 10-13 | DEN | Oct 12 8:00 AM ET | NO | 1 | 81¢ | open | -0.44 |
 | 10-13 | LV | Oct 12 8:00 AM ET | NO | 5 | 92¢ | open | +0.32 |
 | 10-13 | OKC | Oct 12 8:00 AM ET | NO | 4 | 82¢ | open | -0.05 |
 | 10-13 | SATX | Oct 12 8:00 AM ET | NO | 5 | 87¢ | open | +0.56 |
