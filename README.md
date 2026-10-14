@@ -4,23 +4,23 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$60.23** (started at $100). Updated Oct 14 11:59 AM ET.
+Mock account **$59.14** (started at $100). Updated Oct 14 12:20 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-14 | TTN | Oct 14 12:00 AM ET | NO | 1 | 66¢ | open | -0.02 |
 | 10-14 | BOS | Oct 13 2:00 PM ET | NO | 5 | 77¢ | open | +0.73 |
-| 10-14 | CLL | Oct 13 2:00 PM ET | NO | 3 | 66¢ | open | -0.74 |
-| 10-14 | DAL | Oct 13 2:00 PM ET | NO | 4 | 85¢ | open | -0.16 |
-| 10-14 | MIA | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | -1.16 |
-| 10-14 | PHIL | Oct 13 2:00 PM ET | NO | 6 | 71¢ | open | -3.09 |
-| 10-14 | SATX | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | +0.38 |
+| 10-14 | CLL | Oct 13 2:00 PM ET | NO | 3 | 66¢ | open | -0.92 |
+| 10-14 | DAL | Oct 13 2:00 PM ET | NO | 4 | 85¢ | open | -0.40 |
+| 10-14 | MIA | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | -2.42 |
+| 10-14 | PHIL | Oct 13 2:00 PM ET | NO | 6 | 71¢ | open | -3.15 |
+| 10-14 | SATX | Oct 13 2:00 PM ET | NO | 7 | 69¢ | open | +0.45 |
 | 10-14 | SEA | Oct 13 2:00 PM ET | NO | 6 | 80¢ | open | +1.07 |
-| 10-14 | AUS | Oct 13 8:00 AM ET | NO | 1 | 59¢ | open | -0.11 |
-| 10-14 | DC | Oct 13 8:00 AM ET | NO | 4 | 80¢ | open | -0.05 |
-| 10-14 | HOU | Oct 13 8:00 AM ET | NO | 4 | 82¢ | open | +0.31 |
+| 10-14 | AUS | Oct 13 8:00 AM ET | NO | 1 | 59¢ | open | -0.13 |
+| 10-14 | DC | Oct 13 8:00 AM ET | NO | 4 | 80¢ | open | -0.01 |
+| 10-14 | HOU | Oct 13 8:00 AM ET | NO | 4 | 82¢ | open | +0.47 |
 | 10-14 | MKE | Oct 13 8:00 AM ET | NO | 5 | 86¢ | open | +0.55 |
-| 10-14 | PVD | Oct 13 8:00 AM ET | NO | 5 | 91¢ | open | -0.23 |
+| 10-14 | PVD | Oct 13 8:00 AM ET | NO | 5 | 91¢ | open | +0.17 |
 | 10-13 | PHX | Oct 12 8:00 PM ET | NO | 8 | 49¢ | lost | -4.06 |
 | 10-13 | CHI | Oct 12 2:00 PM ET | NO | 2 | 59¢ | lost | -1.22 |
 | 10-13 | CLL | Oct 12 2:00 PM ET | NO | 7 | 66¢ | won | +2.27 |
