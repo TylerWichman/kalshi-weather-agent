@@ -4,22 +4,23 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$124.47** (started at $100). Updated Oct 14 7:20 PM ET.
+Mock account **$123.88** (started at $100). Updated Oct 14 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | open | -0.30 |
 | 10-15 | DC | Oct 14 7:00 PM ET | NO | 9 | 8¢ | open | -0.14 |
-| 10-15 | LEX | Oct 14 3:00 PM ET | NO | 12 | 21¢ | open | -0.38 |
-| 10-15 | DAL | Oct 14 1:00 PM ET | NO | 7 | 65¢ | open | -1.45 |
-| 10-15 | PHIL | Oct 14 1:00 PM ET | NO | 3 | 51¢ | open | +0.78 |
+| 10-15 | LEX | Oct 14 3:00 PM ET | NO | 12 | 21¢ | open | +0.10 |
+| 10-15 | DAL | Oct 14 1:00 PM ET | NO | 7 | 65¢ | open | -2.22 |
+| 10-15 | PHIL | Oct 14 1:00 PM ET | NO | 3 | 51¢ | open | +0.84 |
 | 10-15 | IND | Oct 14 11:00 AM ET | NO | 36 | 13¢ | open | -2.09 |
-| 10-15 | MIA | Oct 14 11:00 AM ET | NO | 6 | 44¢ | open | +0.07 |
-| 10-15 | CMH | Oct 14 9:00 AM ET | NO | 7 | 29¢ | open | +1.08 |
+| 10-15 | MIA | Oct 14 11:00 AM ET | NO | 6 | 44¢ | open | +0.25 |
+| 10-15 | CMH | Oct 14 9:00 AM ET | NO | 7 | 29¢ | open | +0.80 |
 | 10-14 | PHIL | Oct 13 11:00 PM ET | NO | 7 | 61¢ | open | -0.12 |
 | 10-14 | CLL | Oct 13 9:00 PM ET | NO | 2 | 52¢ | open | -0.04 |
 | 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | open | -0.02 |
 | 10-14 | DET | Oct 13 10:00 AM ET | NO | 13 | 35¢ | open | +8.11 |
-| 10-14 | AUS | Oct 13 9:00 AM ET | NO | 1 | 49¢ | open | +0.38 |
+| 10-14 | AUS | Oct 13 9:00 AM ET | NO | 1 | 49¢ | open | +0.42 |
 | 10-13 | PHX | Oct 12 6:00 PM ET | NO | 3 | 54¢ | lost | -1.68 |
 | 10-13 | PVD | Oct 12 3:00 PM ET | NO | 2 | 57¢ | lost | -1.18 |
 | 10-12 | TTN | Oct 12 12:00 AM ET | NO | 2 | 53¢ | lost | -1.10 |
@@ -37,6 +38,5 @@ Mock account **$124.47** (started at $100). Updated Oct 14 7:20 PM ET.
 | 10-10 | PHX | Oct 9 12:00 PM ET | NO | 42 | 11¢ | lost | -4.91 |
 | 10-10 | IND | Oct 9 11:00 AM ET | NO | 11 | 40¢ | lost | -4.59 |
 | 10-10 | MIA | Oct 9 11:00 AM ET | NO | 15 | 31¢ | won | +10.12 |
-| 10-10 | CMH | Oct 9 10:00 AM ET | NO | 7 | 31¢ | lost | -2.28 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
