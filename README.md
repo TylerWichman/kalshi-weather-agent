@@ -4,14 +4,14 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$50.53** (started at $100). Updated Oct 15 12:00 AM ET.
+Mock account **$50.61** (started at $100). Updated Oct 15 12:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-15 | MIA | Oct 14 8:00 PM ET | NO | 3 | 52¢ | open | -0.21 |
-| 10-15 | TPA | Oct 14 8:00 PM ET | NO | 6 | 77¢ | open | -0.20 |
-| 10-15 | DAL | Oct 14 2:00 PM ET | NO | 8 | 60¢ | open | -2.22 |
-| 10-15 | HOU | Oct 14 2:00 PM ET | NO | 3 | 85¢ | open | -0.09 |
+| 10-15 | MIA | Oct 14 8:00 PM ET | NO | 3 | 52¢ | open | -0.24 |
+| 10-15 | TPA | Oct 14 8:00 PM ET | NO | 6 | 77¢ | open | -0.14 |
+| 10-15 | DAL | Oct 14 2:00 PM ET | NO | 8 | 60¢ | open | -2.14 |
+| 10-15 | HOU | Oct 14 2:00 PM ET | NO | 3 | 85¢ | open | -0.12 |
 | 10-15 | TTN | Oct 14 2:00 PM ET | NO | 5 | 84¢ | open | -0.25 |
 | 10-14 | TTN | Oct 14 12:00 AM ET | NO | 1 | 66¢ | open | -0.02 |
 | 10-14 | BOS | Oct 13 2:00 PM ET | NO | 5 | 77¢ | open | -0.07 |
