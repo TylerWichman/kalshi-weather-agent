@@ -4,28 +4,28 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$115.37** (started at $100). Updated Oct 16 12:00 AM ET.
+Mock account **$114.21** (started at $100). Updated Oct 16 12:23 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | -0.38 |
-| 10-16 | MIN | Oct 16 12:00 AM ET | NO | 21 | 22¢ | open | -0.47 |
-| 10-16 | LEX | Oct 15 6:00 PM ET | NO | 13 | 26¢ | open | -0.18 |
-| 10-16 | SATX | Oct 15 4:00 PM ET | NO | 7 | 63¢ | open | +0.65 |
-| 10-16 | DTW | Oct 15 2:00 PM ET | NO | 10 | 17¢ | open | -0.40 |
-| 10-16 | DAL | Oct 15 1:00 PM ET | NO | 10 | 45¢ | open | -2.78 |
-| 10-16 | MIA | Oct 15 1:00 PM ET | NO | 12 | 39¢ | open | -0.20 |
-| 10-16 | CHI | Oct 15 12:00 PM ET | NO | 7 | 45¢ | open | -0.55 |
-| 10-16 | TPA | Oct 15 12:00 PM ET | NO | 1 | 40¢ | open | +0.01 |
+| 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | -0.08 |
+| 10-16 | MIN | Oct 16 12:00 AM ET | NO | 21 | 22¢ | open | -1.73 |
+| 10-16 | LEX | Oct 15 6:00 PM ET | NO | 13 | 26¢ | open | -0.05 |
+| 10-16 | SATX | Oct 15 4:00 PM ET | NO | 7 | 63¢ | open | +0.37 |
+| 10-16 | DTW | Oct 15 2:00 PM ET | NO | 10 | 17¢ | open | +0.00 |
+| 10-16 | DAL | Oct 15 1:00 PM ET | NO | 10 | 45¢ | open | -3.18 |
+| 10-16 | MIA | Oct 15 1:00 PM ET | NO | 12 | 39¢ | open | -0.32 |
+| 10-16 | CHI | Oct 15 12:00 PM ET | NO | 7 | 45¢ | open | -0.48 |
+| 10-16 | TPA | Oct 15 12:00 PM ET | NO | 1 | 40¢ | open | +0.00 |
 | 10-16 | MKE | Oct 15 10:00 AM ET | NO | 6 | 24¢ | open | +0.58 |
-| 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | open | +3.30 |
+| 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | open | +3.38 |
 | 10-15 | DC | Oct 14 7:00 PM ET | NO | 9 | 8¢ | open | -0.05 |
 | 10-15 | LEX | Oct 14 3:00 PM ET | NO | 12 | 21¢ | open | -0.14 |
 | 10-15 | DAL | Oct 14 1:00 PM ET | NO | 7 | 65¢ | open | -0.12 |
 | 10-15 | PHIL | Oct 14 1:00 PM ET | NO | 3 | 51¢ | open | +1.38 |
 | 10-15 | IND | Oct 14 11:00 AM ET | NO | 36 | 13¢ | open | -0.29 |
 | 10-15 | MIA | Oct 14 11:00 AM ET | NO | 6 | 44¢ | open | -0.11 |
-| 10-15 | CMH | Oct 14 9:00 AM ET | NO | 7 | 29¢ | open | +3.39 |
+| 10-15 | CMH | Oct 14 9:00 AM ET | NO | 7 | 29¢ | open | +3.32 |
 | 10-14 | PHIL | Oct 13 11:00 PM ET | NO | 7 | 61¢ | lost | -4.39 |
 | 10-14 | CLL | Oct 13 9:00 PM ET | NO | 2 | 52¢ | lost | -1.08 |
 | 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | lost | -0.69 |
