@@ -4,21 +4,21 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$35.04** (started at $100). Updated Oct 16 2:17 AM ET.
+Mock account **$32.54** (started at $100). Updated Oct 16 5:37 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | +1.12 |
-| 10-16 | MIA | Oct 16 12:00 AM ET | NO | 7 | 45¢ | open | -0.41 |
-| 10-16 | MKE | Oct 16 12:00 AM ET | NO | 12 | 37¢ | open | +0.04 |
-| 10-16 | SEA | Oct 16 12:00 AM ET | NO | 5 | 92¢ | open | -0.08 |
-| 10-16 | TPA | Oct 15 8:00 PM ET | NO | 4 | 60¢ | open | -0.75 |
-| 10-16 | NOLA | Oct 15 2:00 PM ET | NO | 2 | 76¢ | open | +0.17 |
-| 10-16 | SATX | Oct 15 2:00 PM ET | NO | 3 | 61¢ | open | +0.31 |
-| 10-16 | SGF | Oct 15 2:00 PM ET | NO | 2 | 79¢ | open | -0.15 |
-| 10-16 | STL | Oct 15 2:00 PM ET | NO | 3 | 74¢ | open | -0.14 |
-| 10-16 | DC | Oct 15 8:00 AM ET | YES | 5 | 86¢ | open | -0.05 |
-| 10-16 | HOU | Oct 15 8:00 AM ET | NO | 6 | 72¢ | open | -1.05 |
+| 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | +0.97 |
+| 10-16 | MIA | Oct 16 12:00 AM ET | NO | 7 | 45¢ | open | +0.08 |
+| 10-16 | MKE | Oct 16 12:00 AM ET | NO | 12 | 37¢ | open | +0.28 |
+| 10-16 | SEA | Oct 16 12:00 AM ET | NO | 5 | 92¢ | open | +0.17 |
+| 10-16 | TPA | Oct 15 8:00 PM ET | NO | 4 | 60¢ | open | -0.79 |
+| 10-16 | NOLA | Oct 15 2:00 PM ET | NO | 2 | 76¢ | open | +0.21 |
+| 10-16 | SATX | Oct 15 2:00 PM ET | NO | 3 | 61¢ | open | +0.55 |
+| 10-16 | SGF | Oct 15 2:00 PM ET | NO | 2 | 79¢ | open | +0.15 |
+| 10-16 | STL | Oct 15 2:00 PM ET | NO | 3 | 74¢ | open | -0.50 |
+| 10-16 | DC | Oct 15 8:00 AM ET | YES | 5 | 86¢ | open | -0.20 |
+| 10-16 | HOU | Oct 15 8:00 AM ET | NO | 6 | 72¢ | open | -0.09 |
 | 10-15 | MIA | Oct 14 8:00 PM ET | NO | 3 | 52¢ | open | -0.06 |
 | 10-15 | TPA | Oct 14 8:00 PM ET | NO | 6 | 77¢ | open | -0.08 |
 | 10-15 | DAL | Oct 14 2:00 PM ET | NO | 8 | 60¢ | open | -0.14 |
