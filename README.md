@@ -4,26 +4,28 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$121.21** (started at $100). Updated Oct 15 11:40 PM ET.
+Mock account **$114.87** (started at $100). Updated Oct 16 12:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | -0.38 |
+| 10-16 | MIN | Oct 16 12:00 AM ET | NO | 21 | 22¢ | open | -0.47 |
 | 10-16 | LEX | Oct 15 6:00 PM ET | NO | 13 | 26¢ | open | -0.18 |
-| 10-16 | SATX | Oct 15 4:00 PM ET | NO | 7 | 63¢ | open | +0.58 |
-| 10-16 | DTW | Oct 15 2:00 PM ET | NO | 10 | 17¢ | open | -0.30 |
-| 10-16 | DAL | Oct 15 1:00 PM ET | NO | 10 | 45¢ | open | -2.38 |
-| 10-16 | MIA | Oct 15 1:00 PM ET | NO | 12 | 39¢ | open | +0.16 |
-| 10-16 | CHI | Oct 15 12:00 PM ET | NO | 7 | 45¢ | open | -0.55 |
-| 10-16 | TPA | Oct 15 12:00 PM ET | NO | 1 | 40¢ | open | +0.03 |
+| 10-16 | SATX | Oct 15 4:00 PM ET | NO | 7 | 63¢ | open | +0.65 |
+| 10-16 | DTW | Oct 15 2:00 PM ET | NO | 10 | 17¢ | open | -0.40 |
+| 10-16 | DAL | Oct 15 1:00 PM ET | NO | 10 | 45¢ | open | -2.78 |
+| 10-16 | MIA | Oct 15 1:00 PM ET | NO | 12 | 39¢ | open | -0.20 |
+| 10-16 | CHI | Oct 15 12:00 PM ET | NO | 7 | 45¢ | open | -0.69 |
+| 10-16 | TPA | Oct 15 12:00 PM ET | NO | 1 | 40¢ | open | +0.01 |
 | 10-16 | MKE | Oct 15 10:00 AM ET | NO | 6 | 24¢ | open | +0.64 |
-| 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | open | +3.22 |
+| 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | open | +3.30 |
 | 10-15 | DC | Oct 14 7:00 PM ET | NO | 9 | 8¢ | open | -0.05 |
 | 10-15 | LEX | Oct 14 3:00 PM ET | NO | 12 | 21¢ | open | -0.14 |
 | 10-15 | DAL | Oct 14 1:00 PM ET | NO | 7 | 65¢ | open | -0.12 |
 | 10-15 | PHIL | Oct 14 1:00 PM ET | NO | 3 | 51¢ | open | +1.38 |
 | 10-15 | IND | Oct 14 11:00 AM ET | NO | 36 | 13¢ | open | -0.29 |
-| 10-15 | MIA | Oct 14 11:00 AM ET | NO | 6 | 44¢ | open | +1.45 |
-| 10-15 | CMH | Oct 14 9:00 AM ET | NO | 7 | 29¢ | open | +3.39 |
+| 10-15 | MIA | Oct 14 11:00 AM ET | NO | 6 | 44¢ | open | -0.11 |
+| 10-15 | CMH | Oct 14 9:00 AM ET | NO | 7 | 29¢ | open | +2.97 |
 | 10-14 | PHIL | Oct 13 11:00 PM ET | NO | 7 | 61¢ | lost | -4.39 |
 | 10-14 | CLL | Oct 13 9:00 PM ET | NO | 2 | 52¢ | lost | -1.08 |
 | 10-14 | MIA | Oct 13 9:00 PM ET | NO | 1 | 67¢ | lost | -0.69 |
@@ -36,7 +38,5 @@ Mock account **$121.21** (started at $100). Updated Oct 15 11:40 PM ET.
 | 10-12 | PHIL | Oct 11 9:00 PM ET | NO | 33 | 14¢ | lost | -4.90 |
 | 10-12 | PHX | Oct 11 8:00 PM ET | NO | 3 | 37¢ | lost | -1.16 |
 | 10-12 | CLL | Oct 11 6:00 PM ET | NO | 7 | 64¢ | won | +2.40 |
-| 10-12 | EWR | Oct 11 1:00 PM ET | NO | 12 | 38¢ | won | +7.24 |
-| 10-12 | NYC | Oct 11 12:00 PM ET | NO | 13 | 36¢ | won | +8.11 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
