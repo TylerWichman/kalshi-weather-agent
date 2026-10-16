@@ -4,23 +4,23 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$35.19** (started at $100). Updated Oct 16 12:35 PM ET.
+Mock account **$33.87** (started at $100). Updated Oct 16 12:55 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-17 | LEX | Oct 16 8:00 AM ET | NO | 6 | 75¢ | open | -0.08 |
-| 10-17 | PHX | Oct 16 8:00 AM ET | NO | 5 | 86¢ | open | -0.55 |
-| 10-17 | PIT | Oct 16 8:00 AM ET | NO | 2 | 85¢ | open | -0.14 |
+| 10-17 | LEX | Oct 16 8:00 AM ET | NO | 6 | 75¢ | open | -1.34 |
+| 10-17 | PHX | Oct 16 8:00 AM ET | NO | 5 | 86¢ | open | -0.65 |
+| 10-17 | PIT | Oct 16 8:00 AM ET | NO | 2 | 85¢ | open | -0.12 |
 | 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | -0.23 |
-| 10-16 | MIA | Oct 16 12:00 AM ET | NO | 7 | 45¢ | open | +0.01 |
+| 10-16 | MIA | Oct 16 12:00 AM ET | NO | 7 | 45¢ | open | +0.50 |
 | 10-16 | MKE | Oct 16 12:00 AM ET | NO | 12 | 37¢ | open | -0.20 |
 | 10-16 | SEA | Oct 16 12:00 AM ET | NO | 5 | 92¢ | open | +0.27 |
-| 10-16 | TPA | Oct 15 8:00 PM ET | NO | 4 | 60¢ | open | -0.91 |
+| 10-16 | TPA | Oct 15 8:00 PM ET | NO | 4 | 60¢ | open | -0.87 |
 | 10-16 | NOLA | Oct 15 2:00 PM ET | NO | 2 | 76¢ | open | +0.39 |
-| 10-16 | SATX | Oct 15 2:00 PM ET | NO | 3 | 61¢ | open | +1.03 |
+| 10-16 | SATX | Oct 15 2:00 PM ET | NO | 3 | 61¢ | open | +1.06 |
 | 10-16 | SGF | Oct 15 2:00 PM ET | NO | 2 | 79¢ | open | +0.13 |
-| 10-16 | STL | Oct 15 2:00 PM ET | NO | 3 | 74¢ | open | -1.01 |
-| 10-16 | DC | Oct 15 8:00 AM ET | YES | 5 | 86¢ | open | -0.05 |
+| 10-16 | STL | Oct 15 2:00 PM ET | NO | 3 | 74¢ | open | -1.70 |
+| 10-16 | DC | Oct 15 8:00 AM ET | YES | 5 | 86¢ | open | +0.10 |
 | 10-16 | HOU | Oct 15 8:00 AM ET | NO | 6 | 72¢ | open | -0.09 |
 | 10-15 | MIA | Oct 14 8:00 PM ET | NO | 3 | 52¢ | lost | -1.62 |
 | 10-15 | TPA | Oct 14 8:00 PM ET | NO | 6 | 77¢ | won | +1.30 |
