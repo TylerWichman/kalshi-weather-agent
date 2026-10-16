@@ -4,15 +4,20 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$63.98** (started at $100). Updated Oct 15 7:21 PM ET.
+Mock account **$63.34** (started at $100). Updated Oct 15 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-16 | TPA | Oct 15 8:00 PM ET | NO | 4 | 60¢ | open | -0.15 |
+| 10-16 | STL | Oct 15 8:00 PM ET | NO | 7 | 68¢ | open | -0.18 |
+| 10-16 | NOLA | Oct 15 8:00 PM ET | NO | 5 | 88¢ | open | -0.09 |
+| 10-16 | SATX | Oct 15 8:00 PM ET | NO | 6 | 71¢ | open | -0.21 |
+| 10-16 | HOU | Oct 15 8:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
 | 10-15 | HOU | Oct 14 8:00 PM ET | NO | 3 | 86¢ | open | +0.33 |
-| 10-15 | MIA | Oct 14 8:00 PM ET | NO | 9 | 52¢ | open | +3.89 |
-| 10-15 | PHIL | Oct 14 8:00 PM ET | NO | 5 | 82¢ | open | +0.64 |
+| 10-15 | MIA | Oct 14 8:00 PM ET | NO | 9 | 52¢ | open | +3.80 |
+| 10-15 | PHIL | Oct 14 8:00 PM ET | NO | 5 | 82¢ | open | +0.69 |
 | 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | open | +3.22 |
-| 10-15 | TPA | Oct 14 8:00 PM ET | NO | 6 | 77¢ | open | +0.94 |
+| 10-15 | TPA | Oct 14 8:00 PM ET | NO | 6 | 77¢ | open | +1.12 |
 | 10-15 | TTN | Oct 14 8:00 PM ET | NO | 6 | 80¢ | open | +1.01 |
 | 10-14 | AUS | Oct 13 8:00 PM ET | NO | 8 | 57¢ | won | +3.30 |
 | 10-14 | BOS | Oct 13 8:00 PM ET | NO | 5 | 85¢ | lost | -4.30 |
@@ -33,10 +38,5 @@ Mock account **$63.98** (started at $100). Updated Oct 15 7:21 PM ET.
 | 10-13 | DEN | Oct 12 8:00 PM ET | NO | 1 | 82¢ | lost | -0.84 |
 | 10-13 | HOU | Oct 12 8:00 PM ET | NO | 11 | 42¢ | won | +6.19 |
 | 10-13 | MKE | Oct 12 8:00 PM ET | NO | 5 | 85¢ | lost | -4.30 |
-| 10-13 | OKC | Oct 12 8:00 PM ET | NO | 6 | 81¢ | lost | -4.93 |
-| 10-13 | PHX | Oct 12 8:00 PM ET | NO | 9 | 49¢ | lost | -4.57 |
-| 10-13 | PVD | Oct 12 8:00 PM ET | NO | 7 | 67¢ | lost | -4.80 |
-| 10-12 | AUS | Oct 11 8:00 PM ET | NO | 6 | 81¢ | won | +1.07 |
-| 10-12 | CLL | Oct 11 8:00 PM ET | NO | 2 | 65¢ | won | +0.66 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
