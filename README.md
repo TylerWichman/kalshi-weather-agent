@@ -4,26 +4,26 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$57.34** (started at $100). Updated Oct 17 4:29 AM ET.
+Mock account **$66.54** (started at $100). Updated Oct 17 7:30 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-17 | LEX | Oct 16 10:00 PM ET | NO | 6 | 60¢ | open | -0.11 |
 | 10-17 | PVD | Oct 16 10:00 PM ET | NO | 23 | 20¢ | open | -0.26 |
-| 10-17 | EWR | Oct 16 1:00 PM ET | NO | 10 | 48¢ | open | -4.28 |
+| 10-17 | EWR | Oct 16 1:00 PM ET | NO | 10 | 48¢ | open | +3.92 |
 | 10-17 | PHIL | Oct 16 1:00 PM ET | NO | 8 | 19¢ | open | -0.09 |
 | 10-17 | TTN | Oct 16 1:00 PM ET | NO | 11 | 40¢ | open | -0.19 |
 | 10-17 | DC | Oct 16 12:00 PM ET | NO | 26 | 18¢ | open | -0.27 |
 | 10-17 | NYC | Oct 16 12:00 PM ET | NO | 10 | 48¢ | open | -0.18 |
 | 10-16 | CLL | Oct 16 12:00 AM ET | NO | 15 | 31¢ | open | -0.23 |
 | 10-16 | MIN | Oct 16 12:00 AM ET | NO | 21 | 22¢ | open | -0.26 |
-| 10-16 | LEX | Oct 15 6:00 PM ET | NO | 13 | 26¢ | open | -0.18 |
+| 10-16 | LEX | Oct 15 6:00 PM ET | NO | 13 | 26¢ | lost | -3.56 |
 | 10-16 | SATX | Oct 15 4:00 PM ET | NO | 7 | 63¢ | open | -0.12 |
-| 10-16 | DTW | Oct 15 2:00 PM ET | NO | 10 | 17¢ | open | -0.10 |
+| 10-16 | DTW | Oct 15 2:00 PM ET | NO | 10 | 17¢ | lost | -1.80 |
 | 10-16 | DAL | Oct 15 1:00 PM ET | NO | 10 | 45¢ | open | -0.18 |
-| 10-16 | MIA | Oct 15 1:00 PM ET | NO | 12 | 39¢ | open | -0.20 |
+| 10-16 | MIA | Oct 15 1:00 PM ET | NO | 12 | 39¢ | lost | -4.88 |
 | 10-16 | CHI | Oct 15 12:00 PM ET | NO | 7 | 45¢ | open | -0.13 |
-| 10-16 | TPA | Oct 15 12:00 PM ET | NO | 1 | 40¢ | open | -0.02 |
+| 10-16 | TPA | Oct 15 12:00 PM ET | NO | 1 | 40¢ | won | +0.58 |
 | 10-16 | MKE | Oct 15 10:00 AM ET | NO | 6 | 24¢ | open | -0.08 |
 | 10-15 | PIT | Oct 14 8:00 PM ET | NO | 8 | 55¢ | won | +3.46 |
 | 10-15 | DC | Oct 14 7:00 PM ET | NO | 9 | 8¢ | lost | -0.77 |
