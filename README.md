@@ -4,12 +4,12 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$50.39** (started at $100). Updated Oct 19 5:58 PM ET.
+Mock account **$50.07** (started at $100). Updated Oct 19 6:19 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-19 | ABQ | Oct 18 8:00 PM ET | NO | 8 | 58¢ | open | -1.74 |
-| 10-19 | MIA | Oct 18 8:00 PM ET | NO | 8 | 58¢ | open | +1.22 |
+| 10-19 | ABQ | Oct 18 8:00 PM ET | NO | 8 | 58¢ | open | -2.14 |
+| 10-19 | MIA | Oct 18 8:00 PM ET | NO | 8 | 58¢ | open | +1.30 |
 | 10-19 | PHX | Oct 18 8:00 PM ET | NO | 5 | 86¢ | open | +0.50 |
 | 10-19 | WPB | Oct 18 8:00 PM ET | NO | 2 | 74¢ | open | -0.03 |
 | 10-18 | PHX | Oct 17 8:00 PM ET | NO | 8 | 54¢ | won | +3.54 |
