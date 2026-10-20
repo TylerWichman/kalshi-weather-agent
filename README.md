@@ -8,11 +8,11 @@ Mock account **$49.40** (started at $100). Updated Oct 19 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-20 | PHX | Oct 19 8:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
-| 10-20 | WPB | Oct 19 8:00 PM ET | NO | 7 | 61¢ | open | -0.19 |
-| 10-20 | SFO | Oct 19 8:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
 | 10-20 | ABQ | Oct 19 8:00 PM ET | NO | 9 | 49¢ | open | -0.34 |
 | 10-20 | MIA | Oct 19 8:00 PM ET | NO | 9 | 51¢ | open | -0.25 |
+| 10-20 | PHX | Oct 19 8:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
+| 10-20 | SFO | Oct 19 8:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
+| 10-20 | WPB | Oct 19 8:00 PM ET | NO | 7 | 61¢ | open | -0.19 |
 | 10-19 | ABQ | Oct 18 8:00 PM ET | NO | 8 | 58¢ | open | -2.30 |
 | 10-19 | MIA | Oct 18 8:00 PM ET | NO | 8 | 58¢ | open | +1.70 |
 | 10-19 | PHX | Oct 18 8:00 PM ET | NO | 5 | 86¢ | open | +0.55 |
