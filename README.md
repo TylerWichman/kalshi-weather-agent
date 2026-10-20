@@ -8,10 +8,10 @@ Mock account **$27.82** (started at $100). Updated Oct 20 2:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | open | -0.14 |
 | 10-21 | ABQ | Oct 20 2:00 PM ET | NO | 7 | 62¢ | open | -0.19 |
-| 10-21 | WPB | Oct 20 2:00 PM ET | NO | 7 | 68¢ | open | -0.32 |
+| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | open | -0.14 |
 | 10-21 | PVD | Oct 20 2:00 PM ET | NO | 3 | 89¢ | open | -0.06 |
+| 10-21 | WPB | Oct 20 2:00 PM ET | NO | 7 | 68¢ | open | -0.32 |
 | 10-21 | MIA | Oct 20 8:00 AM ET | NO | 1 | 81¢ | open | -0.09 |
 | 10-20 | ABQ | Oct 19 8:00 PM ET | NO | 2 | 49¢ | open | -0.04 |
 | 10-20 | MIA | Oct 19 2:00 PM ET | NO | 2 | 68¢ | open | -0.04 |
