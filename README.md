@@ -4,15 +4,15 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$29.65** (started at $100). Updated Oct 21 1:04 PM ET.
+Mock account **$29.96** (started at $100). Updated Oct 21 1:25 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-21 | BOS | Oct 20 8:00 PM ET | NO | 4 | 88¢ | open | +0.33 |
-| 10-21 | ABQ | Oct 20 2:00 PM ET | NO | 7 | 62¢ | open | +0.65 |
-| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | open | -1.04 |
-| 10-21 | PVD | Oct 20 2:00 PM ET | NO | 3 | 89¢ | open | +0.18 |
-| 10-21 | WPB | Oct 20 2:00 PM ET | NO | 7 | 68¢ | open | -0.74 |
+| 10-21 | ABQ | Oct 20 2:00 PM ET | NO | 7 | 62¢ | open | +0.72 |
+| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | open | -0.98 |
+| 10-21 | PVD | Oct 20 2:00 PM ET | NO | 3 | 89¢ | open | +0.15 |
+| 10-21 | WPB | Oct 20 2:00 PM ET | NO | 7 | 68¢ | open | -0.53 |
 | 10-21 | MIA | Oct 20 8:00 AM ET | NO | 1 | 81¢ | open | +0.12 |
 | 10-20 | ABQ | Oct 19 8:00 PM ET | NO | 2 | 49¢ | lost | -1.02 |
 | 10-20 | MIA | Oct 19 2:00 PM ET | NO | 2 | 68¢ | lost | -1.40 |
