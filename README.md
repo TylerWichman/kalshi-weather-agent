@@ -4,20 +4,21 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$26.31** (started at $100). Updated Oct 20 7:36 PM ET.
+Mock account **$26.14** (started at $100). Updated Oct 20 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-21 | ABQ | Oct 20 2:00 PM ET | NO | 7 | 62¢ | open | -0.12 |
-| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | open | -0.50 |
+| 10-21 | BOS | Oct 20 8:00 PM ET | NO | 4 | 88¢ | open | -0.11 |
+| 10-21 | ABQ | Oct 20 2:00 PM ET | NO | 7 | 62¢ | open | -0.05 |
+| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | open | -0.74 |
 | 10-21 | PVD | Oct 20 2:00 PM ET | NO | 3 | 89¢ | open | -0.21 |
-| 10-21 | WPB | Oct 20 2:00 PM ET | NO | 7 | 68¢ | open | -1.58 |
+| 10-21 | WPB | Oct 20 2:00 PM ET | NO | 7 | 68¢ | open | -1.44 |
 | 10-21 | MIA | Oct 20 8:00 AM ET | NO | 1 | 81¢ | open | +0.04 |
 | 10-20 | ABQ | Oct 19 8:00 PM ET | NO | 2 | 49¢ | open | -0.04 |
 | 10-20 | MIA | Oct 19 2:00 PM ET | NO | 2 | 68¢ | open | -0.04 |
-| 10-20 | PHX | Oct 19 2:00 PM ET | NO | 6 | 77¢ | open | +0.10 |
+| 10-20 | PHX | Oct 19 2:00 PM ET | NO | 6 | 77¢ | open | +0.04 |
 | 10-20 | WPB | Oct 19 2:00 PM ET | NO | 3 | 66¢ | open | -0.05 |
-| 10-20 | SFO | Oct 19 8:00 AM ET | NO | 3 | 84¢ | open | +0.18 |
+| 10-20 | SFO | Oct 19 8:00 AM ET | NO | 3 | 84¢ | open | +0.21 |
 | 10-19 | WPB | Oct 18 8:00 PM ET | NO | 6 | 72¢ | lost | -4.41 |
 | 10-19 | ABQ | Oct 18 2:00 PM ET | NO | 7 | 68¢ | won | +2.13 |
 | 10-19 | MIA | Oct 18 2:00 PM ET | NO | 4 | 56¢ | won | +1.69 |
@@ -37,6 +38,5 @@ Mock account **$26.31** (started at $100). Updated Oct 20 7:36 PM ET.
 | 10-16 | NOLA | Oct 15 2:00 PM ET | NO | 2 | 76¢ | won | +0.45 |
 | 10-16 | SATX | Oct 15 2:00 PM ET | NO | 3 | 61¢ | won | +1.12 |
 | 10-16 | SGF | Oct 15 2:00 PM ET | NO | 2 | 79¢ | won | +0.39 |
-| 10-16 | STL | Oct 15 2:00 PM ET | NO | 3 | 74¢ | lost | -2.27 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
