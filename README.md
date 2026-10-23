@@ -4,14 +4,14 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$110.59** (started at $100). Updated Oct 23 12:00 PM ET.
+Mock account **$110.76** (started at $100). Updated Oct 23 12:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-23 | ABQ | Oct 22 11:00 PM ET | NO | 1 | 14¢ | open | -0.01 |
-| 10-23 | MIN | Oct 22 10:00 PM ET | NO | 9 | 53¢ | open | -2.95 |
-| 10-23 | WPB | Oct 22 5:00 PM ET | NO | 1 | 36¢ | open | -0.05 |
-| 10-23 | MIA | Oct 22 3:00 PM ET | NO | 3 | 32¢ | open | -0.29 |
+| 10-23 | MIN | Oct 22 10:00 PM ET | NO | 9 | 53¢ | open | -2.86 |
+| 10-23 | WPB | Oct 22 5:00 PM ET | NO | 1 | 36¢ | open | -0.06 |
+| 10-23 | MIA | Oct 22 3:00 PM ET | NO | 3 | 32¢ | open | -0.20 |
 | 10-22 | MIA | Oct 21 8:00 PM ET | NO | 10 | 46¢ | won | +5.22 |
 | 10-22 | LV | Oct 21 5:00 PM ET | NO | 3 | 34¢ | won | +1.93 |
 | 10-22 | DEN | Oct 21 4:00 PM ET | NO | 7 | 63¢ | won | +2.47 |
