@@ -4,14 +4,14 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$35.00** (started at $100). Updated Oct 26 12:28 PM ET.
+Mock account **$35.43** (started at $100). Updated Oct 26 12:48 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-27 | AUS | Oct 26 8:00 AM ET | NO | 7 | 68¢ | open | +0.03 |
-| 10-27 | CLL | Oct 26 8:00 AM ET | NO | 5 | 91¢ | open | -0.53 |
+| 10-27 | AUS | Oct 26 8:00 AM ET | NO | 7 | 68¢ | open | +0.52 |
+| 10-27 | CLL | Oct 26 8:00 AM ET | NO | 5 | 91¢ | open | -0.58 |
 | 10-27 | DAL | Oct 26 8:00 AM ET | NO | 5 | 91¢ | open | -0.28 |
-| 10-27 | HOU | Oct 26 8:00 AM ET | NO | 1 | 81¢ | open | -0.04 |
+| 10-27 | HOU | Oct 26 8:00 AM ET | NO | 1 | 81¢ | open | -0.05 |
 | 10-27 | SEA | Oct 26 8:00 AM ET | YES | 5 | 89¢ | open | -0.19 |
 | 10-26 | TPA | Oct 25 8:00 PM ET | NO | 5 | 87¢ | open | -0.04 |
 | 10-26 | DEN | Oct 25 2:00 PM ET | NO | 4 | 53¢ | open | -0.07 |
