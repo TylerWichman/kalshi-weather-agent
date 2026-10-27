@@ -4,17 +4,17 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$57.31** (started at $100). Updated Oct 27 2:29 AM ET.
+Mock account **$66.20** (started at $100). Updated Oct 27 8:40 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-27 | AUS | Oct 26 8:00 PM ET | NO | 6 | 73¢ | open | +0.15 |
-| 10-27 | CLL | Oct 26 8:00 PM ET | NO | 5 | 83¢ | open | +0.00 |
-| 10-27 | DAL | Oct 26 8:00 PM ET | NO | 2 | 89¢ | open | +0.02 |
-| 10-27 | HOU | Oct 26 8:00 PM ET | NO | 2 | 81¢ | open | -0.11 |
-| 10-27 | MKE | Oct 26 8:00 PM ET | NO | 5 | 86¢ | open | +0.10 |
-| 10-27 | SATX | Oct 26 8:00 PM ET | NO | 10 | 45¢ | open | +0.52 |
-| 10-26 | TPA | Oct 25 8:00 PM ET | NO | 5 | 87¢ | open | -0.04 |
+| 10-27 | AUS | Oct 26 8:00 PM ET | NO | 6 | 73¢ | open | +1.11 |
+| 10-27 | CLL | Oct 26 8:00 PM ET | NO | 5 | 83¢ | open | +0.60 |
+| 10-27 | DAL | Oct 26 8:00 PM ET | NO | 2 | 89¢ | open | +0.12 |
+| 10-27 | HOU | Oct 26 8:00 PM ET | NO | 2 | 81¢ | open | -0.13 |
+| 10-27 | MKE | Oct 26 8:00 PM ET | NO | 5 | 86¢ | open | +0.55 |
+| 10-27 | SATX | Oct 26 8:00 PM ET | NO | 10 | 45¢ | open | +2.32 |
+| 10-26 | TPA | Oct 25 8:00 PM ET | NO | 5 | 87¢ | won | +0.61 |
 | 10-25 | DEN | Oct 24 8:00 PM ET | NO | 7 | 41¢ | won | +4.01 |
 | 10-24 | DEN | Oct 23 8:00 PM ET | NO | 7 | 46¢ | won | +3.65 |
 | 10-24 | MIA | Oct 23 8:00 PM ET | NO | 6 | 70¢ | won | +1.71 |
