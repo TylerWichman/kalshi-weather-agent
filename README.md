@@ -4,12 +4,12 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$10.78** (started at $100). Updated Oct 28 3:17 AM ET.
+Mock account **$10.89** (started at $100). Updated Oct 28 3:37 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-28 | CLL | Oct 27 8:00 AM ET | NO | 3 | 80¢ | open | -0.10 |
-| 10-28 | SATX | Oct 27 8:00 AM ET | NO | 6 | 72¢ | open | -0.93 |
+| 10-28 | SATX | Oct 27 8:00 AM ET | NO | 6 | 72¢ | open | -0.87 |
 | 10-27 | OKC | Oct 27 12:00 AM ET | NO | 10 | 44¢ | open | -0.18 |
 | 10-27 | MKE | Oct 26 8:00 PM ET | NO | 5 | 86¢ | open | -0.05 |
 | 10-27 | SATX | Oct 26 2:00 PM ET | NO | 3 | 47¢ | open | -0.06 |
@@ -17,7 +17,7 @@ Mock account **$10.78** (started at $100). Updated Oct 28 3:17 AM ET.
 | 10-27 | CLL | Oct 26 8:00 AM ET | NO | 5 | 91¢ | open | -0.03 |
 | 10-27 | DAL | Oct 26 8:00 AM ET | NO | 5 | 91¢ | open | -0.03 |
 | 10-27 | HOU | Oct 26 8:00 AM ET | NO | 1 | 81¢ | open | -0.02 |
-| 10-27 | SEA | Oct 26 8:00 AM ET | YES | 5 | 89¢ | open | +0.41 |
+| 10-27 | SEA | Oct 26 8:00 AM ET | YES | 5 | 89¢ | open | +0.46 |
 | 10-26 | TPA | Oct 25 8:00 PM ET | NO | 5 | 87¢ | won | +0.61 |
 | 10-26 | DEN | Oct 25 2:00 PM ET | NO | 4 | 53¢ | lost | -2.19 |
 | 10-25 | DEN | Oct 24 8:00 PM ET | NO | 7 | 41¢ | won | +4.01 |
