@@ -626,7 +626,7 @@
 {"ticker":"KXRAIN-26OCT28-DC","ref_mid":3.0,"ref_ts":1793102400}
 {"ticker":"KXRAIN-26OCT28-DTW","ref_mid":5.0,"ref_ts":1793102400}
 {"ticker":"KXRAIN-26OCT28-EWR","ref_mid":1.5,"ref_ts":1793102400}
-{"ticker":"KXRAIN-26OCT28-HOU","ref_mid":36.0,"ref_ts":1793131200}
+{"ticker":"KXRAIN-26OCT28-HOU","ref_mid":21.0,"ref_ts":1793145600}
 {"ticker":"KXRAIN-26OCT28-LAX","ref_mid":1.5,"ref_ts":1793102400}
 {"ticker":"KXRAIN-26OCT28-MIA","ref_mid":72.5,"ref_ts":1793120400}
 {"ticker":"KXRAIN-26OCT28-MIN","ref_mid":93.0,"ref_ts":1793102400}
