@@ -4,12 +4,18 @@ Checks at 8 AM, 2 PM and 8 PM ET the day before the rain day, and at midnight ET
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$47.11** (started at $100). Updated Oct 28 1:24 PM ET.
+Mock account **$46.07** (started at $100). Updated Oct 28 2:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-28 | CLL | Oct 27 8:00 AM ET | NO | 3 | 80¢ | open | -0.49 |
-| 10-28 | SATX | Oct 27 8:00 AM ET | NO | 6 | 72¢ | open | +0.69 |
+| 10-29 | CHI | Oct 28 2:00 PM ET | NO | 2 | 65¢ | open | -0.10 |
+| 10-29 | MIA | Oct 28 2:00 PM ET | NO | 8 | 56¢ | open | -0.22 |
+| 10-29 | AUS | Oct 28 2:00 PM ET | NO | 6 | 52¢ | open | -0.17 |
+| 10-29 | DAL | Oct 28 2:00 PM ET | NO | 2 | 69¢ | open | -0.05 |
+| 10-29 | MKE | Oct 28 2:00 PM ET | NO | 2 | 55¢ | open | -0.06 |
+| 10-29 | DTW | Oct 28 2:00 PM ET | NO | 8 | 57¢ | open | -0.38 |
+| 10-28 | CLL | Oct 27 8:00 AM ET | NO | 3 | 80¢ | open | -0.67 |
+| 10-28 | SATX | Oct 27 8:00 AM ET | NO | 6 | 72¢ | open | +0.81 |
 | 10-27 | OKC | Oct 27 12:00 AM ET | NO | 10 | 44¢ | won | +5.42 |
 | 10-27 | MKE | Oct 26 8:00 PM ET | NO | 5 | 86¢ | won | +0.65 |
 | 10-27 | SATX | Oct 26 2:00 PM ET | NO | 3 | 47¢ | won | +1.53 |
@@ -32,11 +38,5 @@ Mock account **$47.11** (started at $100). Updated Oct 28 1:24 PM ET.
 | 10-23 | MIN | Oct 22 2:00 PM ET | NO | 6 | 81¢ | won | +1.07 |
 | 10-23 | LAX | Oct 22 8:00 AM ET | NO | 6 | 73¢ | won | +1.53 |
 | 10-22 | DEN | Oct 21 2:00 PM ET | NO | 7 | 65¢ | won | +2.33 |
-| 10-22 | MIA | Oct 21 2:00 PM ET | NO | 1 | 58¢ | won | +0.40 |
-| 10-22 | SEA | Oct 21 2:00 PM ET | NO | 4 | 88¢ | won | +0.45 |
-| 10-21 | BOS | Oct 20 8:00 PM ET | NO | 4 | 88¢ | won | +0.45 |
-| 10-21 | ABQ | Oct 20 2:00 PM ET | NO | 7 | 62¢ | won | +2.54 |
-| 10-21 | LV | Oct 20 2:00 PM ET | NO | 6 | 76¢ | won | +1.36 |
-| 10-21 | PVD | Oct 20 2:00 PM ET | NO | 3 | 89¢ | won | +0.30 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
