@@ -665,10 +665,10 @@
 {"ticker":"KXRAIN-26OCT30-ABQ","ref_mid":45.5,"ref_ts":1793311200}
 {"ticker":"KXRAIN-26OCT30-AUS","ref_mid":87.5,"ref_ts":1793275200}
 {"ticker":"KXRAIN-26OCT30-BOS","ref_mid":7.5,"ref_ts":1793275200}
-{"ticker":"KXRAIN-26OCT30-CHI","ref_mid":31.5,"ref_ts":1793289600}
+{"ticker":"KXRAIN-26OCT30-CHI","ref_mid":21.0,"ref_ts":1793314800}
 {"ticker":"KXRAIN-26OCT30-CLL","ref_mid":68.0,"ref_ts":1793278800}
 {"ticker":"KXRAIN-26OCT30-CMH","ref_mid":3.0,"ref_ts":1793307600}
-{"ticker":"KXRAIN-26OCT30-DAL","ref_mid":77.5,"ref_ts":1793275200}
+{"ticker":"KXRAIN-26OCT30-DAL","ref_mid":65.0,"ref_ts":1793314800}
 {"ticker":"KXRAIN-26OCT30-DTW","ref_mid":1.5,"ref_ts":1793300400}
 {"ticker":"KXRAIN-26OCT30-HOU","ref_mid":55.5,"ref_ts":1793293200}
 {"ticker":"KXRAIN-26OCT30-IND","ref_mid":3.5,"ref_ts":1793275200}
@@ -684,7 +684,7 @@
 {"ticker":"KXRAIN-26OCT30-SATX","ref_mid":87.5,"ref_ts":1793275200}
 {"ticker":"KXRAIN-26OCT30-SEA","ref_mid":83.5,"ref_ts":1793275200}
 {"ticker":"KXRAIN-26OCT30-SGF","ref_mid":16.5,"ref_ts":1793307600}
-{"ticker":"KXRAIN-26OCT30-STL","ref_mid":15.0,"ref_ts":1793275200}
+{"ticker":"KXRAIN-26OCT30-STL","ref_mid":31.0,"ref_ts":1793314800}
 {"ticker":"KXRAIN-26OCT30-TPA","ref_mid":12.5,"ref_ts":1793278800}
 {"ticker":"KXRAIN-26OCT30-WPB","ref_mid":82.0,"ref_ts":1793307600}
 {"ticker":"KXRAIN-26SEP26-ATL","ref_mid":2.5,"ref_ts":1790362800}
