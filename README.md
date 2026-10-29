@@ -4,14 +4,21 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$79.28** (started at $100). Updated Oct 28 7:38 PM ET.
+Mock account **$77.72** (started at $100). Updated Oct 28 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 10-29 | DTW | Oct 28 8:00 PM ET | NO | 6 | 45¢ | open | -0.23 |
+| 10-29 | MIA | Oct 28 8:00 PM ET | NO | 8 | 59¢ | open | -0.38 |
+| 10-29 | MKE | Oct 28 8:00 PM ET | NO | 9 | 52¢ | open | -0.34 |
+| 10-29 | CHI | Oct 28 8:00 PM ET | NO | 7 | 69¢ | open | -0.18 |
+| 10-29 | AUS | Oct 28 8:00 PM ET | NO | 10 | 48¢ | open | -0.28 |
+| 10-29 | DAL | Oct 28 8:00 PM ET | NO | 7 | 65¢ | open | -0.19 |
+| 10-29 | CLL | Oct 28 8:00 PM ET | NO | 5 | 90¢ | open | -0.09 |
 | 10-28 | AUS | Oct 27 8:00 PM ET | NO | 10 | 46¢ | open | +5.02 |
-| 10-28 | CLL | Oct 27 8:00 PM ET | NO | 5 | 75¢ | open | +1.03 |
+| 10-28 | CLL | Oct 27 8:00 PM ET | NO | 5 | 75¢ | open | +1.08 |
 | 10-28 | HOU | Oct 27 8:00 PM ET | NO | 6 | 80¢ | open | +1.01 |
-| 10-28 | SATX | Oct 27 8:00 PM ET | NO | 8 | 56¢ | open | +3.14 |
+| 10-28 | SATX | Oct 27 8:00 PM ET | NO | 8 | 56¢ | open | +3.22 |
 | 10-28 | TPA | Oct 27 8:00 PM ET | NO | 5 | 83¢ | open | +0.60 |
 | 10-27 | AUS | Oct 26 8:00 PM ET | NO | 6 | 73¢ | won | +1.53 |
 | 10-27 | CLL | Oct 26 8:00 PM ET | NO | 5 | 83¢ | won | +0.80 |
@@ -31,12 +38,5 @@ Mock account **$79.28** (started at $100). Updated Oct 28 7:38 PM ET.
 | 10-23 | WPB | Oct 22 8:00 PM ET | NO | 1 | 47¢ | lost | -0.49 |
 | 10-22 | DEN | Oct 21 8:00 PM ET | NO | 7 | 62¢ | won | +2.54 |
 | 10-22 | MIA | Oct 21 8:00 PM ET | NO | 10 | 46¢ | won | +5.22 |
-| 10-22 | SEA | Oct 21 8:00 PM ET | NO | 1 | 88¢ | won | +0.11 |
-| 10-21 | ABQ | Oct 20 8:00 PM ET | NO | 1 | 62¢ | won | +0.36 |
-| 10-21 | BOS | Oct 20 8:00 PM ET | NO | 5 | 88¢ | won | +0.56 |
-| 10-21 | LV | Oct 20 8:00 PM ET | NO | 7 | 68¢ | won | +2.13 |
-| 10-21 | MIA | Oct 20 8:00 PM ET | NO | 3 | 88¢ | won | +0.33 |
-| 10-21 | PVD | Oct 20 8:00 PM ET | NO | 5 | 84¢ | won | +0.75 |
-| 10-21 | WPB | Oct 20 8:00 PM ET | NO | 9 | 50¢ | lost | -4.66 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
