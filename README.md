@@ -4,16 +4,16 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$68.65** (started at $100). Updated Oct 29 6:20 PM ET.
+Mock account **$68.55** (started at $100). Updated Oct 29 6:40 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 10-29 | AUS | Oct 28 8:00 PM ET | NO | 10 | 48¢ | open | -0.18 |
-| 10-29 | CHI | Oct 28 8:00 PM ET | NO | 7 | 69¢ | open | +1.92 |
+| 10-29 | CHI | Oct 28 8:00 PM ET | NO | 7 | 69¢ | open | +1.85 |
 | 10-29 | CLL | Oct 28 8:00 PM ET | NO | 5 | 90¢ | open | +0.26 |
-| 10-29 | DAL | Oct 28 8:00 PM ET | NO | 7 | 65¢ | open | -3.27 |
+| 10-29 | DAL | Oct 28 8:00 PM ET | NO | 7 | 65¢ | open | -3.62 |
 | 10-29 | DTW | Oct 28 8:00 PM ET | NO | 6 | 45¢ | open | -0.11 |
-| 10-29 | MIA | Oct 28 8:00 PM ET | NO | 8 | 59¢ | open | +2.18 |
+| 10-29 | MIA | Oct 28 8:00 PM ET | NO | 8 | 59¢ | open | +2.50 |
 | 10-29 | MKE | Oct 28 8:00 PM ET | NO | 9 | 52¢ | open | -0.16 |
 | 10-28 | AUS | Oct 27 8:00 PM ET | NO | 10 | 46¢ | won | +5.22 |
 | 10-28 | CLL | Oct 27 8:00 PM ET | NO | 5 | 75¢ | won | +1.18 |
