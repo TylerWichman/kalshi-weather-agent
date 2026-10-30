@@ -8,7 +8,7 @@ Mock account **$40.63** (started at $100). Updated Oct 29 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-30 | LAX | Oct 29 2:00 PM ET | NO | 4 | 45¢ | open | -0.15 |
+| 10-30 | LAX | Oct 29 2:00 PM ET | NO | 4 | 45¢ | open | -0.11 |
 | 10-30 | LV | Oct 29 2:00 PM ET | NO | 5 | 51¢ | open | -0.04 |
 | 10-30 | NOLA | Oct 29 2:00 PM ET | NO | 5 | 86¢ | open | +0.00 |
 | 10-30 | CHI | Oct 29 8:00 AM ET | NO | 6 | 81¢ | open | -0.19 |
@@ -19,7 +19,7 @@ Mock account **$40.63** (started at $100). Updated Oct 29 8:00 PM ET.
 | 10-29 | CLL | Oct 28 8:00 PM ET | NO | 5 | 90¢ | open | +0.26 |
 | 10-29 | AUS | Oct 28 2:00 PM ET | NO | 6 | 52¢ | open | -0.11 |
 | 10-29 | CHI | Oct 28 2:00 PM ET | NO | 2 | 65¢ | open | +0.62 |
-| 10-29 | DAL | Oct 28 2:00 PM ET | NO | 2 | 69¢ | open | -0.21 |
+| 10-29 | DAL | Oct 28 2:00 PM ET | NO | 2 | 69¢ | open | -0.25 |
 | 10-29 | DTW | Oct 28 2:00 PM ET | NO | 8 | 57¢ | open | -0.14 |
 | 10-29 | MIA | Oct 28 2:00 PM ET | NO | 8 | 56¢ | open | +2.34 |
 | 10-29 | MKE | Oct 28 2:00 PM ET | NO | 2 | 55¢ | open | -0.04 |
