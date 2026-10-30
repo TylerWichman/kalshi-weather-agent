@@ -4,23 +4,23 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$47.77** (started at $100). Updated Oct 30 5:01 AM ET.
+Mock account **$74.49** (started at $100). Updated Oct 30 11:50 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-30 | CHI | Oct 29 8:00 PM ET | NO | 4 | 80¢ | open | +0.43 |
-| 10-30 | HOU | Oct 29 8:00 PM ET | NO | 3 | 43¢ | open | -0.51 |
-| 10-30 | LAX | Oct 29 8:00 PM ET | NO | 6 | 44¢ | open | +0.55 |
-| 10-30 | LV | Oct 29 8:00 PM ET | NO | 3 | 56¢ | open | -0.93 |
-| 10-30 | STL | Oct 29 8:00 PM ET | NO | 3 | 72¢ | open | +0.52 |
-| 10-30 | TPA | Oct 29 8:00 PM ET | NO | 5 | 90¢ | open | -0.84 |
-| 10-29 | AUS | Oct 28 8:00 PM ET | NO | 10 | 48¢ | open | -0.18 |
-| 10-29 | CHI | Oct 28 8:00 PM ET | NO | 7 | 69¢ | open | -0.11 |
-| 10-29 | CLL | Oct 28 8:00 PM ET | NO | 5 | 90¢ | open | -0.04 |
-| 10-29 | DAL | Oct 28 8:00 PM ET | NO | 7 | 65¢ | open | -0.12 |
-| 10-29 | DTW | Oct 28 8:00 PM ET | NO | 6 | 45¢ | open | -0.11 |
-| 10-29 | MIA | Oct 28 8:00 PM ET | NO | 8 | 59¢ | open | -0.14 |
-| 10-29 | MKE | Oct 28 8:00 PM ET | NO | 9 | 52¢ | open | -0.16 |
+| 10-30 | CHI | Oct 29 8:00 PM ET | NO | 4 | 80¢ | open | -0.09 |
+| 10-30 | HOU | Oct 29 8:00 PM ET | NO | 3 | 43¢ | open | -0.75 |
+| 10-30 | LAX | Oct 29 8:00 PM ET | NO | 6 | 44¢ | open | +1.45 |
+| 10-30 | LV | Oct 29 8:00 PM ET | NO | 3 | 56¢ | open | -0.06 |
+| 10-30 | STL | Oct 29 8:00 PM ET | NO | 3 | 72¢ | open | +0.61 |
+| 10-30 | TPA | Oct 29 8:00 PM ET | NO | 5 | 90¢ | open | -0.54 |
+| 10-29 | AUS | Oct 28 8:00 PM ET | NO | 10 | 48¢ | lost | -4.98 |
+| 10-29 | CHI | Oct 28 8:00 PM ET | NO | 7 | 69¢ | won | +2.06 |
+| 10-29 | CLL | Oct 28 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
+| 10-29 | DAL | Oct 28 8:00 PM ET | NO | 7 | 65¢ | won | +2.33 |
+| 10-29 | DTW | Oct 28 8:00 PM ET | NO | 6 | 45¢ | lost | -2.81 |
+| 10-29 | MIA | Oct 28 8:00 PM ET | NO | 8 | 59¢ | won | +3.14 |
+| 10-29 | MKE | Oct 28 8:00 PM ET | NO | 9 | 52¢ | lost | -4.84 |
 | 10-28 | AUS | Oct 27 8:00 PM ET | NO | 10 | 46¢ | won | +5.22 |
 | 10-28 | CLL | Oct 27 8:00 PM ET | NO | 5 | 75¢ | won | +1.18 |
 | 10-28 | HOU | Oct 27 8:00 PM ET | NO | 6 | 80¢ | won | +1.13 |
