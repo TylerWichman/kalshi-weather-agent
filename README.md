@@ -8,8 +8,8 @@ Mock account **$32.98** (started at $100). Updated Oct 30 2:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-31 | STL | Oct 30 2:00 PM ET | NO | 3 | 82¢ | open | -0.10 |
 | 10-31 | AUS | Oct 30 2:00 PM ET | NO | 8 | 57¢ | open | -0.22 |
+| 10-31 | STL | Oct 30 2:00 PM ET | NO | 3 | 82¢ | open | -0.10 |
 | 10-31 | TPA | Oct 30 2:00 PM ET | NO | 6 | 75¢ | open | -0.26 |
 | 10-31 | IND | Oct 30 8:00 AM ET | NO | 3 | 90¢ | open | -0.32 |
 | 10-31 | SATX | Oct 30 8:00 AM ET | NO | 6 | 76¢ | open | -1.16 |
