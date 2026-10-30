@@ -672,9 +672,9 @@
 {"ticker":"KXRAIN-26OCT30-DTW","ref_mid":1.5,"ref_ts":1793300400}
 {"ticker":"KXRAIN-26OCT30-HOU","ref_mid":55.5,"ref_ts":1793293200}
 {"ticker":"KXRAIN-26OCT30-IND","ref_mid":3.5,"ref_ts":1793275200}
-{"ticker":"KXRAIN-26OCT30-LAX","ref_mid":43.5,"ref_ts":1793307600}
+{"ticker":"KXRAIN-26OCT30-LAX","ref_mid":55.5,"ref_ts":1793318400}
 {"ticker":"KXRAIN-26OCT30-LV","ref_mid":47.5,"ref_ts":1793282400}
-{"ticker":"KXRAIN-26OCT30-MIA","ref_mid":54.5,"ref_ts":1793275200}
+{"ticker":"KXRAIN-26OCT30-MIA","ref_mid":65.5,"ref_ts":1793318400}
 {"ticker":"KXRAIN-26OCT30-MKE","ref_mid":3.0,"ref_ts":1793282400}
 {"ticker":"KXRAIN-26OCT30-NOLA","ref_mid":7.5,"ref_ts":1793275200}
 {"ticker":"KXRAIN-26OCT30-OKC","ref_mid":94.0,"ref_ts":1793275200}
