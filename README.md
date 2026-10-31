@@ -4,23 +4,23 @@ Checks once a day at 8 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$72.74** (started at $100). Updated Oct 31 1:57 AM ET.
+Mock account **$57.99** (started at $100). Updated Oct 31 8:04 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 10-31 | AUS | Oct 30 8:00 PM ET | NO | 6 | 82¢ | open | +0.29 |
-| 10-31 | CLL | Oct 30 8:00 PM ET | NO | 10 | 47¢ | open | +0.52 |
-| 10-31 | OKC | Oct 30 8:00 PM ET | NO | 10 | 44¢ | open | -0.68 |
-| 10-31 | SATX | Oct 30 8:00 PM ET | NO | 6 | 81¢ | open | +0.23 |
-| 10-31 | SFO | Oct 30 8:00 PM ET | NO | 4 | 77¢ | open | +0.15 |
-| 10-31 | STL | Oct 30 8:00 PM ET | NO | 6 | 77¢ | open | +0.34 |
-| 10-31 | TPA | Oct 30 8:00 PM ET | NO | 3 | 57¢ | open | -0.51 |
-| 10-30 | CHI | Oct 29 8:00 PM ET | NO | 4 | 80¢ | open | +0.71 |
-| 10-30 | HOU | Oct 29 8:00 PM ET | NO | 3 | 43¢ | open | -0.06 |
-| 10-30 | LAX | Oct 29 8:00 PM ET | NO | 6 | 44¢ | open | +3.01 |
+| 10-31 | AUS | Oct 30 8:00 PM ET | NO | 6 | 82¢ | open | -0.07 |
+| 10-31 | CLL | Oct 30 8:00 PM ET | NO | 10 | 47¢ | open | -0.18 |
+| 10-31 | OKC | Oct 30 8:00 PM ET | NO | 10 | 44¢ | open | -1.98 |
+| 10-31 | SATX | Oct 30 8:00 PM ET | NO | 6 | 81¢ | open | +0.17 |
+| 10-31 | SFO | Oct 30 8:00 PM ET | NO | 4 | 77¢ | open | -0.01 |
+| 10-31 | STL | Oct 30 8:00 PM ET | NO | 6 | 77¢ | open | -0.26 |
+| 10-31 | TPA | Oct 30 8:00 PM ET | NO | 3 | 57¢ | open | -0.06 |
+| 10-30 | CHI | Oct 29 8:00 PM ET | NO | 4 | 80¢ | won | +0.75 |
+| 10-30 | HOU | Oct 29 8:00 PM ET | NO | 3 | 43¢ | lost | -1.35 |
+| 10-30 | LAX | Oct 29 8:00 PM ET | NO | 6 | 44¢ | open | -0.11 |
 | 10-30 | LV | Oct 29 8:00 PM ET | NO | 3 | 56¢ | open | -0.06 |
-| 10-30 | STL | Oct 29 8:00 PM ET | NO | 3 | 72¢ | open | +0.76 |
-| 10-30 | TPA | Oct 29 8:00 PM ET | NO | 5 | 90¢ | open | -0.04 |
+| 10-30 | STL | Oct 29 8:00 PM ET | NO | 3 | 72¢ | won | +0.79 |
+| 10-30 | TPA | Oct 29 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
 | 10-29 | AUS | Oct 28 8:00 PM ET | NO | 10 | 48¢ | lost | -4.98 |
 | 10-29 | CHI | Oct 28 8:00 PM ET | NO | 7 | 69¢ | won | +2.06 |
 | 10-29 | CLL | Oct 28 8:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
