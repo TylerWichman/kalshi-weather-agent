@@ -4,21 +4,21 @@ Watches every hour from 8 AM ET the day before the rain day until midnight ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$113.57** (started at $100). Updated Oct 31 5:00 PM ET.
+Mock account **$112.95** (started at $100). Updated Oct 31 5:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 11-01 | SFO | Oct 31 2:00 PM ET | NO | 20 | 23¢ | open | -0.65 |
 | 11-01 | STL | Oct 31 2:00 PM ET | NO | 11 | 20¢ | open | +0.53 |
-| 11-01 | NOLA | Oct 31 1:00 PM ET | NO | 10 | 47¢ | open | -0.38 |
 | 11-01 | LEX | Oct 31 1:00 PM ET | NO | 4 | 29¢ | open | -0.38 |
+| 11-01 | NOLA | Oct 31 1:00 PM ET | NO | 10 | 47¢ | open | -0.58 |
 | 11-01 | ATL | Oct 31 11:00 AM ET | NO | 26 | 17¢ | open | -1.56 |
-| 11-01 | IND | Oct 31 11:00 AM ET | NO | 9 | 50¢ | open | +1.73 |
+| 11-01 | IND | Oct 31 11:00 AM ET | NO | 9 | 50¢ | open | +1.55 |
 | 10-31 | SFO | Oct 30 11:00 PM ET | NO | 6 | 68¢ | open | +0.92 |
 | 10-31 | CLL | Oct 30 9:00 PM ET | NO | 11 | 32¢ | open | -0.17 |
 | 10-31 | OKC | Oct 30 9:00 PM ET | NO | 13 | 35¢ | open | -0.21 |
 | 10-31 | NOLA | Oct 30 6:00 PM ET | NO | 6 | 16¢ | open | -0.06 |
-| 10-31 | HOU | Oct 30 5:00 PM ET | NO | 1 | 20¢ | open | +0.59 |
+| 10-31 | HOU | Oct 30 5:00 PM ET | NO | 1 | 20¢ | open | +0.61 |
 | 10-31 | TPA | Oct 30 5:00 PM ET | NO | 1 | 56¢ | open | -0.02 |
 | 10-31 | ABQ | Oct 30 4:00 PM ET | NO | 5 | 50¢ | open | +1.26 |
 | 10-31 | PHX | Oct 30 3:00 PM ET | NO | 2 | 13¢ | open | -0.02 |
@@ -27,9 +27,9 @@ Mock account **$113.57** (started at $100). Updated Oct 31 5:00 PM ET.
 | 10-31 | MKE | Oct 30 12:00 PM ET | NO | 26 | 18¢ | open | -0.27 |
 | 10-31 | AUS | Oct 30 11:00 AM ET | NO | 1 | 56¢ | open | -0.02 |
 | 10-31 | CHI | Oct 30 10:00 AM ET | NO | 9 | 24¢ | open | -0.12 |
-| 10-31 | LV | Oct 30 10:00 AM ET | NO | 11 | 43¢ | open | -2.94 |
+| 10-31 | LV | Oct 30 10:00 AM ET | NO | 11 | 43¢ | open | -3.16 |
 | 10-31 | DAL | Oct 30 9:00 AM ET | NO | 10 | 47¢ | open | +4.32 |
-| 10-31 | WPB | Oct 30 9:00 AM ET | NO | 4 | 28¢ | open | +0.50 |
+| 10-31 | WPB | Oct 30 9:00 AM ET | NO | 4 | 28¢ | open | +0.46 |
 | 10-30 | OKC | Oct 30 12:00 AM ET | NO | 20 | 23¢ | lost | -4.85 |
 | 10-30 | MIA | Oct 29 8:00 PM ET | NO | 13 | 35¢ | won | +8.24 |
 | 10-30 | DAL | Oct 29 7:00 PM ET | NO | 13 | 36¢ | lost | -4.89 |
