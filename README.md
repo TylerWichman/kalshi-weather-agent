@@ -8,10 +8,10 @@ Mock account **$28.43** (started at $100). Updated Oct 31 2:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-01 | CMH | Oct 31 2:00 PM ET | NO | 5 | 86¢ | open | -0.20 |
 | 11-01 | CHI | Oct 31 2:00 PM ET | NO | 6 | 71¢ | open | -0.15 |
-| 11-01 | OKC | Oct 31 2:00 PM ET | NO | 5 | 87¢ | open | -0.14 |
+| 11-01 | CMH | Oct 31 2:00 PM ET | NO | 5 | 86¢ | open | -0.20 |
 | 11-01 | MKE | Oct 31 2:00 PM ET | NO | 2 | 75¢ | open | -0.07 |
+| 11-01 | OKC | Oct 31 2:00 PM ET | NO | 5 | 87¢ | open | -0.14 |
 | 10-31 | OKC | Oct 30 8:00 PM ET | NO | 5 | 44¢ | open | +1.21 |
 | 10-31 | AUS | Oct 30 2:00 PM ET | NO | 8 | 57¢ | open | -0.14 |
 | 10-31 | STL | Oct 30 2:00 PM ET | NO | 3 | 82¢ | open | -1.18 |
