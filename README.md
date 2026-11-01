@@ -4,24 +4,24 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$54.83** (started at $100). Updated Nov 1 1:40 AM ET.
+Mock account **$39.33** (started at $100). Updated Nov 1 7:02 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-01 | CHI | Oct 31 8:00 PM ET | NO | 6 | 67¢ | open | -0.16 |
-| 11-01 | CMH | Oct 31 8:00 PM ET | NO | 5 | 85¢ | open | -0.10 |
-| 11-01 | DEN | Oct 31 8:00 PM ET | NO | 6 | 77¢ | open | -0.26 |
-| 11-01 | IND | Oct 31 8:00 PM ET | NO | 6 | 73¢ | open | -1.05 |
-| 11-01 | MIN | Oct 31 8:00 PM ET | NO | 2 | 82¢ | open | +0.09 |
-| 11-01 | MKE | Oct 31 8:00 PM ET | NO | 5 | 85¢ | open | -0.70 |
-| 11-01 | NOLA | Oct 31 8:00 PM ET | NO | 8 | 55¢ | open | -1.58 |
+| 11-01 | CHI | Oct 31 8:00 PM ET | NO | 6 | 67¢ | open | -0.10 |
+| 11-01 | CMH | Oct 31 8:00 PM ET | NO | 5 | 85¢ | open | -0.15 |
+| 11-01 | DEN | Oct 31 8:00 PM ET | NO | 6 | 77¢ | open | -0.44 |
+| 11-01 | IND | Oct 31 8:00 PM ET | NO | 6 | 73¢ | open | -0.93 |
+| 11-01 | MIN | Oct 31 8:00 PM ET | NO | 2 | 82¢ | open | +0.27 |
+| 11-01 | MKE | Oct 31 8:00 PM ET | NO | 5 | 85¢ | open | -0.05 |
+| 11-01 | NOLA | Oct 31 8:00 PM ET | NO | 8 | 55¢ | open | -3.98 |
 | 10-31 | AUS | Oct 30 8:00 PM ET | NO | 6 | 82¢ | open | -0.07 |
 | 10-31 | CLL | Oct 30 8:00 PM ET | NO | 10 | 47¢ | open | -0.18 |
 | 10-31 | OKC | Oct 30 8:00 PM ET | NO | 10 | 44¢ | open | -0.18 |
-| 10-31 | SATX | Oct 30 8:00 PM ET | NO | 6 | 81¢ | open | +1.01 |
-| 10-31 | SFO | Oct 30 8:00 PM ET | NO | 4 | 77¢ | open | +0.79 |
+| 10-31 | SATX | Oct 30 8:00 PM ET | NO | 6 | 81¢ | open | -0.07 |
+| 10-31 | SFO | Oct 30 8:00 PM ET | NO | 4 | 77¢ | open | -0.05 |
 | 10-31 | STL | Oct 30 8:00 PM ET | NO | 6 | 77¢ | open | -0.08 |
-| 10-31 | TPA | Oct 30 8:00 PM ET | NO | 3 | 57¢ | open | -0.06 |
+| 10-31 | TPA | Oct 30 8:00 PM ET | NO | 3 | 57¢ | lost | -1.77 |
 | 10-30 | CHI | Oct 29 8:00 PM ET | NO | 4 | 80¢ | won | +0.75 |
 | 10-30 | HOU | Oct 29 8:00 PM ET | NO | 3 | 43¢ | lost | -1.35 |
 | 10-30 | LAX | Oct 29 8:00 PM ET | NO | 6 | 44¢ | won | +3.25 |
