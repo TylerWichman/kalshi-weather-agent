@@ -4,17 +4,18 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$24.63** (started at $100). Updated Oct 31 11:43 PM ET.
+Mock account **$24.31** (started at $100). Updated Nov 1 12:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-01 | CHI | Oct 31 2:00 PM ET | NO | 6 | 71¢ | open | -0.99 |
+| 11-01 | SGF | Nov 1 12:00 AM ET | NO | 1 | 40¢ | open | -0.04 |
+| 11-01 | CHI | Oct 31 2:00 PM ET | NO | 6 | 71¢ | open | -1.23 |
 | 11-01 | CMH | Oct 31 2:00 PM ET | NO | 5 | 86¢ | open | -0.25 |
-| 11-01 | MKE | Oct 31 2:00 PM ET | NO | 2 | 75¢ | open | +0.15 |
-| 11-01 | OKC | Oct 31 2:00 PM ET | NO | 5 | 87¢ | open | +0.21 |
+| 11-01 | MKE | Oct 31 2:00 PM ET | NO | 2 | 75¢ | open | +0.03 |
+| 11-01 | OKC | Oct 31 2:00 PM ET | NO | 5 | 87¢ | open | +0.11 |
 | 10-31 | OKC | Oct 30 8:00 PM ET | NO | 5 | 44¢ | open | -0.09 |
 | 10-31 | AUS | Oct 30 2:00 PM ET | NO | 8 | 57¢ | open | -0.14 |
-| 10-31 | STL | Oct 30 2:00 PM ET | NO | 3 | 82¢ | open | -1.93 |
+| 10-31 | STL | Oct 30 2:00 PM ET | NO | 3 | 82¢ | open | -1.75 |
 | 10-31 | TPA | Oct 30 2:00 PM ET | NO | 6 | 75¢ | open | -0.08 |
 | 10-31 | IND | Oct 30 8:00 AM ET | NO | 3 | 90¢ | open | +0.25 |
 | 10-31 | SATX | Oct 30 8:00 AM ET | NO | 6 | 76¢ | open | +1.30 |
@@ -37,6 +38,5 @@ Mock account **$24.63** (started at $100). Updated Oct 31 11:43 PM ET.
 | 10-28 | CLL | Oct 27 8:00 AM ET | NO | 3 | 80¢ | won | +0.56 |
 | 10-28 | SATX | Oct 27 8:00 AM ET | NO | 6 | 72¢ | won | +1.59 |
 | 10-27 | OKC | Oct 27 12:00 AM ET | NO | 10 | 44¢ | won | +5.42 |
-| 10-27 | MKE | Oct 26 8:00 PM ET | NO | 5 | 86¢ | won | +0.65 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
