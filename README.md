@@ -4,7 +4,7 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$100.87** (started at $100). Updated Nov 1 10:00 AM ET.
+Mock account **$102.01** (started at $100). Updated Nov 1 10:20 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
@@ -13,12 +13,12 @@ Mock account **$100.87** (started at $100). Updated Nov 1 10:00 AM ET.
 | 11-01 | TPA | Oct 31 11:00 PM ET | NO | 1 | 19¢ | open | -0.02 |
 | 11-01 | CHI | Oct 31 6:00 PM ET | NO | 5 | 60¢ | open | -0.09 |
 | 11-01 | SFO | Oct 31 2:00 PM ET | NO | 20 | 23¢ | open | -0.25 |
-| 11-01 | STL | Oct 31 2:00 PM ET | NO | 11 | 20¢ | open | +6.47 |
-| 11-01 | LEX | Oct 31 1:00 PM ET | NO | 4 | 29¢ | open | +0.26 |
+| 11-01 | STL | Oct 31 2:00 PM ET | NO | 11 | 20¢ | open | +7.35 |
+| 11-01 | LEX | Oct 31 1:00 PM ET | NO | 4 | 29¢ | open | +0.34 |
 | 11-01 | NOLA | Oct 31 1:00 PM ET | NO | 10 | 47¢ | open | -0.18 |
 | 11-01 | ATL | Oct 31 11:00 AM ET | NO | 26 | 17¢ | open | -0.26 |
-| 11-01 | IND | Oct 31 11:00 AM ET | NO | 9 | 50¢ | open | +1.28 |
-| 10-31 | SFO | Oct 30 11:00 PM ET | NO | 6 | 68¢ | open | -0.10 |
+| 11-01 | IND | Oct 31 11:00 AM ET | NO | 9 | 50¢ | open | +1.46 |
+| 10-31 | SFO | Oct 30 11:00 PM ET | NO | 6 | 68¢ | lost | -4.18 |
 | 10-31 | CLL | Oct 30 9:00 PM ET | NO | 11 | 32¢ | lost | -3.69 |
 | 10-31 | OKC | Oct 30 9:00 PM ET | NO | 13 | 35¢ | lost | -4.76 |
 | 10-31 | NOLA | Oct 30 6:00 PM ET | NO | 6 | 16¢ | lost | -1.02 |
@@ -31,7 +31,7 @@ Mock account **$100.87** (started at $100). Updated Nov 1 10:00 AM ET.
 | 10-31 | MKE | Oct 30 12:00 PM ET | NO | 26 | 18¢ | lost | -4.95 |
 | 10-31 | AUS | Oct 30 11:00 AM ET | NO | 1 | 56¢ | lost | -0.58 |
 | 10-31 | CHI | Oct 30 10:00 AM ET | NO | 9 | 24¢ | lost | -2.28 |
-| 10-31 | LV | Oct 30 10:00 AM ET | NO | 11 | 43¢ | open | -0.19 |
+| 10-31 | LV | Oct 30 10:00 AM ET | NO | 11 | 43¢ | lost | -4.92 |
 | 10-31 | DAL | Oct 30 9:00 AM ET | NO | 10 | 47¢ | won | +5.12 |
 | 10-31 | WPB | Oct 30 9:00 AM ET | NO | 4 | 28¢ | won | +2.82 |
 | 10-30 | OKC | Oct 30 12:00 AM ET | NO | 20 | 23¢ | lost | -4.85 |
