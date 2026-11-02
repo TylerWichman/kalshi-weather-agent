@@ -64,7 +64,7 @@
 {"ticker":"KXRAIN-26NOV03-CMH","ref_mid":2.0,"ref_ts":1793620800}
 {"ticker":"KXRAIN-26NOV03-DAL","ref_mid":87.5,"ref_ts":1793620800}
 {"ticker":"KXRAIN-26NOV03-DC","ref_mid":2.0,"ref_ts":1793620800}
-{"ticker":"KXRAIN-26NOV03-DEN","ref_mid":27.5,"ref_ts":1793620800}
+{"ticker":"KXRAIN-26NOV03-DEN","ref_mid":41.5,"ref_ts":1793638800}
 {"ticker":"KXRAIN-26NOV03-DTW","ref_mid":12.0,"ref_ts":1793635200}
 {"ticker":"KXRAIN-26NOV03-EWR","ref_mid":1.5,"ref_ts":1793631600}
 {"ticker":"KXRAIN-26NOV03-HOU","ref_mid":89.5,"ref_ts":1793620800}
@@ -78,6 +78,7 @@
 {"ticker":"KXRAIN-26NOV03-OKC","ref_mid":6.5,"ref_ts":1793620800}
 {"ticker":"KXRAIN-26NOV03-PHIL","ref_mid":2.0,"ref_ts":1793620800}
 {"ticker":"KXRAIN-26NOV03-PIT","ref_mid":2.0,"ref_ts":1793620800}
+{"ticker":"KXRAIN-26NOV03-PVD","ref_mid":1.5,"ref_ts":1793638800}
 {"ticker":"KXRAIN-26NOV03-SATX","ref_mid":89.0,"ref_ts":1793620800}
 {"ticker":"KXRAIN-26NOV03-SEA","ref_mid":13.0,"ref_ts":1793620800}
 {"ticker":"KXRAIN-26NOV03-SFO","ref_mid":88.5,"ref_ts":1793620800}
