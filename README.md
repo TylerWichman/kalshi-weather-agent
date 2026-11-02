@@ -4,24 +4,24 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$25.90** (started at $100). Updated Nov 2 3:19 AM ET.
+Mock account **$46.61** (started at $100). Updated Nov 2 1:32 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-02 | CHI | Nov 1 7:00 PM ET | NO | 8 | 55¢ | open | +0.82 |
-| 11-02 | DAL | Nov 1 7:00 PM ET | NO | 11 | 43¢ | open | -0.08 |
-| 11-02 | HOU | Nov 1 7:00 PM ET | NO | 5 | 90¢ | open | +0.21 |
-| 11-02 | IND | Nov 1 7:00 PM ET | NO | 5 | 60¢ | open | -0.19 |
-| 11-02 | NOLA | Nov 1 7:00 PM ET | NO | 2 | 51¢ | open | +0.10 |
-| 11-02 | SGF | Nov 1 7:00 PM ET | NO | 5 | 75¢ | open | -1.32 |
-| 11-02 | STL | Nov 1 7:00 PM ET | NO | 6 | 72¢ | open | -0.27 |
-| 11-01 | CHI | Oct 31 8:00 PM ET | NO | 6 | 67¢ | open | -0.10 |
-| 11-01 | CMH | Oct 31 8:00 PM ET | NO | 5 | 85¢ | open | -0.05 |
-| 11-01 | DEN | Oct 31 8:00 PM ET | NO | 6 | 77¢ | open | -0.08 |
-| 11-01 | IND | Oct 31 8:00 PM ET | NO | 6 | 73¢ | open | -0.09 |
-| 11-01 | MIN | Oct 31 8:00 PM ET | NO | 2 | 82¢ | open | -0.03 |
-| 11-01 | MKE | Oct 31 8:00 PM ET | NO | 5 | 85¢ | open | -0.05 |
-| 11-01 | NOLA | Oct 31 8:00 PM ET | NO | 8 | 55¢ | open | -0.14 |
+| 11-02 | CHI | Nov 1 7:00 PM ET | NO | 8 | 55¢ | open | +1.70 |
+| 11-02 | DAL | Nov 1 7:00 PM ET | NO | 11 | 43¢ | open | -1.84 |
+| 11-02 | HOU | Nov 1 7:00 PM ET | NO | 5 | 90¢ | open | +0.26 |
+| 11-02 | IND | Nov 1 7:00 PM ET | NO | 5 | 60¢ | open | +0.41 |
+| 11-02 | NOLA | Nov 1 7:00 PM ET | NO | 2 | 51¢ | open | +0.70 |
+| 11-02 | SGF | Nov 1 7:00 PM ET | NO | 5 | 75¢ | open | -0.12 |
+| 11-02 | STL | Nov 1 7:00 PM ET | NO | 6 | 72¢ | open | +0.87 |
+| 11-01 | CHI | Oct 31 8:00 PM ET | NO | 6 | 67¢ | lost | -4.12 |
+| 11-01 | CMH | Oct 31 8:00 PM ET | NO | 5 | 85¢ | won | +0.70 |
+| 11-01 | DEN | Oct 31 8:00 PM ET | NO | 6 | 77¢ | lost | -4.70 |
+| 11-01 | IND | Oct 31 8:00 PM ET | NO | 6 | 73¢ | won | +1.53 |
+| 11-01 | MIN | Oct 31 8:00 PM ET | NO | 2 | 82¢ | won | +0.33 |
+| 11-01 | MKE | Oct 31 8:00 PM ET | NO | 5 | 85¢ | won | +0.70 |
+| 11-01 | NOLA | Oct 31 8:00 PM ET | NO | 8 | 55¢ | lost | -4.54 |
 | 10-31 | AUS | Oct 30 8:00 PM ET | NO | 6 | 82¢ | lost | -4.99 |
 | 10-31 | CLL | Oct 30 8:00 PM ET | NO | 10 | 47¢ | lost | -4.88 |
 | 10-31 | OKC | Oct 30 8:00 PM ET | NO | 10 | 44¢ | lost | -4.58 |
