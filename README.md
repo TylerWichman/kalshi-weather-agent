@@ -4,18 +4,18 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$92.36** (started at $100). Updated Nov 3 8:00 AM ET.
+Mock account **$117.64** (started at $100). Updated Nov 3 8:20 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-03 | IND | Nov 2 11:00 PM ET | NO | 2 | 60¢ | open | +0.50 |
-| 11-03 | TPA | Nov 2 10:00 PM ET | NO | 1 | 30¢ | open | -0.14 |
-| 11-03 | DEN | Nov 2 12:00 PM ET | NO | 8 | 59¢ | open | +2.42 |
-| 11-02 | NOLA | Nov 1 9:00 PM ET | NO | 7 | 63¢ | open | -0.12 |
-| 11-02 | SGF | Nov 1 9:00 PM ET | NO | 4 | 64¢ | open | -0.07 |
+| 11-03 | IND | Nov 2 11:00 PM ET | NO | 2 | 60¢ | open | +0.54 |
+| 11-03 | TPA | Nov 2 10:00 PM ET | NO | 1 | 30¢ | open | -0.22 |
+| 11-03 | DEN | Nov 2 12:00 PM ET | NO | 8 | 59¢ | open | +2.74 |
+| 11-02 | NOLA | Nov 1 9:00 PM ET | NO | 7 | 63¢ | won | +2.47 |
+| 11-02 | SGF | Nov 1 9:00 PM ET | NO | 4 | 64¢ | won | +1.37 |
 | 11-02 | CMH | Nov 1 4:00 PM ET | NO | 9 | 51¢ | lost | -4.75 |
-| 11-02 | CHI | Nov 1 1:00 PM ET | NO | 11 | 39¢ | open | -0.19 |
-| 11-02 | DAL | Nov 1 9:00 AM ET | NO | 3 | 42¢ | open | -0.06 |
+| 11-02 | CHI | Nov 1 1:00 PM ET | NO | 11 | 39¢ | won | +6.52 |
+| 11-02 | DAL | Nov 1 9:00 AM ET | NO | 3 | 42¢ | won | +1.68 |
 | 11-02 | PIT | Nov 1 9:00 AM ET | NO | 7 | 63¢ | won | +2.47 |
 | 11-01 | TPA | Oct 31 11:00 PM ET | NO | 1 | 19¢ | lost | -0.21 |
 | 11-01 | CHI | Oct 31 6:00 PM ET | NO | 5 | 60¢ | lost | -3.09 |
