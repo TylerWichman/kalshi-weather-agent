@@ -8,9 +8,9 @@ Mock account **$27.21** (started at $100). Updated Nov 4 1:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 11-05 | CMH | Nov 4 1:00 PM ET | NO | 6 | 80¢ | open | -0.13 |
 | 11-05 | DTW | Nov 4 1:00 PM ET | NO | 6 | 71¢ | open | -0.33 |
 | 11-05 | MIN | Nov 4 1:00 PM ET | NO | 3 | 53¢ | open | -0.15 |
-| 11-05 | CMH | Nov 4 1:00 PM ET | NO | 6 | 80¢ | open | -0.13 |
 | 11-05 | PVD | Nov 4 1:00 PM ET | NO | 6 | 67¢ | open | -0.22 |
 | 11-04 | TPA | Nov 3 11:00 PM ET | NO | 13 | 35¢ | open | -0.86 |
 | 11-04 | SGF | Nov 3 7:00 PM ET | NO | 6 | 71¢ | open | -0.09 |
