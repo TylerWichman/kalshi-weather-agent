@@ -129,12 +129,12 @@
 {"ticker":"KXRAIN-26NOV05-DAL","ref_mid":2.0,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-DC","ref_mid":85.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-DTW","ref_mid":36.5,"ref_ts":1793793600}
-{"ticker":"KXRAIN-26NOV05-EWR","ref_mid":70.5,"ref_ts":1793793600}
+{"ticker":"KXRAIN-26NOV05-EWR","ref_mid":84.5,"ref_ts":1793818800}
 {"ticker":"KXRAIN-26NOV05-HOU","ref_mid":6.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-IND","ref_mid":2.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-LEX","ref_mid":6.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-MIA","ref_mid":28.0,"ref_ts":1793793600}
-{"ticker":"KXRAIN-26NOV05-MIN","ref_mid":48.5,"ref_ts":1793815200}
+{"ticker":"KXRAIN-26NOV05-MIN","ref_mid":58.5,"ref_ts":1793818800}
 {"ticker":"KXRAIN-26NOV05-MKE","ref_mid":80.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-NOLA","ref_mid":1.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-NYC","ref_mid":70.5,"ref_ts":1793793600}
@@ -146,8 +146,8 @@
 {"ticker":"KXRAIN-26NOV05-SEA","ref_mid":44.5,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26NOV05-SGF","ref_mid":27.0,"ref_ts":1793815200}
 {"ticker":"KXRAIN-26NOV05-STL","ref_mid":1.5,"ref_ts":1793811600}
-{"ticker":"KXRAIN-26NOV05-TPA","ref_mid":12.0,"ref_ts":1793815200}
-{"ticker":"KXRAIN-26NOV05-TTN","ref_mid":76.5,"ref_ts":1793793600}
+{"ticker":"KXRAIN-26NOV05-TPA","ref_mid":23.0,"ref_ts":1793818800}
+{"ticker":"KXRAIN-26NOV05-TTN","ref_mid":86.5,"ref_ts":1793818800}
 {"ticker":"KXRAIN-26NOV05-WPB","ref_mid":10.0,"ref_ts":1793793600}
 {"ticker":"KXRAIN-26OCT01-ATL","ref_mid":4.0,"ref_ts":1790769600}
 {"ticker":"KXRAIN-26OCT01-AUS","ref_mid":89.0,"ref_ts":1790769600}
