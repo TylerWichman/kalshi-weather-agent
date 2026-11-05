@@ -4,23 +4,25 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$126.62** (started at $100). Updated Nov 4 10:40 PM ET.
+Mock account **$126.90** (started at $100). Updated Nov 4 11:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 11-05 | PHIL | Nov 4 11:00 PM ET | NO | 9 | 13¢ | open | -0.17 |
+| 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | open | -0.26 |
 | 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | open | -0.11 |
 | 11-05 | TPA | Nov 4 9:00 PM ET | NO | 5 | 56¢ | open | +0.61 |
-| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | +0.26 |
-| 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | open | -1.21 |
-| 11-05 | MKE | Nov 4 4:00 PM ET | NO | 13 | 34¢ | open | +0.70 |
+| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | -0.06 |
+| 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | open | -0.90 |
+| 11-05 | MKE | Nov 4 4:00 PM ET | NO | 13 | 34¢ | open | +0.57 |
 | 11-05 | NYC | Nov 4 3:00 PM ET | NO | 2 | 17¢ | open | -0.02 |
-| 11-05 | PVD | Nov 4 3:00 PM ET | NO | 1 | 51¢ | open | -0.09 |
+| 11-05 | PVD | Nov 4 3:00 PM ET | NO | 1 | 51¢ | open | -0.07 |
 | 11-05 | EWR | Nov 4 2:00 PM ET | NO | 29 | 16¢ | open | -1.73 |
 | 11-05 | TTN | Nov 4 2:00 PM ET | NO | 19 | 14¢ | open | -0.55 |
-| 11-05 | ATL | Nov 4 1:00 PM ET | NO | 12 | 39¢ | open | -1.52 |
-| 11-05 | MIN | Nov 4 9:00 AM ET | NO | 11 | 42¢ | open | -1.18 |
+| 11-05 | ATL | Nov 4 1:00 PM ET | NO | 12 | 39¢ | open | -1.40 |
+| 11-05 | MIN | Nov 4 9:00 AM ET | NO | 11 | 42¢ | open | -0.74 |
 | 11-04 | NOLA | Nov 3 4:00 PM ET | NO | 10 | 45¢ | open | +5.22 |
-| 11-04 | TPA | Nov 3 12:00 PM ET | NO | 9 | 40¢ | open | +4.79 |
+| 11-04 | TPA | Nov 3 12:00 PM ET | NO | 9 | 40¢ | open | +5.06 |
 | 11-04 | WPB | Nov 3 10:00 AM ET | NO | 4 | 38¢ | open | +2.29 |
 | 11-03 | IND | Nov 2 11:00 PM ET | NO | 2 | 60¢ | won | +0.76 |
 | 11-03 | TPA | Nov 2 10:00 PM ET | NO | 1 | 30¢ | won | +0.68 |
@@ -36,7 +38,5 @@ Mock account **$126.62** (started at $100). Updated Nov 4 10:40 PM ET.
 | 11-01 | SFO | Oct 31 2:00 PM ET | NO | 20 | 23¢ | lost | -4.85 |
 | 11-01 | STL | Oct 31 2:00 PM ET | NO | 11 | 20¢ | won | +8.67 |
 | 11-01 | LEX | Oct 31 1:00 PM ET | NO | 4 | 29¢ | lost | -1.22 |
-| 11-01 | NOLA | Oct 31 1:00 PM ET | NO | 10 | 47¢ | lost | -4.88 |
-| 11-01 | ATL | Oct 31 11:00 AM ET | NO | 26 | 17¢ | lost | -4.68 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
