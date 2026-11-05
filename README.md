@@ -4,23 +4,23 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$111.60** (started at $100). Updated Nov 5 1:35 AM ET.
+Mock account **$98.29** (started at $100). Updated Nov 5 6:29 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | open | -0.33 |
-| 11-05 | PHIL | Nov 4 11:00 PM ET | NO | 9 | 13¢ | open | +0.46 |
-| 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | open | -0.25 |
-| 11-05 | TPA | Nov 4 9:00 PM ET | NO | 5 | 56¢ | open | +0.66 |
-| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | +1.22 |
-| 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | open | +0.34 |
-| 11-05 | MKE | Nov 4 4:00 PM ET | NO | 13 | 34¢ | open | -1.12 |
-| 11-05 | NYC | Nov 4 3:00 PM ET | NO | 2 | 17¢ | open | +0.06 |
-| 11-05 | PVD | Nov 4 3:00 PM ET | NO | 1 | 51¢ | open | +0.10 |
-| 11-05 | EWR | Nov 4 2:00 PM ET | NO | 29 | 16¢ | open | +1.75 |
-| 11-05 | TTN | Nov 4 2:00 PM ET | NO | 19 | 14¢ | open | +1.35 |
-| 11-05 | ATL | Nov 4 1:00 PM ET | NO | 12 | 39¢ | open | -2.24 |
-| 11-05 | MIN | Nov 4 9:00 AM ET | NO | 11 | 42¢ | open | +0.47 |
+| 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | open | -0.12 |
+| 11-05 | PHIL | Nov 4 11:00 PM ET | NO | 9 | 13¢ | open | -0.08 |
+| 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | open | +1.08 |
+| 11-05 | TPA | Nov 4 9:00 PM ET | NO | 5 | 56¢ | open | +0.71 |
+| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | +0.50 |
+| 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | open | +0.03 |
+| 11-05 | MKE | Nov 4 4:00 PM ET | NO | 13 | 34¢ | open | +0.18 |
+| 11-05 | NYC | Nov 4 3:00 PM ET | NO | 2 | 17¢ | open | -0.06 |
+| 11-05 | PVD | Nov 4 3:00 PM ET | NO | 1 | 51¢ | open | +0.03 |
+| 11-05 | EWR | Nov 4 2:00 PM ET | NO | 29 | 16¢ | open | -0.86 |
+| 11-05 | TTN | Nov 4 2:00 PM ET | NO | 19 | 14¢ | open | -0.36 |
+| 11-05 | ATL | Nov 4 1:00 PM ET | NO | 12 | 39¢ | open | -1.64 |
+| 11-05 | MIN | Nov 4 9:00 AM ET | NO | 11 | 42¢ | open | -0.19 |
 | 11-04 | NOLA | Nov 3 4:00 PM ET | NO | 10 | 45¢ | open | -0.18 |
 | 11-04 | TPA | Nov 3 12:00 PM ET | NO | 9 | 40¢ | open | -0.16 |
 | 11-04 | WPB | Nov 3 10:00 AM ET | NO | 4 | 38¢ | open | -0.07 |
