@@ -4,16 +4,16 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$22.42** (started at $100). Updated Nov 6 3:27 AM ET.
+Mock account **$22.35** (started at $100). Updated Nov 6 3:47 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-06 | SGF | Nov 5 7:00 PM ET | NO | 1 | 89¢ | open | -0.20 |
-| 11-06 | ABQ | Nov 5 1:00 PM ET | NO | 2 | 73¢ | open | -0.01 |
-| 11-06 | CMH | Nov 5 1:00 PM ET | NO | 6 | 76¢ | open | +0.16 |
-| 11-06 | IND | Nov 5 1:00 PM ET | NO | 7 | 53¢ | open | -0.20 |
+| 11-06 | SGF | Nov 5 7:00 PM ET | NO | 1 | 89¢ | open | -0.16 |
+| 11-06 | ABQ | Nov 5 1:00 PM ET | NO | 2 | 73¢ | open | +0.03 |
+| 11-06 | CMH | Nov 5 1:00 PM ET | NO | 6 | 76¢ | open | +0.28 |
+| 11-06 | IND | Nov 5 1:00 PM ET | NO | 7 | 53¢ | open | -0.62 |
 | 11-06 | LEX | Nov 5 1:00 PM ET | NO | 5 | 83¢ | open | +0.45 |
-| 11-06 | PIT | Nov 5 1:00 PM ET | NO | 5 | 51¢ | open | -0.34 |
+| 11-06 | PIT | Nov 5 1:00 PM ET | NO | 5 | 51¢ | open | -0.19 |
 | 11-06 | WPB | Nov 5 1:00 PM ET | NO | 5 | 86¢ | open | +0.40 |
 | 11-05 | CHI | Nov 4 11:00 PM ET | NO | 1 | 33¢ | open | -0.02 |
 | 11-05 | CMH | Nov 4 1:00 PM ET | NO | 6 | 80¢ | open | -0.07 |
