@@ -4,15 +4,15 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$93.03** (started at $100). Updated Nov 6 1:23 AM ET.
+Mock account **$93.07** (started at $100). Updated Nov 6 1:30 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-06 | ABQ | Nov 5 3:00 PM ET | NO | 3 | 48¢ | open | +0.33 |
-| 11-06 | PIT | Nov 5 12:00 PM ET | NO | 8 | 59¢ | open | -0.38 |
+| 11-06 | ABQ | Nov 5 3:00 PM ET | NO | 3 | 48¢ | open | +0.36 |
+| 11-06 | PIT | Nov 5 12:00 PM ET | NO | 8 | 59¢ | open | -0.30 |
 | 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | open | -0.12 |
 | 11-05 | PHIL | Nov 4 11:00 PM ET | NO | 9 | 13¢ | open | -0.08 |
-| 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | open | +1.99 |
+| 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | open | +1.92 |
 | 11-05 | TPA | Nov 4 9:00 PM ET | NO | 5 | 56¢ | open | -0.09 |
 | 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | -0.14 |
 | 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | open | -0.28 |
