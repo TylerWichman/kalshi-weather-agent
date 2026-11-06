@@ -4,23 +4,23 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$58.95** (started at $100). Updated Nov 5 7:57 PM ET.
+Mock account **$59.46** (started at $100). Updated Nov 5 8:44 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-06 | ABQ | Nov 5 7:00 PM ET | NO | 9 | 49¢ | open | -0.52 |
-| 11-06 | CMH | Nov 5 7:00 PM ET | NO | 6 | 79¢ | open | -0.13 |
-| 11-06 | IND | Nov 5 7:00 PM ET | NO | 1 | 76¢ | open | -0.04 |
-| 11-06 | LEX | Nov 5 7:00 PM ET | NO | 6 | 78¢ | open | +0.04 |
-| 11-06 | PIT | Nov 5 7:00 PM ET | NO | 6 | 53¢ | open | -0.59 |
-| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | +1.78 |
-| 11-05 | CMH | Nov 4 7:00 PM ET | NO | 2 | 76¢ | open | +0.43 |
-| 11-05 | DTW | Nov 4 7:00 PM ET | NO | 3 | 71¢ | open | +0.22 |
-| 11-05 | MIA | Nov 4 7:00 PM ET | NO | 6 | 74¢ | open | -4.47 |
-| 11-05 | PVD | Nov 4 7:00 PM ET | NO | 7 | 69¢ | open | -0.18 |
-| 11-05 | SEA | Nov 4 7:00 PM ET | NO | 8 | 55¢ | open | +3.30 |
+| 11-06 | ABQ | Nov 5 7:00 PM ET | NO | 9 | 49¢ | open | -1.24 |
+| 11-06 | CMH | Nov 5 7:00 PM ET | NO | 6 | 79¢ | open | -0.07 |
+| 11-06 | IND | Nov 5 7:00 PM ET | NO | 1 | 76¢ | open | -0.08 |
+| 11-06 | LEX | Nov 5 7:00 PM ET | NO | 6 | 78¢ | open | +0.46 |
+| 11-06 | PIT | Nov 5 7:00 PM ET | NO | 6 | 53¢ | open | -0.65 |
+| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | +2.42 |
+| 11-05 | CMH | Nov 4 7:00 PM ET | NO | 2 | 76¢ | open | +0.39 |
+| 11-05 | DTW | Nov 4 7:00 PM ET | NO | 3 | 71¢ | open | +0.31 |
+| 11-05 | MIA | Nov 4 7:00 PM ET | NO | 6 | 74¢ | open | -0.09 |
+| 11-05 | PVD | Nov 4 7:00 PM ET | NO | 7 | 69¢ | open | +0.10 |
+| 11-05 | SEA | Nov 4 7:00 PM ET | NO | 8 | 55¢ | open | +3.22 |
 | 11-05 | TPA | Nov 4 7:00 PM ET | NO | 1 | 72¢ | open | +0.22 |
-| 11-05 | WPB | Nov 4 7:00 PM ET | NO | 2 | 89¢ | open | +0.14 |
+| 11-05 | WPB | Nov 4 7:00 PM ET | NO | 2 | 89¢ | open | +0.16 |
 | 11-04 | NOLA | Nov 3 7:00 PM ET | NO | 10 | 44¢ | won | +5.42 |
 | 11-04 | SGF | Nov 3 7:00 PM ET | NO | 6 | 71¢ | lost | -4.35 |
 | 11-04 | STL | Nov 3 7:00 PM ET | NO | 6 | 78¢ | lost | -4.76 |
