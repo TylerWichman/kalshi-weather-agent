@@ -4,25 +4,25 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$85.22** (started at $100). Updated Nov 6 12:00 PM ET.
+Mock account **$118.35** (started at $100). Updated Nov 6 12:20 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-06 | ABQ | Nov 5 3:00 PM ET | NO | 3 | 48¢ | open | +0.36 |
-| 11-06 | PIT | Nov 5 12:00 PM ET | NO | 8 | 59¢ | open | -1.50 |
-| 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | open | -0.12 |
-| 11-05 | PHIL | Nov 4 11:00 PM ET | NO | 9 | 13¢ | open | -0.08 |
-| 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | open | -0.11 |
-| 11-05 | TPA | Nov 4 9:00 PM ET | NO | 5 | 56¢ | open | -0.09 |
-| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | open | -0.14 |
-| 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | open | -0.28 |
-| 11-05 | MKE | Nov 4 4:00 PM ET | NO | 13 | 34¢ | open | -0.21 |
-| 11-05 | NYC | Nov 4 3:00 PM ET | NO | 2 | 17¢ | open | -0.02 |
-| 11-05 | PVD | Nov 4 3:00 PM ET | NO | 1 | 51¢ | open | -0.02 |
-| 11-05 | EWR | Nov 4 2:00 PM ET | NO | 29 | 16¢ | open | -0.28 |
-| 11-05 | TTN | Nov 4 2:00 PM ET | NO | 19 | 14¢ | open | -0.17 |
-| 11-05 | ATL | Nov 4 1:00 PM ET | NO | 12 | 39¢ | open | -0.20 |
-| 11-05 | MIN | Nov 4 9:00 AM ET | NO | 11 | 42¢ | open | -0.19 |
+| 11-06 | ABQ | Nov 5 3:00 PM ET | NO | 3 | 48¢ | open | +0.33 |
+| 11-06 | PIT | Nov 5 12:00 PM ET | NO | 8 | 59¢ | open | -1.34 |
+| 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | lost | -4.39 |
+| 11-05 | PHIL | Nov 4 11:00 PM ET | NO | 9 | 13¢ | lost | -1.25 |
+| 11-05 | SEA | Nov 4 9:00 PM ET | NO | 7 | 66¢ | won | +2.27 |
+| 11-05 | TPA | Nov 4 9:00 PM ET | NO | 5 | 56¢ | won | +2.11 |
+| 11-05 | BOS | Nov 4 7:00 PM ET | NO | 8 | 56¢ | won | +3.38 |
+| 11-05 | OKC | Nov 4 6:00 PM ET | NO | 31 | 15¢ | lost | -4.93 |
+| 11-05 | MKE | Nov 4 4:00 PM ET | NO | 13 | 34¢ | lost | -4.63 |
+| 11-05 | NYC | Nov 4 3:00 PM ET | NO | 2 | 17¢ | lost | -0.36 |
+| 11-05 | PVD | Nov 4 3:00 PM ET | NO | 1 | 51¢ | won | +0.47 |
+| 11-05 | EWR | Nov 4 2:00 PM ET | NO | 29 | 16¢ | lost | -4.92 |
+| 11-05 | TTN | Nov 4 2:00 PM ET | NO | 19 | 14¢ | lost | -2.83 |
+| 11-05 | ATL | Nov 4 1:00 PM ET | NO | 12 | 39¢ | won | +7.12 |
+| 11-05 | MIN | Nov 4 9:00 AM ET | NO | 11 | 42¢ | lost | -4.81 |
 | 11-04 | NOLA | Nov 3 4:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
 | 11-04 | TPA | Nov 3 12:00 PM ET | NO | 9 | 40¢ | won | +5.24 |
 | 11-04 | WPB | Nov 3 10:00 AM ET | NO | 4 | 38¢ | won | +2.41 |
