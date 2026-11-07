@@ -4,11 +4,12 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$112.46** (started at $100). Updated Nov 6 7:40 PM ET.
+Mock account **$112.15** (started at $100). Updated Nov 6 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-07 | CLL | Nov 6 2:00 PM ET | NO | 3 | 55¢ | open | -0.54 |
+| 11-07 | WPB | Nov 6 8:00 PM ET | NO | 8 | 56¢ | open | -0.22 |
+| 11-07 | CLL | Nov 6 2:00 PM ET | NO | 3 | 55¢ | open | -0.63 |
 | 11-06 | ABQ | Nov 5 3:00 PM ET | NO | 3 | 48¢ | open | -0.06 |
 | 11-06 | PIT | Nov 5 12:00 PM ET | NO | 8 | 59¢ | open | -0.14 |
 | 11-05 | MIA | Nov 4 11:00 PM ET | NO | 7 | 61¢ | lost | -4.39 |
@@ -37,6 +38,5 @@ Mock account **$112.46** (started at $100). Updated Nov 6 7:40 PM ET.
 | 11-02 | DAL | Nov 1 9:00 AM ET | NO | 3 | 42¢ | won | +1.68 |
 | 11-02 | PIT | Nov 1 9:00 AM ET | NO | 7 | 63¢ | won | +2.47 |
 | 11-01 | TPA | Oct 31 11:00 PM ET | NO | 1 | 19¢ | lost | -0.21 |
-| 11-01 | CHI | Oct 31 6:00 PM ET | NO | 5 | 60¢ | lost | -3.09 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
