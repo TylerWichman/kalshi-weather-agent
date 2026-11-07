@@ -4,13 +4,15 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$27.71** (started at $100). Updated Nov 6 6:25 PM ET.
+Mock account **$27.65** (started at $100). Updated Nov 6 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-07 | CLL | Nov 6 1:00 PM ET | NO | 4 | 67¢ | open | -1.19 |
-| 11-07 | MIA | Nov 6 1:00 PM ET | NO | 6 | 75¢ | open | +0.04 |
-| 11-07 | NYC | Nov 6 1:00 PM ET | NO | 4 | 87¢ | open | +0.08 |
+| 11-07 | DAL | Nov 6 7:00 PM ET | NO | 5 | 90¢ | open | -0.09 |
+| 11-07 | WPB | Nov 6 7:00 PM ET | NO | 2 | 68¢ | open | -0.08 |
+| 11-07 | CLL | Nov 6 1:00 PM ET | NO | 4 | 67¢ | open | -1.07 |
+| 11-07 | MIA | Nov 6 1:00 PM ET | NO | 6 | 75¢ | open | -0.14 |
+| 11-07 | NYC | Nov 6 1:00 PM ET | NO | 4 | 87¢ | open | +0.20 |
 | 11-07 | PIT | Nov 6 1:00 PM ET | NO | 1 | 77¢ | open | +0.00 |
 | 11-06 | SGF | Nov 5 7:00 PM ET | NO | 1 | 89¢ | open | +0.08 |
 | 11-06 | ABQ | Nov 5 1:00 PM ET | NO | 2 | 73¢ | open | -0.03 |
@@ -18,7 +20,7 @@ Mock account **$27.71** (started at $100). Updated Nov 6 6:25 PM ET.
 | 11-06 | IND | Nov 5 1:00 PM ET | NO | 7 | 53¢ | open | -0.13 |
 | 11-06 | LEX | Nov 5 1:00 PM ET | NO | 5 | 83¢ | open | +0.70 |
 | 11-06 | PIT | Nov 5 1:00 PM ET | NO | 5 | 51¢ | open | -0.09 |
-| 11-06 | WPB | Nov 5 1:00 PM ET | NO | 5 | 86¢ | open | +0.45 |
+| 11-06 | WPB | Nov 5 1:00 PM ET | NO | 5 | 86¢ | open | +0.50 |
 | 11-05 | CHI | Nov 4 11:00 PM ET | NO | 1 | 33¢ | lost | -0.35 |
 | 11-05 | CMH | Nov 4 1:00 PM ET | NO | 6 | 80¢ | won | +1.13 |
 | 11-05 | DTW | Nov 4 1:00 PM ET | NO | 6 | 71¢ | won | +1.65 |
@@ -36,7 +38,5 @@ Mock account **$27.71** (started at $100). Updated Nov 6 6:25 PM ET.
 | 11-03 | SEA | Nov 2 1:00 PM ET | NO | 1 | 88¢ | won | +0.11 |
 | 11-02 | CMH | Nov 1 11:00 PM ET | NO | 1 | 36¢ | lost | -0.38 |
 | 11-02 | NOLA | Nov 1 1:00 PM ET | NO | 9 | 50¢ | won | +4.34 |
-| 11-02 | SGF | Nov 1 1:00 PM ET | NO | 6 | 64¢ | won | +2.06 |
-| 11-01 | SGF | Nov 1 12:00 AM ET | NO | 1 | 40¢ | lost | -0.42 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
