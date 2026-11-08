@@ -4,15 +4,18 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$58.47** (started at $100). Updated Nov 7 6:30 PM ET.
+Mock account **$58.21** (started at $100). Updated Nov 7 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-07 | CLL | Nov 6 7:00 PM ET | NO | 11 | 43¢ | open | +4.87 |
-| 11-07 | DAL | Nov 6 7:00 PM ET | NO | 5 | 90¢ | open | -0.89 |
-| 11-07 | MIA | Nov 6 7:00 PM ET | NO | 6 | 76¢ | open | +0.40 |
+| 11-08 | MIA | Nov 7 7:00 PM ET | NO | 7 | 64¢ | open | -0.19 |
+| 11-08 | PVD | Nov 7 7:00 PM ET | NO | 10 | 48¢ | open | -0.38 |
+| 11-08 | DAL | Nov 7 7:00 PM ET | NO | 5 | 87¢ | open | -0.04 |
+| 11-07 | CLL | Nov 6 7:00 PM ET | NO | 11 | 43¢ | open | +5.09 |
+| 11-07 | DAL | Nov 6 7:00 PM ET | NO | 5 | 90¢ | open | -1.14 |
+| 11-07 | MIA | Nov 6 7:00 PM ET | NO | 6 | 76¢ | open | +0.76 |
 | 11-07 | PIT | Nov 6 7:00 PM ET | NO | 6 | 80¢ | open | +1.01 |
-| 11-07 | WPB | Nov 6 7:00 PM ET | NO | 2 | 67¢ | open | +0.44 |
+| 11-07 | WPB | Nov 6 7:00 PM ET | NO | 2 | 67¢ | open | +0.46 |
 | 11-06 | ABQ | Nov 5 7:00 PM ET | NO | 9 | 49¢ | lost | -4.57 |
 | 11-06 | CMH | Nov 5 7:00 PM ET | NO | 6 | 79¢ | lost | -4.81 |
 | 11-06 | IND | Nov 5 7:00 PM ET | NO | 1 | 76¢ | lost | -0.78 |
@@ -35,8 +38,5 @@ Mock account **$58.47** (started at $100). Updated Nov 7 6:30 PM ET.
 | 11-03 | SEA | Nov 2 7:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
 | 11-02 | CHI | Nov 1 7:00 PM ET | NO | 8 | 55¢ | won | +3.46 |
 | 11-02 | DAL | Nov 1 7:00 PM ET | NO | 11 | 43¢ | won | +6.08 |
-| 11-02 | HOU | Nov 1 7:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
-| 11-02 | IND | Nov 1 7:00 PM ET | NO | 5 | 60¢ | won | +1.91 |
-| 11-02 | NOLA | Nov 1 7:00 PM ET | NO | 2 | 51¢ | won | +0.94 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
