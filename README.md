@@ -4,12 +4,18 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$59.29** (started at $100). Updated Nov 8 6:30 PM ET.
+Mock account **$58.32** (started at $100). Updated Nov 8 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-08 | DAL | Nov 7 7:00 PM ET | NO | 5 | 87¢ | open | +0.56 |
-| 11-08 | MIA | Nov 7 7:00 PM ET | NO | 7 | 64¢ | open | +1.42 |
+| 11-09 | MIA | Nov 8 7:00 PM ET | NO | 1 | 78¢ | open | -0.03 |
+| 11-09 | DAL | Nov 8 7:00 PM ET | NO | 6 | 82¢ | open | -0.13 |
+| 11-09 | CLL | Nov 8 7:00 PM ET | NO | 11 | 41¢ | open | -0.41 |
+| 11-09 | PVD | Nov 8 7:00 PM ET | NO | 6 | 79¢ | open | -0.19 |
+| 11-09 | BOS | Nov 8 7:00 PM ET | NO | 6 | 78¢ | open | -0.14 |
+| 11-09 | WPB | Nov 8 7:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
+| 11-08 | DAL | Nov 7 7:00 PM ET | NO | 5 | 87¢ | open | +0.51 |
+| 11-08 | MIA | Nov 7 7:00 PM ET | NO | 7 | 64¢ | open | +1.49 |
 | 11-08 | PVD | Nov 7 7:00 PM ET | NO | 10 | 48¢ | open | -0.18 |
 | 11-07 | CLL | Nov 6 7:00 PM ET | NO | 11 | 43¢ | won | +6.08 |
 | 11-07 | DAL | Nov 6 7:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
@@ -32,11 +38,5 @@ Mock account **$59.29** (started at $100). Updated Nov 8 6:30 PM ET.
 | 11-04 | NOLA | Nov 3 7:00 PM ET | NO | 10 | 44¢ | won | +5.42 |
 | 11-04 | SGF | Nov 3 7:00 PM ET | NO | 6 | 71¢ | lost | -4.35 |
 | 11-04 | STL | Nov 3 7:00 PM ET | NO | 6 | 78¢ | lost | -4.76 |
-| 11-03 | ATL | Nov 2 7:00 PM ET | NO | 5 | 84¢ | won | +0.75 |
-| 11-03 | CMH | Nov 2 7:00 PM ET | NO | 5 | 91¢ | won | +0.42 |
-| 11-03 | DTW | Nov 2 7:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
-| 11-03 | SEA | Nov 2 7:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
-| 11-02 | CHI | Nov 1 7:00 PM ET | NO | 8 | 55¢ | won | +3.46 |
-| 11-02 | DAL | Nov 1 7:00 PM ET | NO | 11 | 43¢ | won | +6.08 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
