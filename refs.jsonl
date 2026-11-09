@@ -260,7 +260,7 @@
 {"ticker":"KXRAIN-26NOV10-PHIL","ref_mid":1.5,"ref_ts":1794225600}
 {"ticker":"KXRAIN-26NOV10-PIT","ref_mid":1.5,"ref_ts":1794247200}
 {"ticker":"KXRAIN-26NOV10-PVD","ref_mid":2.0,"ref_ts":1794225600}
-{"ticker":"KXRAIN-26NOV10-SATX","ref_mid":47.5,"ref_ts":1794247200}
+{"ticker":"KXRAIN-26NOV10-SATX","ref_mid":60.0,"ref_ts":1794265200}
 {"ticker":"KXRAIN-26NOV10-SEA","ref_mid":96.5,"ref_ts":1794225600}
 {"ticker":"KXRAIN-26NOV10-STL","ref_mid":1.5,"ref_ts":1794225600}
 {"ticker":"KXRAIN-26NOV10-TPA","ref_mid":15.0,"ref_ts":1794225600}
