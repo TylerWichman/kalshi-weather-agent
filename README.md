@@ -8,11 +8,11 @@ Mock account **$58.32** (started at $100). Updated Nov 8 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-09 | MIA | Nov 8 7:00 PM ET | NO | 1 | 78¢ | open | -0.03 |
-| 11-09 | DAL | Nov 8 7:00 PM ET | NO | 6 | 82¢ | open | -0.13 |
-| 11-09 | CLL | Nov 8 7:00 PM ET | NO | 11 | 41¢ | open | -0.41 |
-| 11-09 | PVD | Nov 8 7:00 PM ET | NO | 6 | 79¢ | open | -0.19 |
 | 11-09 | BOS | Nov 8 7:00 PM ET | NO | 6 | 78¢ | open | -0.14 |
+| 11-09 | CLL | Nov 8 7:00 PM ET | NO | 11 | 41¢ | open | -0.41 |
+| 11-09 | DAL | Nov 8 7:00 PM ET | NO | 6 | 82¢ | open | -0.13 |
+| 11-09 | MIA | Nov 8 7:00 PM ET | NO | 1 | 78¢ | open | -0.03 |
+| 11-09 | PVD | Nov 8 7:00 PM ET | NO | 6 | 79¢ | open | -0.19 |
 | 11-09 | WPB | Nov 8 7:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
 | 11-08 | DAL | Nov 7 7:00 PM ET | NO | 5 | 87¢ | open | +0.51 |
 | 11-08 | MIA | Nov 7 7:00 PM ET | NO | 7 | 64¢ | open | +1.49 |
