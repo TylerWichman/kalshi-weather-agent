@@ -4,18 +4,18 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$30.68** (started at $100). Updated Nov 8 8:41 PM ET.
+Mock account **$31.13** (started at $100). Updated Nov 8 9:02 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-09 | BOS | Nov 8 1:00 PM ET | NO | 6 | 79¢ | open | -0.25 |
-| 11-09 | DAL | Nov 8 1:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
-| 11-09 | MIA | Nov 8 1:00 PM ET | NO | 5 | 85¢ | open | -1.30 |
+| 11-09 | BOS | Nov 8 1:00 PM ET | NO | 6 | 79¢ | open | -0.19 |
+| 11-09 | DAL | Nov 8 1:00 PM ET | NO | 5 | 84¢ | open | -0.05 |
+| 11-09 | MIA | Nov 8 1:00 PM ET | NO | 5 | 85¢ | open | -1.15 |
 | 11-09 | PVD | Nov 8 1:00 PM ET | NO | 5 | 83¢ | open | -0.55 |
 | 11-09 | WPB | Nov 8 1:00 PM ET | NO | 5 | 89¢ | open | -0.14 |
-| 11-08 | HOU | Nov 7 11:00 PM ET | NO | 1 | 38¢ | open | +0.52 |
+| 11-08 | HOU | Nov 7 11:00 PM ET | NO | 1 | 38¢ | open | +0.53 |
 | 11-08 | DAL | Nov 7 1:00 PM ET | NO | 5 | 89¢ | open | +0.46 |
-| 11-08 | MIA | Nov 7 1:00 PM ET | NO | 6 | 77¢ | open | +0.40 |
+| 11-08 | MIA | Nov 7 1:00 PM ET | NO | 6 | 77¢ | open | +0.58 |
 | 11-08 | PVD | Nov 7 1:00 PM ET | NO | 3 | 61¢ | open | -0.05 |
 | 11-07 | DAL | Nov 6 7:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
 | 11-07 | WPB | Nov 6 7:00 PM ET | NO | 2 | 68¢ | won | +0.60 |
