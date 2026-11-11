@@ -4,18 +4,18 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$114.91** (started at $100). Updated Nov 11 2:40 PM ET.
+Mock account **$115.12** (started at $100). Updated Nov 11 3:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 11-12 | MIA | Nov 11 11:00 AM ET | NO | 8 | 38¢ | open | -0.22 |
 | 11-11 | CMH | Nov 10 11:00 PM ET | NO | 17 | 27¢ | open | +8.09 |
-| 11-11 | WPB | Nov 10 11:00 PM ET | NO | 17 | 27¢ | open | -1.43 |
+| 11-11 | WPB | Nov 10 11:00 PM ET | NO | 17 | 27¢ | open | -1.60 |
 | 11-11 | HOU | Nov 10 10:00 PM ET | NO | 58 | 8¢ | open | -0.30 |
-| 11-11 | DTW | Nov 10 4:00 PM ET | NO | 7 | 62¢ | open | +1.21 |
-| 11-11 | CHI | Nov 10 1:00 PM ET | NO | 14 | 34¢ | open | -4.56 |
-| 11-11 | MKE | Nov 10 1:00 PM ET | NO | 8 | 55¢ | open | +2.10 |
-| 11-11 | MIA | Nov 10 8:00 AM ET | NO | 7 | 61¢ | open | -2.15 |
+| 11-11 | DTW | Nov 10 4:00 PM ET | NO | 7 | 62¢ | open | +1.42 |
+| 11-11 | CHI | Nov 10 1:00 PM ET | NO | 14 | 34¢ | open | -4.70 |
+| 11-11 | MKE | Nov 10 1:00 PM ET | NO | 8 | 55¢ | open | +1.78 |
+| 11-11 | MIA | Nov 10 8:00 AM ET | NO | 7 | 61¢ | open | -1.52 |
 | 11-10 | AUS | Nov 9 5:00 PM ET | NO | 8 | 56¢ | lost | -4.62 |
 | 11-10 | DAL | Nov 9 2:00 PM ET | NO | 7 | 63¢ | lost | -4.53 |
 | 11-10 | HOU | Nov 9 9:00 AM ET | NO | 11 | 42¢ | lost | -4.81 |
