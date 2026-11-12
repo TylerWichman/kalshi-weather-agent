@@ -4,15 +4,15 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$67.80** (started at $100). Updated Nov 12 5:49 PM ET.
+Mock account **$68.28** (started at $100). Updated Nov 12 6:09 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | +0.11 |
+| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | +0.46 |
 | 11-12 | IND | Nov 11 7:00 PM ET | NO | 11 | 41¢ | open | -0.19 |
-| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | +2.58 |
+| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | +2.66 |
 | 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | +0.07 |
-| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | +0.16 |
+| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | +0.21 |
 | 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | +2.77 |
 | 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | lost | -4.35 |
 | 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
