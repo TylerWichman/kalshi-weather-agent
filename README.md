@@ -8,12 +8,12 @@ Mock account **$38.70** (started at $100). Updated Nov 12 1:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-13 | LV | Nov 12 1:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
-| 11-13 | WPB | Nov 12 1:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
-| 11-13 | TPA | Nov 12 1:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
-| 11-13 | PIT | Nov 12 1:00 PM ET | NO | 7 | 63¢ | open | -0.19 |
 | 11-13 | ABQ | Nov 12 1:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
+| 11-13 | LV | Nov 12 1:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
 | 11-13 | MKE | Nov 12 1:00 PM ET | NO | 7 | 66¢ | open | -0.25 |
+| 11-13 | PIT | Nov 12 1:00 PM ET | NO | 7 | 63¢ | open | -0.19 |
+| 11-13 | TPA | Nov 12 1:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
+| 11-13 | WPB | Nov 12 1:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
 | 11-12 | SFO | Nov 11 1:00 PM ET | NO | 2 | 85¢ | open | +0.08 |
 | 11-12 | WPB | Nov 11 1:00 PM ET | NO | 1 | 47¢ | open | +0.25 |
 | 11-11 | CLL | Nov 10 1:00 PM ET | NO | 4 | 90¢ | lost | -3.63 |
