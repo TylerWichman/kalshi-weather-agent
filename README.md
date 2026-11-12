@@ -4,16 +4,22 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$60.57** (started at $100). Updated Nov 11 6:27 PM ET.
+Mock account **$59.53** (started at $100). Updated Nov 11 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | -0.14 |
+| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | -0.22 |
+| 11-12 | IND | Nov 11 7:00 PM ET | NO | 11 | 41¢ | open | -0.30 |
+| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
+| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | -0.17 |
+| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | -0.14 |
 | 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | open | -0.05 |
-| 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | open | +1.62 |
-| 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | open | +3.06 |
-| 11-11 | MIA | Nov 10 7:00 PM ET | NO | 9 | 53¢ | open | +3.08 |
-| 11-11 | MIN | Nov 10 7:00 PM ET | NO | 6 | 79¢ | open | +1.07 |
-| 11-11 | MKE | Nov 10 7:00 PM ET | NO | 7 | 61¢ | open | +1.70 |
+| 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | open | +0.92 |
+| 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | open | +3.14 |
+| 11-11 | MIA | Nov 10 7:00 PM ET | NO | 9 | 53¢ | open | +3.44 |
+| 11-11 | MIN | Nov 10 7:00 PM ET | NO | 6 | 79¢ | open | +1.13 |
+| 11-11 | MKE | Nov 10 7:00 PM ET | NO | 7 | 61¢ | open | +1.91 |
 | 11-11 | SEA | Nov 10 7:00 PM ET | NO | 2 | 88¢ | open | +0.18 |
 | 11-10 | AUS | Nov 9 7:00 PM ET | NO | 8 | 60¢ | lost | -4.94 |
 | 11-10 | CLL | Nov 9 7:00 PM ET | NO | 6 | 72¢ | lost | -4.41 |
@@ -32,11 +38,5 @@ Mock account **$60.57** (started at $100). Updated Nov 11 6:27 PM ET.
 | 11-08 | MIA | Nov 7 7:00 PM ET | NO | 7 | 64¢ | won | +2.40 |
 | 11-08 | PVD | Nov 7 7:00 PM ET | NO | 10 | 48¢ | lost | -4.98 |
 | 11-07 | CLL | Nov 6 7:00 PM ET | NO | 11 | 43¢ | won | +6.08 |
-| 11-07 | DAL | Nov 6 7:00 PM ET | NO | 5 | 90¢ | won | +0.46 |
-| 11-07 | MIA | Nov 6 7:00 PM ET | NO | 6 | 76¢ | won | +1.36 |
-| 11-07 | PIT | Nov 6 7:00 PM ET | NO | 6 | 80¢ | won | +1.13 |
-| 11-07 | WPB | Nov 6 7:00 PM ET | NO | 2 | 67¢ | won | +0.62 |
-| 11-06 | ABQ | Nov 5 7:00 PM ET | NO | 9 | 49¢ | lost | -4.57 |
-| 11-06 | CMH | Nov 5 7:00 PM ET | NO | 6 | 79¢ | lost | -4.81 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
