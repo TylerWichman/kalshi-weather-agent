@@ -8,12 +8,12 @@ Mock account **$59.53** (started at $100). Updated Nov 11 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | -0.14 |
-| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | -0.22 |
-| 11-12 | IND | Nov 11 7:00 PM ET | NO | 11 | 41¢ | open | -0.30 |
-| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
-| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | -0.17 |
 | 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | -0.14 |
+| 11-12 | IND | Nov 11 7:00 PM ET | NO | 11 | 41¢ | open | -0.30 |
+| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | -0.22 |
+| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
+| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | -0.14 |
+| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | -0.17 |
 | 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | open | -0.05 |
 | 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | open | +0.92 |
 | 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | open | +3.14 |
