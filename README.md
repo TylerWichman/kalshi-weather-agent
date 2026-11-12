@@ -4,23 +4,23 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$24.92** (started at $100). Updated Nov 12 4:57 AM ET.
+Mock account **$66.67** (started at $100). Updated Nov 12 1:04 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | -0.74 |
+| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | +0.41 |
 | 11-12 | IND | Nov 11 7:00 PM ET | NO | 11 | 41¢ | open | -0.19 |
-| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | +0.74 |
-| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | -0.38 |
-| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | +0.01 |
-| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | -1.31 |
-| 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | open | -0.05 |
-| 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | open | -0.18 |
-| 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | open | -0.14 |
-| 11-11 | MIA | Nov 10 7:00 PM ET | NO | 9 | 53¢ | open | -0.16 |
-| 11-11 | MIN | Nov 10 7:00 PM ET | NO | 6 | 79¢ | open | -0.07 |
-| 11-11 | MKE | Nov 10 7:00 PM ET | NO | 7 | 61¢ | open | -0.12 |
-| 11-11 | SEA | Nov 10 7:00 PM ET | NO | 2 | 88¢ | open | +0.20 |
+| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | +2.82 |
+| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
+| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | +0.26 |
+| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | +1.15 |
+| 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | lost | -4.35 |
+| 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
+| 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | won | +3.54 |
+| 11-11 | MIA | Nov 10 7:00 PM ET | NO | 9 | 53¢ | won | +4.07 |
+| 11-11 | MIN | Nov 10 7:00 PM ET | NO | 6 | 79¢ | won | +1.19 |
+| 11-11 | MKE | Nov 10 7:00 PM ET | NO | 7 | 61¢ | won | +2.61 |
+| 11-11 | SEA | Nov 10 7:00 PM ET | NO | 2 | 88¢ | won | +0.22 |
 | 11-10 | AUS | Nov 9 7:00 PM ET | NO | 8 | 60¢ | lost | -4.94 |
 | 11-10 | CLL | Nov 9 7:00 PM ET | NO | 6 | 72¢ | lost | -4.41 |
 | 11-10 | DAL | Nov 9 7:00 PM ET | NO | 6 | 71¢ | lost | -4.35 |
