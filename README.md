@@ -4,26 +4,26 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$67.09** (started at $100). Updated Nov 12 7:00 PM ET.
+Mock account **$68.36** (started at $100). Updated Nov 12 8:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-13 | ABQ | Nov 12 7:00 PM ET | NO | 7 | 64¢ | open | -0.19 |
-| 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | open | -0.18 |
-| 11-13 | DC | Nov 12 7:00 PM ET | NO | 4 | 90¢ | open | -0.07 |
-| 11-13 | DTW | Nov 12 7:00 PM ET | NO | 10 | 46¢ | open | -0.28 |
-| 11-13 | IND | Nov 12 7:00 PM ET | NO | 10 | 46¢ | open | -0.08 |
-| 11-13 | LV | Nov 12 7:00 PM ET | NO | 6 | 82¢ | open | -0.13 |
+| 11-13 | ABQ | Nov 12 7:00 PM ET | NO | 7 | 64¢ | open | -0.26 |
+| 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | open | +0.03 |
+| 11-13 | DC | Nov 12 7:00 PM ET | NO | 4 | 90¢ | open | -0.11 |
+| 11-13 | DTW | Nov 12 7:00 PM ET | NO | 10 | 46¢ | open | +0.22 |
+| 11-13 | IND | Nov 12 7:00 PM ET | NO | 10 | 46¢ | open | -0.38 |
+| 11-13 | LV | Nov 12 7:00 PM ET | NO | 6 | 82¢ | open | -0.01 |
 | 11-13 | MIA | Nov 12 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
-| 11-13 | MKE | Nov 12 7:00 PM ET | NO | 5 | 80¢ | open | -0.11 |
-| 11-13 | PIT | Nov 12 7:00 PM ET | NO | 7 | 66¢ | open | -0.18 |
+| 11-13 | MKE | Nov 12 7:00 PM ET | NO | 5 | 80¢ | open | +0.04 |
+| 11-13 | PIT | Nov 12 7:00 PM ET | NO | 7 | 66¢ | open | -0.32 |
 | 11-13 | TPA | Nov 12 7:00 PM ET | NO | 5 | 88¢ | open | -0.09 |
-| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | +0.71 |
+| 11-12 | CHI | Nov 11 7:00 PM ET | NO | 5 | 55¢ | open | +1.31 |
 | 11-12 | IND | Nov 11 7:00 PM ET | NO | 11 | 41¢ | open | -0.19 |
-| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | +2.82 |
-| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | -0.03 |
-| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | +0.16 |
-| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | +2.71 |
+| 11-12 | MKE | Nov 11 7:00 PM ET | NO | 8 | 60¢ | open | +2.90 |
+| 11-12 | SFO | Nov 11 7:00 PM ET | NO | 5 | 91¢ | open | +0.02 |
+| 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | open | +0.21 |
+| 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | open | +2.77 |
 | 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | lost | -4.35 |
 | 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
 | 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | won | +3.54 |
