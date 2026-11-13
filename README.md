@@ -8,9 +8,9 @@ Mock account **$39.53** (started at $100). Updated Nov 12 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-13 | MIA | Nov 12 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
 | 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | open | -0.18 |
 | 11-13 | IND | Nov 12 7:00 PM ET | NO | 8 | 46¢ | open | -0.06 |
+| 11-13 | MIA | Nov 12 7:00 PM ET | NO | 5 | 91¢ | open | -0.08 |
 | 11-13 | ABQ | Nov 12 1:00 PM ET | NO | 6 | 70¢ | open | -0.51 |
 | 11-13 | LV | Nov 12 1:00 PM ET | NO | 5 | 84¢ | open | -0.20 |
 | 11-13 | MKE | Nov 12 1:00 PM ET | NO | 7 | 66¢ | open | +0.80 |
