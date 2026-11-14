@@ -4,10 +4,11 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$33.27** (started at $100). Updated Nov 14 12:40 PM ET.
+Mock account **$33.13** (started at $100). Updated Nov 14 1:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 11-15 | NOLA | Nov 14 1:00 PM ET | NO | 6 | 76¢ | open | -0.14 |
 | 11-14 | SFO | Nov 13 1:00 PM ET | NO | 4 | 74¢ | open | -0.06 |
 | 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | won | +1.44 |
 | 11-13 | IND | Nov 12 7:00 PM ET | NO | 8 | 46¢ | won | +4.18 |
@@ -37,6 +38,5 @@ Mock account **$33.27** (started at $100). Updated Nov 14 12:40 PM ET.
 | 11-09 | WPB | Nov 8 1:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
 | 11-08 | HOU | Nov 7 11:00 PM ET | NO | 1 | 38¢ | won | +0.60 |
 | 11-08 | DAL | Nov 7 1:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
-| 11-08 | MIA | Nov 7 1:00 PM ET | NO | 6 | 77¢ | won | +1.30 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
