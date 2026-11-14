@@ -9,9 +9,9 @@ Mock account **$75.66** (started at $100). Updated Nov 13 7:00 PM ET.
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 11-14 | CLL | Nov 13 7:00 PM ET | NO | 10 | 46¢ | open | -0.28 |
-| 11-14 | SFO | Nov 13 7:00 PM ET | NO | 6 | 75¢ | open | -0.20 |
 | 11-14 | DEN | Nov 13 7:00 PM ET | NO | 7 | 67¢ | open | -0.18 |
 | 11-14 | HOU | Nov 13 7:00 PM ET | NO | 5 | 89¢ | open | -0.09 |
+| 11-14 | SFO | Nov 13 7:00 PM ET | NO | 6 | 75¢ | open | -0.20 |
 | 11-13 | ABQ | Nov 12 7:00 PM ET | NO | 7 | 64¢ | open | -4.25 |
 | 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | open | +1.38 |
 | 11-13 | DC | Nov 12 7:00 PM ET | NO | 4 | 90¢ | open | +0.33 |
