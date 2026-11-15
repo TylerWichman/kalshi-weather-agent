@@ -386,11 +386,11 @@
 {"ticker":"KXRAIN-26NOV15-LAX","ref_mid":2.5,"ref_ts":1794657600}
 {"ticker":"KXRAIN-26NOV15-LV","ref_mid":1.5,"ref_ts":1794657600}
 {"ticker":"KXRAIN-26NOV15-MIA","ref_mid":5.5,"ref_ts":1794657600}
-{"ticker":"KXRAIN-26NOV15-NOLA","ref_mid":33.0,"ref_ts":1794657600}
+{"ticker":"KXRAIN-26NOV15-NOLA","ref_mid":50.0,"ref_ts":1794708000}
 {"ticker":"KXRAIN-26NOV15-NYC","ref_mid":2.5,"ref_ts":1794657600}
 {"ticker":"KXRAIN-26NOV15-OKC","ref_mid":97.5,"ref_ts":1794657600}
 {"ticker":"KXRAIN-26NOV15-PHIL","ref_mid":1.5,"ref_ts":1794657600}
-{"ticker":"KXRAIN-26NOV15-PIT","ref_mid":70.0,"ref_ts":1794657600}
+{"ticker":"KXRAIN-26NOV15-PIT","ref_mid":81.0,"ref_ts":1794708000}
 {"ticker":"KXRAIN-26NOV15-PVD","ref_mid":2.0,"ref_ts":1794657600}
 {"ticker":"KXRAIN-26NOV15-SATX","ref_mid":96.5,"ref_ts":1794657600}
 {"ticker":"KXRAIN-26NOV15-SDF","ref_mid":11.0,"ref_ts":1794657600}
