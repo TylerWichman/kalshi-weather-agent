@@ -4,10 +4,18 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$61.03** (started at $100). Updated Nov 15 6:29 PM ET.
+Mock account **$59.72** (started at $100). Updated Nov 15 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
+| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
+| 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | open | -0.19 |
+| 11-16 | TPA | Nov 15 7:00 PM ET | NO | 6 | 81¢ | open | -0.13 |
+| 11-16 | LV | Nov 15 7:00 PM ET | NO | 2 | 62¢ | open | -0.06 |
+| 11-16 | DAL | Nov 15 7:00 PM ET | NO | 7 | 64¢ | open | -0.19 |
+| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 8 | 54¢ | open | -0.30 |
+| 11-16 | MIA | Nov 15 7:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
+| 11-16 | AUS | Nov 15 7:00 PM ET | NO | 6 | 80¢ | open | -0.19 |
 | 11-15 | NOLA | Nov 14 7:00 PM ET | NO | 7 | 60¢ | open | -0.12 |
 | 11-14 | CLL | Nov 13 7:00 PM ET | NO | 10 | 46¢ | lost | -4.78 |
 | 11-14 | DEN | Nov 13 7:00 PM ET | NO | 7 | 67¢ | won | +2.20 |
@@ -30,13 +38,5 @@ Mock account **$61.03** (started at $100). Updated Nov 15 6:29 PM ET.
 | 11-12 | TPA | Nov 11 7:00 PM ET | NO | 5 | 89¢ | won | +0.51 |
 | 11-12 | WPB | Nov 11 7:00 PM ET | NO | 6 | 50¢ | won | +2.89 |
 | 11-11 | CLL | Nov 10 7:00 PM ET | NO | 5 | 86¢ | lost | -4.35 |
-| 11-11 | CMH | Nov 10 7:00 PM ET | NO | 10 | 45¢ | won | +5.32 |
-| 11-11 | DTW | Nov 10 7:00 PM ET | NO | 8 | 54¢ | won | +3.54 |
-| 11-11 | MIA | Nov 10 7:00 PM ET | NO | 9 | 53¢ | won | +4.07 |
-| 11-11 | MIN | Nov 10 7:00 PM ET | NO | 6 | 79¢ | won | +1.19 |
-| 11-11 | MKE | Nov 10 7:00 PM ET | NO | 7 | 61¢ | won | +2.61 |
-| 11-11 | SEA | Nov 10 7:00 PM ET | NO | 2 | 88¢ | won | +0.22 |
-| 11-10 | AUS | Nov 9 7:00 PM ET | NO | 8 | 60¢ | lost | -4.94 |
-| 11-10 | CLL | Nov 9 7:00 PM ET | NO | 6 | 72¢ | lost | -4.41 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
