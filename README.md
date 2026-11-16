@@ -10,8 +10,8 @@ Mock account **$25.01** (started at $100). Updated Nov 15 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
 | 11-16 | SEA | Nov 15 7:00 PM ET | NO | 1 | 53¢ | open | -0.03 |
+| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
 | 11-16 | AUS | Nov 15 7:00 AM ET | NO | 5 | 83¢ | open | -0.30 |
 | 11-16 | CLL | Nov 15 7:00 AM ET | NO | 7 | 63¢ | open | -0.19 |
 | 11-16 | DAL | Nov 15 7:00 AM ET | NO | 5 | 88¢ | open | -1.29 |
