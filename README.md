@@ -4,18 +4,20 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$25.81** (started at $100). Updated Nov 15 6:24 PM ET.
+Mock account **$25.01** (started at $100). Updated Nov 15 7:00 PM ET.
 
 - ⚠ 1 check(s) missed (latest: Nov 15 1:00 PM ET)
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-16 | AUS | Nov 15 7:00 AM ET | NO | 5 | 83¢ | open | -0.25 |
-| 11-16 | CLL | Nov 15 7:00 AM ET | NO | 7 | 63¢ | open | +0.09 |
-| 11-16 | DAL | Nov 15 7:00 AM ET | NO | 5 | 88¢ | open | -1.24 |
-| 11-16 | LV | Nov 15 7:00 AM ET | NO | 5 | 84¢ | open | -1.00 |
-| 11-16 | MIA | Nov 15 7:00 AM ET | NO | 1 | 78¢ | open | +0.02 |
-| 11-16 | TPA | Nov 15 7:00 AM ET | NO | 5 | 89¢ | open | -0.44 |
+| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
+| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 1 | 53¢ | open | -0.03 |
+| 11-16 | AUS | Nov 15 7:00 AM ET | NO | 5 | 83¢ | open | -0.30 |
+| 11-16 | CLL | Nov 15 7:00 AM ET | NO | 7 | 63¢ | open | -0.19 |
+| 11-16 | DAL | Nov 15 7:00 AM ET | NO | 5 | 88¢ | open | -1.29 |
+| 11-16 | LV | Nov 15 7:00 AM ET | NO | 5 | 84¢ | open | -1.20 |
+| 11-16 | MIA | Nov 15 7:00 AM ET | NO | 1 | 78¢ | open | +0.03 |
+| 11-16 | TPA | Nov 15 7:00 AM ET | NO | 5 | 89¢ | open | -0.49 |
 | 11-15 | NOLA | Nov 14 1:00 PM ET | NO | 6 | 76¢ | open | -0.08 |
 | 11-14 | SFO | Nov 13 1:00 PM ET | NO | 4 | 74¢ | lost | -3.02 |
 | 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | won | +1.44 |
@@ -38,7 +40,5 @@ Mock account **$25.81** (started at $100). Updated Nov 15 6:24 PM ET.
 | 11-10 | HOU | Nov 9 11:00 PM ET | NO | 1 | 31¢ | lost | -0.33 |
 | 11-10 | DAL | Nov 9 1:00 PM ET | NO | 7 | 69¢ | lost | -4.94 |
 | 11-10 | NOLA | Nov 9 1:00 PM ET | NO | 2 | 89¢ | won | +0.20 |
-| 11-10 | SATX | Nov 9 1:00 PM ET | NO | 9 | 53¢ | lost | -4.93 |
-| 11-09 | BOS | Nov 8 1:00 PM ET | NO | 6 | 79¢ | won | +1.19 |
 
 Pre-registration: `docs/sandbox/` on branch `sandbox`. Display only; not Gate 2.
