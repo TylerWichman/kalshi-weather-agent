@@ -4,21 +4,21 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$21.19** (started at $100). Updated Nov 16 4:32 AM ET.
+Mock account **$20.63** (started at $100). Updated Nov 16 4:52 AM ET.
 
 - ⚠ 1 check(s) missed (latest: Nov 15 1:00 PM ET)
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-16 | PIT | Nov 15 11:00 PM ET | NO | 1 | 92¢ | open | +0.01 |
-| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 1 | 53¢ | open | +0.15 |
-| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.21 |
-| 11-16 | AUS | Nov 15 7:00 AM ET | NO | 5 | 83¢ | open | -1.20 |
+| 11-16 | PIT | Nov 15 11:00 PM ET | NO | 1 | 92¢ | open | +0.00 |
+| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 1 | 53¢ | open | +0.21 |
+| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.33 |
+| 11-16 | AUS | Nov 15 7:00 AM ET | NO | 5 | 83¢ | open | -1.70 |
 | 11-16 | CLL | Nov 15 7:00 AM ET | NO | 7 | 63¢ | open | -0.12 |
-| 11-16 | DAL | Nov 15 7:00 AM ET | NO | 5 | 88¢ | open | +0.06 |
+| 11-16 | DAL | Nov 15 7:00 AM ET | NO | 5 | 88¢ | open | +0.21 |
 | 11-16 | LV | Nov 15 7:00 AM ET | NO | 5 | 84¢ | open | -1.10 |
-| 11-16 | MIA | Nov 15 7:00 AM ET | NO | 1 | 78¢ | open | -0.08 |
-| 11-16 | TPA | Nov 15 7:00 AM ET | NO | 5 | 89¢ | open | -0.54 |
+| 11-16 | MIA | Nov 15 7:00 AM ET | NO | 1 | 78¢ | open | -0.07 |
+| 11-16 | TPA | Nov 15 7:00 AM ET | NO | 5 | 89¢ | open | -0.69 |
 | 11-15 | NOLA | Nov 14 1:00 PM ET | NO | 6 | 76¢ | open | -0.08 |
 | 11-14 | SFO | Nov 13 1:00 PM ET | NO | 4 | 74¢ | lost | -3.02 |
 | 11-13 | CHI | Nov 12 7:00 PM ET | NO | 3 | 50¢ | won | +1.44 |
