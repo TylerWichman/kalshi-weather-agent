@@ -4,15 +4,15 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$119.69** (started at $100). Updated Nov 16 6:30 AM ET.
+Mock account **$119.53** (started at $100). Updated Nov 16 7:00 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-16 | LAX | Nov 15 11:00 PM ET | NO | 18 | 26¢ | open | +1.01 |
-| 11-16 | SEA | Nov 15 9:00 PM ET | NO | 7 | 63¢ | open | +0.79 |
+| 11-16 | LAX | Nov 15 11:00 PM ET | NO | 18 | 26¢ | open | +0.47 |
+| 11-16 | SEA | Nov 15 9:00 PM ET | NO | 7 | 63¢ | open | +0.93 |
 | 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | open | -0.12 |
-| 11-16 | DAL | Nov 15 4:00 PM ET | NO | 8 | 60¢ | open | +2.82 |
-| 11-16 | LV | Nov 15 4:00 PM ET | NO | 8 | 60¢ | open | -0.46 |
+| 11-16 | DAL | Nov 15 4:00 PM ET | NO | 8 | 60¢ | open | +2.74 |
+| 11-16 | LV | Nov 15 4:00 PM ET | NO | 8 | 60¢ | open | -0.14 |
 | 11-16 | HOU | Nov 15 2:00 PM ET | NO | 17 | 28¢ | open | -0.24 |
 | 11-16 | NOLA | Nov 15 2:00 PM ET | NO | 14 | 17¢ | open | -0.14 |
 | 11-15 | NOLA | Nov 14 9:00 PM ET | NO | 2 | 51¢ | open | -0.04 |
