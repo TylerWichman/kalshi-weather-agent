@@ -8,14 +8,14 @@ Mock account **$59.72** (started at $100). Updated Nov 15 7:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
-| 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | open | -0.19 |
-| 11-16 | TPA | Nov 15 7:00 PM ET | NO | 6 | 81¢ | open | -0.13 |
-| 11-16 | LV | Nov 15 7:00 PM ET | NO | 2 | 62¢ | open | -0.06 |
-| 11-16 | DAL | Nov 15 7:00 PM ET | NO | 7 | 64¢ | open | -0.19 |
-| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 8 | 54¢ | open | -0.30 |
-| 11-16 | MIA | Nov 15 7:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
 | 11-16 | AUS | Nov 15 7:00 PM ET | NO | 6 | 80¢ | open | -0.19 |
+| 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | open | -0.19 |
+| 11-16 | DAL | Nov 15 7:00 PM ET | NO | 7 | 64¢ | open | -0.19 |
+| 11-16 | LV | Nov 15 7:00 PM ET | NO | 2 | 62¢ | open | -0.06 |
+| 11-16 | MIA | Nov 15 7:00 PM ET | NO | 5 | 84¢ | open | -0.10 |
+| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 8 | 54¢ | open | -0.30 |
+| 11-16 | TPA | Nov 15 7:00 PM ET | NO | 6 | 81¢ | open | -0.13 |
+| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.15 |
 | 11-15 | NOLA | Nov 14 7:00 PM ET | NO | 7 | 60¢ | open | -0.12 |
 | 11-14 | CLL | Nov 13 7:00 PM ET | NO | 10 | 46¢ | lost | -4.78 |
 | 11-14 | DEN | Nov 13 7:00 PM ET | NO | 7 | 67¢ | won | +2.20 |
