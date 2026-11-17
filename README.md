@@ -4,12 +4,12 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$132.46** (started at $100). Updated Nov 17 11:00 AM ET.
+Mock account **$132.50** (started at $100). Updated Nov 17 11:20 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 11-17 | ABQ | Nov 16 9:00 PM ET | NO | 11 | 42¢ | open | -0.41 |
-| 11-17 | LV | Nov 16 4:00 PM ET | NO | 2 | 27¢ | open | +1.35 |
+| 11-17 | LV | Nov 16 4:00 PM ET | NO | 2 | 27¢ | open | +1.39 |
 | 11-17 | SAN | Nov 16 1:00 PM ET | NO | 7 | 63¢ | open | +2.33 |
 | 11-16 | LAX | Nov 15 11:00 PM ET | NO | 18 | 26¢ | won | +13.07 |
 | 11-16 | SEA | Nov 15 9:00 PM ET | NO | 7 | 63¢ | won | +2.47 |
