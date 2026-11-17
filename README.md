@@ -4,21 +4,21 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$27.04** (started at $100). Updated Nov 17 6:40 AM ET.
+Mock account **$60.33** (started at $100). Updated Nov 17 3:01 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-17 | ABQ | Nov 16 7:00 PM ET | NO | 7 | 61¢ | open | -1.52 |
-| 11-17 | SAN | Nov 16 7:00 PM ET | NO | 6 | 81¢ | open | +0.83 |
-| 11-17 | SFO | Nov 16 7:00 PM ET | NO | 6 | 72¢ | open | -0.09 |
-| 11-16 | AUS | Nov 15 7:00 PM ET | NO | 6 | 80¢ | open | -0.07 |
-| 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | open | -0.12 |
-| 11-16 | DAL | Nov 15 7:00 PM ET | NO | 7 | 64¢ | open | -0.12 |
-| 11-16 | LV | Nov 15 7:00 PM ET | NO | 2 | 62¢ | open | -0.04 |
-| 11-16 | MIA | Nov 15 7:00 PM ET | NO | 5 | 84¢ | open | -0.05 |
-| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 8 | 54¢ | open | -0.14 |
-| 11-16 | TPA | Nov 15 7:00 PM ET | NO | 6 | 81¢ | open | -0.07 |
-| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | open | -0.09 |
+| 11-17 | ABQ | Nov 16 7:00 PM ET | NO | 7 | 61¢ | open | -1.59 |
+| 11-17 | SAN | Nov 16 7:00 PM ET | NO | 6 | 81¢ | open | +0.77 |
+| 11-17 | SFO | Nov 16 7:00 PM ET | NO | 6 | 72¢ | open | +0.33 |
+| 11-16 | AUS | Nov 15 7:00 PM ET | NO | 6 | 80¢ | won | +1.13 |
+| 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | lost | -4.53 |
+| 11-16 | DAL | Nov 15 7:00 PM ET | NO | 7 | 64¢ | won | +2.40 |
+| 11-16 | LV | Nov 15 7:00 PM ET | NO | 2 | 62¢ | lost | -1.28 |
+| 11-16 | MIA | Nov 15 7:00 PM ET | NO | 5 | 84¢ | lost | -4.25 |
+| 11-16 | SEA | Nov 15 7:00 PM ET | NO | 8 | 54¢ | won | +3.54 |
+| 11-16 | TPA | Nov 15 7:00 PM ET | NO | 6 | 81¢ | won | +1.07 |
+| 11-16 | WPB | Nov 15 7:00 PM ET | NO | 6 | 70¢ | won | +1.71 |
 | 11-15 | NOLA | Nov 14 7:00 PM ET | NO | 7 | 60¢ | lost | -4.32 |
 | 11-14 | CLL | Nov 13 7:00 PM ET | NO | 10 | 46¢ | lost | -4.78 |
 | 11-14 | DEN | Nov 13 7:00 PM ET | NO | 7 | 67¢ | won | +2.20 |
