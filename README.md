@@ -4,7 +4,7 @@ Checks at 7 AM, 1 PM and 7 PM ET the day before the rain day, and at 11 PM ET as
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-fixed/index.html
 
-Mock account **$22.90** (started at $100). Updated Nov 17 6:31 PM ET.
+Mock account **$22.90** (started at $100). Updated Nov 17 7:00 PM ET.
 
 - ⚠ 1 check(s) missed (latest: Nov 15 1:00 PM ET)
 
