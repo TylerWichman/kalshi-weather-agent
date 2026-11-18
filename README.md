@@ -4,16 +4,16 @@ Watches every hour from 7 AM ET the day before the rain day until 11 PM ET as it
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-trigger/index.html
 
-Mock account **$125.24** (started at $100). Updated Nov 18 2:56 AM ET.
+Mock account **$116.45** (started at $100). Updated Nov 18 3:16 AM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 11-18 | TPA | Nov 17 10:00 PM ET | NO | 23 | 20¢ | open | -0.26 |
-| 11-18 | ABQ | Nov 17 8:00 PM ET | NO | 7 | 63¢ | open | +1.91 |
-| 11-18 | SEA | Nov 17 3:00 PM ET | NO | 1 | 30¢ | open | +0.00 |
+| 11-18 | ABQ | Nov 17 8:00 PM ET | NO | 7 | 63¢ | open | +2.05 |
+| 11-18 | SEA | Nov 17 3:00 PM ET | NO | 1 | 30¢ | open | -0.02 |
 | 11-17 | ABQ | Nov 16 9:00 PM ET | NO | 11 | 42¢ | open | -0.19 |
-| 11-17 | LV | Nov 16 4:00 PM ET | NO | 2 | 27¢ | open | +1.41 |
-| 11-17 | SAN | Nov 16 1:00 PM ET | NO | 7 | 63¢ | open | +2.40 |
+| 11-17 | LV | Nov 16 4:00 PM ET | NO | 2 | 27¢ | open | -0.03 |
+| 11-17 | SAN | Nov 16 1:00 PM ET | NO | 7 | 63¢ | open | -0.12 |
 | 11-16 | LAX | Nov 15 11:00 PM ET | NO | 18 | 26¢ | won | +13.07 |
 | 11-16 | SEA | Nov 15 9:00 PM ET | NO | 7 | 63¢ | won | +2.47 |
 | 11-16 | CLL | Nov 15 7:00 PM ET | NO | 7 | 63¢ | lost | -4.53 |
