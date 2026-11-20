@@ -476,8 +476,8 @@
 {"ticker":"KXRAIN-26NOV21-DAL","ref_mid":14.0,"ref_ts":1795176000}
 {"ticker":"KXRAIN-26NOV21-DEN","ref_mid":25.0,"ref_ts":1795176000}
 {"ticker":"KXRAIN-26NOV21-HOU","ref_mid":7.5,"ref_ts":1795176000}
-{"ticker":"KXRAIN-26NOV21-MIA","ref_mid":70.0,"ref_ts":1795176000}
-{"ticker":"KXRAIN-26NOV21-MIN","ref_mid":74.5,"ref_ts":1795179600}
+{"ticker":"KXRAIN-26NOV21-MIA","ref_mid":60.0,"ref_ts":1795201200}
+{"ticker":"KXRAIN-26NOV21-MIN","ref_mid":85.5,"ref_ts":1795201200}
 {"ticker":"KXRAIN-26NOV21-MKE","ref_mid":1.5,"ref_ts":1795179600}
 {"ticker":"KXRAIN-26NOV21-OKC","ref_mid":54.5,"ref_ts":1795176000}
 {"ticker":"KXRAIN-26NOV21-PHIL","ref_mid":1.5,"ref_ts":1795190400}
