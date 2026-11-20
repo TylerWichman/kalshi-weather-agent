@@ -10,8 +10,8 @@ Mock account **$29.11** (started at $100). Updated Nov 19 11:00 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
-| 11-20 | NOLA | Nov 19 11:00 PM ET | NO | 5 | 90¢ | open | -0.09 |
 | 11-20 | MIN | Nov 19 11:00 PM ET | NO | 3 | 92¢ | open | -0.05 |
+| 11-20 | NOLA | Nov 19 11:00 PM ET | NO | 5 | 90¢ | open | -0.09 |
 | 11-20 | TPA | Nov 19 7:00 PM ET | NO | 10 | 48¢ | open | -0.58 |
 | 11-20 | WPB | Nov 19 7:00 PM ET | NO | 5 | 58¢ | open | -0.09 |
 | 11-20 | MIA | Nov 19 1:00 PM ET | NO | 6 | 79¢ | open | +0.59 |
