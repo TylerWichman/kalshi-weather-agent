@@ -1,0 +1,52 @@
+name: Crypto 15m collector
+
+# Records Kalshi 15-min crypto order books (~3 s) and Coinbase/Kraken/Bitstamp/Gemini last
+# trades (~2 s) around the clock, so tick-level ideas can be tested later. Code:
+# crypto15m/collect.py. Each completed hour is uploaded as a gzipped file to the release
+# c15m-data-YYYYMMDD; `py -3.12 -m crypto15m.sync` pulls them into data/crypto15m.sqlite.
+#
+# Self-chaining like the KXRAIN relay: each run collects for 5 h 15 min and dispatches its
+# successor after 5 h 05 min, so consecutive runs overlap by ~10 min (rows dedupe on import).
+# The cron only restarts a broken chain; a cron start exits if a run younger than 5 h is
+# already collecting.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 */2 * * *"
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Skip if the chain is alive
+        id: guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cutoff=$(date -u -d '-300 minutes' +%Y-%m-%dT%H:%M:%SZ)
+          others=$(gh run list --workflow crypto15m-collect.yml --status in_progress \
+                     --json databaseId,createdAt \
+                     --jq "[.[] | select(.databaseId != ${{ github.run_id }} and .createdAt > \"$cutoff\")] | length")
+          echo "younger runs in progress: $others"
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$others" != "0" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Collect
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          ( sleep 18300 && gh workflow run crypto15m-collect.yml --ref "${{ github.ref_name }}" \
+              && echo "dispatched successor" ) &
+          python -m crypto15m.collect --hours 5.25 --out ticks --upload

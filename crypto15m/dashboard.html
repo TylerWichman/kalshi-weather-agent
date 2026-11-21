@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fifteen-Minute Tape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Chivo+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a trader's tape. Header strip, three coin columns, then the signal log and backtest status. */
+:root {
+  --ink: #0e141d;        /* page */
+  --slab: #151d29;       /* coin panels */
+  --rule: #263244;
+  --text: #dfe6ef;
+  --mute: #8291a6;
+  --brass: #d2a85a;      /* accent: headings, countdown */
+  --up: #4ea8ff;         /* YES / price above strike */
+  --down: #ff8a4c;       /* NO / price below strike */
+  --warn: #e8c547;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --data: "Chivo Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root { --ink:#eef1f5; --slab:#ffffff; --rule:#d5dce6; --text:#17202c; --mute:#5b687a;
+          --brass:#9a6c16; --up:#0b6fd6; --down:#c4531a; --warn:#9a7a00; color-scheme: light; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ink); color: var(--text); font: 14px/1.45 var(--data);
+       padding: 18px max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
+.num { font-variant-numeric: tabular-nums; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin-bottom: 16px; }
+h1 { font: 700 28px/1 var(--display); margin: 0; letter-spacing: -0.01em; }
+h1 span { color: var(--brass); }
+.meta { color: var(--mute); font-size: 12px; display: flex; gap: 18px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mute); margin-right: 6px; }
+.dot.ok { background: #3ccf8e; } .dot.bad { background: var(--down); }
+.btn { font: 600 12px var(--data); color: var(--text); background: transparent; border: 1px solid var(--rule);
+       padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+.btn:hover, .btn:focus-visible { border-color: var(--brass); outline: none; }
+.btn[aria-pressed="true"] { border-color: var(--brass); color: var(--brass); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.coin { background: var(--slab); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; min-width: 0;
+        display: flex; flex-direction: column; gap: 12px; position: relative; }
+.coin.sig-up { box-shadow: inset 0 3px 0 var(--up); }
+.coin.sig-down { box-shadow: inset 0 3px 0 var(--down); }
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.name { font: 700 22px var(--display); }
+.tick { color: var(--mute); font-size: 11px; }
+.clock { font: 600 22px var(--data); color: var(--brass); }
+.bar { height: 3px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--brass); width: 0; }
+
+.px { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: baseline; }
+.spot { font: 600 30px var(--data); letter-spacing: -0.02em; }
+.delta { text-align: right; font-weight: 600; }
+.sub { color: var(--mute); font-size: 12px; }
+.up { color: var(--up); } .down { color: var(--down); }
+
+canvas { width: 100%; height: 190px; display: block; }
+.legend { display: flex; gap: 14px; font-size: 11px; color: var(--mute); flex-wrap: wrap; }
+.legend b { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; }
+
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.q { border-top: 1px solid var(--rule); padding-top: 6px; }
+.q .k { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+.q .v { font-size: 20px; font-weight: 600; }
+
+.edges { display: grid; gap: 6px; }
+.edge { display: grid; grid-template-columns: 52px 1fr 58px; gap: 8px; align-items: center; font-size: 12px; }
+.track { position: relative; height: 10px; background: var(--ink); border-radius: 2px; }
+.track .fill { position: absolute; top: 0; bottom: 0; left: 50%; }
+.track .tk { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--mute); opacity: .6; }
+.track .zero { position: absolute; top: -3px; bottom: -3px; left: 50%; width: 1px; background: var(--text); opacity: .5; }
+
+.signal { font: 700 18px var(--display); padding: 8px 12px; border-radius: 4px; text-align: center;
+          border: 1px dashed var(--rule); color: var(--mute); letter-spacing: 0.02em; }
+.signal.UP, .signal.STRONG-UP { color: var(--ink); background: var(--up); border-color: var(--up); }
+.signal.DOWN, .signal.STRONG-DOWN { color: var(--ink); background: var(--down); border-color: var(--down); }
+.signal.STRONG-UP, .signal.STRONG-DOWN { animation: pulse 1.2s ease-in-out infinite; }
+.signal.unvalidated { background: transparent !important; animation: none; }
+.signal.unvalidated.UP, .signal.unvalidated.STRONG-UP { color: var(--up); border-color: var(--up); }
+.signal.unvalidated.DOWN, .signal.unvalidated.STRONG-DOWN { color: var(--down); border-color: var(--down); }
+@keyframes pulse { 50% { filter: brightness(1.25); } }
+@media (prefers-reduced-motion: reduce) { .signal { animation: none !important; } }
+
+.recent { display: flex; gap: 3px; flex-wrap: wrap; align-items: center; font-size: 11px; color: var(--mute); }
+.recent i { width: 16px; height: 16px; border-radius: 3px; display: inline-grid; place-items: center;
+            font-style: normal; font-size: 10px; color: var(--ink); font-weight: 600; }
+.recent i.y { background: var(--up); } .recent i.n { background: var(--down); }
+.err { color: var(--warn); font-size: 11px; }
+
+section { margin-top: 22px; }
+h2 { font: 700 16px var(--display); margin: 0 0 8px; color: var(--brass); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--slab); }
+table { border-collapse: collapse; width: 100%; font-size: 12px; }
+th, td { padding: 6px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--rule); }
+th { color: var(--mute); font-weight: 400; text-transform: uppercase; font-size: 10px; letter-spacing: .08em; }
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+.note { color: var(--mute); font-size: 12px; max-width: 72ch; }
+.bt { background: var(--slab); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; }
+.bt.pending { border-style: dashed; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fifteen-Minute <span>Tape</span></h1>
+  <div class="meta">
+    <span><span class="dot" id="conn"></span><span id="connText">connecting…</span></span>
+    <span id="clockET" class="num"></span>
+    <span id="thr"></span>
+    <button class="btn" id="sound" aria-pressed="false">Sound on strong signals: off</button>
+  </div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<section>
+  <h2>Signal log</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Time ET</th><th>Market</th><th>Signal</th><th>Fair</th><th>Ask</th><th>Edge</th><th>Left</th></tr></thead>
+    <tbody id="log"><tr><td colspan="7" style="text-align:left;color:var(--mute)">No signals yet this session.</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Backtest status</h2>
+  <div class="bt pending" id="bt"></div>
+</section>
+
+<script>
+const COINS = ["BTC", "ETH", "SOL"];
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const ET = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit", second: "2-digit" });
+const fmtET = t => ET.format(new Date(t * 1000));
+const c = x => x == null ? "—" : Math.round(x * 100) + "¢";
+const sc = x => x == null ? "—" : (x >= 0 ? "+" : "") + (x * 100).toFixed(1) + "¢";
+const money = (x, coin) => x == null ? "—" : "$" + x.toLocaleString("en-US", { minimumFractionDigits: coin === "SOL" ? 3 : 2, maximumFractionDigits: coin === "SOL" ? 3 : 2 });
+let last = null, soundOn = false, audioCtx = null, lastBeep = {};
+
+document.getElementById("grid").innerHTML = COINS.map(k => `
+  <article class="coin" id="c-${k}">
+    <div class="top"><div><div class="name">${k}</div><div class="tick" data-f="ticker">waiting for market…</div></div>
+      <div style="text-align:right"><div class="clock num" data-f="clock">--:--</div><div class="tick" data-f="closes"></div></div></div>
+    <div class="bar"><i data-f="bar"></i></div>
+    <div class="px">
+      <div class="spot num" data-f="spot">—</div><div class="delta num" data-f="delta">—</div>
+      <div class="sub num" data-f="strike">Target —</div><div class="sub num" data-f="z" style="text-align:right"></div>
+    </div>
+    <div>
+      <canvas data-f="chart" width="600" height="380" aria-label="${k} spot and fair price over this window"></canvas>
+      <div class="legend"><span><b style="background:var(--text)"></b>spot</span><span><b style="background:var(--brass)"></b>target</span>
+        <span><b style="background:var(--up)"></b>fair YES</span><span><b style="background:var(--mute)"></b>Kalshi YES ask</span></div>
+    </div>
+    <div class="quotes">
+      <div class="q"><div class="k">Fair YES</div><div class="v num" data-f="fair">—</div></div>
+      <div class="q"><div class="k">Buy UP at</div><div class="v num up" data-f="askUp">—</div></div>
+      <div class="q"><div class="k">Buy DOWN at</div><div class="v num down" data-f="askDn">—</div></div>
+    </div>
+    <div class="edges">
+      <div class="edge"><span class="up">UP</span><div class="track" data-f="tUp"></div><span class="num" data-f="eUp" style="text-align:right">—</span></div>
+      <div class="edge"><span class="down">DOWN</span><div class="track" data-f="tDn"></div><span class="num" data-f="eDn" style="text-align:right">—</span></div>
+    </div>
+    <div class="signal" data-f="signal">No signal</div>
+    <div class="recent" data-f="recent"></div>
+    <div class="err" data-f="err"></div>
+  </article>`).join("");
+
+const $ = (k, f) => document.querySelector(`#c-${k} [data-f="${f}"]`);
+
+function drawTrack(el, edge, th) {
+  const span = 0.20; // ±20¢ full scale
+  const pos = v => 50 + Math.max(-1, Math.min(1, v / span)) * 50;
+  const e = edge ?? 0;
+  const col = e >= th.signal ? (el.dataset.f === "tUp" ? css("--up") : css("--down")) : css("--mute");
+  const l = Math.min(50, pos(e)), r = Math.max(50, pos(e));
+  el.innerHTML = `<div class="zero"></div><div class="tk" style="left:${pos(th.signal)}%"></div>
+    <div class="tk" style="left:${pos(th.strong)}%"></div>
+    <div class="fill" style="left:${l}%;width:${r - l}%;background:${col}"></div>`;
+}
+
+function drawChart(cv, d) {
+  const ctx = cv.getContext("2d"), W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+  const m = d.market, w = d.window || [];
+  if (!m || w.length < 2) { ctx.fillStyle = css("--mute"); ctx.font = "22px Chivo Mono, monospace"; ctx.fillText("collecting ticks…", 16, H / 2); return; }
+  const x = t => ((t - m.open) / (m.close - m.open)) * (W - 8) + 4;
+  const sp = w.map(p => p.spot).concat([m.strike]);
+  let lo = Math.min(...sp), hi = Math.max(...sp); const pad = (hi - lo) * 0.15 || hi * 0.0005; lo -= pad; hi += pad;
+  // Top pane: price vs target. Bottom pane: fair YES vs Kalshi ask, 0-100¢.
+  const split = H * 0.58, gap = 14;
+  const y = v => split - 6 - ((v - lo) / (hi - lo)) * (split - 12);
+  const yp = p => H - 6 - p * (H - split - gap - 12);
+  ctx.strokeStyle = css("--rule"); ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0, split + gap / 2); ctx.lineTo(W, split + gap / 2); ctx.stroke();
+  ctx.fillStyle = css("--mute"); ctx.font = "18px Chivo Mono, monospace";
+  ctx.fillText("price", 6, 20); ctx.fillText("¢ YES", 6, split + gap + 18);
+  ctx.setLineDash([2, 6]);
+  [0.5].forEach(g => { ctx.beginPath(); ctx.moveTo(0, yp(g)); ctx.lineTo(W, yp(g)); ctx.stroke(); });
+  ctx.setLineDash([]);
+  // target
+  ctx.setLineDash([8, 6]); ctx.strokeStyle = css("--brass"); ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(0, y(m.strike)); ctx.lineTo(W, y(m.strike)); ctx.stroke(); ctx.setLineDash([]);
+  const line = (key, scale, color, width) => {
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath(); let s = false;
+    w.forEach(p => { if (p[key] == null) return; const X = x(p.t), Y = scale(p[key]); s ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); s = true; });
+    ctx.stroke();
+  };
+  line("ask", yp, css("--mute"), 2);
+  line("fair", yp, css("--up"), 2.5);
+  line("spot", y, css("--text"), 2.5);
+  const lp = w[w.length - 1];
+  ctx.fillStyle = css("--text"); ctx.beginPath(); ctx.arc(x(lp.t), y(lp.spot), 5, 0, 7); ctx.fill();
+}
+
+function beep(up) {
+  if (!soundOn) return;
+  try {
+    audioCtx = audioCtx || new AudioContext();
+    const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+    o.frequency.value = up ? 880 : 440; g.gain.value = 0.08;
+    o.connect(g).connect(audioCtx.destination); o.start(); o.stop(audioCtx.currentTime + 0.25);
+  } catch (e) {}
+}
+
+function render(s) {
+  const th = s.thresholds;
+  document.getElementById("thr").textContent = `signal ≥ ${(th.signal * 100).toFixed(0)}¢ · strong ≥ ${(th.strong * 100).toFixed(0)}¢ edge after fee`;
+  const strongs = [];
+  COINS.forEach(k => {
+    const d = s.coins[k], m = d.market, mo = d.model;
+    const card = document.getElementById("c-" + k);
+    $(k, "ticker").textContent = m ? m.ticker : "waiting for the next market…";
+    if (!m) { $(k, "clock").textContent = "--:--"; $(k, "bar").style.width = "0"; }
+    if (m) {
+      const left = Math.max(0, m.close - s.now);
+      $(k, "clock").textContent = `${String(Math.floor(left / 60)).padStart(2, "0")}:${String(Math.floor(left % 60)).padStart(2, "0")}`;
+      $(k, "closes").textContent = "closes " + fmtET(m.close);
+      $(k, "bar").style.width = (100 * (1 - left / (m.close - m.open))) + "%";
+      $(k, "strike").textContent = "Target " + money(m.strike, k);
+    }
+    const spot = mo ? mo.adj_spot : d.spot;
+    $(k, "spot").textContent = money(spot, k);
+    if (m && spot) {
+      const dl = spot - m.strike, pct = 100 * dl / m.strike;
+      const el = $(k, "delta"); el.textContent = `${dl >= 0 ? "▲" : "▼"} ${money(Math.abs(dl), k)} (${pct.toFixed(3)}%)`;
+      el.className = "delta num " + (dl >= 0 ? "up" : "down");
+    }
+    $(k, "z").textContent = mo ? `${mo.z.toFixed(2)}σ to expiry` : "";
+    $(k, "fair").textContent = mo ? c(mo.fair) : "—";
+    $(k, "askUp").textContent = mo ? c(mo.ask_up) : "—";
+    $(k, "askDn").textContent = mo ? c(mo.ask_down) : "—";
+    $(k, "eUp").textContent = mo ? sc(mo.edge_up) : "—";
+    $(k, "eDn").textContent = mo ? sc(mo.edge_down) : "—";
+    drawTrack($(k, "tUp"), mo && mo.edge_up, th);
+    drawTrack($(k, "tDn"), mo && mo.edge_down, th);
+    const sig = mo ? mo.signal : "none";
+    const se = $(k, "signal");
+    se.className = "signal " + sig.replace(" ", "-");
+    const valid = s.backtest && s.backtest.verdict === "GO";
+    const word = sig.includes("UP") ? "UP" : "DOWN", arrow = sig.includes("UP") ? "▲" : "▼";
+    se.textContent = !m ? "Waiting for the next market" : sig === "none" ? "No signal"
+      : valid ? `${arrow} BUY ${word}${sig.startsWith("STRONG") ? " — strong" : ""}`
+      : `${arrow} Model leans ${word} (unvalidated)`;
+    se.classList.toggle("unvalidated", !valid);
+    card.classList.toggle("sig-up", sig.includes("UP")); card.classList.toggle("sig-down", sig.includes("DOWN"));
+    if (sig.startsWith("STRONG") && m && valid) {
+      const key = m.ticker + sig;
+      if (!lastBeep[key]) { lastBeep[key] = 1; beep(sig.includes("UP")); }
+      strongs.push(k + " " + sig.split(" ")[1]);
+    }
+    const r = (d.recent || []).slice().reverse();
+    $(k, "recent").innerHTML = r.length ? "last " + r.length + ": " + r.map(x => `<i class="${x.result === "yes" ? "y" : "n"}" title="${x.ticker}">${x.result === "yes" ? "▲" : "▼"}</i>`).join("") : "";
+    $(k, "err").textContent = d.error || "";
+    drawChart($(k, "chart"), d);
+  });
+  document.title = strongs.length ? `● ${strongs.join(", ")} · Fifteen-Minute Tape` : "Fifteen-Minute Tape";
+
+  const sigs = COINS.flatMap(k => s.coins[k].signals.map(x => ({ ...x }))).sort((a, b) => b.t - a.t).slice(0, 30);
+  if (sigs.length) document.getElementById("log").innerHTML = sigs.map(x => `<tr>
+    <td class="num">${fmtET(x.t)}</td><td>${x.ticker}</td>
+    <td class="${x.signal.includes("UP") ? "up" : "down"}">${x.signal}</td>
+    <td class="num">${c(x.fair)}</td><td class="num">${c(x.ask)}</td><td class="num">${sc(x.edge)}</td>
+    <td class="num">${Math.floor(x.secs_left / 60)}:${String(Math.floor(x.secs_left % 60)).padStart(2, "0")}</td></tr>`).join("");
+
+  const bt = s.backtest, el = document.getElementById("bt");
+  if (!bt) {
+    el.className = "bt pending";
+    el.innerHTML = `<p class="note"><b>Not validated.</b> These signals come from a volatility model whose thresholds haven't been tested yet. Treat them as watch-only until the backtest on the held-out test set reports a positive edge after fees.</p>`;
+  } else {
+    el.className = "bt";
+    el.innerHTML = `<p class="note"><b>${bt.verdict}</b> · ${bt.summary}</p>` +
+      (bt.rows ? `<div class="tablewrap"><table><thead><tr>${bt.cols.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${bt.rows.map(r => `<tr>${r.map(v => `<td class="num">${v}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "");
+  }
+}
+
+async function tick() {
+  try {
+    const r = await fetch("/api/state", { cache: "no-store" });
+    last = await r.json(); render(last);
+    document.getElementById("conn").className = "dot ok"; document.getElementById("connText").textContent = "live";
+  } catch (e) {
+    document.getElementById("conn").className = "dot bad"; document.getElementById("connText").textContent = "service not running — start it with py -3.12 -m crypto15m.live";
+  }
+}
+setInterval(() => { document.getElementById("clockET").textContent = ET.format(new Date()) + " ET"; }, 1000);
+setInterval(tick, 1000); tick();
+document.getElementById("sound").addEventListener("click", e => {
+  soundOn = !soundOn; e.target.setAttribute("aria-pressed", soundOn);
+  e.target.textContent = "Sound on strong signals: " + (soundOn ? "on" : "off");
+  if (soundOn) beep(true);
+});
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => last && render(last));
+</script>
+</body>
+</html>
