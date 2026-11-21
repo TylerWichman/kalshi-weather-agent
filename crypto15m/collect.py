@@ -122,6 +122,28 @@ def spot_loop(w):
 
 
 BOOK_EVERY = {"BTC": 3, "ETH": 1, "SOL": 1}  # seconds between order-book polls
+TRADE_COINS = ("ETH", "SOL")  # full trade list fetched ~60 s after each window closes
+
+
+def fetch_trades(w, coin, ticker):
+    """Write one record holding every public trade of a closed window:
+    {"k":"t", "t", "c", "tk", "r": [[ts, yes_price, count, taker_yes], ...]}"""
+    rows, cur = [], ""
+    try:
+        while True:
+            d = kalshi(f"/markets/trades?ticker={ticker}&limit=1000" + (f"&cursor={cur}" if cur else ""),
+                       retries=4, min_gap=0.05)
+            for t in d.get("trades", []):
+                ts = datetime.fromisoformat(t["created_time"].replace("Z", "+00:00")).timestamp()
+                rows.append([round(ts, 3), float(t["yes_price_dollars"]), float(t["count_fp"]),
+                             1 if t["taker_side"] == "yes" else 0])
+            cur = d.get("cursor")
+            if not cur or not d.get("trades"):
+                break
+        rows.sort()
+        w.write({"k": "t", "t": round(time.time(), 2), "c": coin, "tk": ticker, "r": rows})
+    except Exception as e:
+        print(f"trades {ticker} failed: {e}", flush=True)
 
 
 def kalshi_loop(w):
@@ -143,7 +165,10 @@ def kalshi_loop(w):
                         rec = {"k": "m", "t": round(t0, 2), "c": c, "tk": m["ticker"],
                                "o": tsf(m["open_time"]), "x": tsf(m["close_time"]),
                                "s": m.get("floor_strike")}
-                        if current.get(c, {}).get("tk") != m["ticker"] or rec["s"] != current[c]["s"]:
+                        prev = current.get(c)
+                        if prev and prev["tk"] != m["ticker"] and c in TRADE_COINS:
+                            threading.Timer(60, fetch_trades, args=(w, c, prev["tk"])).start()
+                        if not prev or prev["tk"] != m["ticker"] or rec["s"] != prev["s"]:
                             w.write(rec)
                         current[c] = rec
                 except Exception:

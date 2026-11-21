@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-21T17:29:52.487448+00:00",
+  "luck_95_c": 2.450778179962555,
+  "finalists": [
+    "USER valley/peak rally 10c, exit t3",
+    "USER valley/peak rally 10c, exit hold",
+    "model gap>=0.10 m1-4, exit hold",
+    "model gap>=0.10 m1-4, exit sl10"
+  ]
+}

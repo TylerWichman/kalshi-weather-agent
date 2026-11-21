@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS spot_ticks (
 CREATE TABLE IF NOT EXISTS market_meta (
   ticker TEXT PRIMARY KEY, coin TEXT, open REAL, close REAL, strike REAL);
 CREATE TABLE IF NOT EXISTS imported_files (name TEXT PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS trade_blobs (
+  ticker TEXT PRIMARY KEY, coin TEXT, close INTEGER, n INTEGER, data BLOB);
 CREATE INDEX IF NOT EXISTS markets_coin_close ON markets (coin, close);
 CREATE INDEX IF NOT EXISTS book_coin_ts ON book_ticks (coin, ts);
 CREATE INDEX IF NOT EXISTS spot_coin_ts ON spot_ticks (coin, ts);
@@ -85,6 +87,10 @@ def import_ticks(con, path):
                 spots.append((r["c"], r["e"], r["t"], r["p"]))
             elif k == "m":
                 metas.append((r["tk"], r["c"], r["o"], r["x"], r["s"]))
+            elif k == "t" and r.get("r"):
+                con.execute("INSERT OR IGNORE INTO trade_blobs VALUES (?,?,?,?,?)",
+                            (r["tk"], r["c"], None, len(r["r"]),
+                             gzip.compress(json.dumps(r["r"], separators=(",", ":")).encode())))
     con.executemany("INSERT OR IGNORE INTO book_ticks VALUES (?,?,?,?,?)", books)
     con.executemany("INSERT OR IGNORE INTO spot_ticks VALUES (?,?,?,?)", spots)
     con.executemany("INSERT OR IGNORE INTO market_meta VALUES (?,?,?,?,?)", metas)

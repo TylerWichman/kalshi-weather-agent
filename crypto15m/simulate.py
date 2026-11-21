@@ -36,6 +36,17 @@ from .store import connect
 
 FROZEN = os.path.join(ROOT, "config", "crypto15m_sim_frozen.json")
 RESULT = os.path.join(DATA, "simulate_test.json")
+
+
+def _set_coins(argv):
+    """--coins ETH,SOL restricts every split and gives the run its own frozen files."""
+    global COIN_FILTER, FROZEN, RESULT
+    for a in argv:
+        if a.startswith("--coins="):
+            COIN_FILTER = tuple(a.split("=", 1)[1].split(","))
+            tag = "_" + "".join(c.lower() for c in COIN_FILTER)
+            FROZEN = FROZEN.replace(".json", f"{tag}.json")
+            RESULT = RESULT.replace(".json", f"{tag}.json")
 K = 15  # minute slots 0..14; slot k = state at open + 60k (slot 0 unused)
 MIN_TRADES = 200
 
@@ -98,8 +109,13 @@ def load():
             "yes": (mk["result"] == "yes").values.astype(float)}
 
 
+COIN_FILTER = None  # e.g. ("ETH", "SOL"); set by --coins
+
+
 def subset(D, split):
     sel = (D["mk"]["split"] == split).values
+    if COIN_FILTER:
+        sel = sel & D["mk"]["coin"].isin(COIN_FILTER).values
     return {k: (v[sel] if isinstance(v, np.ndarray) else v[sel].reset_index(drop=True))
             for k, v in D.items()}
 
@@ -142,6 +158,8 @@ def simulate(D, ey, en, exit_rule, perm=None):
             valid = live & ~np.isnan(px)
             if kind == "time":
                 hit = valid & (j == k0 + a)
+            elif kind == "mult":  # sell once the bid reaches a x entry price
+                hit = valid & (px >= np.minimum(entry * a, 0.97))
             else:
                 hit = np.zeros(W, bool)
                 if a:
@@ -291,8 +309,8 @@ def cmd_search(nulls=20):
     D = load()
     T = subset(D, "train")
     W = len(T["yes"])
-    print(f"TRAIN {W} windows; validation {int((D['mk']['split'] == 'validation').sum())}; "
-          f"test {int((D['mk']['split'] == 'test').sum())} (untouched)\n")
+    print(f"TRAIN {W} windows, coins {COIN_FILTER or 'all'}; "
+          f"validation {len(subset(D, 'validation')['yes'])}; test untouched\n")
 
     print("== Your pre-registered rules (train) ==")
     for name, p in run_all(T, user_rules()).items():
@@ -376,6 +394,7 @@ def cmd_test(force=False):
 
 
 if __name__ == "__main__":
+    _set_coins(sys.argv[2:])
     c = sys.argv[1] if len(sys.argv) > 1 else "search"
     {"search": cmd_search, "validate": cmd_validate,
      "test": lambda: cmd_test("--force" in sys.argv)}[c]()
