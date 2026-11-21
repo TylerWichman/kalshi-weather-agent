@@ -12,8 +12,9 @@ selection and fees?
 ## Data
 
 The public trade tape of each settled window (`trade_blobs`: time to the millisecond,
-YES price, size, taker side), ETH and SOL only, Oct 10 to Nov 21 2026 (Kalshi keeps about 40
-days). Splits use the same ticker hash as every earlier test: **test = sha256(ticker) <
+YES price, size, taker side), ETH and SOL only, every settled window with trades from about Sept 15 to Nov 21 2026.
+(Corrected before any run: an earlier draft said Oct 10 and ~40-day retention, a wrong
+reading of the empty pre-launch windows.) Splits use the same ticker hash as every earlier test: **test = sha256(ticker) <
 0.30, never yet scored**; validation 0.30–0.45; train >= 0.45. Strategies don't use
 cross-coin features, so a per-ticker split is leakage-safe here.
 

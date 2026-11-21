@@ -1,9 +1,9 @@
 """Backfill every public Kalshi trade for settled ETH/SOL 15-min windows.
 
-    py -3.12 -m crypto15m.trades            # oldest first (oldest expire first), resumes
+    py -3.12 -m crypto15m.trades            # oldest first, resumes
 
-Kalshi's public trade history seems to keep ~40 days (September windows already return
-nothing), so this runs oldest-first. Each window's trades are stored gzipped in
+Kalshi's public trade history reaches back at least to mid-September 2026 (trading on
+these series starts around Sept 15); it runs oldest-first in case retention is finite. Each window's trades are stored gzipped in
 data/crypto15m.sqlite, table trade_blobs: one row per ticker,
 data = gzip(JSON [[ts, yes_price, count, taker_yes], ...]) sorted by time, where
 taker_yes = 1 if the taker bought YES (lifted the YES ask), 0 if the taker bought NO
