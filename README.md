@@ -4,18 +4,18 @@ Checks once a day at 7 PM ET, the evening before the rain day. This is the froze
 
 **Dashboard:** https://raw.githack.com/TylerWichman/kalshi-weather-agent/sbx-state-baseline/index.html
 
-Mock account **$35.69** (started at $100). Updated Nov 21 2:00 PM ET.
+Mock account **$38.34** (started at $100). Updated Nov 21 3:31 PM ET.
 
 | Rain day | City | Bought | Side | Contracts | Paid | Status | P&L |
 |---|---|--:|---|--:|--:|---|--:|
 | 11-21 | ABQ | Nov 20 7:00 PM ET | NO | 3 | 44¢ | open | -0.06 |
-| 11-21 | AUS | Nov 20 7:00 PM ET | NO | 5 | 90¢ | open | +0.16 |
-| 11-21 | DEN | Nov 20 7:00 PM ET | NO | 6 | 75¢ | open | +1.06 |
+| 11-21 | AUS | Nov 20 7:00 PM ET | NO | 5 | 90¢ | open | +0.11 |
+| 11-21 | DEN | Nov 20 7:00 PM ET | NO | 6 | 75¢ | open | +1.18 |
 | 11-21 | MIA | Nov 20 7:00 PM ET | NO | 11 | 43¢ | open | -0.19 |
-| 11-21 | OKC | Nov 20 7:00 PM ET | NO | 8 | 54¢ | open | -2.06 |
-| 11-21 | SATX | Nov 20 7:00 PM ET | NO | 2 | 90¢ | open | +0.10 |
-| 11-21 | SEA | Nov 20 7:00 PM ET | NO | 7 | 62¢ | open | -1.17 |
-| 11-21 | TPA | Nov 20 7:00 PM ET | NO | 8 | 56¢ | open | -0.22 |
+| 11-21 | OKC | Nov 20 7:00 PM ET | NO | 8 | 54¢ | open | -2.22 |
+| 11-21 | SATX | Nov 20 7:00 PM ET | NO | 2 | 90¢ | open | +0.06 |
+| 11-21 | SEA | Nov 20 7:00 PM ET | NO | 7 | 62¢ | open | -1.03 |
+| 11-21 | TPA | Nov 20 7:00 PM ET | NO | 8 | 56¢ | open | +2.42 |
 | 11-20 | MIA | Nov 19 7:00 PM ET | NO | 5 | 86¢ | won | +0.65 |
 | 11-20 | SAN | Nov 19 7:00 PM ET | NO | 5 | 83¢ | lost | -4.20 |
 | 11-20 | TPA | Nov 19 7:00 PM ET | NO | 10 | 48¢ | lost | -4.98 |
