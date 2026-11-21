@@ -1,4 +1,4 @@
-"""Headless tick collector: Kalshi order books + multi-exchange spot, written to hourly files.
+"""Headless tick collector: Kalshi order books (ETH/SOL ~1 s, BTC ~3 s) + multi-exchange spot, written to hourly files.
 
     py -3.12 -m crypto15m.collect --hours 5.25 --out data/crypto15m/ticks [--upload]
 
@@ -121,10 +121,14 @@ def spot_loop(w):
         stop.wait(max(0.0, 2.0 - (time.time() - t0)))
 
 
+BOOK_EVERY = {"BTC": 3, "ETH": 1, "SOL": 1}  # seconds between order-book polls
+
+
 def kalshi_loop(w):
-    current, last_book, meta_at = {}, {}, 0.0
+    current, last_book, meta_at, tick = {}, {}, 0.0, 0
     while not stop.is_set():
         t0 = time.time()
+        tick += 1
         if t0 - meta_at > 20 or any(m["x"] <= t0 for m in current.values()):
             meta_at = t0
             for c, cfg in COINS.items():
@@ -145,7 +149,7 @@ def kalshi_loop(w):
                 except Exception:
                     pass
         for c, m in list(current.items()):
-            if m["x"] <= time.time():
+            if m["x"] <= time.time() or tick % BOOK_EVERY.get(c, 3):
                 continue
             try:
                 ob = (kalshi(f"/markets/{m['tk']}/orderbook?depth=10", retries=2, min_gap=0.05)
@@ -159,7 +163,7 @@ def kalshi_loop(w):
                              "y": y, "n": n})
             except Exception:
                 pass
-        stop.wait(max(0.0, 3.0 - (time.time() - t0)))
+        stop.wait(max(0.0, 1.0 - (time.time() - t0)))
 
 
 def main():
